@@ -88,6 +88,24 @@ class ConfigManager:
         """Recupera la configurazione dell'Ontology."""
         return self._config.get('ontology', {})
 
+    def get_neo4j_config(self) -> Dict[str, Any]:
+        """
+        Recupera la configurazione di Neo4j.
+
+        Returns:
+            Dict con uri, username, password, database da env vars o config.yaml
+        """
+        # Priorità: env vars > config.yaml
+        kg_config = self._config.get('knowledge_graph', {})
+        neo4j_config = kg_config.get('neo4j', {})
+
+        return {
+            'uri': self.get_env('NEO4J_URI', neo4j_config.get('uri', 'bolt://localhost:7687')),
+            'username': self.get_env('NEO4J_USERNAME', neo4j_config.get('username', 'neo4j')),
+            'password': self.get_env('NEO4J_PASSWORD', neo4j_config.get('password', '')),
+            'database': self.get_env('NEO4J_DATABASE', neo4j_config.get('database', 'neo4j'))
+        }
+
     def reload(self) -> None:
         """Ricarica la configurazione dal file."""
         self._load_config()

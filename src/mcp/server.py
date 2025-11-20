@@ -9,16 +9,18 @@ from collections import defaultdict
 class MCPServer:
     """Server MCP per esporre API che iniettano informazioni al modello."""
 
-    def __init__(self, host: str = "localhost", port: int = 8000):
+    def __init__(self, host: str = "localhost", port: int = 8000, kg_storage=None):
         """
         Inizializza il server MCP.
 
         Args:
             host: Host su cui far girare il server
             port: Porta su cui far girare il server
+            kg_storage: Istanza del Knowledge Graph storage (Neo4jKnowledgeGraph o InMemoryKnowledgeGraph)
         """
         self.host = host
         self.port = port
+        self.kg_storage = kg_storage
         self.app = FastAPI(
             title="MCP Server - Human Digital Twin",
             description="API per l'interazione autonoma con il modello LLM",
@@ -422,6 +424,318 @@ class MCPServer:
                 "operation": operation,
                 "result": result,
                 "sample_size": len(values)
+            }
+
+        # ==================== KNOWLEDGE GRAPH ENDPOINTS ====================
+
+        @self.app.get("/api/kg/profile")
+        async def get_kg_profile():
+            """
+            Mostra quale profilo Person sta usando il server.
+
+            Returns:
+                Info sul profilo corrente
+            """
+            if not self.kg_storage:
+                raise HTTPException(503, "Knowledge Graph storage not configured")
+
+            if hasattr(self.kg_storage, 'person_id'):
+                return {
+                    "person_id": self.kg_storage.person_id,
+                    "person_name": getattr(self.kg_storage, 'person_name', 'Unknown'),
+                    "storage_type": "Neo4j" if hasattr(self.kg_storage, 'driver') else "InMemory"
+                }
+            else:
+                return {
+                    "person_id": None,
+                    "person_name": None,
+                    "storage_type": "InMemory"
+                }
+
+        @self.app.get("/api/kg/topics")
+        async def get_kg_topics():
+            """
+            Recupera tutti i topic (broader e narrower) dal Knowledge Graph.
+
+            Returns:
+                Dict con {broader_topic: [narrower_topic1, ...]}
+            """
+            if not self.kg_storage:
+                raise HTTPException(503, "Knowledge Graph storage not configured")
+
+            try:
+                topics = self.kg_storage.get_all_topics()
+                return {
+                    "topics": topics,
+                    "count": {
+                        "broader_topics": len(topics),
+                        "narrower_topics": sum(len(narrowers) for narrowers in topics.values())
+                    }
+                }
+            except Exception as e:
+                raise HTTPException(500, f"Error retrieving topics: {str(e)}")
+
+        @self.app.get("/api/kg/stats")
+        async def get_kg_stats():
+            """
+            Recupera statistiche sul Knowledge Graph.
+
+            Returns:
+                Statistiche sul KG (numero di broader/narrower topics, triplette)
+            """
+            if not self.kg_storage:
+                raise HTTPException(503, "Knowledge Graph storage not configured")
+
+            try:
+                stats = self.kg_storage.get_stats()
+                return {"stats": stats}
+            except Exception as e:
+                raise HTTPException(500, f"Error retrieving stats: {str(e)}")
+
+        @self.app.get("/api/kg/query/topic")
+        async def query_by_topic(
+            broader_topic: Optional[str] = Query(None, description="Broader topic da filtrare"),
+            narrower_topic: Optional[str] = Query(None, description="Narrower topic da filtrare")
+        ):
+            """
+            Interroga il Knowledge Graph per topic specifici.
+
+            Args:
+                broader_topic: Filtra per broader topic (opzionale)
+                narrower_topic: Filtra per narrower topic (opzionale)
+
+            Returns:
+                Relazioni e informazioni filtrate per topic
+            """
+            if not self.kg_storage:
+                raise HTTPException(503, "Knowledge Graph storage not configured")
+
+            try:
+                # Se Neo4j, fai query Cypher
+                if hasattr(self.kg_storage, 'driver'):
+                    return self._query_neo4j_by_topic(broader_topic, narrower_topic)
+                else:
+                    # InMemory storage
+                    return self._query_inmemory_by_topic(broader_topic, narrower_topic)
+            except Exception as e:
+                raise HTTPException(500, f"Error querying by topic: {str(e)}")
+
+        @self.app.get("/api/kg/query/entity")
+        async def query_by_entity(
+            entity_name: str = Query(..., description="Nome dell'entità da cercare"),
+            relationship_type: Optional[str] = Query(None, description="Tipo di relazione (opzionale)")
+        ):
+            """
+            Cerca informazioni su un'entità specifica nel Knowledge Graph.
+
+            Args:
+                entity_name: Nome dell'entità (es. "Mario", "Milano", "Pizza")
+                relationship_type: Tipo di relazione opzionale per filtrare
+
+            Returns:
+                Tutte le relazioni che coinvolgono l'entità
+            """
+            if not self.kg_storage:
+                raise HTTPException(503, "Knowledge Graph storage not configured")
+
+            try:
+                # Se Neo4j, fai query Cypher
+                if hasattr(self.kg_storage, 'driver'):
+                    return self._query_neo4j_by_entity(entity_name, relationship_type)
+                else:
+                    raise HTTPException(501, "Entity search not implemented for in-memory storage")
+            except Exception as e:
+                raise HTTPException(500, f"Error querying by entity: {str(e)}")
+
+        @self.app.get("/api/kg/search")
+        async def search_kg(
+            query: str = Query(..., description="Testo libero da cercare nel KG"),
+            limit: int = Query(10, description="Numero massimo di risultati")
+        ):
+            """
+            Ricerca full-text nel Knowledge Graph.
+
+            Args:
+                query: Testo da cercare
+                limit: Numero massimo di risultati
+
+            Returns:
+                Risultati della ricerca con rilevanza
+            """
+            if not self.kg_storage:
+                raise HTTPException(503, "Knowledge Graph storage not configured")
+
+            try:
+                # Se Neo4j, fai query con CONTAINS
+                if hasattr(self.kg_storage, 'driver'):
+                    return self._search_neo4j(query, limit)
+                else:
+                    raise HTTPException(501, "Search not implemented for in-memory storage")
+            except Exception as e:
+                raise HTTPException(500, f"Error searching KG: {str(e)}")
+
+    def _query_neo4j_by_topic(self, broader_topic: Optional[str], narrower_topic: Optional[str]) -> Dict[str, Any]:
+        """Query Neo4j per topic."""
+        with self.kg_storage.driver.session(database=self.kg_storage.database) as session:
+            if broader_topic and narrower_topic:
+                # Filtra per entrambi
+                result = session.run("""
+                    MATCH (person:Person {id: $person_id})-[:KNOWS]->(subj)-[r]->(obj)
+                    WHERE r.person_id = $person_id
+                      AND r.broader_topic = $broader
+                      AND r.narrower_topic = $narrower
+                    RETURN
+                        labels(subj)[0] AS subject_type,
+                        subj.name AS subject,
+                        type(r) AS predicate,
+                        labels(obj)[0] AS object_type,
+                        obj.name AS object,
+                        r.broader_topic AS broader_topic,
+                        r.narrower_topic AS narrower_topic,
+                        r.reasoning AS reasoning
+                    LIMIT 50
+                """, person_id=self.kg_storage.person_id, broader=broader_topic, narrower=narrower_topic)
+            elif broader_topic:
+                # Solo broader
+                result = session.run("""
+                    MATCH (person:Person {id: $person_id})-[:KNOWS]->(subj)-[r]->(obj)
+                    WHERE r.person_id = $person_id AND r.broader_topic = $broader
+                    RETURN
+                        labels(subj)[0] AS subject_type,
+                        subj.name AS subject,
+                        type(r) AS predicate,
+                        labels(obj)[0] AS object_type,
+                        obj.name AS object,
+                        r.broader_topic AS broader_topic,
+                        r.narrower_topic AS narrower_topic,
+                        r.reasoning AS reasoning
+                    LIMIT 50
+                """, person_id=self.kg_storage.person_id, broader=broader_topic)
+            else:
+                # Tutti i topic
+                result = session.run("""
+                    MATCH (person:Person {id: $person_id})-[:KNOWS]->(subj)-[r]->(obj)
+                    WHERE r.person_id = $person_id
+                    RETURN
+                        labels(subj)[0] AS subject_type,
+                        subj.name AS subject,
+                        type(r) AS predicate,
+                        labels(obj)[0] AS object_type,
+                        obj.name AS object,
+                        r.broader_topic AS broader_topic,
+                        r.narrower_topic AS narrower_topic,
+                        r.reasoning AS reasoning
+                    LIMIT 50
+                """, person_id=self.kg_storage.person_id)
+
+            relationships = [dict(record) for record in result]
+            return {
+                "count": len(relationships),
+                "relationships": relationships,
+                "filters": {
+                    "broader_topic": broader_topic,
+                    "narrower_topic": narrower_topic
+                }
+            }
+
+    def _query_inmemory_by_topic(self, broader_topic: Optional[str], narrower_topic: Optional[str]) -> Dict[str, Any]:
+        """Query in-memory storage per topic."""
+        all_topics = self.kg_storage.get_all_topics()
+
+        if broader_topic and narrower_topic:
+            if broader_topic in all_topics and narrower_topic in all_topics[broader_topic]:
+                return {
+                    "broader_topic": broader_topic,
+                    "narrower_topics": [narrower_topic]
+                }
+        elif broader_topic:
+            if broader_topic in all_topics:
+                return {
+                    "broader_topic": broader_topic,
+                    "narrower_topics": all_topics[broader_topic]
+                }
+        else:
+            return {"topics": all_topics}
+
+        return {"message": "No matching topics found"}
+
+    def _query_neo4j_by_entity(self, entity_name: str, relationship_type: Optional[str]) -> Dict[str, Any]:
+        """Query Neo4j per entità."""
+        with self.kg_storage.driver.session(database=self.kg_storage.database) as session:
+            if relationship_type:
+                # Con tipo di relazione
+                query = f"""
+                    MATCH (person:Person {{id: $person_id}})-[:KNOWS]->(subj)-[r:{relationship_type}]->(obj)
+                    WHERE r.person_id = $person_id
+                      AND (subj.name CONTAINS $entity OR obj.name CONTAINS $entity)
+                    RETURN
+                        labels(subj)[0] AS subject_type,
+                        subj.name AS subject,
+                        type(r) AS predicate,
+                        labels(obj)[0] AS object_type,
+                        obj.name AS object,
+                        r.broader_topic AS broader_topic,
+                        r.narrower_topic AS narrower_topic,
+                        r.reasoning AS reasoning
+                    LIMIT 20
+                """
+            else:
+                # Tutte le relazioni
+                query = """
+                    MATCH (person:Person {id: $person_id})-[:KNOWS]->(subj)-[r]->(obj)
+                    WHERE r.person_id = $person_id
+                      AND (subj.name CONTAINS $entity OR obj.name CONTAINS $entity)
+                    RETURN
+                        labels(subj)[0] AS subject_type,
+                        subj.name AS subject,
+                        type(r) AS predicate,
+                        labels(obj)[0] AS object_type,
+                        obj.name AS object,
+                        r.broader_topic AS broader_topic,
+                        r.narrower_topic AS narrower_topic,
+                        r.reasoning AS reasoning
+                    LIMIT 20
+                """
+
+            result = session.run(query, person_id=self.kg_storage.person_id, entity=entity_name)
+            relationships = [dict(record) for record in result]
+
+            return {
+                "entity": entity_name,
+                "count": len(relationships),
+                "relationships": relationships
+            }
+
+    def _search_neo4j(self, query: str, limit: int) -> Dict[str, Any]:
+        """Ricerca full-text in Neo4j."""
+        with self.kg_storage.driver.session(database=self.kg_storage.database) as session:
+            result = session.run("""
+                MATCH (person:Person {id: $person_id})-[:KNOWS]->(subj)-[r]->(obj)
+                WHERE r.person_id = $person_id
+                  AND (
+                    subj.name CONTAINS $query
+                    OR obj.name CONTAINS $query
+                    OR r.broader_topic CONTAINS $query
+                    OR r.narrower_topic CONTAINS $query
+                  )
+                RETURN
+                    labels(subj)[0] AS subject_type,
+                    subj.name AS subject,
+                    type(r) AS predicate,
+                    labels(obj)[0] AS object_type,
+                    obj.name AS object,
+                    r.broader_topic AS broader_topic,
+                    r.narrower_topic AS narrower_topic,
+                    r.reasoning AS reasoning
+                LIMIT $limit
+            """, person_id=self.kg_storage.person_id, query=query, limit=limit)
+
+            relationships = [dict(record) for record in result]
+
+            return {
+                "query": query,
+                "count": len(relationships),
+                "relationships": relationships
             }
 
     def run(self, debug: bool = False) -> None:

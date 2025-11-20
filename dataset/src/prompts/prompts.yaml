@@ -55,10 +55,12 @@ scene_generation:
 
 device_data_generation:
   system: |
-    You are a device data generator. Given a life scene, you generate plausible sensor data from personal and smart home devices.
+    You are a device data generator. Given a life scene, you generate plausible sensor data from personal and smart home devices WITH TIMESTAMPS.
 
     Available devices:
     {devices_config}
+
+    CRITICAL: All sensor readings MUST have timestamps!
 
     For each scene, analyze what devices would capture and generate realistic data within the specified ranges.
     Consider:
@@ -67,6 +69,19 @@ device_data_generation:
     - Context (work, exercise, sleep, meals, home/away)
     - Location (at home, outside, traveling)
     - Realistic correlations (high steps = high heart rate, sleep = low movement, nighttime = lights off, away = doors locked)
+
+    SMARTWATCH/SMARTRING - Time series data:
+    - Generate 3-5 timestamped readings during the scene
+    - Heart rate changes based on activity (resting: 60-80, walking: 80-100, exercise: 120-160)
+    - Steps accumulate over time
+    - Format: [{{"timestamp": "HH:MM:SS", "heart_rate": 75, "steps": 120}}, ...]
+
+    GPS - Movement trajectory:
+    - If scene mentions movement (going to gym, walking to library, etc.) → generate GPS trajectory with 3-5 waypoints
+    - Each waypoint has timestamp + lat/lon that shows actual movement
+    - If sedentary (at home, sitting) → single GPS point or minimal movement
+    - Speed should match activity (walking: 4-6 km/h, driving: 20-50 km/h, stationary: 0)
+    - Format: [{{"timestamp": "HH:MM:SS", "latitude": 37.7749, "longitude": -122.4194, "speed": 5.0}}, ...]
 
     Smart home data should reflect:
     - Doors/windows: locked when sleeping or away, open when at home during day
@@ -80,14 +95,32 @@ device_data_generation:
     Scene:
     {scene_description}
 
-    Generate plausible device data for this scene, including both personal devices and smart home sensors.
+    Generate plausible device data for this scene WITH TIMESTAMPS for time-series sensors.
+
+    IMPORTANT:
+    - Smartwatch/smartring: Generate array of timestamped readings (3-5 samples)
+    - GPS: If movement mentioned → generate trajectory with 3-5 waypoints showing actual lat/lon changes
+    - GPS: If sedentary → single point or minimal movement
+    - All timestamps in HH:MM:SS format
+    - Ensure GPS coordinates CHANGE if person is moving between locations!
 
     Return ONLY a JSON object with this structure:
     {{
-      "smartwatch": {{"heart_rate": [values], "steps": value, ...}},
-      "gps": {{"latitude": value, "longitude": value, ...}},
-      "smartphone": {{"screen_time_minutes": value, ...}},
-      "smartring": {{"temperature": value, "hrv": value, ...}},
+      "smartwatch": [
+        {{"timestamp": "14:00:00", "heart_rate": 75, "steps": 120, "active_minutes": 5}},
+        {{"timestamp": "14:15:00", "heart_rate": 82, "steps": 450, "active_minutes": 15}},
+        ...
+      ],
+      "gps": [
+        {{"timestamp": "14:00:00", "latitude": 37.7749, "longitude": -122.4194, "speed": 0.0, "accuracy": 10}},
+        {{"timestamp": "14:10:00", "latitude": 37.7755, "longitude": -122.4200, "speed": 4.5, "accuracy": 10}},
+        ...
+      ],
+      "smartphone": {{"screen_time_minutes": value, "notifications_count": value, "battery_level": value, ...}},
+      "smartring": [
+        {{"timestamp": "14:00:00", "body_temperature": 36.8, "hrv": 70, "skin_temperature": 32.5}},
+        ...
+      ],
       "smart_home": {{"doors_status": {{}}, "windows_status": {{}}, "indoor_temperature": value, ...}}
     }}
 
@@ -208,3 +241,176 @@ deficiency_detection:
       "emotional_tone": {{"status": "POSITIVE/NEUTRAL/NEGATIVE/UNKNOWN", "reason": "Explanation"}},
       "digital_behavior": {{"status": "BALANCED/OVERCONNECTED/INACTIVE/UNKNOWN", "reason": "Explanation"}}
     }}
+
+query_generation:
+  system: |
+    You are an evaluation query generator for a Personal Knowledge Graph system. Given a synthetic life scene with sensor data, you create 8 test queries following strict specifications.
+
+    Your task: Generate exactly 8 queries with this distribution:
+    - 2 TEMPORAL GROUNDING (1 exact time + 1 binary yes/no)
+    - 3 CROSS-MODAL (multiple choice, connecting dialogue with sensor data)
+    - 1 DEDUPLICATION (count distinct events)
+    - 2 HALLUCINATION (binary yes/no about events that did NOT happen)
+
+    CRITICAL RULES:
+    1. All answers MUST be derivable ONLY from provided data
+    2. Binary questions must have unambiguous Yes/No answers
+    3. Multiple choice must have exactly 1 correct answer
+    4. Distractors must be plausible but clearly wrong (not mentioned in data)
+    5. Temporal questions use exact timestamps from sensors
+    6. Hallucination questions ask about absent events (answer always "No")
+    7. Use exact data from scene description, device sensors, calendar, messages
+
+    TEMPORAL GROUNDING:
+    - Extract exact timestamps from GPS, smartwatch, calendar events
+    - Ask "What time did [event] occur?" → Answer: "HH:MM"
+    - Ask "Did [event] happen before/after [time]?" → Answer: "Yes" or "No"
+
+    CROSS-MODAL:
+    - Connect EXPLICIT dialogue mentions with sensor data
+    - ONLY ask about things ACTUALLY mentioned in dialogue (not implied, not future concerns)
+    - Example: User says "I'm tired" (present) + HR data → valid question
+    - INVALID: User says "I hope I don't get tired" (future worry) → DO NOT ask "Why was user tired?"
+    - INVALID: User never mentions tired → DO NOT ask about tiredness
+    - Avoid FALSE physiological correlations:
+      * HR 60-80 bpm = normal resting, NOT tiredness indicator
+      * Low steps during conversation = normal, NOT indicating fatigue
+      * High calories = activity, NOT necessarily causing tiredness unless mentioned
+    - 4 options (A correct, B/C/D distractors not in data)
+
+    DEDUPLICATION:
+    - Count UNIQUE events even if mentioned multiple times
+    - Example: "How many gym sessions?" → If mentioned twice but same timestamps/same event, count 1
+
+    HALLUCINATION:
+    - Ask about activities/locations/people NOT in data
+    - Must be contextually plausible (same domain as real data)
+    - Example: If user went to gym, ask "Did user go swimming?" → "No"
+    - NEVER ask about things mentioned even once (even as plans or worries)
+
+  user_template: |
+    Generate 8 evaluation queries for this scene:
+
+    Scene Description (Dialogue):
+    {scene_description}
+
+    Device Data:
+    {device_data}
+
+    Calendar Events:
+    {calendar_events}
+
+    Messages:
+    {messages}
+
+    Day: {day}
+    Time: {time}
+
+    CRITICAL VALIDATION RULES:
+
+    TEMPORAL LOGIC:
+    - If event mentioned at time T, it CANNOT have happened before T
+    - Example: Message sent at 18:38 saying "I finished" → answer "No" to "Did you finish before 18:30?"
+    - Use EARLIEST mention/timestamp as event time
+
+    CROSS-MODAL REQUIREMENTS:
+    - ONLY ask about EXPLICIT present-tense mentions (not future plans, not worries, not implications)
+    - Read dialogue carefully: "I'm tired" (valid) vs "I hope I don't get tired" (INVALID - don't ask!)
+    - If dialogue never mentions X, DO NOT ask "Why did user mention X?"
+    - Avoid template questions - each question must be specific to THIS scene's actual content
+
+    PHYSIOLOGICAL CORRELATIONS:
+    - HR 60-80 bpm at rest = NORMAL, not tiredness
+    - Low steps during conversation/sedentary activity = NORMAL
+    - Don't invent medical correlations not supported by dialogue
+
+    HALLUCINATION:
+    - Ask about events/activities NOT mentioned anywhere (even as plans)
+    - Must be plausible alternatives in same domain
+
+    ALL ANSWERS:
+    - Must be unambiguous and derivable ONLY from provided data
+    - Rationale must reference SPECIFIC data points (exact quotes, exact sensor values)
+
+    Return ONLY a JSON object with this structure:
+    {{
+      "queries": [
+        {{
+          "id": "Q1",
+          "category": "temporal",
+          "type": "exact",
+          "question": "Question text?",
+          "answer": "Answer text",
+          "rationale": "How answer derives from data"
+        }},
+        {{
+          "id": "Q2",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "Question text?",
+          "options": {{
+            "A": "Option A",
+            "B": "Option B",
+            "C": "Option C",
+            "D": "Option D"
+          }},
+          "answer": "A",
+          "rationale": "Why A is correct and B/C/D are wrong"
+        }},
+        ... (8 queries total)
+      ]
+    }}
+
+    Query distribution:
+    - Q1: temporal (exact)
+    - Q2: temporal (binary)
+    - Q3: cross_modal (multiple_choice)
+    - Q4: cross_modal (multiple_choice)
+    - Q5: cross_modal (multiple_choice)
+    - Q6: deduplication (exact number)
+    - Q7: hallucination (binary)
+    - Q8: hallucination (binary)
+
+    EXAMPLES OF GOOD vs BAD QUERIES:
+
+    ❌ BAD TEMPORAL:
+    Dialogue: "I finished project" (message at 18:38)
+    Q: "Did user finish before 18:30?"
+    A: "Yes" (rationale: "mentioned at 18:38 implies finished before")
+    → WRONG! Mentioned at 18:38 means happened AT OR BEFORE 18:38, not necessarily before 18:30
+
+    ✅ GOOD TEMPORAL:
+    Dialogue: "I finished project" (message at 18:38)
+    Q: "Did user mention finishing their project after 18:30?"
+    A: "Yes" (rationale: "Message sent at 18:38 which is after 18:30")
+
+    ❌ BAD CROSS-MODAL:
+    Dialogue: "I hope I don't get too tired later at work"
+    Q: "Why did user mention being tired?"
+    → WRONG! User mentioned FUTURE WORRY, not current tiredness
+
+    ✅ GOOD CROSS-MODAL:
+    Dialogue: "I'm tired after the gym" + HR data shows 145 bpm + calendar shows gym session
+    Q: "Why was user tired?"
+    A: "High heart rate (145 bpm) from gym workout"
+
+    ❌ BAD CROSS-MODAL (no mention):
+    Dialogue: "I'm heading to the gym with Davide"
+    Q: "Why did user mention being tired?"
+    → WRONG! User NEVER mentioned being tired!
+
+    ✅ GOOD CROSS-MODAL (specific to scene):
+    Dialogue: "Traffic is crazy today" + GPS shows speed 5 km/h
+    Q: "What caused the user's frustration according to dialogue and sensors?"
+    A: "Slow traffic (GPS speed 5 km/h) as mentioned in conversation"
+
+    ❌ BAD PHYSIOLOGICAL:
+    Dialogue: "Long day of coding" + HR 60-65 bpm
+    Q: "Why was user tired?"
+    A: "Low heart rate indicates fatigue"
+    → WRONG! HR 60-65 is NORMAL resting HR, not fatigue indicator!
+
+    ✅ GOOD PHYSIOLOGICAL:
+    Dialogue: "Intense workout" + HR 145 bpm + calories 420
+    Q: "What physical activity is supported by sensor data?"
+    A: "High heart rate (145 bpm) and calories (420) confirm intense workout"

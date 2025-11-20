@@ -50,3 +50,6 @@ Thumbs.db
 donotshare/
 *sessions/
 logs/
+output/
+benchmark_results/
+BENCHMARK_README.md

@@ -193,6 +193,87 @@ def aggregate_iot_field(device_id: str, field_name: str, operation: str) -> str:
     return json.dumps(result, indent=2)
 
 
+# ==================== KNOWLEDGE GRAPH TOOLS ====================
+
+@tool
+def get_kg_topics() -> str:
+    """
+    Recupera tutti i topic (broader e narrower) dal Knowledge Graph.
+    Utile per scoprire quali categorie di conoscenze ha appreso il sistema sull'utente.
+    """
+    result = _make_request("api/kg/topics")
+    return json.dumps(result, indent=2)
+
+
+@tool
+def get_kg_stats() -> str:
+    """
+    Recupera statistiche sul Knowledge Graph.
+    Mostra quanti broader/narrower topics e relazioni sono state apprese.
+    """
+    result = _make_request("api/kg/stats")
+    return json.dumps(result, indent=2)
+
+
+class QueryByTopicInput(BaseModel):
+    """Schema per query_kg_by_topic."""
+    broader_topic: Optional[str] = Field(default=None, description="Broader topic da filtrare (es: 'Health', 'Social', 'Work')")
+    narrower_topic: Optional[str] = Field(default=None, description="Narrower topic da filtrare (es: 'Heart Rate', 'Friends')")
+
+
+@tool(args_schema=QueryByTopicInput)
+def query_kg_by_topic(broader_topic: Optional[str] = None, narrower_topic: Optional[str] = None) -> str:
+    """
+    Interroga il Knowledge Graph per topic specifici.
+    Recupera tutte le relazioni associate a un topic (es: tutto quello che il sistema sa sulla 'Health' dell'utente).
+    """
+    params = {}
+    if broader_topic:
+        params["broader_topic"] = broader_topic
+    if narrower_topic:
+        params["narrower_topic"] = narrower_topic
+
+    result = _make_request("api/kg/query/topic", params=params)
+    return json.dumps(result, indent=2)
+
+
+class QueryByEntityInput(BaseModel):
+    """Schema per query_kg_by_entity."""
+    entity_name: str = Field(description="Nome dell'entità da cercare (es: 'Mario', 'Milano', 'Pizza')")
+    relationship_type: Optional[str] = Field(default=None, description="Tipo di relazione opzionale per filtrare")
+
+
+@tool(args_schema=QueryByEntityInput)
+def query_kg_by_entity(entity_name: str, relationship_type: Optional[str] = None) -> str:
+    """
+    Cerca informazioni su un'entità specifica nel Knowledge Graph.
+    Trova tutte le relazioni che coinvolgono l'entità (es: cosa sa il sistema su 'Mario').
+    """
+    params = {"entity_name": entity_name}
+    if relationship_type:
+        params["relationship_type"] = relationship_type
+
+    result = _make_request("api/kg/query/entity", params=params)
+    return json.dumps(result, indent=2)
+
+
+class SearchKGInput(BaseModel):
+    """Schema per search_kg."""
+    query: str = Field(description="Testo da cercare nel Knowledge Graph")
+    limit: int = Field(default=10, description="Numero massimo di risultati")
+
+
+@tool(args_schema=SearchKGInput)
+def search_kg(query: str, limit: int = 10) -> str:
+    """
+    Ricerca full-text nel Knowledge Graph.
+    Cerca il testo in tutte le entità, relazioni e topic del grafo.
+    Utile per trovare informazioni generali sull'utente.
+    """
+    result = _make_request("api/kg/search", params={"query": query, "limit": limit})
+    return json.dumps(result, indent=2)
+
+
 def get_mcp_tools(mcp_base_url: str = "http://localhost:8000") -> list:
     """
     Restituisce la lista di tutti i tools MCP per Langchain.
@@ -208,15 +289,22 @@ def get_mcp_tools(mcp_base_url: str = "http://localhost:8000") -> list:
 
     # Restituisci i tools (nuovi tools ottimizzati + tools legacy)
     return [
-        # Prioritized efficient tools
+        # IoT tools - Prioritized efficient tools
         list_devices,           # Start here to discover devices
         get_data_schema,        # Then discover available fields
         get_latest_value,       # Most efficient for single values
         aggregate_iot_field,    # Most efficient for statistics
         query_iot_field,        # Efficient for specific fields
 
-        # Legacy tools (less efficient, but still available)
+        # Legacy IoT tools (less efficient, but still available)
         get_iot_recent_data,    # Returns full records
         get_iot_statistics,     # Returns all stats
         get_user_context,       # Returns all context
+
+        # Knowledge Graph tools
+        get_kg_topics,          # Discover what the system learned
+        get_kg_stats,           # KG statistics
+        query_kg_by_topic,      # Query by topic (Health, Social, etc.)
+        query_kg_by_entity,     # Query by entity name
+        search_kg,              # Full-text search in KG
     ]

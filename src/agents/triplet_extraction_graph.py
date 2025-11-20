@@ -102,7 +102,8 @@ class TripletExtractionGraph:
         llm_model: str = "meta-llama/llama-4-scout-17b-16e-instruct",
         mcp_base_url: str = "http://localhost:8000",
         temperature: float = 0.3,
-        enable_logging: bool = False
+        enable_logging: bool = False,
+        extraction_only: bool = False
     ):
         """
         Inizializza il grafo di estrazione triplette.
@@ -113,6 +114,7 @@ class TripletExtractionGraph:
             mcp_base_url: URL del server MCP
             temperature: Temperature per l'LLM
             enable_logging: Abilita logging dettagliato
+            extraction_only: Se True, salta augmentation/IoT/validation (solo extraction)
         """
         self.llm = ChatGroq(
             groq_api_key=llm_api_key,
@@ -121,6 +123,7 @@ class TripletExtractionGraph:
         )
         self.mcp_base_url = mcp_base_url
         self.enable_logging = enable_logging
+        self.extraction_only = extraction_only
 
         # Logger
         if self.enable_logging:
@@ -153,18 +156,6 @@ class TripletExtractionGraph:
         workflow.add_node("extract_triplets", self._extract_triplets_node)
         workflow.add_node("summarize_chunk", self._summarize_chunk_node)
 
-        # Text Augmentation
-        workflow.add_node("text_augmentation", self._text_augmentation_node)
-
-        # IoT ReAct Loop (3 nodi)
-        workflow.add_node("iot_decide", self._iot_decide_node)              # Decisione iniziale
-        workflow.add_node("iot_react", self._iot_react_node)                # Iterazione ReAct (loop)
-        workflow.add_node("iot_generate", self._iot_generate_triplets_node) # Genera triplette finali
-
-        # Validation Guardrail (2 nodi)
-        workflow.add_node("validation_decide", self._validation_decide_node)    # Decisione validazione
-        workflow.add_node("validation_iterate", self._validation_iterate_node)  # Iterazione validazione (loop)
-
         # Finalizzazione
         workflow.add_node("finalize", self._finalize_node)
 
@@ -174,64 +165,91 @@ class TripletExtractionGraph:
         # Chunk → Extract
         workflow.add_edge("chunk_text", "extract_triplets")
 
-        # Extract → Summarize OR Text Augmentation (loop chunks)
-        workflow.add_conditional_edges(
-            "extract_triplets",
-            self._should_continue_chunks,
-            {
-                "summarize": "summarize_chunk",
-                "augment": "text_augmentation"
-            }
-        )
+        if self.extraction_only:
+            # ===== EXTRACTION ONLY MODE =====
+            # Extract → Summarize OR Finalize (loop chunks, poi direttamente a finalize)
+            workflow.add_conditional_edges(
+                "extract_triplets",
+                self._should_continue_chunks_simple,
+                {
+                    "summarize": "summarize_chunk",
+                    "finalize": "finalize"
+                }
+            )
+            # Summarize → Extract (loop back)
+            workflow.add_edge("summarize_chunk", "extract_triplets")
+        else:
+            # ===== FULL PIPELINE MODE =====
+            # Text Augmentation
+            workflow.add_node("text_augmentation", self._text_augmentation_node)
 
-        # Summarize → Extract (loop back)
-        workflow.add_edge("summarize_chunk", "extract_triplets")
+            # IoT ReAct Loop (3 nodi)
+            workflow.add_node("iot_decide", self._iot_decide_node)              # Decisione iniziale
+            workflow.add_node("iot_react", self._iot_react_node)                # Iterazione ReAct (loop)
+            workflow.add_node("iot_generate", self._iot_generate_triplets_node) # Genera triplette finali
 
-        # Text Augmentation → IoT Decision
-        workflow.add_edge("text_augmentation", "iot_decide")
+            # Validation Guardrail (2 nodi)
+            workflow.add_node("validation_decide", self._validation_decide_node)    # Decisione validazione
+            workflow.add_node("validation_iterate", self._validation_iterate_node)  # Iterazione validazione (loop)
 
-        # IoT Decision → Explore OR Skip
-        workflow.add_conditional_edges(
-            "iot_decide",
-            self._should_use_iot,
-            {
-                "explore": "iot_react",           # Inizia ReAct loop
-                "skip": "validation_decide"       # Salta IoT, vai a validazione
-            }
-        )
+            # Extract → Summarize OR Text Augmentation (loop chunks)
+            workflow.add_conditional_edges(
+                "extract_triplets",
+                self._should_continue_chunks,
+                {
+                    "summarize": "summarize_chunk",
+                    "augment": "text_augmentation"
+                }
+            )
 
-        # IoT ReAct → Continue (self-loop) OR Finish
-        workflow.add_conditional_edges(
-            "iot_react",
-            self._should_continue_react,
-            {
-                "continue": "iot_react",      # Loop: chiama altri tools
-                "finish": "iot_generate"      # Genera triplette IoT
-            }
-        )
+            # Summarize → Extract (loop back)
+            workflow.add_edge("summarize_chunk", "extract_triplets")
 
-        # IoT Generate → Validation Decision
-        workflow.add_edge("iot_generate", "validation_decide")
+            # Text Augmentation → IoT Decision
+            workflow.add_edge("text_augmentation", "iot_decide")
 
-        # Validation Decision → Validate OR Skip
-        workflow.add_conditional_edges(
-            "validation_decide",
-            self._should_validate,
-            {
-                "validate": "validation_iterate",  # Inizia validation loop
-                "skip": "finalize"                  # Salta validazione
-            }
-        )
+            # IoT Decision → Explore OR Skip
+            workflow.add_conditional_edges(
+                "iot_decide",
+                self._should_use_iot,
+                {
+                    "explore": "iot_react",           # Inizia ReAct loop
+                    "skip": "validation_decide"       # Salta IoT, vai a validazione
+                }
+            )
 
-        # Validation Iterate → Continue (self-loop) OR Finish
-        workflow.add_conditional_edges(
-            "validation_iterate",
-            self._should_continue_validation,
-            {
-                "continue": "validation_iterate",  # Loop: refina ancora
-                "finish": "finalize"                # Validazione completa
-            }
-        )
+            # IoT ReAct → Continue (self-loop) OR Finish
+            workflow.add_conditional_edges(
+                "iot_react",
+                self._should_continue_react,
+                {
+                    "continue": "iot_react",      # Loop: chiama altri tools
+                    "finish": "iot_generate"      # Genera triplette IoT
+                }
+            )
+
+            # IoT Generate → Validation Decision
+            workflow.add_edge("iot_generate", "validation_decide")
+
+            # Validation Decision → Validate OR Skip
+            workflow.add_conditional_edges(
+                "validation_decide",
+                self._should_validate,
+                {
+                    "validate": "validation_iterate",  # Inizia validation loop
+                    "skip": "finalize"                  # Salta validazione
+                }
+            )
+
+            # Validation Iterate → Continue (self-loop) OR Finish
+            workflow.add_conditional_edges(
+                "validation_iterate",
+                self._should_continue_validation,
+                {
+                    "continue": "validation_iterate",  # Loop: refina ancora
+                    "finish": "finalize"                # Validazione completa
+                }
+            )
 
         # Finalize → END
         workflow.add_edge("finalize", END)
@@ -486,6 +504,32 @@ class TripletExtractionGraph:
             if self.logger:
                 self.logger.console.print(f"[yellow]→ Going to: augment (all chunks processed, starting augmentation)[/yellow]")
             return "augment"
+
+    def _should_continue_chunks_simple(self, state: GraphState) -> str:
+        """
+        Conditional edge (extraction_only mode): decide se continuare con altri chunk o finalizzare.
+
+        Args:
+            state: Stato corrente del grafo
+
+        Returns:
+            "summarize" se ci sono altri chunk da processare, "finalize" altrimenti
+        """
+        current_index = state["current_chunk_index"]
+        chunks = state["chunks"]
+
+        if self.logger:
+            self.logger.console.print(f"\n[bold cyan]→ Conditional Edge: _should_continue_chunks_simple (extraction_only)[/bold cyan]")
+            self.logger.console.print(f"[dim]Chunk {current_index}/{len(chunks)}[/dim]")
+
+        if current_index < len(chunks):
+            if self.logger:
+                self.logger.console.print(f"[green]→ Going to: summarize (more chunks to process)[/green]")
+            return "summarize"
+        else:
+            if self.logger:
+                self.logger.console.print(f"[yellow]→ Going to: finalize (all chunks processed, extraction complete)[/yellow]")
+            return "finalize"
 
     def _text_augmentation_node(self, state: GraphState) -> Dict[str, Any]:
         """
