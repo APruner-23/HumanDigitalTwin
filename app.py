@@ -23,7 +23,8 @@ from src.ui.tabs import (
     render_ontology_validation_tab,
     render_iot_data_tab,
     render_external_services_tab,
-    render_chat_agent_tab
+    render_chat_agent_tab,
+    render_knowledge_graph_tab
 )
 
 
@@ -56,9 +57,10 @@ def main():
     render_sidebar(config, llm)
 
     # Create tabs
-    tab1, tab2, tab3, tab4, tab5 = st.tabs([
+    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
         "Estrazione Triplette",
         "Ontology Validation",
+        "Knowledge Graph Builder",
         "Dati IoT",
         "Servizi Esterni",
         "Chat Agent"
@@ -72,12 +74,15 @@ def main():
         render_ontology_validation_tab(config)
 
     with tab3:
-        render_iot_data_tab(config, prompt_manager, llm)
+        render_knowledge_graph_tab(config)
 
     with tab4:
-        render_external_services_tab(config)
+        render_iot_data_tab(config, prompt_manager, llm)
 
     with tab5:
+        render_external_services_tab(config)
+
+    with tab6:
         render_chat_agent_tab(config, llm)
 
 

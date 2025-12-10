@@ -306,6 +306,34 @@ if generate_button:
                         else:
                             st.info("No health analysis")
 
+                    # Evaluation queries
+                    with st.expander("❓ Evaluation Queries (8 queries)"):
+                        queries = scene.get('queries', [])
+                        if queries and isinstance(queries, list) and len(queries) > 0:
+                            for q in queries:
+                                # Category badge
+                                category_colors = {
+                                    "temporal": "🕒",
+                                    "cross_modal": "🔗",
+                                    "deduplication": "🔢",
+                                    "hallucination": "👻"
+                                }
+                                emoji = category_colors.get(q.get('category', ''), "❓")
+
+                                st.markdown(f"**{emoji} {q.get('id', 'Q?')}** ({q.get('category', 'unknown').replace('_', ' ').title()})")
+                                st.markdown(f"**Q:** {q.get('question', 'No question')}")
+
+                                # Show options if multiple choice
+                                if q.get('options') and len(q.get('options', {})) > 0:
+                                    for opt_key, opt_val in q.get('options', {}).items():
+                                        st.markdown(f"  - **{opt_key}**: {opt_val}")
+
+                                st.markdown(f"**A:** {q.get('answer', 'No answer')}")
+                                st.caption(f"💡 {q.get('rationale', 'No rationale')}")
+                                st.markdown("---")
+                        else:
+                            st.info("No evaluation queries")
+
             # Download button
             st.markdown("---")
             st.download_button(
@@ -330,6 +358,11 @@ Each scene includes:
 - 📅 Calendar events
 - 💬 Messaging app data
 - 🏥 Health deficiency analysis
+- ❓ **8 Evaluation queries** for testing Knowledge Graph systems:
+  - 🕒 Temporal grounding (2 queries: exact time + binary)
+  - 🔗 Cross-modal reasoning (3 queries: connecting dialogue with sensors)
+  - 🔢 Deduplication (1 query: counting distinct events)
+  - 👻 Hallucination detection (2 queries: events that didn't happen)
 
 The generated data is synthetic and for research/development purposes only.
 """)

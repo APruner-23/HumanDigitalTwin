@@ -1,5 +1,5 @@
 """
-LangGraph pipeline for multi-stage triplet extraction from text with IoT augmentation.
+LangGraph pipeline per estrazione multi-stage di triplette da testo con augmentation IoT.
 """
 
 from typing import TypedDict, List, Dict, Any, Optional, Annotated
@@ -12,24 +12,24 @@ import operator
 
 # Pydantic models per structured output
 class TripletEntity(BaseModel):
-    """Entity with value and type."""
-    value: str = Field(description="Entity value (e.g., 'Marco')")
-    type: str = Field(description="Entity type/class (e.g., 'Person', 'Location', 'Integer')")
+    """Entità con valore e tipo."""
+    value: str = Field(description="Valore dell'entità (es. 'Marco')")
+    type: str = Field(description="Tipo/classe dell'entità (es. 'Person', 'Location', 'Integer')")
 
 
 class Triplet(BaseModel):
-    """Single RDF triplet with typing (2x3 matrix: instance + type)."""
-    subject: TripletEntity = Field(description="Subject of the triplet with type")
-    predicate: TripletEntity = Field(description="Predicate/relation of the triplet with type")
-    object: TripletEntity = Field(description="Object of the triplet with type")
+    """Singola tripletta RDF con tipizzazione (matrice 2x3: instance + type)."""
+    subject: TripletEntity = Field(description="Soggetto della tripletta con tipo")
+    predicate: TripletEntity = Field(description="Predicato/relazione della tripletta con tipo")
+    object: TripletEntity = Field(description="Oggetto della tripletta con tipo")
 
 
 class TripletList(BaseModel):
-    """List of triplets."""
-    triplets: List[Triplet] = Field(description="List of extracted RDF triplets")
+    """Lista di triplette."""
+    triplets: List[Triplet] = Field(description="Lista di triplette RDF estratte")
 
     def filter_valid(self) -> List[Triplet]:
-        """Filters only valid triplets (with non-empty subject, predicate, and object)."""
+        """Filtra solo le triplette valide (con subject, predicate e object non vuoti)."""
         return [
             t for t in self.triplets
             if t.subject.value and t.predicate.value and t.object.value
@@ -38,25 +38,25 @@ class TripletList(BaseModel):
 
 class GraphState(TypedDict):
     """
-    Graph state for triplet extraction.
+    State del grafo per l'estrazione di triplette.
 
-    Fields:
-    - input_text: Original text to process
-    - chunk_size: Chunk size (number of characters)
-    - chunks: List of text chunks
-    - current_chunk_index: Index of the current chunk being processed
-    - previous_summary: Summary of the previous chunk
-    - triplets: Accumulated list of all extracted triplets
-    - augmented_triplets: Triplets added by augmentation (text + IoT)
-    - final_triplets: Final triplets (extracted + augmented)
-    - error: Any error during processing
+    Campi:
+    - input_text: Testo originale da processare
+    - chunk_size: Dimensione dei chunk (numero di caratteri)
+    - chunks: Lista di chunk di testo
+    - current_chunk_index: Indice del chunk corrente in elaborazione
+    - previous_summary: Summary del chunk precedente
+    - triplets: Lista accumulata di tutte le triplette estratte
+    - augmented_triplets: Triplette aggiunte dall'augmentation (text + IoT)
+    - final_triplets: Triplette finali (estratte + augmented)
+    - error: Eventuale errore durante l'elaborazione
 
     IoT ReAct Loop:
-    - iot_should_explore: Flag to decide whether to start IoT exploration
-    - iot_react_iteration: ReAct iteration counter (max 5)
-    - iot_data_collected: IoT data collected during exploration
-    - iot_reasoning_history: Reasoning history of the IoT agent
-    - iot_conversation: Full conversation with LLM (for context in loop)
+    - iot_should_explore: Flag per decidere se iniziare esplorazione IoT
+    - iot_react_iteration: Contatore iterazioni ReAct (max 5)
+    - iot_data_collected: Dati IoT raccolti durante l'esplorazione
+    - iot_reasoning_history: Storia del reasoning dell'agent IoT
+    - iot_conversation: Conversazione completa con LLM (per context in loop)
     """
     input_text: str
     chunk_size: int
@@ -85,15 +85,15 @@ class GraphState(TypedDict):
 
 class TripletExtractionGraph:
     """
-    LangGraph graph for multi-stage triplet extraction.
+    Grafo LangGraph per estrazione multi-stage di triplette.
 
     Pipeline:
-    1. Text chunking
-    2. For each chunk:
-       - Create summary of the previous chunk (if any)
-       - Extract triplets from the current chunk
-    3. Analysis for IoT augmentation
-    4. Triplet augmentation with IoT data (if necessary)
+    1. Chunking del testo
+    2. Per ogni chunk:
+       - Crea summary del chunk precedente (se esiste)
+       - Estrai triplette dal chunk corrente
+    3. Analisi per augmentation IoT
+    4. Augmentation delle triplette con dati IoT (se necessario)
     """
 
     def __init__(
@@ -102,17 +102,19 @@ class TripletExtractionGraph:
         llm_model: str = "meta-llama/llama-4-scout-17b-16e-instruct",
         mcp_base_url: str = "http://localhost:8000",
         temperature: float = 0.3,
-        enable_logging: bool = False
+        enable_logging: bool = False,
+        extraction_only: bool = False
     ):
         """
-        Initialize the triplet extraction graph.
+        Inizializza il grafo di estrazione triplette.
 
         Args:
-            llm_api_key: API key for Groq
-            llm_model: LLM model to use
-            mcp_base_url: URL of the MCP server
-            temperature: Temperature for the LLM
-            enable_logging: Enable detailed logging
+            llm_api_key: API key per Groq
+            llm_model: Modello LLM da utilizzare
+            mcp_base_url: URL del server MCP
+            temperature: Temperature per l'LLM
+            enable_logging: Abilita logging dettagliato
+            extraction_only: Se True, salta augmentation/IoT/validation (solo extraction)
         """
         self.llm = ChatGroq(
             groq_api_key=llm_api_key,
@@ -121,6 +123,7 @@ class TripletExtractionGraph:
         )
         self.mcp_base_url = mcp_base_url
         self.enable_logging = enable_logging
+        self.extraction_only = extraction_only
 
         # Logger
         if self.enable_logging:
@@ -144,7 +147,7 @@ class TripletExtractionGraph:
         self._save_graph_diagram()
 
     def _build_graph(self) -> StateGraph:
-        """Builds the LangGraph graph with ReAct loop for IoT augmentation."""
+        """Costruisce il grafo LangGraph con ReAct loop per IoT augmentation."""
         workflow = StateGraph(GraphState)
 
         # === NODI DEL GRAFO ===
@@ -152,18 +155,6 @@ class TripletExtractionGraph:
         workflow.add_node("chunk_text", self._chunk_text_node)
         workflow.add_node("extract_triplets", self._extract_triplets_node)
         workflow.add_node("summarize_chunk", self._summarize_chunk_node)
-
-        # Text Augmentation
-        workflow.add_node("text_augmentation", self._text_augmentation_node)
-
-        # IoT ReAct Loop (3 nodi)
-        workflow.add_node("iot_decide", self._iot_decide_node)              # Decisione iniziale
-        workflow.add_node("iot_react", self._iot_react_node)                # Iterazione ReAct (loop)
-        workflow.add_node("iot_generate", self._iot_generate_triplets_node) # Genera triplette finali
-
-        # Validation Guardrail (2 nodi)
-        workflow.add_node("validation_decide", self._validation_decide_node)    # Decisione validazione
-        workflow.add_node("validation_iterate", self._validation_iterate_node)  # Iterazione validazione (loop)
 
         # Finalizzazione
         workflow.add_node("finalize", self._finalize_node)
@@ -174,64 +165,91 @@ class TripletExtractionGraph:
         # Chunk → Extract
         workflow.add_edge("chunk_text", "extract_triplets")
 
-        # Extract → Summarize OR Text Augmentation (loop chunks)
-        workflow.add_conditional_edges(
-            "extract_triplets",
-            self._should_continue_chunks,
-            {
-                "summarize": "summarize_chunk",
-                "augment": "text_augmentation"
-            }
-        )
+        if self.extraction_only:
+            # ===== EXTRACTION ONLY MODE =====
+            # Extract → Summarize OR Finalize (loop chunks, poi direttamente a finalize)
+            workflow.add_conditional_edges(
+                "extract_triplets",
+                self._should_continue_chunks_simple,
+                {
+                    "summarize": "summarize_chunk",
+                    "finalize": "finalize"
+                }
+            )
+            # Summarize → Extract (loop back)
+            workflow.add_edge("summarize_chunk", "extract_triplets")
+        else:
+            # ===== FULL PIPELINE MODE =====
+            # Text Augmentation
+            workflow.add_node("text_augmentation", self._text_augmentation_node)
 
-        # Summarize → Extract (loop back)
-        workflow.add_edge("summarize_chunk", "extract_triplets")
+            # IoT ReAct Loop (3 nodi)
+            workflow.add_node("iot_decide", self._iot_decide_node)              # Decisione iniziale
+            workflow.add_node("iot_react", self._iot_react_node)                # Iterazione ReAct (loop)
+            workflow.add_node("iot_generate", self._iot_generate_triplets_node) # Genera triplette finali
 
-        # Text Augmentation → IoT Decision
-        workflow.add_edge("text_augmentation", "iot_decide")
+            # Validation Guardrail (2 nodi)
+            workflow.add_node("validation_decide", self._validation_decide_node)    # Decisione validazione
+            workflow.add_node("validation_iterate", self._validation_iterate_node)  # Iterazione validazione (loop)
 
-        # IoT Decision → Explore OR Skip
-        workflow.add_conditional_edges(
-            "iot_decide",
-            self._should_use_iot,
-            {
-                "explore": "iot_react",           # Inizia ReAct loop
-                "skip": "validation_decide"       # Salta IoT, vai a validazione
-            }
-        )
+            # Extract → Summarize OR Text Augmentation (loop chunks)
+            workflow.add_conditional_edges(
+                "extract_triplets",
+                self._should_continue_chunks,
+                {
+                    "summarize": "summarize_chunk",
+                    "augment": "text_augmentation"
+                }
+            )
 
-        # IoT ReAct → Continue (self-loop) OR Finish
-        workflow.add_conditional_edges(
-            "iot_react",
-            self._should_continue_react,
-            {
-                "continue": "iot_react",      # Loop: chiama altri tools
-                "finish": "iot_generate"      # Genera triplette IoT
-            }
-        )
+            # Summarize → Extract (loop back)
+            workflow.add_edge("summarize_chunk", "extract_triplets")
 
-        # IoT Generate → Validation Decision
-        workflow.add_edge("iot_generate", "validation_decide")
+            # Text Augmentation → IoT Decision
+            workflow.add_edge("text_augmentation", "iot_decide")
 
-        # Validation Decision → Validate OR Skip
-        workflow.add_conditional_edges(
-            "validation_decide",
-            self._should_validate,
-            {
-                "validate": "validation_iterate",  # Inizia validation loop
-                "skip": "finalize"                  # Salta validazione
-            }
-        )
+            # IoT Decision → Explore OR Skip
+            workflow.add_conditional_edges(
+                "iot_decide",
+                self._should_use_iot,
+                {
+                    "explore": "iot_react",           # Inizia ReAct loop
+                    "skip": "validation_decide"       # Salta IoT, vai a validazione
+                }
+            )
 
-        # Validation Iterate → Continue (self-loop) OR Finish
-        workflow.add_conditional_edges(
-            "validation_iterate",
-            self._should_continue_validation,
-            {
-                "continue": "validation_iterate",  # Loop: refina ancora
-                "finish": "finalize"                # Validazione completa
-            }
-        )
+            # IoT ReAct → Continue (self-loop) OR Finish
+            workflow.add_conditional_edges(
+                "iot_react",
+                self._should_continue_react,
+                {
+                    "continue": "iot_react",      # Loop: chiama altri tools
+                    "finish": "iot_generate"      # Genera triplette IoT
+                }
+            )
+
+            # IoT Generate → Validation Decision
+            workflow.add_edge("iot_generate", "validation_decide")
+
+            # Validation Decision → Validate OR Skip
+            workflow.add_conditional_edges(
+                "validation_decide",
+                self._should_validate,
+                {
+                    "validate": "validation_iterate",  # Inizia validation loop
+                    "skip": "finalize"                  # Salta validazione
+                }
+            )
+
+            # Validation Iterate → Continue (self-loop) OR Finish
+            workflow.add_conditional_edges(
+                "validation_iterate",
+                self._should_continue_validation,
+                {
+                    "continue": "validation_iterate",  # Loop: refina ancora
+                    "finish": "finalize"                # Validazione completa
+                }
+            )
 
         # Finalize → END
         workflow.add_edge("finalize", END)
@@ -239,7 +257,7 @@ class TripletExtractionGraph:
         return workflow.compile()
 
     def _save_graph_diagram(self) -> None:
-        """Saves the Mermaid graph diagram as PNG."""
+        """Salva il diagramma Mermaid del grafo come PNG."""
         try:
             from pathlib import Path
 
@@ -269,13 +287,13 @@ class TripletExtractionGraph:
 
     def _chunk_text_node(self, state: GraphState) -> Dict[str, Any]:
         """
-        Node 1: Splits the text into chunks.
+        Nodo 1: Divide il testo in chunk.
 
         Args:
-            state: Current state of the graph
+            state: Stato corrente del grafo
 
         Returns:
-            State update with created chunks
+            Update dello stato con i chunk creati
         """
         text = state["input_text"]
         chunk_size = state.get("chunk_size", 1000)
@@ -303,15 +321,15 @@ class TripletExtractionGraph:
 
     def _extract_triplets_node(self, state: GraphState) -> Dict[str, Any]:
         """
-        Node 2: Extracts triplets from the current chunk.
+        Nodo 2: Estrae triplette dal chunk corrente.
 
-        Uses the context of the previous chunk summary if available.
+        Usa il contesto della summary del chunk precedente se disponibile.
 
         Args:
-            state: Current state of the graph
+            state: Stato corrente del grafo
 
         Returns:
-            State update with extracted triplets
+            Update dello stato con le triplette estratte
         """
         chunks = state["chunks"]
         current_index = state["current_chunk_index"]
@@ -397,15 +415,15 @@ class TripletExtractionGraph:
 
     def _summarize_chunk_node(self, state: GraphState) -> Dict[str, Any]:
         """
-        Node 3: Creates a summary of the processed chunk.
+        Nodo 3: Crea una summary del chunk appena processato.
 
-        This summary will be used as context for the next chunk.
+        Questa summary sarà usata come contesto per il prossimo chunk.
 
         Args:
-            state: Current state of the graph
+            state: Stato corrente del grafo
 
         Returns:
-            State update with the summary
+            Update dello stato con la summary
         """
         chunks = state["chunks"]
         current_index = state["current_chunk_index"]
@@ -463,13 +481,13 @@ class TripletExtractionGraph:
 
     def _should_continue_chunks(self, state: GraphState) -> str:
         """
-        Conditional edge: decides whether to continue with other chunks or proceed to augmentation.
+        Conditional edge: decide se continuare con altri chunk o passare ad augmentation.
 
         Args:
-            state: Current state of the graph
+            state: Stato corrente del grafo
 
         Returns:
-            "summarize" if there are more chunks to process, "augment" otherwise
+            "summarize" se ci sono altri chunk da processare, "augment" altrimenti
         """
         current_index = state["current_chunk_index"]
         chunks = state["chunks"]
@@ -487,18 +505,44 @@ class TripletExtractionGraph:
                 self.logger.console.print(f"[yellow]→ Going to: augment (all chunks processed, starting augmentation)[/yellow]")
             return "augment"
 
-    def _text_augmentation_node(self, state: GraphState) -> Dict[str, Any]:
+    def _should_continue_chunks_simple(self, state: GraphState) -> str:
         """
-        Node 4: Augments extracted triplets with implicit relations and corrections.
-
-        Enriches the knowledge graph by correcting inconsistencies,
-        adding implicit relations, and making predicates consistent.
+        Conditional edge (extraction_only mode): decide se continuare con altri chunk o finalizzare.
 
         Args:
-            state: Current state of the graph
+            state: Stato corrente del grafo
 
         Returns:
-            State update with augmented triplets (via text reasoning)
+            "summarize" se ci sono altri chunk da processare, "finalize" altrimenti
+        """
+        current_index = state["current_chunk_index"]
+        chunks = state["chunks"]
+
+        if self.logger:
+            self.logger.console.print(f"\n[bold cyan]→ Conditional Edge: _should_continue_chunks_simple (extraction_only)[/bold cyan]")
+            self.logger.console.print(f"[dim]Chunk {current_index}/{len(chunks)}[/dim]")
+
+        if current_index < len(chunks):
+            if self.logger:
+                self.logger.console.print(f"[green]→ Going to: summarize (more chunks to process)[/green]")
+            return "summarize"
+        else:
+            if self.logger:
+                self.logger.console.print(f"[yellow]→ Going to: finalize (all chunks processed, extraction complete)[/yellow]")
+            return "finalize"
+
+    def _text_augmentation_node(self, state: GraphState) -> Dict[str, Any]:
+        """
+        Nodo 4: Augmenta le triplette estratte con relazioni implicite e correzioni.
+
+        Arricchisce il knowledge graph correggendo inconsistenze,
+        aggiungendo relazioni implicite e rendendo i predicati coerenti.
+
+        Args:
+            state: Stato corrente del grafo
+
+        Returns:
+            Update dello stato con le triplette augmented (via text reasoning)
         """
         triplets = state.get("triplets", [])
 
@@ -574,16 +618,16 @@ class TripletExtractionGraph:
 
     def _iot_decide_node(self, state: GraphState) -> Dict[str, Any]:
         """
-        Node 4a: Decides whether to use IoT data for augmentation.
+        Nodo 4a: Decide se utilizzare dati IoT per augmentation.
 
-        Analyzes text-augmented triplets and decides if it makes sense
-        to enrich them with data from IoT sensors.
+        Analizza le triplette text-augmented e decide se ha senso
+        arricchirle con dati da sensori IoT.
 
         Args:
-            state: Current state of the graph
+            state: Stato corrente del grafo
 
         Returns:
-            State update with the decision (iot_should_explore)
+            Update dello stato con la decisione (iot_should_explore)
         """
         augmented_triplets = state.get("augmented_triplets", [])
 
@@ -663,24 +707,24 @@ class TripletExtractionGraph:
 
     def _iot_react_node(self, state: GraphState) -> Dict[str, Any]:
         """
-        Node 4b: Executes ONE iteration of the ReAct loop for IoT augmentation.
+        Nodo 4b: Esegue UNA iterazione del ReAct loop per IoT augmentation.
 
-        Follows the Think → Act → Observe pattern:
-        1. THINK: Agent analyzes collected data and decides the next action
-        2. ACT: Calls ONE MCP tool (list_devices, get_latest_value, etc.)
-        3. OBSERVE: Receives result and updates state
+        Segue il pattern Think → Act → Observe:
+        1. THINK: L'agent analizza i dati già raccolti e decide la prossima azione
+        2. ACT: Chiama UN tool MCP (list_devices, get_latest_value, etc.)
+        3. OBSERVE: Riceve il risultato e aggiorna lo state
 
-        Loop continues until agent decides to stop or max_iterations reached.
+        Il loop continua finché l'agent decide di fermarsi o max_iterations.
 
         Args:
-            state: Current state of the graph
+            state: Stato corrente del grafo
 
         Returns:
-            State update with:
-            - iot_conversation: updated conversation
-            - iot_data_collected: updated data
-            - iot_react_iteration: incremented counter
-            - iot_reasoning_history: iteration reasoning
+            Update dello stato con:
+            - iot_conversation: conversazione aggiornata
+            - iot_data_collected: dati aggiornati
+            - iot_react_iteration: contatore incrementato
+            - iot_reasoning_history: reasoning dell'iterazione
         """
         # Recupera lo state del ReAct loop
         iteration = state.get("iot_react_iteration", 0)
@@ -795,6 +839,7 @@ class TripletExtractionGraph:
                     if selected_tool:
                         tool_result = selected_tool.invoke(tool_args)
 
+                        # 👁️ OBSERVE: Mostra il risultato
                         if self.logger:
                             result_str = str(tool_result)
                             try:
@@ -903,29 +948,39 @@ class TripletExtractionGraph:
 
             data_summary = json.dumps(data_collected, indent=2)
 
-            # Usa PromptManager
-            messages = self.prompt_manager.build_messages(
-                'iot_generate_triplets',
-                triplets=triplets_str,
-                data_collected=data_summary
-            )
+            # Usa il prompt per generare le triplette finali
+            final_prompt = HumanMessage(content=f"""
+Based on the IoT data collected, generate NEW triplets that connect the entities to sensor data.
 
-            # Converti in formato Langchain
-            conversation = state.get("iot_conversation", []) # Recupera conversazione corrente
-            for msg in messages:
-                role = msg.get('role')
-                content = msg.get('content')
-                if role == 'system':
-                    # In teoria system message dovrebbe essere all'inizio, ma per ora appendiamo
-                    conversation.append(SystemMessage(content=content))
-                else:
-                    conversation.append(HumanMessage(content=content))
+Original Triplets:
+{triplets_str}
+
+IoT Data Collected:
+{data_summary}
+
+Generate triplets using predicates like:
+- hasHeartRate, hasTemperature, hasLocation
+- measuredAt, recordedAt, detectedActivity
+- associatedWith, relatedTo
+
+**IMPORTANT**: Each entity MUST have both "value" and "type" fields.
+- People/devices: type = "Person" or "Thing"
+- Sensor values: type = "Number" or "Thing"
+- Timestamps: type = "DateTime"
+- Locations: type = "Place"
+- All predicates: type = "Relationship"
+
+Return ONLY valid triplets in JSON format:
+{{"triplets": [{{"subject": {{"value": "...", "type": "..."}}, "predicate": {{"value": "...", "type": "Relationship"}}, "object": {{"value": "...", "type": "..."}}}}]}}
+""")
+
+            conversation.append(final_prompt)
 
             # Log final prompt
             if self.logger:
                 self.logger.log_llm_call(
-                    messages, 
-                    "", 
+                    [{"role": "user", "content": final_prompt.content}],
+                    "",
                     {"model": self.llm.model_name, "provider": "Groq"}
                 )
 
@@ -975,16 +1030,16 @@ class TripletExtractionGraph:
 
     def _validation_decide_node(self, state: GraphState) -> Dict[str, Any]:
         """
-        Node 5a: Decides whether to run guardrail validation.
+        Nodo 5a: Decide se eseguire validazione guardrail.
 
-        Analyzes all final triplets (extracted + augmented) and decides
-        if validation for consistency and quality is needed.
+        Analizza tutte le triplette finali (estratte + augmented) e decide
+        se serve validazione per consistenza e qualità.
 
         Args:
-            state: Current state of the graph
+            state: Stato corrente del grafo
 
         Returns:
-            State update with validation_should_run
+            Update dello stato con validation_should_run
         """
         extracted = state.get("triplets", [])
         augmented = state.get("augmented_triplets", [])
@@ -1061,21 +1116,21 @@ class TripletExtractionGraph:
 
     def _validation_iterate_node(self, state: GraphState) -> Dict[str, Any]:
         """
-        Node 5b: Executes ONE iteration of guardrail validation.
+        Nodo 5b: Esegue UNA iterazione di validazione guardrail.
 
-        The Guardrail Agent:
-        1. Receives original text + current triplets
-        2. Identifies inconsistencies, redundancies, semantic errors
-        3. Removes/corrects problematic triplets
-        4. Decides whether to continue validation or finish
+        Il Guardrail Agent:
+        1. Riceve testo originale + triplette correnti
+        2. Identifica inconsistenze, ridondanze, errori semantici
+        3. Rimuove/corregge triplette problematiche
+        4. Decide se continuare validazione o finire
 
-        Self-loop: can iterate up to 3 times to progressively refine.
+        Self-loop: può iterare fino a 3 volte per raffinare progressivamente.
 
         Args:
-            state: Current state of the graph
+            state: Stato corrente del grafo
 
         Returns:
-            State update with validated_triplets, removed_triplets, validation_iteration
+            Update con validated_triplets, removed_triplets, validation_iteration
         """
         iteration = state.get("validation_iteration", 0)
         current_triplets = state.get("validated_triplets", [])
@@ -1168,13 +1223,13 @@ class TripletExtractionGraph:
 
     def _should_use_iot(self, state: GraphState) -> str:
         """
-        Conditional edge: decides whether to start IoT exploration.
+        Conditional edge: decide se iniziare l'esplorazione IoT.
 
         Args:
-            state: Current state of the graph
+            state: Stato corrente del grafo
 
         Returns:
-            "explore" if the agent decided to use IoT, "skip" otherwise
+            "explore" se l'agent ha deciso di usare IoT, "skip" altrimenti
         """
         should_explore = state.get("iot_should_explore", False)
 
@@ -1193,17 +1248,17 @@ class TripletExtractionGraph:
 
     def _should_continue_react(self, state: GraphState) -> str:
         """
-        Conditional edge: decides whether to continue the ReAct loop.
+        Conditional edge: decide se continuare il ReAct loop.
 
-        Checks:
-        - If the agent decided to continue (iot_should_explore)
-        - If max_iterations (5) has not been reached
+        Controlla:
+        - Se l'agent ha deciso di continuare (iot_should_explore)
+        - Se non abbiamo raggiunto max_iterations (5)
 
         Args:
-            state: Current state of the graph
+            state: Stato corrente del grafo
 
         Returns:
-            "continue" to continue the loop, "finish" to generate triplets
+            "continue" per continuare il loop, "finish" per generare triplette
         """
         iteration = state.get("iot_react_iteration", 0)
         should_explore = state.get("iot_should_explore", True)
@@ -1226,13 +1281,13 @@ class TripletExtractionGraph:
 
     def _should_validate(self, state: GraphState) -> str:
         """
-        Conditional edge: decides whether to start guardrail validation.
+        Conditional edge: decide se iniziare validazione guardrail.
 
         Args:
-            state: Current state of the graph
+            state: Stato corrente del grafo
 
         Returns:
-            "validate" to start validation, "skip" to skip
+            "validate" per avviare validazione, "skip" per saltare
         """
         should_validate = state.get("validation_should_run", False)
 
@@ -1251,17 +1306,17 @@ class TripletExtractionGraph:
 
     def _should_continue_validation(self, state: GraphState) -> str:
         """
-        Conditional edge: decides whether to continue the validation loop.
+        Conditional edge: decide se continuare il loop di validazione.
 
-        Checks:
-        - If the agent decided to continue (validation_should_run)
-        - If max_iterations (3) has not been reached
+        Controlla:
+        - Se l'agent ha deciso di continuare (validation_should_run)
+        - Se non abbiamo raggiunto max_iterations (3)
 
         Args:
-            state: Current state of the graph
+            state: Stato corrente del grafo
 
         Returns:
-            "continue" to iterate again, "finish" to terminate
+            "continue" per iterare ancora, "finish" per terminare
         """
         iteration = state.get("validation_iteration", 0)
         should_continue = state.get("validation_should_run", False)
@@ -1283,13 +1338,13 @@ class TripletExtractionGraph:
 
     def _finalize_node(self, state: GraphState) -> Dict[str, Any]:
         """
-        Node 6: Finalizes with validated triplets (if validation was performed).
+        Nodo 6: Finalizza con le triplette validate (se la validazione è stata eseguita).
 
         Args:
-            state: Current state of the graph
+            state: Stato corrente del grafo
 
         Returns:
-            State update with final triplets
+            Update dello stato con le triplette finali
         """
         # Se validazione eseguita, usa validated_triplets; altrimenti usa extracted + augmented
         validated = state.get("validated_triplets", [])
@@ -1327,14 +1382,14 @@ class TripletExtractionGraph:
         chunk_size: int = 1000
     ) -> Dict[str, Any]:
         """
-        Runs the triplet extraction graph.
+        Esegue il grafo di estrazione triplette.
 
         Args:
-            input_text: Text from which to extract triplets
-            chunk_size: Chunk size in characters
+            input_text: Testo da cui estrarre triplette
+            chunk_size: Dimensione dei chunk in caratteri
 
         Returns:
-            Final result with all extracted and augmented triplets
+            Risultato finale con tutte le triplette estratte e augmented
         """
         # Inizializza lo stato
         initial_state = {

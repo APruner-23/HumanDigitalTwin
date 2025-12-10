@@ -34,14 +34,14 @@ mcp_agent:
 
     **Examples of efficient queries:**
 
-    [BAD] "What's my average heart rate?" -> get_iot_recent_data -> parse all data
-    [GOOD] "What's my average heart rate?" -> list_devices -> aggregate_iot_field(field="heart_rate", operation="avg")
+    ❌ BAD: "What's my average heart rate?" → get_iot_recent_data → parse all data
+    ✅ GOOD: "What's my average heart rate?" → list_devices → aggregate_iot_field(field="heart_rate", operation="avg")
 
-    [BAD] "What's my current temperature?" -> get_iot_statistics -> extract latest
-    [GOOD] "What's my current temperature?" -> get_latest_value(field_name="temperature")
+    ❌ BAD: "What's my current temperature?" → get_iot_statistics → extract latest
+    ✅ GOOD: "What's my current temperature?" → get_latest_value(field_name="temperature")
 
-    [BAD] Get all data to find one value
-    [GOOD] Query only the specific field you need
+    ❌ BAD: Get all data to find one value
+    ✅ GOOD: Query only the specific field you need
 
     ## Response Guidelines
 
@@ -88,10 +88,10 @@ triplet_extraction_chunk:
 
     **Entity Type Guidelines:**
     - **People**: type = "Person" (e.g., Marco, Lucia, John)
-    - **Places/Locations**: type = "Place" (e.g., Lucia's house, Rome, park)
-    - **Things/Objects**: type = "Thing" (e.g., beer, book, computer)
+    - **Places/Locations**: type = "Place" (e.g., casa di Lucia, Roma, park)
+    - **Things/Objects**: type = "Thing" (e.g., birra, libro, computer)
     - **Events/Activities**: type = "Event" (e.g., party, meeting, game session)
-    - **Time**: type = "DateTime" (e.g., "2024-01-01", "today", "evening")
+    - **Time**: type = "DateTime" (e.g., "2024-01-01", "oggi", "sera")
     - **Numbers**: type = "Number" (e.g., 30, 5.5, 100)
     - **Concepts**: type = "Concept" (e.g., love, friendship, happiness)
 
@@ -100,8 +100,8 @@ triplet_extraction_chunk:
     - Use English camelCase format (e.g., "playsGame", "goesTo", "drinks")
 
     Examples:
-    - {{"subject": {{"value": "Luca", "type": "Person"}}, "predicate": {{"value": "goesTo", "type": "Relationship"}}, "object": {{"value": "Lucia's house", "type": "Place"}}}}
-    - {{"subject": {{"value": "Luca", "type": "Person"}}, "predicate": {{"value": "drinks", "type": "Relationship"}}, "object": {{"value": "beer", "type": "Thing"}}}}
+    - {{"subject": {{"value": "Luca", "type": "Person"}}, "predicate": {{"value": "goesTo", "type": "Relationship"}}, "object": {{"value": "casa di Lucia", "type": "Place"}}}}
+    - {{"subject": {{"value": "Luca", "type": "Person"}}, "predicate": {{"value": "drinks", "type": "Relationship"}}, "object": {{"value": "birra", "type": "Thing"}}}}
   user_template: |
     Extract the most important RDF triplets from the following text.
     {context}
@@ -141,8 +141,8 @@ text_augmentation:
     6. **Verify and correct entity types** (Person, Place, Thing, Event, DateTime, Number, Concept)
 
     Examples of augmentation:
-    - If "Luca goesTo Lucia's house" -> add {{"subject": {{"value": "Lucia's house", "type": "Place"}}, "predicate": {{"value": "hasOwner", "type": "Relationship"}}, "object": {{"value": "Lucia", "type": "Person"}}}}
-    - If "Luca playsGame D&D" and "Lucia playsGame D&D" -> add {{"subject": {{"value": "Luca", "type": "Person"}}, "predicate": {{"value": "isWith", "type": "Relationship"}}, "object": {{"value": "Lucia", "type": "Person"}}}}
+    - If "Luca goesTo casa di Lucia" → add {{"subject": {{"value": "casa di Lucia", "type": "Place"}}, "predicate": {{"value": "hasOwner", "type": "Relationship"}}, "object": {{"value": "Lucia", "type": "Person"}}}}
+    - If "Luca playsGame D&D" and "Lucia playsGame D&D" → add {{"subject": {{"value": "Luca", "type": "Person"}}, "predicate": {{"value": "isWith", "type": "Relationship"}}, "object": {{"value": "Lucia", "type": "Person"}}}}
   user_template: |
     Review and augment the following extracted triplets.
 
@@ -161,11 +161,11 @@ iot_decide:
     Analyze the triplets and determine if IoT data from sensors (smartwatches, environmental sensors, location trackers, etc.) could enrich them.
 
     **Decision Criteria:**
-    - Activities mentioned (playing, drinking, exercising) -> IoT data USEFUL
-    - People's names mentioned -> Health metrics could be relevant
-    - Locations mentioned -> Environmental data could be relevant
-    - Abstract concepts only -> IoT data NOT USEFUL
-    - Time-sensitive events -> Timestamps and activity data USEFUL
+    - Activities mentioned (playing, drinking, exercising) → IoT data USEFUL
+    - People's names mentioned → Health metrics could be relevant
+    - Locations mentioned → Environmental data could be relevant
+    - Abstract concepts only → IoT data NOT USEFUL
+    - Time-sensitive events → Timestamps and activity data USEFUL
 
     **Response Format:**
     Answer with "YES" or "NO" followed by a brief explanation (1-2 sentences).
@@ -188,31 +188,31 @@ iot_react_iteration:
     Progressively explore IoT sensors to find relevant data for the knowledge graph.
 
     **ReAct Pattern (IMPORTANT):**
-    1. THINK:
+    1. 🤔 THINK:
        - What IoT data would be most relevant?
        - Have I already collected useful data?
        - Should I explore more or stop?
 
-    2. ACT:
+    2. 🔧 ACT:
        - Call ONE MCP tool to retrieve data
        - Start with list_devices if you don't know what's available
        - Then use get_latest_value or query_iot_field for specific devices
 
-    3. OBSERVE:
+    3. 👁️ OBSERVE:
        - Examine the tool result
        - Is this data useful for the triplets?
        - Do I need more data or can I stop?
 
-    4. DECIDE:
+    4. 🔁 DECIDE:
        - If data is useful AND you need more: CALL ANOTHER TOOL
        - If you have enough data: STOP (don't call any tool, just respond with your thinking)
        - If no relevant data found after exploring: STOP
 
     **Available MCP Tools:**
-    - list_devices() -> Get all available IoT devices
-    - get_latest_value(device_id, field_name) -> Get current sensor reading
-    - query_iot_field(device_id, field_name, start_time, end_time) -> Get historical data
-    - aggregate_iot_field(device_id, field_name, aggregation, start_time, end_time) -> Get statistics
+    - list_devices() → Get all available IoT devices
+    - get_latest_value(device_id, field_name) → Get current sensor reading
+    - query_iot_field(device_id, field_name, start_time, end_time) → Get historical data
+    - aggregate_iot_field(device_id, field_name, aggregation, start_time, end_time) → Get statistics
 
     **IMPORTANT:**
     - Call AT MOST ONE tool per iteration
@@ -230,7 +230,7 @@ iot_react_iteration:
     - Call ONE tool to get more data, OR
     - Decide you have enough (or no relevant data exists) and explain why
 
-    Follow the ReAct pattern: THINK -> ACT (or STOP)
+    Follow the ReAct pattern: THINK → ACT (or STOP)
 
 validation_decide:
   system: |
@@ -240,14 +240,14 @@ validation_decide:
     Analyze extracted triplets and determine if they require consistency checking, error correction, or refinement.
 
     **Decision Criteria (VALIDATE if ANY of these apply):**
-    - Large number of triplets (>15) -> high risk of inconsistencies
-    - Complex entities with multiple relationships -> risk of conflicts
+    - Large number of triplets (>15) → high risk of inconsistencies
+    - Complex entities with multiple relationships → risk of conflicts
     - Potential semantic errors or contradictions visible
     - Redundant or duplicate relationships
     - Ambiguous predicates that need clarification
 
     **Decision Criteria (SKIP if ALL of these apply):**
-    - Very few triplets (<5) -> low risk
+    - Very few triplets (<5) → low risk
     - Simple, straightforward relationships
     - High confidence in extraction quality
 
@@ -340,33 +340,6 @@ iot_augmentation:
 
     Return in JSON format: {{"triplets": [{{"subject": "...", "predicate": "...", "object": "..."}}]}}
 
-iot_generate_triplets:
-  system: |
-    You are an expert in integrating IoT data into Knowledge Graphs.
-  user_template: |
-    Based on the IoT data collected, generate NEW triplets that connect the entities to sensor data.
-
-    Original Triplets:
-    {triplets}
-
-    IoT Data Collected:
-    {data_collected}
-
-    Generate triplets using predicates like:
-    - hasHeartRate, hasTemperature, hasLocation
-    - measuredAt, recordedAt, detectedActivity
-    - associatedWith, relatedTo
-
-    **IMPORTANT**: Each entity MUST have both "value" and "type" fields.
-    - People/devices: type = "Person" or "Thing"
-    - Sensor values: type = "Number" or "Thing"
-    - Timestamps: type = "DateTime"
-    - Locations: type = "Place"
-    - All predicates: type = "Relationship"
-
-    Return ONLY valid triplets in JSON format:
-    {{"triplets": [{{"subject": {{"value": "...", "type": "..."}}, "predicate": {{"value": "...", "type": "Relationship"}}, "object": {{"value": "...", "type": "..."}}}}]}}
-
 iot_data_processing:
   system: |
     You are an assistant specialized in analyzing IoT data from wearable devices and environmental sensors.
@@ -384,3 +357,112 @@ general_query:
     Answer the user's questions clearly, accurately, and helpfully.
   user_template: |
     {query}
+
+kg_topic_classification:
+  system: |
+    You are a knowledge graph topic classifier for the Human Digital Twin system.
+
+    **Your Task:**
+    Classify RDF triplets into a hierarchical topic structure to organize the knowledge graph.
+
+    **Classification Structure (2 levels):**
+    1. **broader_topic**: A broad, reusable category (e.g., "Health", "Finance", "Social", "Work", "Hobbies")
+    2. **narrower_topic**: A specific subcategory under the broader topic (e.g., "Vital Signs", "Expenses", "Friendships", "Projects", "Walking")
+
+    **Broader Topic Examples:**
+    - Health: Medical data, fitness, vital signs, wellness
+    - Finance: Money, expenses, income, accounts
+    - Social: Relationships, friends, family, interactions
+    - Work: Employment, projects, colleagues, workplace
+    - Hobbies: Leisure activities, sports, games, entertainment
+    - Home: Residence, household, living space
+    - Transport: Travel, commute, vehicles
+    - Food: Meals, restaurants, cooking, nutrition
+    - Education: Learning, courses, skills, training
+
+    **Classification Rules:**
+    - Use clear, concise names (1-3 words)
+    - broader_topic should be general enough to group multiple narrower topics
+    - narrower_topic should be specific to the type of information in the triplet
+    - Keep names consistent across similar triplets
+    - Use English naming
+
+    **Response Format (JSON):**
+    {{
+      "broader_topic": "...",
+      "narrower_topic": "...",
+      "reasoning": "Brief explanation (1 sentence)"
+    }}
+
+    **Examples:**
+    - Triplet: ("John", "has_friend", "Mary") → broader="Social", narrower="Friendships", reasoning="Describes a social relationship between two people"
+    - Triplet: ("User", "heart_rate", "72 bpm") → broader="Health", narrower="Vital Signs", reasoning="Represents health monitoring data"
+    - Triplet: ("Account", "balance", "$1500") → broader="Finance", narrower="Bank Accounts", reasoning="Financial account information"
+    - Triplet: ("Laura", "goes_to", "work") → broader="Work", narrower="Workplace", reasoning="Work-related activity and location"
+    - Triplet: ("Marco", "plays", "D&D") → broader="Hobbies", narrower="Games", reasoning="Leisure gaming activity"
+  user_template: |
+    Classify this triplet into broader and narrower topics:
+
+    **Triplet:**
+    - Subject: {subject}
+    - Predicate: {predicate}
+    - Object: {object}
+
+    Return the classification in JSON format:
+    {{
+      "broader_topic": "...",
+      "narrower_topic": "...",
+      "reasoning": "..."
+    }}
+
+# ==================== KNOWLEDGE GRAPH TOPIC MATCHING ====================
+kg_topic_matching:
+  system_template: |
+    You are an expert in semantic similarity and topic matching for a Knowledge Graph.
+
+    **Task:** Given a new topic and a list of existing topics, determine if the new topic semantically matches (or should be merged with) any of the existing topics.
+
+    **Matching Criteria:**
+    - **Exact match:** Same concept, different wording (e.g., "Health" vs "Wellness", "Finance" vs "Money")
+    - **Synonym match:** Synonyms or very close meaning (e.g., "Friends" vs "Friendships", "Work" vs "Employment")
+    - **Subset match:** New topic is a subset of existing (e.g., "Cardio" should match "Exercise")
+    - **Hierarchical match:** Topics at the same level of abstraction that cover the same domain
+
+    **When NOT to match:**
+    - Topics are related but at different levels of specificity (e.g., "Health" vs "Heart Rate")
+    - Topics are in the same domain but represent different aspects (e.g., "Expenses" vs "Income")
+    - Topics have overlapping but distinct meanings (e.g., "Work" vs "Projects")
+
+    **Response Format (JSON):**
+    {{
+      "match_found": true,
+      "matched_topic": "name of the existing topic that matches (empty string if no match)",
+      "reasoning": "Brief explanation of why it matches or doesn't match (1-2 sentences)"
+    }}
+
+    **IMPORTANT:** `match_found` must be a JSON boolean (true or false), NOT a string!
+    - Correct: "match_found": true
+    - Wrong: "match_found": "true"
+
+    **Examples:**
+    - New: "Wellness", Existing: ["Health", "Finance"] → match_found=true, matched_topic="Health", reasoning="Wellness and Health are synonyms covering the same domain"
+    - New: "Money", Existing: ["Finance", "Social"] → match_found=true, matched_topic="Finance", reasoning="Money is a core aspect of Finance, they should be merged"
+    - New: "Heart Rate", Existing: ["Health", "Finance"] → match_found=false, matched_topic="", reasoning="Heart Rate is too specific to match the broader 'Health' category"
+    - New: "Work Projects", Existing: ["Work", "Hobbies"] → match_found=true, matched_topic="Work", reasoning="Work Projects is clearly a subset of the Work domain"
+  user_template: |
+    Determine if this new {topic_type} topic matches any existing topics:
+
+    **New Topic:** {new_topic}
+
+    **Existing Topics:** {existing_topics}
+
+    Should the new topic be merged with an existing one?
+
+    Return ONLY valid JSON (no markdown, no code blocks). Use boolean type for match_found:
+    {{
+      "match_found": true,
+      "matched_topic": "...",
+      "reasoning": "..."
+    }}
+
+    Remember: match_found must be true or false (boolean), not "true" or "false" (string).

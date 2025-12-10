@@ -7,37 +7,39 @@ from collections import defaultdict
 
 
 class MCPServer:
-    """MCP Server to expose APIs that inject information into the model."""
+    """Server MCP per esporre API che iniettano informazioni al modello."""
 
-    def __init__(self, host: str = "localhost", port: int = 8000):
+    def __init__(self, host: str = "localhost", port: int = 8000, kg_storage=None):
         """
-        Initialize the MCP server.
+        Inizializza il server MCP.
 
         Args:
-            host: Host to run the server on
-            port: Port to run the server on
+            host: Host su cui far girare il server
+            port: Porta su cui far girare il server
+            kg_storage: Istanza del Knowledge Graph storage (Neo4jKnowledgeGraph o InMemoryKnowledgeGraph)
         """
         self.host = host
         self.port = port
+        self.kg_storage = kg_storage
         self.app = FastAPI(
             title="MCP Server - Human Digital Twin",
             description="API per l'interazione autonoma con il modello LLM",
             version="1.0.0"
         )
 
-        # In-memory storage for IoT data and context
+        # Storage in-memory per dati IoT e contesto
         self.iot_data_store: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
         self.external_data_store: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
 
-        # Setup routes
+        # Setup delle routes
         self._setup_routes()
 
     def _setup_routes(self) -> None:
-        """Configures the API routes."""
+        """Configura le routes dell'API."""
 
         @self.app.get("/")
         async def root():
-            """Test endpoint."""
+            """Endpoint di test."""
             return {"status": "ok", "message": "MCP Server is running"}
 
         @self.app.get("/health")
@@ -48,15 +50,15 @@ class MCPServer:
         @self.app.post("/api/iot/data")
         async def receive_iot_data(data: IoTDataModel):
             """
-            Receives IoT data from devices.
+            Riceve dati IoT dai dispositivi.
 
             Args:
-                data: IoT data in JSON format
+                data: Dati IoT in formato JSON
 
             Returns:
-                Reception confirmation with ID
+                Conferma di ricezione con ID
             """
-            # Save data to in-memory storage
+            # Salva i dati nello storage in-memory
             device_id = data.device_id
             data_dict = {
                 "device_type": data.device_type,
@@ -77,18 +79,18 @@ class MCPServer:
 
         @self.app.get("/api/iot/recent")
         async def get_recent_iot_data(
-            device_id: str = Query(..., description="Device ID"),
-            limit: int = Query(10, description="Max number of records to return")
+            device_id: str = Query(..., description="ID del dispositivo"),
+            limit: int = Query(10, description="Numero massimo di record da restituire")
         ):
             """
-            Retrieves the most recent IoT data for a device.
+            Recupera i dati IoT più recenti di un dispositivo.
 
             Args:
-                device_id: Device ID
-                limit: Max number of records
+                device_id: ID del dispositivo
+                limit: Numero massimo di record
 
             Returns:
-                List of recent IoT data
+                Lista di dati IoT recenti
             """
             if device_id not in self.iot_data_store:
                 return {
@@ -97,7 +99,7 @@ class MCPServer:
                     "message": "Nessun dato disponibile per questo dispositivo"
                 }
 
-            # Retrieve last N records
+            # Recupera gli ultimi N record
             recent_data = self.iot_data_store[device_id][-limit:]
 
             return {
@@ -108,26 +110,26 @@ class MCPServer:
 
         @self.app.get("/api/iot/stats")
         async def get_iot_stats(
-            device_id: str = Query(..., description="Device ID")
+            device_id: str = Query(..., description="ID del dispositivo")
         ):
             """
-            Calculates aggregate statistics on IoT data for a device.
+            Calcola statistiche aggregate sui dati IoT di un dispositivo.
 
             Args:
-                device_id: Device ID
+                device_id: ID del dispositivo
 
             Returns:
-                Aggregate statistics
+                Statistiche aggregate
             """
             if device_id not in self.iot_data_store:
-                raise HTTPException(404, f"Device {device_id} not found")
+                raise HTTPException(404, f"Dispositivo {device_id} non trovato")
 
             data_list = self.iot_data_store[device_id]
 
             if not data_list:
-                return {"device_id": device_id, "stats": {}, "message": "No data"}
+                return {"device_id": device_id, "stats": {}, "message": "Nessun dato"}
 
-            # Calculate base statistics
+            # Calcola statistiche base
             stats = {
                 "total_records": len(data_list),
                 "first_timestamp": data_list[0]["timestamp"],
@@ -135,7 +137,7 @@ class MCPServer:
                 "device_type": data_list[0]["device_type"]
             }
 
-            # Calculate averages for numeric fields
+            # Calcola medie per campi numerici
             numeric_fields = {}
             for record in data_list:
                 for key, value in record["data"].items():
@@ -163,15 +165,15 @@ class MCPServer:
         @self.app.post("/api/external/gmail")
         async def receive_gmail_data(data: ExternalDataModel):
             """
-            Receives data from Gmail or other external services.
+            Riceve dati da Gmail o altri servizi esterni.
 
             Args:
-                data: External data in JSON format
+                data: Dati esterni in formato JSON
 
             Returns:
-                Reception confirmation
+                Conferma di ricezione
             """
-            # Save external data
+            # Salva i dati esterni
             source = data.source
             data_dict = {
                 "source": source,
@@ -230,10 +232,10 @@ class MCPServer:
         @self.app.get("/api/devices")
         async def list_devices():
             """
-            Lists all registered IoT devices.
+            Elenca tutti i dispositivi IoT registrati.
 
             Returns:
-                List of device_ids with basic info
+                Lista di device_id con informazioni base
             """
             devices = []
             for device_id, data_list in self.iot_data_store.items():
@@ -424,12 +426,324 @@ class MCPServer:
                 "sample_size": len(values)
             }
 
+        # ==================== KNOWLEDGE GRAPH ENDPOINTS ====================
+
+        @self.app.get("/api/kg/profile")
+        async def get_kg_profile():
+            """
+            Mostra quale profilo Person sta usando il server.
+
+            Returns:
+                Info sul profilo corrente
+            """
+            if not self.kg_storage:
+                raise HTTPException(503, "Knowledge Graph storage not configured")
+
+            if hasattr(self.kg_storage, 'person_id'):
+                return {
+                    "person_id": self.kg_storage.person_id,
+                    "person_name": getattr(self.kg_storage, 'person_name', 'Unknown'),
+                    "storage_type": "Neo4j" if hasattr(self.kg_storage, 'driver') else "InMemory"
+                }
+            else:
+                return {
+                    "person_id": None,
+                    "person_name": None,
+                    "storage_type": "InMemory"
+                }
+
+        @self.app.get("/api/kg/topics")
+        async def get_kg_topics():
+            """
+            Recupera tutti i topic (broader e narrower) dal Knowledge Graph.
+
+            Returns:
+                Dict con {broader_topic: [narrower_topic1, ...]}
+            """
+            if not self.kg_storage:
+                raise HTTPException(503, "Knowledge Graph storage not configured")
+
+            try:
+                topics = self.kg_storage.get_all_topics()
+                return {
+                    "topics": topics,
+                    "count": {
+                        "broader_topics": len(topics),
+                        "narrower_topics": sum(len(narrowers) for narrowers in topics.values())
+                    }
+                }
+            except Exception as e:
+                raise HTTPException(500, f"Error retrieving topics: {str(e)}")
+
+        @self.app.get("/api/kg/stats")
+        async def get_kg_stats():
+            """
+            Recupera statistiche sul Knowledge Graph.
+
+            Returns:
+                Statistiche sul KG (numero di broader/narrower topics, triplette)
+            """
+            if not self.kg_storage:
+                raise HTTPException(503, "Knowledge Graph storage not configured")
+
+            try:
+                stats = self.kg_storage.get_stats()
+                return {"stats": stats}
+            except Exception as e:
+                raise HTTPException(500, f"Error retrieving stats: {str(e)}")
+
+        @self.app.get("/api/kg/query/topic")
+        async def query_by_topic(
+            broader_topic: Optional[str] = Query(None, description="Broader topic da filtrare"),
+            narrower_topic: Optional[str] = Query(None, description="Narrower topic da filtrare")
+        ):
+            """
+            Interroga il Knowledge Graph per topic specifici.
+
+            Args:
+                broader_topic: Filtra per broader topic (opzionale)
+                narrower_topic: Filtra per narrower topic (opzionale)
+
+            Returns:
+                Relazioni e informazioni filtrate per topic
+            """
+            if not self.kg_storage:
+                raise HTTPException(503, "Knowledge Graph storage not configured")
+
+            try:
+                # Se Neo4j, fai query Cypher
+                if hasattr(self.kg_storage, 'driver'):
+                    return self._query_neo4j_by_topic(broader_topic, narrower_topic)
+                else:
+                    # InMemory storage
+                    return self._query_inmemory_by_topic(broader_topic, narrower_topic)
+            except Exception as e:
+                raise HTTPException(500, f"Error querying by topic: {str(e)}")
+
+        @self.app.get("/api/kg/query/entity")
+        async def query_by_entity(
+            entity_name: str = Query(..., description="Nome dell'entità da cercare"),
+            relationship_type: Optional[str] = Query(None, description="Tipo di relazione (opzionale)")
+        ):
+            """
+            Cerca informazioni su un'entità specifica nel Knowledge Graph.
+
+            Args:
+                entity_name: Nome dell'entità (es. "Mario", "Milano", "Pizza")
+                relationship_type: Tipo di relazione opzionale per filtrare
+
+            Returns:
+                Tutte le relazioni che coinvolgono l'entità
+            """
+            if not self.kg_storage:
+                raise HTTPException(503, "Knowledge Graph storage not configured")
+
+            try:
+                # Se Neo4j, fai query Cypher
+                if hasattr(self.kg_storage, 'driver'):
+                    return self._query_neo4j_by_entity(entity_name, relationship_type)
+                else:
+                    raise HTTPException(501, "Entity search not implemented for in-memory storage")
+            except Exception as e:
+                raise HTTPException(500, f"Error querying by entity: {str(e)}")
+
+        @self.app.get("/api/kg/search")
+        async def search_kg(
+            query: str = Query(..., description="Testo libero da cercare nel KG"),
+            limit: int = Query(10, description="Numero massimo di risultati")
+        ):
+            """
+            Ricerca full-text nel Knowledge Graph.
+
+            Args:
+                query: Testo da cercare
+                limit: Numero massimo di risultati
+
+            Returns:
+                Risultati della ricerca con rilevanza
+            """
+            if not self.kg_storage:
+                raise HTTPException(503, "Knowledge Graph storage not configured")
+
+            try:
+                # Se Neo4j, fai query con CONTAINS
+                if hasattr(self.kg_storage, 'driver'):
+                    return self._search_neo4j(query, limit)
+                else:
+                    raise HTTPException(501, "Search not implemented for in-memory storage")
+            except Exception as e:
+                raise HTTPException(500, f"Error searching KG: {str(e)}")
+
+    def _query_neo4j_by_topic(self, broader_topic: Optional[str], narrower_topic: Optional[str]) -> Dict[str, Any]:
+        """Query Neo4j per topic."""
+        with self.kg_storage.driver.session(database=self.kg_storage.database) as session:
+            if broader_topic and narrower_topic:
+                # Filtra per entrambi
+                result = session.run("""
+                    MATCH (person:Person {id: $person_id})-[:KNOWS]->(subj)-[r]->(obj)
+                    WHERE r.person_id = $person_id
+                      AND r.broader_topic = $broader
+                      AND r.narrower_topic = $narrower
+                    RETURN
+                        labels(subj)[0] AS subject_type,
+                        subj.name AS subject,
+                        type(r) AS predicate,
+                        labels(obj)[0] AS object_type,
+                        obj.name AS object,
+                        r.broader_topic AS broader_topic,
+                        r.narrower_topic AS narrower_topic,
+                        r.reasoning AS reasoning
+                    LIMIT 50
+                """, person_id=self.kg_storage.person_id, broader=broader_topic, narrower=narrower_topic)
+            elif broader_topic:
+                # Solo broader
+                result = session.run("""
+                    MATCH (person:Person {id: $person_id})-[:KNOWS]->(subj)-[r]->(obj)
+                    WHERE r.person_id = $person_id AND r.broader_topic = $broader
+                    RETURN
+                        labels(subj)[0] AS subject_type,
+                        subj.name AS subject,
+                        type(r) AS predicate,
+                        labels(obj)[0] AS object_type,
+                        obj.name AS object,
+                        r.broader_topic AS broader_topic,
+                        r.narrower_topic AS narrower_topic,
+                        r.reasoning AS reasoning
+                    LIMIT 50
+                """, person_id=self.kg_storage.person_id, broader=broader_topic)
+            else:
+                # Tutti i topic
+                result = session.run("""
+                    MATCH (person:Person {id: $person_id})-[:KNOWS]->(subj)-[r]->(obj)
+                    WHERE r.person_id = $person_id
+                    RETURN
+                        labels(subj)[0] AS subject_type,
+                        subj.name AS subject,
+                        type(r) AS predicate,
+                        labels(obj)[0] AS object_type,
+                        obj.name AS object,
+                        r.broader_topic AS broader_topic,
+                        r.narrower_topic AS narrower_topic,
+                        r.reasoning AS reasoning
+                    LIMIT 50
+                """, person_id=self.kg_storage.person_id)
+
+            relationships = [dict(record) for record in result]
+            return {
+                "count": len(relationships),
+                "relationships": relationships,
+                "filters": {
+                    "broader_topic": broader_topic,
+                    "narrower_topic": narrower_topic
+                }
+            }
+
+    def _query_inmemory_by_topic(self, broader_topic: Optional[str], narrower_topic: Optional[str]) -> Dict[str, Any]:
+        """Query in-memory storage per topic."""
+        all_topics = self.kg_storage.get_all_topics()
+
+        if broader_topic and narrower_topic:
+            if broader_topic in all_topics and narrower_topic in all_topics[broader_topic]:
+                return {
+                    "broader_topic": broader_topic,
+                    "narrower_topics": [narrower_topic]
+                }
+        elif broader_topic:
+            if broader_topic in all_topics:
+                return {
+                    "broader_topic": broader_topic,
+                    "narrower_topics": all_topics[broader_topic]
+                }
+        else:
+            return {"topics": all_topics}
+
+        return {"message": "No matching topics found"}
+
+    def _query_neo4j_by_entity(self, entity_name: str, relationship_type: Optional[str]) -> Dict[str, Any]:
+        """Query Neo4j per entità."""
+        with self.kg_storage.driver.session(database=self.kg_storage.database) as session:
+            if relationship_type:
+                # Con tipo di relazione
+                query = f"""
+                    MATCH (person:Person {{id: $person_id}})-[:KNOWS]->(subj)-[r:{relationship_type}]->(obj)
+                    WHERE r.person_id = $person_id
+                      AND (subj.name CONTAINS $entity OR obj.name CONTAINS $entity)
+                    RETURN
+                        labels(subj)[0] AS subject_type,
+                        subj.name AS subject,
+                        type(r) AS predicate,
+                        labels(obj)[0] AS object_type,
+                        obj.name AS object,
+                        r.broader_topic AS broader_topic,
+                        r.narrower_topic AS narrower_topic,
+                        r.reasoning AS reasoning
+                    LIMIT 20
+                """
+            else:
+                # Tutte le relazioni
+                query = """
+                    MATCH (person:Person {id: $person_id})-[:KNOWS]->(subj)-[r]->(obj)
+                    WHERE r.person_id = $person_id
+                      AND (subj.name CONTAINS $entity OR obj.name CONTAINS $entity)
+                    RETURN
+                        labels(subj)[0] AS subject_type,
+                        subj.name AS subject,
+                        type(r) AS predicate,
+                        labels(obj)[0] AS object_type,
+                        obj.name AS object,
+                        r.broader_topic AS broader_topic,
+                        r.narrower_topic AS narrower_topic,
+                        r.reasoning AS reasoning
+                    LIMIT 20
+                """
+
+            result = session.run(query, person_id=self.kg_storage.person_id, entity=entity_name)
+            relationships = [dict(record) for record in result]
+
+            return {
+                "entity": entity_name,
+                "count": len(relationships),
+                "relationships": relationships
+            }
+
+    def _search_neo4j(self, query: str, limit: int) -> Dict[str, Any]:
+        """Ricerca full-text in Neo4j."""
+        with self.kg_storage.driver.session(database=self.kg_storage.database) as session:
+            result = session.run("""
+                MATCH (person:Person {id: $person_id})-[:KNOWS]->(subj)-[r]->(obj)
+                WHERE r.person_id = $person_id
+                  AND (
+                    subj.name CONTAINS $query
+                    OR obj.name CONTAINS $query
+                    OR r.broader_topic CONTAINS $query
+                    OR r.narrower_topic CONTAINS $query
+                  )
+                RETURN
+                    labels(subj)[0] AS subject_type,
+                    subj.name AS subject,
+                    type(r) AS predicate,
+                    labels(obj)[0] AS object_type,
+                    obj.name AS object,
+                    r.broader_topic AS broader_topic,
+                    r.narrower_topic AS narrower_topic,
+                    r.reasoning AS reasoning
+                LIMIT $limit
+            """, person_id=self.kg_storage.person_id, query=query, limit=limit)
+
+            relationships = [dict(record) for record in result]
+
+            return {
+                "query": query,
+                "count": len(relationships),
+                "relationships": relationships
+            }
+
     def run(self, debug: bool = False) -> None:
         """
-        Starts the MCP server.
+        Avvia il server MCP.
 
         Args:
-            debug: If True, enables debug mode
+            debug: Se True, abilita il modo debug
         """
         uvicorn.run(
             self.app,
@@ -440,18 +754,18 @@ class MCPServer:
 
     def get_app(self) -> FastAPI:
         """
-        Returns the FastAPI app for testing or deployment.
+        Restituisce l'app FastAPI per testing o deployment.
 
         Returns:
-            The FastAPI instance
+            L'istanza FastAPI
         """
         return self.app
 
 
-# Pydantic models for data validation
+# Modelli Pydantic per la validazione dei dati
 
 class IoTDataModel(BaseModel):
-    """Model for IoT data."""
+    """Modello per i dati IoT."""
     device_type: str
     device_id: str
     timestamp: str
@@ -460,7 +774,7 @@ class IoTDataModel(BaseModel):
 
 
 class ExternalDataModel(BaseModel):
-    """Model for external service data."""
+    """Modello per i dati da servizi esterni."""
     source: str  # gmail, calendar, etc.
     data_id: str
     timestamp: str

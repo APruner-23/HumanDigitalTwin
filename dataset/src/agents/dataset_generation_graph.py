@@ -26,10 +26,10 @@ class Scene(BaseModel):
 
 class DeviceData(BaseModel):
     """Device sensor data for a scene."""
-    smartwatch: Dict[str, Any] = Field(default_factory=dict, description="Smartwatch data")
-    gps: Dict[str, Any] = Field(default_factory=dict, description="GPS data")
+    smartwatch: Any = Field(default_factory=list, description="Smartwatch timestamped readings (array) or dict")
+    gps: Any = Field(default_factory=list, description="GPS trajectory waypoints (array) or dict")
     smartphone: Dict[str, Any] = Field(default_factory=dict, description="Smartphone data")
-    smartring: Dict[str, Any] = Field(default_factory=dict, description="Smartring data")
+    smartring: Any = Field(default_factory=list, description="Smartring timestamped readings (array) or dict")
     smart_home: Dict[str, Any] = Field(default_factory=dict, description="Smart home sensors data")
 
 
@@ -79,6 +79,22 @@ class Deficiencies(BaseModel):
     digital_behavior: DeficiencyStatus
 
 
+class Query(BaseModel):
+    """A single evaluation query."""
+    id: str = Field(description="Query ID (Q1, Q2, etc.)")
+    category: str = Field(description="temporal/cross_modal/deduplication/hallucination/semantic_consistency")
+    type: str = Field(description="exact/binary/multiple_choice")
+    question: str = Field(description="The question text")
+    options: Dict[str, str] = Field(default_factory=dict, description="Options for multiple choice (A/B/C/D)")
+    answer: str = Field(description="The correct answer")
+    rationale: str = Field(description="Explanation of how answer derives from data")
+
+
+class Queries(BaseModel):
+    """Collection of 8 evaluation queries for a scene."""
+    queries: List[Query] = Field(description="List of 8 queries")
+
+
 # ===== Graph State =====
 
 class GraphState(TypedDict):
@@ -94,6 +110,7 @@ class GraphState(TypedDict):
     - calendar_events: List of calendar events for each scene
     - messages: List of messages for each scene
     - deficiencies: List of deficiency analyses for each scene
+    - queries: List of evaluation queries for each scene
     - final_dataset: Compiled final dataset with all data merged into scenes
     - error: Error message if any
     """
@@ -105,6 +122,7 @@ class GraphState(TypedDict):
     calendar_events: Annotated[List[Dict[str, Any]], operator.add]
     messages: Annotated[List[Dict[str, Any]], operator.add]
     deficiencies: Annotated[List[Dict[str, Any]], operator.add]
+    queries: Annotated[List[Dict[str, Any]], operator.add]
     final_dataset: Dict[str, Any]
     error: str
 
@@ -119,7 +137,8 @@ class DatasetGenerationGraph:
     3. calendar_generation - Generate calendar events
     4. messaging_generation - Generate messaging app data
     5. deficiency_detection - Detect health deficiencies using tools
-    6. finalize - Compile final dataset
+    6. query_generation - Generate 8 evaluation queries per scene
+    7. finalize - Compile final dataset
     """
 
     def __init__(
@@ -178,6 +197,7 @@ class DatasetGenerationGraph:
         workflow.add_node("calendar_generation", self._calendar_generation_node)
         workflow.add_node("messaging_generation", self._messaging_generation_node)
         workflow.add_node("deficiency_detection", self._deficiency_detection_node)
+        workflow.add_node("query_generation", self._query_generation_node)
         workflow.add_node("finalize", self._finalize_node)
 
         # Set entry point
@@ -197,7 +217,8 @@ class DatasetGenerationGraph:
         workflow.add_edge("device_data_generation", "calendar_generation")
         workflow.add_edge("calendar_generation", "messaging_generation")
         workflow.add_edge("messaging_generation", "deficiency_detection")
-        workflow.add_edge("deficiency_detection", "finalize")
+        workflow.add_edge("deficiency_detection", "query_generation")
+        workflow.add_edge("query_generation", "finalize")
         workflow.add_edge("finalize", END)
 
         return workflow.compile()
@@ -644,9 +665,89 @@ class DatasetGenerationGraph:
 
         return {"deficiencies": all_deficiencies}
 
+    def _query_generation_node(self, state: GraphState) -> Dict[str, Any]:
+        """
+        Node 6: Generate evaluation queries for each scene.
+
+        Args:
+            state: Current graph state
+
+        Returns:
+            Updated state with queries
+        """
+        scenes = state["scenes"]
+        device_data_list = state["device_data"]
+        calendar_events_list = state["calendar_events"]
+        messages_list = state["messages"]
+
+        if self.enable_logging:
+            print(f"\n[QUERY GENERATION] Generating 8 evaluation queries for {len(scenes)} scenes")
+
+        all_queries = []
+
+        for scene in scenes:
+            scene_id = scene['scene_id']
+
+            # Find corresponding data
+            device_data = next((d for d in device_data_list if d.get('scene_id') == scene_id), {})
+            calendar_events = next((c for c in calendar_events_list if c.get('scene_id') == scene_id), {})
+            messages = next((m for m in messages_list if m.get('scene_id') == scene_id), {})
+
+            # Build messages
+            prompt_messages = self.prompt_manager.build_messages(
+                'query_generation',
+                scene_description=scene['description'],
+                device_data=json.dumps(device_data, indent=2),
+                calendar_events=json.dumps(calendar_events.get('events', []), indent=2),
+                messages=json.dumps(messages.get('messages', []), indent=2),
+                day=scene['day'],
+                time=scene['time']
+            )
+
+            # Convert to Langchain format
+            lc_messages = []
+            for msg in prompt_messages:
+                if msg['role'] == 'system':
+                    lc_messages.append(SystemMessage(content=msg['content']))
+                else:
+                    lc_messages.append(HumanMessage(content=msg['content']))
+
+            try:
+                # Use structured output
+                llm_with_structure = self.llm.with_structured_output(Queries, method="json_mode")
+                queries_data = llm_with_structure.invoke(lc_messages)
+
+                queries_dict = {
+                    "scene_id": scene_id,
+                    "queries": [
+                        {
+                            "id": q.id,
+                            "category": q.category,
+                            "type": q.type,
+                            "question": q.question,
+                            "options": q.options if q.options else {},
+                            "answer": q.answer,
+                            "rationale": q.rationale
+                        }
+                        for q in queries_data.queries
+                    ]
+                }
+
+                all_queries.append(queries_dict)
+
+                if self.enable_logging:
+                    print(f"[QUERIES] Scene {scene_id}: {len(queries_data.queries)} queries generated")
+
+            except Exception as e:
+                if self.enable_logging:
+                    print(f"[ERROR] Query generation for scene {scene_id}: {str(e)}")
+                all_queries.append({"scene_id": scene_id, "queries": [], "error": str(e)})
+
+        return {"queries": all_queries}
+
     def _finalize_node(self, state: GraphState) -> Dict[str, Any]:
         """
-        Node 6: Finalize and compile complete dataset.
+        Node 7: Finalize and compile complete dataset.
 
         Args:
             state: Current graph state
@@ -662,6 +763,7 @@ class DatasetGenerationGraph:
         calendar_events = state["calendar_events"]
         messages = state["messages"]
         deficiencies = state["deficiencies"]
+        queries = state["queries"]
 
         # Compile full dataset
         dataset = {
@@ -678,7 +780,8 @@ class DatasetGenerationGraph:
                 "device_data": next((d for d in device_data if d.get('scene_id') == scene_id), {}),
                 "calendar_events": next((c.get('events', []) for c in calendar_events if c.get('scene_id') == scene_id), []),
                 "messages": next((m.get('messages', []) for m in messages if m.get('scene_id') == scene_id), []),
-                "deficiencies": next((d for d in deficiencies if d.get('scene_id') == scene_id), {})
+                "deficiencies": next((d for d in deficiencies if d.get('scene_id') == scene_id), {}),
+                "queries": next((q.get('queries', []) for q in queries if q.get('scene_id') == scene_id), [])
             }
 
             dataset["scenes"].append(scene_data)
@@ -735,6 +838,7 @@ class DatasetGenerationGraph:
             "calendar_events": [],
             "messages": [],
             "deficiencies": [],
+            "queries": [],
             "final_dataset": {},
             "error": None
         }
