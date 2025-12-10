@@ -940,47 +940,29 @@ class TripletExtractionGraph:
         try:
             import json
 
-            # Prepara il prompt per la generazione finale
-            triplets_str = "\n".join([
-                f"- {t.get('subject', {}).get('value', '')} {t.get('predicate', {}).get('value', '')} {t.get('object', {}).get('value', '')}"
-                for t in augmented_triplets
-            ])
+            # Usa PromptManager
+            messages = self.prompt_manager.build_messages(
+                'iot_generate_triplets',
+                triplets=triplets_str,
+                data_collected=data_summary
+            )
 
-            data_summary = json.dumps(data_collected, indent=2)
-
-            # Usa il prompt per generare le triplette finali
-            final_prompt = HumanMessage(content=f"""
-Based on the IoT data collected, generate NEW triplets that connect the entities to sensor data.
-
-Original Triplets:
-{triplets_str}
-
-IoT Data Collected:
-{data_summary}
-
-Generate triplets using predicates like:
-- hasHeartRate, hasTemperature, hasLocation
-- measuredAt, recordedAt, detectedActivity
-- associatedWith, relatedTo
-
-**IMPORTANT**: Each entity MUST have both "value" and "type" fields.
-- People/devices: type = "Person" or "Thing"
-- Sensor values: type = "Number" or "Thing"
-- Timestamps: type = "DateTime"
-- Locations: type = "Place"
-- All predicates: type = "Relationship"
-
-Return ONLY valid triplets in JSON format:
-{{"triplets": [{{"subject": {{"value": "...", "type": "..."}}, "predicate": {{"value": "...", "type": "Relationship"}}, "object": {{"value": "...", "type": "..."}}}}]}}
-""")
-
-            conversation.append(final_prompt)
+            # Converti in formato Langchain
+            conversation = state.get("iot_conversation", []) # Recupera conversazione corrente
+            for msg in messages:
+                role = msg.get('role')
+                content = msg.get('content')
+                if role == 'system':
+                    # In teoria system message dovrebbe essere all'inizio, ma per ora appendiamo
+                    conversation.append(SystemMessage(content=content))
+                else:
+                    conversation.append(HumanMessage(content=content))
 
             # Log final prompt
             if self.logger:
                 self.logger.log_llm_call(
-                    [{"role": "user", "content": final_prompt.content}],
-                    "",
+                    messages, 
+                    "", 
                     {"model": self.llm.model_name, "provider": "Groq"}
                 )
 
