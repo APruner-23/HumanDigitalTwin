@@ -1,5 +1,5 @@
 """
-Generatore di dati IoT basato sull'ontologia onto.owl.
+IoT data generator based on the onto.owl ontology.
 """
 
 from typing import Dict, Any, List, Optional
@@ -11,45 +11,45 @@ from rdflib import Graph, Namespace, RDF, RDFS
 
 class OntologyDataGenerator:
     """
-    Genera dati IoT realistici basati sull'ontologia.
-    Analizza onto.owl per capire quali sensori/dispositivi esistono e genera dati conformi.
+    Generates realistic IoT data based on the ontology.
+    Analyzes onto.owl to understand which sensors/devices exist and generates compliant data.
     """
 
     def __init__(self, ontology_path: str = None):
         """
-        Inizializza il generatore.
+        Initialize the generator.
 
         Args:
-            ontology_path: Percorso al file onto.owl
+            ontology_path: Path to the onto.owl file
         """
         if ontology_path is None:
-            # Percorso default
+            # Default path
             project_root = Path(__file__).parent.parent.parent
             ontology_path = project_root / "ontologies" / "onto.owl"
 
         self.ontology_path = Path(ontology_path)
         self.graph = Graph()
 
-        # Carica l'ontologia
+        # Load ontology
         if self.ontology_path.exists():
             self.graph.parse(str(self.ontology_path))
 
-        # Namespace dell'ontologia
+        # Ontology namespace
         self.ns = Namespace("http://www.semanticweb.org/jbagwell/ontologies/2017/9/untitled-ontology-6#")
 
-        # Definisci i device profiles basati sull'ontologia
+        # Define device profiles based on ontology
         self._init_device_profiles()
 
     def _init_device_profiles(self):
-        """Inizializza i profili dei dispositivi basati sull'ontologia."""
+        """Initializes device profiles based on the ontology."""
 
-        # Fitbit - focus su activity tracking e sleep
+        # Fitbit - focus on activity tracking and sleep
         self.device_profiles = {
             "fitbit": {
                 "device_type": "fitbit",
                 "sensors": ["heartRateMonitor", "3axisAccelerometer", "altimeter", "gps"],
                 "metrics": {
-                    # Steps e attività
+                    # Steps and activity
                     "steps": (0, 20000),
                     "minutesSedentary": (200, 800),
                     "minutesLightlyActive": (50, 200),
@@ -108,13 +108,13 @@ class OntologyDataGenerator:
                     "activeTimeSeconds": (0, 18000),
                     "distanceKilometers": (0.0, 20.0),
                     "calories": (1500, 3500),
-                    "inactive": (300, 1200),  # minuti sedentario
+                    "inactive": (300, 1200),  # sedentary minutes
                     "percentActive": (10.0, 80.0),
                 }
             }
         }
 
-        # Activity types per Garmin
+        # Activity types for Garmin
         self.activity_types = [
             "running", "cycling", "walking", "swimming", "gym",
             "hiking", "yoga", "tennis", "soccer"
@@ -128,19 +128,19 @@ class OntologyDataGenerator:
         time_interval_minutes: int = 60
     ) -> List[Dict[str, Any]]:
         """
-        Genera dati IoT per un dispositivo specifico.
+        Generates IoT data for a specific device.
 
         Args:
-            device_type: Tipo di dispositivo ('fitbit', 'garmin', 'jawbone')
-            device_id: ID del dispositivo (se None, genera automaticamente)
-            num_records: Numero di record da generare
-            time_interval_minutes: Intervallo tra i record in minuti
+            device_type: Device type ('fitbit', 'garmin', 'jawbone')
+            device_id: Device ID (if None, generates automatically)
+            num_records: Number of records to generate
+            time_interval_minutes: Interval between records in minutes
 
         Returns:
-            Lista di dizionari con i dati generati
+            List of dictionaries with generated data
 
         Raises:
-            ValueError: Se device_type non è supportato
+            ValueError: If device_type is not supported
         """
         if device_type not in self.device_profiles:
             available = ', '.join(self.device_profiles.keys())
@@ -157,17 +157,17 @@ class OntologyDataGenerator:
         for i in range(num_records):
             timestamp = base_time - timedelta(minutes=i * time_interval_minutes)
 
-            # Genera i dati per tutte le metriche
+            # Generate data for all metrics
             data = {}
             for metric, value_range in profile["metrics"].items():
                 if value_range is None:
-                    # Metriche string (es: activityType)
+                    # String metrics (e.g. activityType)
                     if metric == "activityType":
                         data[metric] = random.choice(self.activity_types)
                     elif metric == "activityName":
                         data[metric] = f"Activity_{random.randint(1, 100)}"
                 else:
-                    # Metriche numeriche
+                    # Numeric metrics
                     min_val, max_val = value_range
                     if isinstance(min_val, float):
                         data[metric] = round(random.uniform(min_val, max_val), 2)
@@ -192,25 +192,25 @@ class OntologyDataGenerator:
 
     def get_available_devices(self) -> List[str]:
         """
-        Restituisce la lista dei dispositivi disponibili.
+        Returns the list of available devices.
 
         Returns:
-            Lista di nomi dei dispositivi
+            List of device names
         """
         return list(self.device_profiles.keys())
 
     def get_device_metrics(self, device_type: str) -> Dict[str, Any]:
         """
-        Restituisce le metriche disponibili per un dispositivo.
+        Returns available metrics for a device.
 
         Args:
-            device_type: Tipo di dispositivo
+            device_type: Device type
 
         Returns:
-            Dizionario con le metriche e i loro range
+            Dictionary with metrics and their ranges
 
         Raises:
-            ValueError: Se device_type non esiste
+            ValueError: If device_type does not exist
         """
         if device_type not in self.device_profiles:
             raise ValueError(f"Device type '{device_type}' non trovato")
@@ -224,14 +224,14 @@ class OntologyDataGenerator:
 
     def generate_realistic_day(self, device_type: str, device_id: Optional[str] = None) -> List[Dict[str, Any]]:
         """
-        Genera una giornata completa di dati realistici (24 campioni, uno all'ora).
+        Generates a full day of realistic data (24 samples, one per hour).
 
         Args:
-            device_type: Tipo di dispositivo
-            device_id: ID del dispositivo
+            device_type: Device type
+            device_id: Device ID
 
         Returns:
-            Lista di 24 record, uno per ogni ora
+            List of 24 records, one for each hour
         """
         return self.generate_data(
             device_type=device_type,
@@ -242,10 +242,10 @@ class OntologyDataGenerator:
 
     def generate_sample_for_all_devices(self) -> Dict[str, List[Dict[str, Any]]]:
         """
-        Genera dati di esempio per tutti i dispositivi disponibili.
+        Generates sample data for all available devices.
 
         Returns:
-            Dizionario con device_type come chiave e lista di record come valore
+            Dictionary with device_type as key and list of records as value
         """
         samples = {}
         for device_type in self.device_profiles.keys():

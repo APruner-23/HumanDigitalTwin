@@ -4,14 +4,14 @@ from typing import Dict, Any, Optional
 
 
 class PromptManager:
-    """Gestisce i prompt del sistema da file YAML."""
+    """Manages system prompts from YAML files."""
 
     def __init__(self, prompts_path: str = None):
         """
-        Inizializza il PromptManager.
+        Initialize PromptManager.
 
         Args:
-            prompts_path: Percorso al file prompts.yaml. Se None, usa il path di default.
+            prompts_path: Path to prompts.yaml. If None, uses default path.
         """
         if prompts_path is None:
             # Percorso default: stesso directory di questo file
@@ -20,11 +20,11 @@ class PromptManager:
         self.prompts_path = Path(prompts_path)
         self._prompts: Dict[str, Any] = {}
 
-        # Carica i prompt
+        # Load prompts
         self._load_prompts()
 
     def _load_prompts(self) -> None:
-        """Carica i prompt dal file YAML."""
+        """Load prompts from YAML file."""
         if not self.prompts_path.exists():
             raise FileNotFoundError(f"File prompts non trovato: {self.prompts_path}")
 
@@ -33,52 +33,52 @@ class PromptManager:
 
     def get_prompt(self, prompt_name: str) -> Optional[Dict[str, str]]:
         """
-        Recupera un prompt completo (system + user_template).
+        Retrieve a full prompt (system + user_template).
 
         Args:
-            prompt_name: Nome del prompt
+            prompt_name: Prompt name
 
         Returns:
-            Dizionario con 'system' e 'user_template' o None se non trovato
+            Dictionary with 'system' and 'user_template' or None if not found
         """
         return self._prompts.get(prompt_name)
 
     def get_system_prompt(self, prompt_name: str) -> Optional[str]:
         """
-        Recupera solo il system prompt.
+        Retrieve only the system prompt.
 
         Args:
-            prompt_name: Nome del prompt
+            prompt_name: Prompt name
 
         Returns:
-            Il system prompt o None se non trovato
+            The system prompt or None if not found
         """
         prompt = self._prompts.get(prompt_name)
         return prompt.get('system') if prompt else None
 
     def get_user_template(self, prompt_name: str) -> Optional[str]:
         """
-        Recupera solo il template del prompt utente.
+        Retrieve only the user prompt template.
 
         Args:
-            prompt_name: Nome del prompt
+            prompt_name: Prompt name
 
         Returns:
-            Il template del prompt utente o None se non trovato
+            The user prompt template or None if not found
         """
         prompt = self._prompts.get(prompt_name)
         return prompt.get('user_template') if prompt else None
 
     def format_prompt(self, prompt_name: str, **kwargs) -> Optional[str]:
         """
-        Formatta un prompt con i parametri forniti.
+        Format a prompt with provided parameters.
 
         Args:
-            prompt_name: Nome del prompt
-            **kwargs: Parametri da sostituire nel template
+            prompt_name: Prompt name
+            **kwargs: Parameters to substitute in the template
 
         Returns:
-            Il prompt formattato o None se non trovato
+            Formatted prompt or None if not found
         """
         template = self.get_user_template(prompt_name)
         if template:
@@ -87,14 +87,14 @@ class PromptManager:
 
     def build_messages(self, prompt_name: str, **kwargs) -> list:
         """
-        Costruisce una lista di messaggi per l'LLM.
+        Build a list of messages for the LLM.
 
         Args:
-            prompt_name: Nome del prompt
-            **kwargs: Parametri da sostituire nel template
+            prompt_name: Prompt name
+            **kwargs: Parameters to substitute in the template
 
         Returns:
-            Lista di messaggi in formato [{"role": "system/user", "content": "..."}]
+            List of messages in format [{"role": "system/user", "content": "..."}]
         """
         prompt = self.get_prompt(prompt_name)
         if not prompt:
@@ -121,13 +121,13 @@ class PromptManager:
 
     def list_prompts(self) -> list:
         """
-        Restituisce la lista di tutti i prompt disponibili.
+        Return list of all available prompts.
 
         Returns:
-            Lista dei nomi dei prompt
+            List of prompt names
         """
         return list(self._prompts.keys())
 
     def reload(self) -> None:
-        """Ricarica i prompt dal file."""
+        """Reload prompts from file."""
         self._load_prompts()

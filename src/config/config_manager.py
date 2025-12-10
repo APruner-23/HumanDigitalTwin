@@ -6,14 +6,14 @@ from dotenv import load_dotenv
 
 
 class ConfigManager:
-    """Gestisce la configurazione del progetto da file YAML e variabili d'ambiente."""
+    """Manages project configuration from YAML files and environment variables."""
 
     def __init__(self, config_path: str = None):
         """
-        Inizializza il ConfigManager.
+        Initialize ConfigManager.
 
         Args:
-            config_path: Percorso al file config.yaml. Se None, usa il path di default.
+            config_path: Path to config.yaml. If None, uses default path.
         """
         if config_path is None:
             # Percorso default: root del progetto
@@ -23,14 +23,14 @@ class ConfigManager:
         self.config_path = Path(config_path)
         self._config: Dict[str, Any] = {}
 
-        # Carica le variabili d'ambiente
+        # Load environment variables
         load_dotenv(override=True)
 
-        # Carica la configurazione
+        # Load configuration
         self._load_config()
 
     def _load_config(self) -> None:
-        """Carica la configurazione dal file YAML."""
+        """Load configuration from YAML file."""
         if not self.config_path.exists():
             raise FileNotFoundError(f"File di configurazione non trovato: {self.config_path}")
 
@@ -39,14 +39,14 @@ class ConfigManager:
 
     def get(self, key: str, default: Any = None) -> Any:
         """
-        Recupera un valore di configurazione usando la notazione dot.
+        Retrieve a configuration value using dot notation.
 
         Args:
-            key: Chiave in formato 'section.subsection.key'
-            default: Valore di default se la chiave non esiste
+            key: Key in 'section.subsection.key' format
+            default: Default value if key does not exist
 
         Returns:
-            Il valore della configurazione o il default
+            Configuration value or default
         """
         keys = key.split('.')
         value = self._config
@@ -61,33 +61,33 @@ class ConfigManager:
 
     def get_env(self, key: str, default: str = None) -> str:
         """
-        Recupera una variabile d'ambiente.
+        Retrieve an environment variable.
 
         Args:
-            key: Nome della variabile d'ambiente
-            default: Valore di default se non esiste
+            key: Name of the environment variable
+            default: Default value if it does not exist
 
         Returns:
-            Il valore della variabile d'ambiente o il default
+            Value of the environment variable or default
         """
         return os.getenv(key, default)
 
     def get_llm_config(self) -> Dict[str, Any]:
-        """Recupera la configurazione completa dell'LLM."""
+        """Retrieve full LLM configuration."""
         return self._config.get('llm', {})
 
     def get_mcp_config(self) -> Dict[str, Any]:
-        """Recupera la configurazione del server MCP."""
+        """Retrieve MCP server configuration."""
         return self._config.get('mcp_server', {})
 
     def get_streamlit_config(self) -> Dict[str, Any]:
-        """Recupera la configurazione di Streamlit."""
+        """Retrieve Streamlit configuration."""
         return self._config.get('streamlit', {})
 
     def get_ontology_config(self) -> Dict[str, Any]:
-        """Recupera la configurazione dell'Ontology."""
+        """Retrieve Ontology configuration."""
         return self._config.get('ontology', {})
 
     def reload(self) -> None:
-        """Ricarica la configurazione dal file."""
+        """Reload configuration from file."""
         self._load_config()

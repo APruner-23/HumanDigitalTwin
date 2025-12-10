@@ -4,12 +4,12 @@ from .groq_llm import GroqLLM
 
 
 class LLMFactory:
-    """Factory per creare istanze di servizi LLM."""
+    """Factory for creating LLM service instances."""
 
-    # Registry dei provider disponibili
+    # Registry of available providers
     _providers = {
         'groq': GroqLLM,
-        # Qui si possono aggiungere altri provider in futuro
+        # Other providers can be added here in the future
         # 'openai': OpenAILLM,
         # 'anthropic': AnthropicLLM,
     }
@@ -17,26 +17,26 @@ class LLMFactory:
     @classmethod
     def create(cls, provider: str, config: Dict[str, Any], api_key: str) -> BaseLLM:
         """
-        Crea un'istanza del servizio LLM specificato.
+        Creates an instance of the specified LLM service.
 
         Args:
-            provider: Nome del provider (es: 'groq', 'openai')
-            config: Configurazione dell'LLM
-            api_key: API key per il provider
+            provider: Provider name (e.g., 'groq', 'openai')
+            config: LLM configuration
+            api_key: API key for the provider
 
         Returns:
-            Istanza del servizio LLM
+            Instance of the LLM service
 
         Raises:
-            ValueError: Se il provider non è supportato
+            ValueError: If the provider is not supporteds
         """
         provider_lower = provider.lower()
 
         if provider_lower not in cls._providers:
             available = ', '.join(cls._providers.keys())
             raise ValueError(
-                f"Provider '{provider}' non supportato. "
-                f"Provider disponibili: {available}"
+                f"Provider '{provider}' not supported. "
+                f"Available providers: {available}"
             )
 
         llm_class = cls._providers[provider_lower]
@@ -45,23 +45,23 @@ class LLMFactory:
     @classmethod
     def register_provider(cls, name: str, provider_class: type) -> None:
         """
-        Registra un nuovo provider LLM.
+        Registers a new LLM provider.
 
         Args:
-            name: Nome del provider
-            provider_class: Classe che implementa BaseLLM
+            name: Provider name
+            provider_class: Class implementing BaseLLM
         """
         if not issubclass(provider_class, BaseLLM):
-            raise TypeError(f"{provider_class} deve ereditare da BaseLLM")
+            raise TypeError(f"{provider_class} must inherit from BaseLLM")
 
         cls._providers[name.lower()] = provider_class
 
     @classmethod
     def get_available_providers(cls) -> list:
         """
-        Restituisce la lista dei provider disponibili.
+        Returns the list of available providers.
 
         Returns:
-            Lista dei nomi dei provider disponibili
+            List of available provider names
         """
         return list(cls._providers.keys())

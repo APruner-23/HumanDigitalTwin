@@ -34,14 +34,14 @@ mcp_agent:
 
     **Examples of efficient queries:**
 
-    ❌ BAD: "What's my average heart rate?" → get_iot_recent_data → parse all data
-    ✅ GOOD: "What's my average heart rate?" → list_devices → aggregate_iot_field(field="heart_rate", operation="avg")
+    [BAD] "What's my average heart rate?" -> get_iot_recent_data -> parse all data
+    [GOOD] "What's my average heart rate?" -> list_devices -> aggregate_iot_field(field="heart_rate", operation="avg")
 
-    ❌ BAD: "What's my current temperature?" → get_iot_statistics → extract latest
-    ✅ GOOD: "What's my current temperature?" → get_latest_value(field_name="temperature")
+    [BAD] "What's my current temperature?" -> get_iot_statistics -> extract latest
+    [GOOD] "What's my current temperature?" -> get_latest_value(field_name="temperature")
 
-    ❌ BAD: Get all data to find one value
-    ✅ GOOD: Query only the specific field you need
+    [BAD] Get all data to find one value
+    [GOOD] Query only the specific field you need
 
     ## Response Guidelines
 
@@ -88,10 +88,10 @@ triplet_extraction_chunk:
 
     **Entity Type Guidelines:**
     - **People**: type = "Person" (e.g., Marco, Lucia, John)
-    - **Places/Locations**: type = "Place" (e.g., casa di Lucia, Roma, park)
-    - **Things/Objects**: type = "Thing" (e.g., birra, libro, computer)
+    - **Places/Locations**: type = "Place" (e.g., Lucia's house, Rome, park)
+    - **Things/Objects**: type = "Thing" (e.g., beer, book, computer)
     - **Events/Activities**: type = "Event" (e.g., party, meeting, game session)
-    - **Time**: type = "DateTime" (e.g., "2024-01-01", "oggi", "sera")
+    - **Time**: type = "DateTime" (e.g., "2024-01-01", "today", "evening")
     - **Numbers**: type = "Number" (e.g., 30, 5.5, 100)
     - **Concepts**: type = "Concept" (e.g., love, friendship, happiness)
 
@@ -100,8 +100,8 @@ triplet_extraction_chunk:
     - Use English camelCase format (e.g., "playsGame", "goesTo", "drinks")
 
     Examples:
-    - {{"subject": {{"value": "Luca", "type": "Person"}}, "predicate": {{"value": "goesTo", "type": "Relationship"}}, "object": {{"value": "casa di Lucia", "type": "Place"}}}}
-    - {{"subject": {{"value": "Luca", "type": "Person"}}, "predicate": {{"value": "drinks", "type": "Relationship"}}, "object": {{"value": "birra", "type": "Thing"}}}}
+    - {{"subject": {{"value": "Luca", "type": "Person"}}, "predicate": {{"value": "goesTo", "type": "Relationship"}}, "object": {{"value": "Lucia's house", "type": "Place"}}}}
+    - {{"subject": {{"value": "Luca", "type": "Person"}}, "predicate": {{"value": "drinks", "type": "Relationship"}}, "object": {{"value": "beer", "type": "Thing"}}}}
   user_template: |
     Extract the most important RDF triplets from the following text.
     {context}
@@ -141,8 +141,8 @@ text_augmentation:
     6. **Verify and correct entity types** (Person, Place, Thing, Event, DateTime, Number, Concept)
 
     Examples of augmentation:
-    - If "Luca goesTo casa di Lucia" → add {{"subject": {{"value": "casa di Lucia", "type": "Place"}}, "predicate": {{"value": "hasOwner", "type": "Relationship"}}, "object": {{"value": "Lucia", "type": "Person"}}}}
-    - If "Luca playsGame D&D" and "Lucia playsGame D&D" → add {{"subject": {{"value": "Luca", "type": "Person"}}, "predicate": {{"value": "isWith", "type": "Relationship"}}, "object": {{"value": "Lucia", "type": "Person"}}}}
+    - If "Luca goesTo Lucia's house" -> add {{"subject": {{"value": "Lucia's house", "type": "Place"}}, "predicate": {{"value": "hasOwner", "type": "Relationship"}}, "object": {{"value": "Lucia", "type": "Person"}}}}
+    - If "Luca playsGame D&D" and "Lucia playsGame D&D" -> add {{"subject": {{"value": "Luca", "type": "Person"}}, "predicate": {{"value": "isWith", "type": "Relationship"}}, "object": {{"value": "Lucia", "type": "Person"}}}}
   user_template: |
     Review and augment the following extracted triplets.
 
@@ -161,11 +161,11 @@ iot_decide:
     Analyze the triplets and determine if IoT data from sensors (smartwatches, environmental sensors, location trackers, etc.) could enrich them.
 
     **Decision Criteria:**
-    - Activities mentioned (playing, drinking, exercising) → IoT data USEFUL
-    - People's names mentioned → Health metrics could be relevant
-    - Locations mentioned → Environmental data could be relevant
-    - Abstract concepts only → IoT data NOT USEFUL
-    - Time-sensitive events → Timestamps and activity data USEFUL
+    - Activities mentioned (playing, drinking, exercising) -> IoT data USEFUL
+    - People's names mentioned -> Health metrics could be relevant
+    - Locations mentioned -> Environmental data could be relevant
+    - Abstract concepts only -> IoT data NOT USEFUL
+    - Time-sensitive events -> Timestamps and activity data USEFUL
 
     **Response Format:**
     Answer with "YES" or "NO" followed by a brief explanation (1-2 sentences).
@@ -188,31 +188,31 @@ iot_react_iteration:
     Progressively explore IoT sensors to find relevant data for the knowledge graph.
 
     **ReAct Pattern (IMPORTANT):**
-    1. 🤔 THINK:
+    1. THINK:
        - What IoT data would be most relevant?
        - Have I already collected useful data?
        - Should I explore more or stop?
 
-    2. 🔧 ACT:
+    2. ACT:
        - Call ONE MCP tool to retrieve data
        - Start with list_devices if you don't know what's available
        - Then use get_latest_value or query_iot_field for specific devices
 
-    3. 👁️ OBSERVE:
+    3. OBSERVE:
        - Examine the tool result
        - Is this data useful for the triplets?
        - Do I need more data or can I stop?
 
-    4. 🔁 DECIDE:
+    4. DECIDE:
        - If data is useful AND you need more: CALL ANOTHER TOOL
        - If you have enough data: STOP (don't call any tool, just respond with your thinking)
        - If no relevant data found after exploring: STOP
 
     **Available MCP Tools:**
-    - list_devices() → Get all available IoT devices
-    - get_latest_value(device_id, field_name) → Get current sensor reading
-    - query_iot_field(device_id, field_name, start_time, end_time) → Get historical data
-    - aggregate_iot_field(device_id, field_name, aggregation, start_time, end_time) → Get statistics
+    - list_devices() -> Get all available IoT devices
+    - get_latest_value(device_id, field_name) -> Get current sensor reading
+    - query_iot_field(device_id, field_name, start_time, end_time) -> Get historical data
+    - aggregate_iot_field(device_id, field_name, aggregation, start_time, end_time) -> Get statistics
 
     **IMPORTANT:**
     - Call AT MOST ONE tool per iteration
@@ -230,7 +230,7 @@ iot_react_iteration:
     - Call ONE tool to get more data, OR
     - Decide you have enough (or no relevant data exists) and explain why
 
-    Follow the ReAct pattern: THINK → ACT (or STOP)
+    Follow the ReAct pattern: THINK -> ACT (or STOP)
 
 validation_decide:
   system: |
@@ -240,14 +240,14 @@ validation_decide:
     Analyze extracted triplets and determine if they require consistency checking, error correction, or refinement.
 
     **Decision Criteria (VALIDATE if ANY of these apply):**
-    - Large number of triplets (>15) → high risk of inconsistencies
-    - Complex entities with multiple relationships → risk of conflicts
+    - Large number of triplets (>15) -> high risk of inconsistencies
+    - Complex entities with multiple relationships -> risk of conflicts
     - Potential semantic errors or contradictions visible
     - Redundant or duplicate relationships
     - Ambiguous predicates that need clarification
 
     **Decision Criteria (SKIP if ALL of these apply):**
-    - Very few triplets (<5) → low risk
+    - Very few triplets (<5) -> low risk
     - Simple, straightforward relationships
     - High confidence in extraction quality
 
@@ -339,6 +339,33 @@ iot_augmentation:
     Then generate additional RDF triplets connecting the existing triplets with the IoT data you retrieved.
 
     Return in JSON format: {{"triplets": [{{"subject": "...", "predicate": "...", "object": "..."}}]}}
+
+iot_generate_triplets:
+  system: |
+    You are an expert in integrating IoT data into Knowledge Graphs.
+  user_template: |
+    Based on the IoT data collected, generate NEW triplets that connect the entities to sensor data.
+
+    Original Triplets:
+    {triplets}
+
+    IoT Data Collected:
+    {data_collected}
+
+    Generate triplets using predicates like:
+    - hasHeartRate, hasTemperature, hasLocation
+    - measuredAt, recordedAt, detectedActivity
+    - associatedWith, relatedTo
+
+    **IMPORTANT**: Each entity MUST have both "value" and "type" fields.
+    - People/devices: type = "Person" or "Thing"
+    - Sensor values: type = "Number" or "Thing"
+    - Timestamps: type = "DateTime"
+    - Locations: type = "Place"
+    - All predicates: type = "Relationship"
+
+    Return ONLY valid triplets in JSON format:
+    {{"triplets": [{{"subject": {{"value": "...", "type": "..."}}, "predicate": {{"value": "...", "type": "Relationship"}}, "object": {{"value": "...", "type": "..."}}}}]}}
 
 iot_data_processing:
   system: |

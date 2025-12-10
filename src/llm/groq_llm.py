@@ -5,11 +5,11 @@ from ..utils import get_logger
 
 
 class GroqLLM(BaseLLM):
-    """Implementazione del servizio LLM usando Groq."""
+    """Implementation of LLM service using Groq."""
 
     def __init__(self, config: Dict[str, Any], api_key: str):
         """
-        Inizializza il servizio Groq.
+        Initialize Groq service.
 
         Args:
             config: Dizionario con la configurazione dell'LLM
@@ -18,7 +18,7 @@ class GroqLLM(BaseLLM):
         super().__init__(config)
         self.api_key = api_key
 
-        # Inizializza il client Groq tramite Langchain
+        # Initialize Groq client via Langchain
         self.client = ChatGroq(
             groq_api_key=self.api_key,
             model_name=self.model,
@@ -28,32 +28,32 @@ class GroqLLM(BaseLLM):
 
     def generate(self, prompt: str, **kwargs) -> str:
         """
-        Genera una risposta dal prompt usando Groq.
+        Generate a response from the prompt using Groq.
 
         Args:
-            prompt: Il prompt da inviare all'LLM
-            **kwargs: Parametri aggiuntivi (temperature, max_tokens, ecc.)
+            prompt: The prompt to send to the LLM
+            **kwargs: Additional parameters (temperature, max_tokens, etc.)
 
         Returns:
-            La risposta generata dall'LLM
+            The generated response from the LLM
         """
         try:
-            # Aggiorna parametri se forniti
+            # Update parameters if provided
             temperature = kwargs.get('temperature', self.temperature)
             max_tokens = kwargs.get('max_tokens', self.max_tokens)
 
-            # Aggiorna il client con i nuovi parametri se necessario
+            # Update client with new parameters if necessary
             if temperature != self.temperature or max_tokens != self.max_tokens:
                 self.client.temperature = temperature
                 self.client.max_tokens = max_tokens
 
-            # Invoca il modello
+            # Invoke model
             response = self.client.invoke(prompt)
 
             return response.content
 
         except Exception as e:
-            raise Exception(f"Errore nella generazione con Groq: {str(e)}")
+            raise Exception(f"Error generating with Groq: {str(e)}")
 
     def generate_with_history(
         self,
@@ -61,17 +61,17 @@ class GroqLLM(BaseLLM):
         **kwargs
     ) -> str:
         """
-        Genera una risposta considerando la cronologia dei messaggi.
+        Generate a response considering message history.
 
         Args:
-            messages: Lista di messaggi in formato [{"role": "user/assistant/system", "content": "..."}]
-            **kwargs: Parametri aggiuntivi
+            messages: List of messages in format [{"role": "user/assistant/system", "content": "..."}]
+            **kwargs: Additional parameters
 
         Returns:
-            La risposta generata dall'LLM
+            The generated response from the LLM
         """
         try:
-            # Aggiorna parametri se forniti
+            # Update parameters if provided
             temperature = kwargs.get('temperature', self.temperature)
             max_tokens = kwargs.get('max_tokens', self.max_tokens)
 
@@ -79,7 +79,7 @@ class GroqLLM(BaseLLM):
                 self.client.temperature = temperature
                 self.client.max_tokens = max_tokens
 
-            # Converti i messaggi nel formato Langchain
+            # Convert messages to Langchain format
             from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 
             lc_messages = []
@@ -94,23 +94,23 @@ class GroqLLM(BaseLLM):
                 else:  # user
                     lc_messages.append(HumanMessage(content=content))
 
-            # Invoca il modello
+            # Invoke model
             response = self.client.invoke(lc_messages)
 
             return response.content
 
         except Exception as e:
-            raise Exception(f"Errore nella generazione con cronologia (Groq): {str(e)}")
+            raise Exception(f"Error in generation with history (Groq): {str(e)}")
 
     def is_available(self) -> bool:
         """
-        Verifica se il servizio Groq è disponibile.
+        Check if Groq service is available.
 
         Returns:
-            True se disponibile, False altrimenti
+            True if available, False otherwise
         """
         try:
-            # Test semplice per verificare la disponibilità
+            # Simple test to check availability
             test_response = self.client.invoke("test")
             return True
         except Exception:
@@ -123,23 +123,22 @@ class GroqLLM(BaseLLM):
         **kwargs
     ) -> str:
         """
-        Genera una risposta usando function calling con tools esterni.
+        Generate a response using function calling with external tools.
 
-        Groq supporta il binding di tools tramite Langchain.
-        L'LLM può decidere autonomamente se e quando chiamare i tools.
+        The LLM can autonomously decide if and when to call tools.
 
         Args:
-            messages: Lista di messaggi in formato [{"role": "user/assistant", "content": "..."}]
-            tools: Lista di Langchain tools disponibili
-            **kwargs: Parametri aggiuntivi
+            messages: List of messages in format [{"role": "user/assistant", "content": "..."}]
+            tools: List of available Langchain tools
+            **kwargs: Additional parameters
 
         Returns:
-            La risposta generata dall'LLM dopo aver chiamato i tools se necessario
+            The generated response from the LLM after calling tools if necessary
         """
         try:
             from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 
-            # Converti i messaggi nel formato Langchain
+            # Convert messages to Langchain format
             lc_messages = []
             for msg in messages:
                 role = msg.get('role', 'user')
@@ -152,26 +151,26 @@ class GroqLLM(BaseLLM):
                 else:  # user
                     lc_messages.append(HumanMessage(content=content))
 
-            # Bind tools al modello
+            # Bind tools to model
             llm_with_tools = self.client.bind_tools(tools)
 
-            # Invoca il modello con i tools
+            # Invoke model with tools
             response = llm_with_tools.invoke(lc_messages)
 
-            # Se ci sono tool calls, eseguili e richiama il modello
+            # If there are tool calls, execute them and recall model
             if hasattr(response, 'tool_calls') and response.tool_calls:
-                # Aggiungi la risposta del modello ai messaggi
+                # Add model response to messages
                 lc_messages.append(response)
 
-                # Esegui ogni tool call
+                # Execute each tool call
                 from langchain_core.messages import ToolMessage
 
                 for tool_call in response.tool_calls:
-                    # Trova il tool corrispondente
+                    # Find corresponding tool
                     tool_name = tool_call['name']
                     tool_args = tool_call['args']
 
-                    # Cerca il tool nella lista
+                    # Search for tool in list
                     selected_tool = None
                     for tool in tools:
                         if tool.name == tool_name:
@@ -179,7 +178,7 @@ class GroqLLM(BaseLLM):
                             break
 
                     if selected_tool:
-                        # Esegui il tool
+                        # Execute tool
                         tool_result = selected_tool.invoke(tool_args)
 
                         # Log tool call
@@ -187,9 +186,9 @@ class GroqLLM(BaseLLM):
                             logger = get_logger()
                             logger.log_tool_call(tool_name, tool_args, str(tool_result))
                         except:
-                            pass  # Ignora errori di logging
+                            pass  # Ignore logging errors TODO fix
 
-                        # Aggiungi il risultato ai messaggi
+                        # Add result to messages
                         lc_messages.append(
                             ToolMessage(
                                 content=str(tool_result),
@@ -197,18 +196,18 @@ class GroqLLM(BaseLLM):
                             )
                         )
 
-                # Richiama il modello con i risultati dei tools
+                # Recall model with tool results
                 final_response = llm_with_tools.invoke(lc_messages)
                 return final_response.content
             else:
-                # Nessun tool chiamato, restituisci la risposta diretta
+                # No tool called, return direct response
                 return response.content
 
         except Exception as e:
-            raise Exception(f"Errore nella generazione con tools (Groq): {str(e)}")
+            raise Exception(f"Error in generation with tools (Groq): {str(e)}")
 
     def get_model_info(self) -> Dict[str, Any]:
-        """Restituisce informazioni sul modello Groq corrente."""
+        """Returns information about current Groq model."""
         info = super().get_model_info()
         info['provider'] = 'Groq'
         info['supports_tools'] = True

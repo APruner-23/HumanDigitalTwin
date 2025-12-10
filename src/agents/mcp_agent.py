@@ -1,5 +1,5 @@
 """
-Agent che integra l'LLM con i tools MCP per interazioni autonome.
+Agent that integrates LLM with MCP tools for autonomous interactions.
 """
 
 from typing import Dict, Any, List, Optional
@@ -11,9 +11,8 @@ from src.prompts.prompt_manager import PromptManager
 
 class MCPAgent:
     """
-    Agent che permette all'LLM di interagire autonomamente con il server MCP.
-    Utilizza function calling per permettere all'LLM di decidere quando
-    recuperare dati dal server.
+    Agent that allows the LLM to autonomously interact with the MCP server.
+    Uses function calling to allow the LLM to decide when to retrieve data from the server.
     """
 
     def __init__(
@@ -24,22 +23,22 @@ class MCPAgent:
         enable_logging: bool = True
     ):
         """
-        Inizializza l'agent MCP.
+        Initialize the MCP agent.
 
         Args:
-            llm: Istanza del servizio LLM
-            mcp_base_url: URL base del server MCP
-            system_prompt: Prompt di sistema personalizzato (opzionale)
-            enable_logging: Abilita logging con Rich (default: True)
+            llm: LLM service instance
+            mcp_base_url: Base URL of the MCP server
+            system_prompt: Custom system prompt (optional)
+            enable_logging: Enable Rich logging (default: True)
         """
         self.llm = llm
         self.mcp_base_url = mcp_base_url
         self.tools = get_mcp_tools(mcp_base_url)
 
-        # System prompt di default
+        # Default system prompt
         self.system_prompt = system_prompt or self._get_default_system_prompt()
 
-        # Storia della conversazione
+        # Conversation history
         self.conversation_history: List[Dict[str, str]] = []
 
         # Logger
@@ -47,24 +46,24 @@ class MCPAgent:
         self.logger = get_logger() if enable_logging else None
 
     def _get_default_system_prompt(self) -> str:
-        """Restituisce il system prompt di default per l'agent."""
+        """Returns the default system prompt for the agent."""
         prompt_manager = PromptManager()
         return prompt_manager.get_system_prompt('mcp_agent')
 
     def reset_conversation(self) -> None:
-        """Resetta la cronologia della conversazione."""
+        """Resets the conversation history."""
         self.conversation_history = []
 
     def chat(self, user_message: str, include_history: bool = True) -> Dict[str, Any]:
         """
-        Invia un messaggio all'agent e ricevi una risposta.
+        Send a message to the agent and receive a response.
 
         Args:
-            user_message: Messaggio dell'utente
-            include_history: Se True, include la cronologia della conversazione
+            user_message: User's message
+            include_history: If True, includes conversation history
 
         Returns:
-            Dizionario con la risposta e metadati:
+            Dictionary with response and metadata:
             {
                 "response": str,
                 "tools_used": List[str],
@@ -74,39 +73,39 @@ class MCPAgent:
         # Costruisci i messaggi
         messages = []
 
-        # Aggiungi system prompt
+        # Add system prompt
         messages.append({
             "role": "system",
             "content": self.system_prompt
         })
 
-        # Aggiungi cronologia se richiesto
+        # Add history if requested
         if include_history and self.conversation_history:
             messages.extend(self.conversation_history)
 
-        # Aggiungi il messaggio corrente
+        # Add current message
         messages.append({
             "role": "user",
             "content": user_message
         })
 
-        # Log messaggio utente
+        # Log user message
         if self.logger:
             self.logger.log_user_message(user_message)
 
-        # Genera risposta usando function calling
+        # Generate response using function calling
         try:
-            # Log chiamata LLM
+            # Log LLM call
             if self.logger:
                 model_info = self.llm.get_model_info()
 
             response = self.llm.generate_with_tools(messages, self.tools)
 
-            # Log risposta LLM
+            # Log LLM response
             if self.logger:
                 self.logger.log_llm_call(messages, response, model_info)
 
-            # Aggiorna la cronologia
+            # Update history
             self.conversation_history.append({
                 "role": "user",
                 "content": user_message
@@ -116,18 +115,18 @@ class MCPAgent:
                 "content": response
             })
 
-            # Log risposta agent
+            # Log agent response
             if self.logger:
                 self.logger.log_agent_response(response)
 
             return {
                 "response": response,
-                "tools_used": [],  # TODO: tracciare quali tools sono stati usati
+                "tools_used": [],  # TODO: track used tools
                 "conversation_history": self.conversation_history.copy()
             }
 
         except NotImplementedError as e:
-            # Il provider LLM non supporta function calling
+            # LLM provider does not support function calling
             if self.logger:
                 self.logger.log_error(str(e), "Function calling not supported")
 
@@ -150,23 +149,23 @@ class MCPAgent:
 
     def chat_stream(self, user_message: str) -> str:
         """
-        Versione semplificata di chat che restituisce solo la risposta.
+        Simplified version of chat that returns only the response.
 
         Args:
-            user_message: Messaggio dell'utente
+            user_message: User's message
 
         Returns:
-            Risposta dell'agent
+            Agent's response
         """
         result = self.chat(user_message)
         return result.get("response", "Errore nella generazione della risposta")
 
     def get_available_tools(self) -> List[Dict[str, str]]:
         """
-        Restituisce informazioni sui tools disponibili.
+        Returns information about available tools.
 
         Returns:
-            Lista di dizionari con nome e descrizione dei tools
+            List of dictionaries with tool name and description
         """
         tools_info = []
         for tool in self.tools:
@@ -178,9 +177,9 @@ class MCPAgent:
 
     def set_system_prompt(self, prompt: str) -> None:
         """
-        Imposta un nuovo system prompt.
+        Sets a new system prompt.
 
         Args:
-            prompt: Nuovo system prompt
+            prompt: New system prompt
         """
         self.system_prompt = prompt

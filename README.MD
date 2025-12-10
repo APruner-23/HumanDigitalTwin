@@ -12,6 +12,9 @@ Il progetto è strutturato in moduli separati:
 - **src/mcp**: Server MCP con API REST per ingestione/recupero dati
 - **src/agents**: Agent LLM con accesso autonomo al server MCP
 - **src/data_generator**: Generatore dati IoT basato su ontologia
+- **src/ui**: Componenti e servizi per l'interfaccia frontend Streamlit
+- **src/ontology**: Gestione embedding, schema.org e validazione semantica
+- **src/utils**: Utility condivise e logging
 - **app.py**: Frontend Streamlit
 
 ## Setup
@@ -42,7 +45,7 @@ Modifica `config.yaml` per selezionare il modello LLM e altri parametri:
 ```yaml
 llm:
   provider: "groq"
-  model: "mixtral-8x7b-32768"
+  model: "...."
   temperature: 0.7
   max_tokens: 2000
 ```
@@ -99,6 +102,13 @@ L'agent LLM può chiamare autonomamente il server MCP per recuperare:
 - Lista dispositivi disponibili
 
 L'agent decide autonomamente quando recuperare informazioni dal server MCP.
+
+### 5. Generatore di Dataset (Synthetic Data)
+
+La cartella `dataset/` contiene un progetto autonomo per la generazione di dati sintetici realistici.
+- **Scopo**: Creare scenari di vita quotidiana con dati coerenti (IoT, calendario, messaggi, salute) per testare il sistema.
+- **Struttura**: Include un proprio frontend Streamlit e pipeline di generazione basata su LLM.
+- **Utilizzo**: Navigare nella cartella `dataset/` e avviare con `streamlit run app.py`.
 
 ## Architettura MCP con Function Calling
 
@@ -184,9 +194,17 @@ HumanDigitalTwin/
 │   ├── agents/
 │   │   ├── __init__.py
 │   │   └── mcp_agent.py (Agent con function calling)
-│   └── data_generator/
-│       ├── __init__.py
-│       └── ontology_generator.py (Genera dati da onto.owl)
+│   ├── data_generator/
+│   │   ├── __init__.py
+│   │   └── ontology_generator.py (Genera dati da onto.owl)
+│   ├── ui/
+│   │   ├── components/
+│   │   ├── services/
+│   │   └── tabs/
+│   ├── ontology/
+│   │   ├── embedding_service.py
+│   │   └── triple_matcher.py
+│   └── utils/
 ├── ontologies/
 │   └── onto.owl (Ontologia dispositivi IoT)
 ├── app.py
@@ -197,33 +215,5 @@ HumanDigitalTwin/
 └── README.MD
 ```
 
-## Esempio di Utilizzo Completo
 
-```bash
-# 1. Avvia il server MCP
-python src/mcp/run_server.py
 
-# 2. Avvia Streamlit
-streamlit run app.py
-
-# 3. Nel browser:
-#    - Tab "Dati IoT" → Genera dati Fitbit (5 record)
-#    - Tab "Chat Agent" → Chiedi: "Mostrami le statistiche del mio Fitbit"
-#    - L'agent chiamerà automaticamente l'MCP e risponderà con le statistiche!
-```
-
-## Flow Dati Completo
-
-```
-1. GENERAZIONE DATI
-   Ontologia onto.owl → OntologyDataGenerator → Dati IoT realistici
-
-2. STORAGE
-   Dati IoT → POST /api/iot/data → Server MCP → Storage in-memory
-
-3. INTERROGAZIONE AGENT
-   Utente → Chat Agent → LLM decide tools da usare → GET /api/iot/* → MCP
-
-4. RISPOSTA
-   MCP → Dati → Agent LLM → Analisi → Risposta utente
-```

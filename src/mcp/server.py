@@ -7,15 +7,15 @@ from collections import defaultdict
 
 
 class MCPServer:
-    """Server MCP per esporre API che iniettano informazioni al modello."""
+    """MCP Server to expose APIs that inject information into the model."""
 
     def __init__(self, host: str = "localhost", port: int = 8000):
         """
-        Inizializza il server MCP.
+        Initialize the MCP server.
 
         Args:
-            host: Host su cui far girare il server
-            port: Porta su cui far girare il server
+            host: Host to run the server on
+            port: Port to run the server on
         """
         self.host = host
         self.port = port
@@ -25,19 +25,19 @@ class MCPServer:
             version="1.0.0"
         )
 
-        # Storage in-memory per dati IoT e contesto
+        # In-memory storage for IoT data and context
         self.iot_data_store: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
         self.external_data_store: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
 
-        # Setup delle routes
+        # Setup routes
         self._setup_routes()
 
     def _setup_routes(self) -> None:
-        """Configura le routes dell'API."""
+        """Configures the API routes."""
 
         @self.app.get("/")
         async def root():
-            """Endpoint di test."""
+            """Test endpoint."""
             return {"status": "ok", "message": "MCP Server is running"}
 
         @self.app.get("/health")
@@ -48,15 +48,15 @@ class MCPServer:
         @self.app.post("/api/iot/data")
         async def receive_iot_data(data: IoTDataModel):
             """
-            Riceve dati IoT dai dispositivi.
+            Receives IoT data from devices.
 
             Args:
-                data: Dati IoT in formato JSON
+                data: IoT data in JSON format
 
             Returns:
-                Conferma di ricezione con ID
+                Reception confirmation with ID
             """
-            # Salva i dati nello storage in-memory
+            # Save data to in-memory storage
             device_id = data.device_id
             data_dict = {
                 "device_type": data.device_type,
@@ -77,18 +77,18 @@ class MCPServer:
 
         @self.app.get("/api/iot/recent")
         async def get_recent_iot_data(
-            device_id: str = Query(..., description="ID del dispositivo"),
-            limit: int = Query(10, description="Numero massimo di record da restituire")
+            device_id: str = Query(..., description="Device ID"),
+            limit: int = Query(10, description="Max number of records to return")
         ):
             """
-            Recupera i dati IoT più recenti di un dispositivo.
+            Retrieves the most recent IoT data for a device.
 
             Args:
-                device_id: ID del dispositivo
-                limit: Numero massimo di record
+                device_id: Device ID
+                limit: Max number of records
 
             Returns:
-                Lista di dati IoT recenti
+                List of recent IoT data
             """
             if device_id not in self.iot_data_store:
                 return {
@@ -97,7 +97,7 @@ class MCPServer:
                     "message": "Nessun dato disponibile per questo dispositivo"
                 }
 
-            # Recupera gli ultimi N record
+            # Retrieve last N records
             recent_data = self.iot_data_store[device_id][-limit:]
 
             return {
@@ -108,26 +108,26 @@ class MCPServer:
 
         @self.app.get("/api/iot/stats")
         async def get_iot_stats(
-            device_id: str = Query(..., description="ID del dispositivo")
+            device_id: str = Query(..., description="Device ID")
         ):
             """
-            Calcola statistiche aggregate sui dati IoT di un dispositivo.
+            Calculates aggregate statistics on IoT data for a device.
 
             Args:
-                device_id: ID del dispositivo
+                device_id: Device ID
 
             Returns:
-                Statistiche aggregate
+                Aggregate statistics
             """
             if device_id not in self.iot_data_store:
-                raise HTTPException(404, f"Dispositivo {device_id} non trovato")
+                raise HTTPException(404, f"Device {device_id} not found")
 
             data_list = self.iot_data_store[device_id]
 
             if not data_list:
-                return {"device_id": device_id, "stats": {}, "message": "Nessun dato"}
+                return {"device_id": device_id, "stats": {}, "message": "No data"}
 
-            # Calcola statistiche base
+            # Calculate base statistics
             stats = {
                 "total_records": len(data_list),
                 "first_timestamp": data_list[0]["timestamp"],
@@ -135,7 +135,7 @@ class MCPServer:
                 "device_type": data_list[0]["device_type"]
             }
 
-            # Calcola medie per campi numerici
+            # Calculate averages for numeric fields
             numeric_fields = {}
             for record in data_list:
                 for key, value in record["data"].items():
@@ -163,15 +163,15 @@ class MCPServer:
         @self.app.post("/api/external/gmail")
         async def receive_gmail_data(data: ExternalDataModel):
             """
-            Riceve dati da Gmail o altri servizi esterni.
+            Receives data from Gmail or other external services.
 
             Args:
-                data: Dati esterni in formato JSON
+                data: External data in JSON format
 
             Returns:
-                Conferma di ricezione
+                Reception confirmation
             """
-            # Salva i dati esterni
+            # Save external data
             source = data.source
             data_dict = {
                 "source": source,
@@ -230,10 +230,10 @@ class MCPServer:
         @self.app.get("/api/devices")
         async def list_devices():
             """
-            Elenca tutti i dispositivi IoT registrati.
+            Lists all registered IoT devices.
 
             Returns:
-                Lista di device_id con informazioni base
+                List of device_ids with basic info
             """
             devices = []
             for device_id, data_list in self.iot_data_store.items():
@@ -426,10 +426,10 @@ class MCPServer:
 
     def run(self, debug: bool = False) -> None:
         """
-        Avvia il server MCP.
+        Starts the MCP server.
 
         Args:
-            debug: Se True, abilita il modo debug
+            debug: If True, enables debug mode
         """
         uvicorn.run(
             self.app,
@@ -440,18 +440,18 @@ class MCPServer:
 
     def get_app(self) -> FastAPI:
         """
-        Restituisce l'app FastAPI per testing o deployment.
+        Returns the FastAPI app for testing or deployment.
 
         Returns:
-            L'istanza FastAPI
+            The FastAPI instance
         """
         return self.app
 
 
-# Modelli Pydantic per la validazione dei dati
+# Pydantic models for data validation
 
 class IoTDataModel(BaseModel):
-    """Modello per i dati IoT."""
+    """Model for IoT data."""
     device_type: str
     device_id: str
     timestamp: str
@@ -460,7 +460,7 @@ class IoTDataModel(BaseModel):
 
 
 class ExternalDataModel(BaseModel):
-    """Modello per i dati da servizi esterni."""
+    """Model for external service data."""
     source: str  # gmail, calendar, etc.
     data_id: str
     timestamp: str

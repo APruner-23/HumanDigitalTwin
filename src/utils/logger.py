@@ -1,5 +1,5 @@
 """
-Sistema di logging con Rich per tracciare interazioni LLM e MCP.
+Logging system with Rich to track LLM and MCP interactions.
 """
 
 from pathlib import Path
@@ -15,19 +15,22 @@ from rich import box
 
 
 class AgentLogger:
-    """Logger per tracciare interazioni agent, LLM e MCP con Rich e file."""
+    """Logger to track agent, LLM, and MCP interactions with Rich and file logging."""
 
     def __init__(self, log_dir: str = "logs"):
         """
-        Inizializza il logger.
+        Initialize the logger.
 
         Args:
-            log_dir: Directory per i file di log
+            log_dir: Directory for log files
         """
         self.log_dir = Path(log_dir)
         self.log_dir.mkdir(exist_ok=True)
 
-        # Crea un run ID unico
+        self.log_dir = Path(log_dir)
+        self.log_dir.mkdir(exist_ok=True)
+
+        # Create unique run ID
         self.run_id = datetime.now().strftime("%Y%m%d_%H%M%S")
         self.log_file = self.log_dir / f"run_{self.run_id}.log"
         self.html_file = self.log_dir / f"run_{self.run_id}.html"
@@ -48,14 +51,14 @@ class AgentLogger:
         self.tool_calls = 0
         self.mcp_requests = 0
 
-        # Scrivi header nel file log
+        # Write header to log file
         self._write_to_file(self._make_header())
 
-        # Mostra banner
+        # Show banner
         self._show_banner()
 
     def _make_header(self):
-        """Crea header strutturato per il file log."""
+        """Create structured header for the log file."""
         header = []
         header.append("╔" + "═"*78 + "╗")
         header.append("║" + " "*78 + "║")
@@ -68,7 +71,7 @@ class AgentLogger:
         return "\n".join(header) + "\n\n"
 
     def _show_banner(self):
-        """Mostra banner iniziale."""
+        """Show initial banner."""
         banner = Text()
         banner.append("Human Digital Twin Agent\n", style="bold cyan")
         banner.append(f"Run ID: {self.run_id}\n", style="dim")
@@ -79,16 +82,16 @@ class AgentLogger:
         self.console.print()
 
     def _write_to_file(self, content: str):
-        """Scrivi nel file di log."""
+        """Write to log file."""
         with open(self.log_file, 'a', encoding='utf-8') as f:
             f.write(content)
 
     def log_user_message(self, message: str):
         """
-        Logga un messaggio utente.
+        Log a user message.
 
         Args:
-            message: Messaggio dell'utente
+            message: User's message
         """
         timestamp = datetime.now().strftime("%H:%M:%S")
 
@@ -104,12 +107,12 @@ class AgentLogger:
 
     def log_llm_call(self, messages: list, response: str, model_info: Optional[Dict] = None):
         """
-        Logga una chiamata all'LLM.
+        Log an LLM call.
 
         Args:
-            messages: Messaggi inviati all'LLM
-            response: Risposta dell'LLM
-            model_info: Info sul modello
+            messages: Messages sent to LLM
+            response: LLM response
+            model_info: Model info
         """
         self.llm_calls += 1
         timestamp = datetime.now().strftime("%H:%M:%S")
@@ -208,12 +211,12 @@ class AgentLogger:
 
     def log_tool_call(self, tool_name: str, tool_args: Dict[str, Any], tool_result: str):
         """
-        Logga una chiamata a un tool.
+        Log a tool call.
 
         Args:
-            tool_name: Nome del tool
-            tool_args: Argomenti passati al tool
-            tool_result: Risultato del tool
+            tool_name: Tool name
+            tool_args: Arguments passed to the tool
+            tool_result: Tool result
         """
         self.tool_calls += 1
         timestamp = datetime.now().strftime("%H:%M:%S")
@@ -260,13 +263,13 @@ class AgentLogger:
 
     def log_mcp_request(self, method: str, endpoint: str, params: Optional[Dict] = None, response: Any = None):
         """
-        Logga una richiesta al server MCP.
+        Log an MCP server request.
 
         Args:
-            method: Metodo HTTP
-            endpoint: Endpoint chiamato
-            params: Parametri della richiesta
-            response: Risposta del server
+            method: HTTP method
+            endpoint: Endpoint called
+            params: Request parameters
+            response: Server response
         """
         self.mcp_requests += 1
         timestamp = datetime.now().strftime("%H:%M:%S")
@@ -299,10 +302,10 @@ class AgentLogger:
 
     def log_agent_response(self, response: str):
         """
-        Logga la risposta finale dell'agent.
+        Log the final agent response.
 
         Args:
-            response: Risposta dell'agent
+            response: Agent response
         """
         timestamp = datetime.now().strftime("%H:%M:%S")
 
@@ -357,11 +360,11 @@ class AgentLogger:
 
     def log_error(self, error: str, context: Optional[str] = None):
         """
-        Logga un errore.
+        Log an error.
 
         Args:
-            error: Messaggio di errore
-            context: Contesto dell'errore
+            error: Error message
+            context: Error context
         """
         timestamp = datetime.now().strftime("%H:%M:%S")
 
@@ -380,7 +383,7 @@ class AgentLogger:
         self._write_to_file("-" * 80 + "\n")
 
     def log_summary(self):
-        """Mostra un riassunto della sessione e salva HTML."""
+        """Show session summary and save HTML."""
         timestamp = datetime.now().strftime("%H:%M:%S")
 
         # Crea tabella riassuntiva
@@ -417,7 +420,7 @@ class AgentLogger:
         self._save_html()
 
     def _save_html(self):
-        """Salva il log in formato HTML con i colori Rich."""
+        """Save log in HTML format with Rich colors."""
         try:
             from rich.terminal_theme import MONOKAI
 
@@ -467,13 +470,13 @@ _global_logger: Optional[AgentLogger] = None
 
 def get_logger(log_dir: str = "logs") -> AgentLogger:
     """
-    Ottiene l'istanza globale del logger (singleton).
+    Get the global logger instance (singleton).
 
     Args:
-        log_dir: Directory per i log
+        log_dir: Log directory
 
     Returns:
-        Istanza del logger
+        Logger instance
     """
     global _global_logger
     if _global_logger is None:

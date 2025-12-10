@@ -1,6 +1,6 @@
 """
-Langchain Tools per interagire con il server MCP.
-Questi tools permettono all'LLM di chiamare autonomamente l'MCP.
+Langchain Tools for interacting with the MCP server.
+These tools allow the LLM to autonomously call the MCP.
 """
 
 from typing import Optional
@@ -10,27 +10,27 @@ import requests
 import json
 
 
-# URL base del server MCP (può essere configurato)
+# Base URL of the MCP server (can be configured)
 _MCP_BASE_URL = "http://localhost:8000"
 
 
 def set_mcp_base_url(url: str):
-    """Imposta l'URL base del server MCP."""
+    """Sets the base URL of the MCP server."""
     global _MCP_BASE_URL
     _MCP_BASE_URL = url.rstrip('/')
 
 
 def _make_request(endpoint: str, method: str = "GET", **kwargs):
     """
-    Effettua una richiesta HTTP al server MCP.
+    Makes an HTTP request to the MCP server.
 
     Args:
-        endpoint: Endpoint da chiamare (senza slash iniziale)
-        method: Metodo HTTP
-        **kwargs: Parametri aggiuntivi per requests
+        endpoint: Endpoint to call (without leading slash)
+        method: HTTP Method
+        **kwargs: Additional parameters for requests
 
     Returns:
-        Risposta JSON del server
+        JSON response from server
     """
     url = f"{_MCP_BASE_URL}/{endpoint}"
     try:
@@ -39,42 +39,42 @@ def _make_request(endpoint: str, method: str = "GET", **kwargs):
         elif method == "POST":
             response = requests.post(url, **kwargs)
         else:
-            raise ValueError(f"Metodo HTTP non supportato: {method}")
+            raise ValueError(f"HTTP method not supported: {method}")
 
         response.raise_for_status()
         result = response.json()
 
-        # Log richiesta MCP
+        # Log MCP request
         try:
             from ..utils import get_logger
             logger = get_logger()
             logger.log_mcp_request(method, endpoint, kwargs.get('params'), result)
         except:
-            pass  # Ignora errori di logging
+            pass  # Ignore logging errors
 
         return result
     except requests.exceptions.RequestException as e:
         return {"error": str(e), "status": "failed"}
 
 
-# Definisci gli schemi Pydantic per i parametri dei tools
+# Define Pydantic schemas for tool parameters
 
 class IoTRecentDataInput(BaseModel):
-    """Schema per get_iot_recent_data."""
-    device_id: str = Field(description="ID del dispositivo IoT (es: 'fitbit_1234', 'garmin_5678')")
-    limit: int = Field(default=10, description="Numero massimo di record da recuperare")
+    """Schema for get_iot_recent_data."""
+    device_id: str = Field(description="IoT device ID (e.g., 'fitbit_1234', 'garmin_5678')")
+    limit: int = Field(default=10, description="Maximum number of records to retrieve")
 
 
 class IoTStatisticsInput(BaseModel):
-    """Schema per get_iot_statistics."""
-    device_id: str = Field(description="ID del dispositivo IoT")
+    """Schema for get_iot_statistics."""
+    device_id: str = Field(description="IoT device ID")
 
 
 @tool(args_schema=IoTRecentDataInput)
 def get_iot_recent_data(device_id: str, limit: int = 10) -> str:
     """
-    Recupera i dati IoT più recenti di un dispositivo specifico.
-    Utile per vedere le ultime letture dei sensori.
+    Retrieves the most recent IoT data for a specific device.
+    Useful for seeing the latest sensor readings.
     """
     result = _make_request(
         "api/iot/recent",
@@ -86,8 +86,8 @@ def get_iot_recent_data(device_id: str, limit: int = 10) -> str:
 @tool(args_schema=IoTStatisticsInput)
 def get_iot_statistics(device_id: str) -> str:
     """
-    Calcola statistiche aggregate sui dati IoT di un dispositivo.
-    Include medie, min, max per tutti i parametri numerici (es: frequenza cardiaca, passi, temperatura).
+    Calculates aggregated statistics on a device's IoT data.
+    Includes avg, min, max for all numeric parameters (e.g., heart rate, steps, temperature).
     """
     result = _make_request("api/iot/stats", params={"device_id": device_id})
     return json.dumps(result, indent=2)
@@ -107,16 +107,16 @@ def get_user_context() -> str:
 @tool
 def list_devices() -> str:
     """
-    Elenca tutti i dispositivi IoT registrati nel sistema.
-    Utile per scoprire quali dispositivi sono disponibili prima di interrogarli.
+    Lists all IoT devices registered in the system.
+    Useful for discovering which devices are available before querying them.
     """
     result = _make_request("api/devices")
     return json.dumps(result, indent=2)
 
 
 class DataSchemaInput(BaseModel):
-    """Schema per get_data_schema."""
-    device_id: str = Field(description="ID del dispositivo IoT")
+    """Schema for get_data_schema."""
+    device_id: str = Field(description="IoT device ID")
 
 
 @tool(args_schema=DataSchemaInput)
@@ -131,10 +131,10 @@ def get_data_schema(device_id: str) -> str:
 
 
 class QueryFieldInput(BaseModel):
-    """Schema per query_iot_field."""
-    device_id: str = Field(description="ID del dispositivo IoT")
-    field_name: str = Field(description="Nome del campo da recuperare (es: 'heart_rate', 'steps', 'temperature')")
-    limit: int = Field(default=10, description="Numero massimo di valori da recuperare")
+    """Schema for query_iot_field."""
+    device_id: str = Field(description="IoT device ID")
+    field_name: str = Field(description="Name of the field to retrieve (e.g., 'heart_rate', 'steps', 'temperature')")
+    limit: int = Field(default=10, description="Maximum number of values to retrieve")
 
 
 @tool(args_schema=QueryFieldInput)
@@ -152,9 +152,9 @@ def query_iot_field(device_id: str, field_name: str, limit: int = 10) -> str:
 
 
 class LatestValueInput(BaseModel):
-    """Schema per get_latest_value."""
-    device_id: str = Field(description="ID del dispositivo IoT")
-    field_name: str = Field(description="Nome del campo (es: 'heart_rate', 'steps')")
+    """Schema for get_latest_value."""
+    device_id: str = Field(description="IoT device ID")
+    field_name: str = Field(description="Name of the field (e.g., 'heart_rate', 'steps')")
 
 
 @tool(args_schema=LatestValueInput)
@@ -172,10 +172,10 @@ def get_latest_value(device_id: str, field_name: str) -> str:
 
 
 class AggregateFieldInput(BaseModel):
-    """Schema per aggregate_iot_field."""
-    device_id: str = Field(description="ID del dispositivo IoT")
-    field_name: str = Field(description="Nome del campo da aggregare")
-    operation: str = Field(description="Operazione: avg, min, max, sum, count")
+    """Schema for aggregate_iot_field."""
+    device_id: str = Field(description="IoT device ID")
+    field_name: str = Field(description="Name of the field to aggregate")
+    operation: str = Field(description="Operation: avg, min, max, sum, count")
 
 
 @tool(args_schema=AggregateFieldInput)
@@ -195,18 +195,18 @@ def aggregate_iot_field(device_id: str, field_name: str, operation: str) -> str:
 
 def get_mcp_tools(mcp_base_url: str = "http://localhost:8000") -> list:
     """
-    Restituisce la lista di tutti i tools MCP per Langchain.
+    Returns the list of all MCP tools for Langchain.
 
     Args:
-        mcp_base_url: URL base del server MCP
+        mcp_base_url: Base URL of the MCP server
 
     Returns:
-        Lista di tools Langchain
+        List of Langchain tools
     """
-    # Imposta l'URL globale
+    # Set global URL
     set_mcp_base_url(mcp_base_url)
 
-    # Restituisci i tools (nuovi tools ottimizzati + tools legacy)
+    # Return tools (new optimized tools + legacy tools)
     return [
         # Prioritized efficient tools
         list_devices,           # Start here to discover devices
