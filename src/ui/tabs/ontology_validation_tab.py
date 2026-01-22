@@ -27,6 +27,10 @@ def _pre_compute_embeddings(ontology, embeddings, rate_limit: float) -> None:
 
     # Classes with enriched context
     for class_name in ontology.get_all_classes():
+        # 1. Simple name (used for direct matching)
+        all_texts.append(class_name)
+
+        # 2. Enriched context
         class_desc = ontology.get_class_description(class_name)
         class_info = ontology.get_class_info(class_name)
 
@@ -44,6 +48,10 @@ def _pre_compute_embeddings(ontology, embeddings, rate_limit: float) -> None:
 
     # Properties with enriched context
     for prop_name in ontology.get_all_properties():
+        # 1. Simple name (used for direct matching)
+        all_texts.append(prop_name)
+
+        # 2. Enriched context
         prop_desc = ontology.get_property_description(prop_name)
         prop_info = ontology.get_property_info(prop_name)
 
@@ -191,15 +199,12 @@ def render_ontology_validation_tab(config) -> None:
     if not ontology or not embeddings:
         return
 
-    # Embedding cache metrics
-    cache_size, total_items = display_embedding_cache_metrics(ontology, embeddings)
-
     # Pre-compute embeddings button
-    if cache_size < total_items:
-        if st.button("🚀 Pre-calcola tutti gli embeddings", help="Calcola gli embeddings per tutte le classi/proprietà (necessario solo la prima volta)"):
-            with st.spinner("⏳ Pre-calcolo embeddings in corso..."):
-                _pre_compute_embeddings(ontology, embeddings, rate_limit)
-                st.rerun()
+    st.markdown("### 🛠️ Gestione Cache Embeddings")
+    if st.button("🚀 Pre-calcola/Aggiorna Embeddings", help="Calcola o aggiorna gli embeddings mancanti per classi e proprietà"):
+        with st.spinner("⏳ Pre-calcolo embeddings in corso..."):
+            _pre_compute_embeddings(ontology, embeddings, rate_limit)
+            st.rerun()
 
     # Validate triplets button
     st.markdown("---")

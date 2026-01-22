@@ -1517,3 +1517,10 @@ class KnowledgeGraphBuilder:
     def get_storage(self) -> InMemoryKnowledgeGraph:
         """Ritorna lo storage corrente (utile per debugging e visualizzazione)."""
         return self.storage
+
+    def get_kg_stats(self) -> Dict[str, int]:
+        """
+        Ritorna le statistiche del Knowledge Graph.
+        Delegata allo storage.
+        """
+        return self.storage.get_stats()

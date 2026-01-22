@@ -15,6 +15,22 @@ class SchemaOrgLoader:
         self.properties: Dict[str, Dict] = {}
         self.load_schema()
 
+    def _clean_text(self, value) -> str:
+        """Ensure stable string representation of schema fields."""
+        if isinstance(value, str):
+            return value
+        if isinstance(value, list):
+            # Sort list if it contains strings to ensure stability
+            if all(isinstance(x, str) for x in value):
+                return " ".join(sorted(value))
+            return " ".join([self._clean_text(x) for x in value])
+        if isinstance(value, dict):
+            # Prefer @value for localized strings
+            if '@value' in value:
+                return str(value['@value'])
+            return str(value)
+        return str(value)
+
     def load_schema(self):
         """Load and parse Schema.org ontology from JSON-LD file."""
         with open(self.schema_path, 'r', encoding='utf-8') as f:
@@ -37,8 +53,8 @@ class SchemaOrgLoader:
             if 'rdfs:Class' in (entry_type if isinstance(entry_type, list) else [entry_type]):
                 self.classes[name] = {
                     'id': entry_id,
-                    'label': entry.get('rdfs:label', name),
-                    'comment': entry.get('rdfs:comment', ''),
+                    'label': self._clean_text(entry.get('rdfs:label', name)),
+                    'comment': self._clean_text(entry.get('rdfs:comment', '')),
                     'subClassOf': self._extract_refs(entry.get('rdfs:subClassOf', [])),
                 }
 
@@ -46,8 +62,8 @@ class SchemaOrgLoader:
             elif 'rdf:Property' in (entry_type if isinstance(entry_type, list) else [entry_type]):
                 self.properties[name] = {
                     'id': entry_id,
-                    'label': entry.get('rdfs:label', name),
-                    'comment': entry.get('rdfs:comment', ''),
+                    'label': self._clean_text(entry.get('rdfs:label', name)),
+                    'comment': self._clean_text(entry.get('rdfs:comment', '')),
                     'domainIncludes': self._extract_refs(entry.get('schema:domainIncludes', [])),
                     'rangeIncludes': self._extract_refs(entry.get('schema:rangeIncludes', [])),
                 }

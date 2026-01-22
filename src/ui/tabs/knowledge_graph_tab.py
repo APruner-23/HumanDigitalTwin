@@ -211,7 +211,7 @@ def render_knowledge_graph_tab(config: Any) -> None:
     )
 
     if input_option == "Carica da File JSON":
-        uploaded_file = st.file_uploader("Carica file JSON con triplette", type=['json'])
+        uploaded_file = st.file_uploader("Carica file JSON con triplette", type=['json'], key="json_triplets_uploader")
 
         if uploaded_file:
             try:

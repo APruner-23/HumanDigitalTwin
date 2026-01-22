@@ -750,7 +750,7 @@ class TripletExtractionGraph:
         # Se è la prima iterazione, inizializza la conversazione
         if not conversation:
             triplets_str = "\n".join([
-                f"- {t.get('subject', '')} {t.get('predicate', '')} {t.get('object', '')}"
+                f"- {t.get('subject', {}).get('value', '')} {t.get('predicate', {}).get('value', '')} {t.get('object', {}).get('value', '')}"
                 for t in augmented_triplets
             ])
 
@@ -939,6 +939,15 @@ class TripletExtractionGraph:
 
         try:
             import json
+
+            # Prepare triplets string
+            triplets_str = "\n".join([
+                f"- {t.get('subject', {}).get('value', '')} {t.get('predicate', {}).get('value', '')} {t.get('object', {}).get('value', '')}"
+                for t in augmented_triplets
+            ])
+
+            # Prepare data summary
+            data_summary = json.dumps(data_collected, indent=2)
 
             # Usa PromptManager
             messages = self.prompt_manager.build_messages(
@@ -1406,6 +1415,7 @@ class TripletExtractionGraph:
         }
 
         # Esegui il grafo
-        result = self.graph.invoke(initial_state)
+        # Esegui il grafo con recursion limit aumentato per gestire molti chunk
+        result = self.graph.invoke(initial_state, {"recursion_limit": 100})
 
         return result
