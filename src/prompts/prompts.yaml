@@ -88,10 +88,10 @@ triplet_extraction_chunk:
 
     **Entity Type Guidelines:**
     - **People**: type = "Person" (e.g., Marco, Lucia, John)
-    - **Places/Locations**: type = "Place" (e.g., casa di Lucia, Roma, park)
-    - **Things/Objects**: type = "Thing" (e.g., birra, libro, computer)
+    - **Places/Locations**: type = "Place" (e.g., Lucia's house, Roma, park)
+    - **Things/Objects**: type = "Thing" (e.g., beer, book, computer)
     - **Events/Activities**: type = "Event" (e.g., party, meeting, game session)
-    - **Time**: type = "DateTime" (e.g., "2024-01-01", "oggi", "sera")
+    - **Time**: type = "DateTime" (e.g., "2024-01-01", "today", "this evening")
     - **Numbers**: type = "Number" (e.g., 30, 5.5, 100)
     - **Concepts**: type = "Concept" (e.g., love, friendship, happiness)
 
@@ -100,8 +100,8 @@ triplet_extraction_chunk:
     - Use English camelCase format (e.g., "playsGame", "goesTo", "drinks")
 
     Examples:
-    - {{"subject": {{"value": "Luca", "type": "Person"}}, "predicate": {{"value": "goesTo", "type": "Relationship"}}, "object": {{"value": "casa di Lucia", "type": "Place"}}}}
-    - {{"subject": {{"value": "Luca", "type": "Person"}}, "predicate": {{"value": "drinks", "type": "Relationship"}}, "object": {{"value": "birra", "type": "Thing"}}}}
+    - {{"subject": {{"value": "Luca", "type": "Person"}}, "predicate": {{"value": "goesTo", "type": "Relationship"}}, "object": {{"value": "Lucia's house", "type": "Place"}}}}
+    - {{"subject": {{"value": "Luca", "type": "Person"}}, "predicate": {{"value": "drinks", "type": "Relationship"}}, "object": {{"value": "beer", "type": "Thing"}}}}
   user_template: |
     Extract the most important RDF triplets from the following text.
     {context}
