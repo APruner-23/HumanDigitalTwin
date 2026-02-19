@@ -1,5 +1,6 @@
 """
 Embedding service with support for multiple providers (Cohere, Mistral, Gemma).
+Addition: adding small local model (all-MiniLM-L6-v2) to not be dependent on API Keys and rate limits.
 """
 
 import os
@@ -10,6 +11,10 @@ import cohere
 from mistralai import Mistral
 from dotenv import load_dotenv
 from .embedding_cache import EmbeddingCache
+
+# Added import to support local embedding model (SentenceTransformer)
+from sentence_transformers import SentenceTransformer
+
 
 # Try importing transformers for Gemma
 try:
@@ -28,12 +33,13 @@ class EmbeddingProvider(Enum):
     MISTRAL = "mistral"
     GEMMA = "gemma"
     QWEN = "qwen"
+    MINILM = "minilm"  # NEW: Added local model option all-MiniLM-L6-v2
 
 
 class EmbeddingService:
     def __init__(
         self,
-        provider: str = "cohere",
+        provider: str = "minilm",
         api_key: Optional[str] = None,
         use_cache: bool = True,
         cache_dir: str = "data/cache",
@@ -54,6 +60,7 @@ class EmbeddingService:
             shared_cache: Use shared cache across providers (default True)
         """
         self.provider = EmbeddingProvider(provider)
+        print("DEBUG EmbeddingService provider enum:", self.provider)
         self.use_cache = use_cache
         self.cache = EmbeddingCache(cache_dir=cache_dir, provider=provider, shared_cache=False) if use_cache else None
 
@@ -100,21 +107,18 @@ class EmbeddingService:
                 self.model,
                 token=hf_token
             )
-            # Load model with compatibility settings for PyTorch < 2.6
-            import transformers
+            import transformers  # noqa: F401
             self.client = AutoModel.from_pretrained(
                 self.model,
                 token=hf_token,
-                attn_implementation="eager",  # Use eager attention instead of SDPA
-                torch_dtype=torch.float32,  # Ensure compatibility
+                attn_implementation="eager",
+                torch_dtype=torch.float32,
                 trust_remote_code=False
             )
 
-            # Disable advanced masking features that require torch>=2.6
             if hasattr(self.client.config, 'use_mask_functions'):
                 self.client.config.use_mask_functions = False
 
-            # Set device (use provided device or auto-detect)
             if device is not None:
                 self.device = device
             else:
@@ -127,9 +131,33 @@ class EmbeddingService:
 
             self.client = self.client.to(self.device)
             self.client.eval()
-
-            self.embedding_dim = 768  # Gemma 300M produces 768-dim embeddings
+            self.embedding_dim = 768  # Gemma 300M
             print(f"✅ Gemma model loaded on {self.device}")
+
+        # NEW: Aggiunto con aggiornamento validazione ontologia del 19 Febbraio 2026    
+        elif self.provider == EmbeddingProvider.MINILM:
+            """
+            Provider locale basato su SentenceTransformer:
+            - Modello di default: sentence-transformers/all-MiniLM-L6-v2
+            - Niente API key, gira tutto in locale (CPU o GPU se disponibile)
+            """
+            # Usa modello passato o default
+            self.model = model_path or "sentence-transformers/all-MiniLM-L6-v2"
+
+            print(f"Loading MiniLM model from {self.model}...")
+            # SentenceTransformer si occupa di device automaticamente
+            self.client = SentenceTransformer(self.model)
+
+            # Dimensione embedding (es. 384 per all-MiniLM-L6-v2)
+            self.embedding_dim = self.client.get_sentence_embedding_dimension()
+
+            # Info sul device (solo per logging)
+            try:
+                self.device = str(self.client.device)
+            except AttributeError:
+                self.device = "cpu"
+
+            print(f"MiniLM model loaded on {self.device}")
 
         elif self.provider == EmbeddingProvider.QWEN:
             if not GEMMA_AVAILABLE:  # Reuse the same check
@@ -333,6 +361,25 @@ class EmbeddingService:
                         embeddings.append(emb.cpu().numpy().tolist())
 
             return embeddings
+        
+        elif self.provider == EmbeddingProvider.MINILM:
+            # NEW: MiniLM locale con SentenceTransformer
+            import numpy as np
+
+            embeddings = self.client.encode(
+                texts,
+                batch_size=64,
+                convert_to_numpy=True,
+                show_progress_bar=False
+            )
+
+            # Tipo float standard
+            if isinstance(embeddings, np.ndarray):
+                return embeddings.astype(float).tolist()
+            else:
+                # In caso improbabile di altro tipo, fallback
+                return [np.array(e, dtype=float).tolist() for e in embeddings]
+
 
     def embed_text(
         self,

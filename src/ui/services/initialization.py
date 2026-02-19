@@ -67,12 +67,23 @@ def init_ontology_services(_config):
     # Carica ontologia
     with st.spinner("📚 Caricamento Schema.org ontology..."):
         ontology = SchemaOrgLoader(schema_path)
-        st.success(f"✅ Ontologia caricata: {len(ontology.get_all_classes())} classi, {len(ontology.get_all_properties())} proprietà")
+        st.success(
+            f"✅ Ontologia caricata: {len(ontology.get_all_classes())} classi, "
+            f"{len(ontology.get_all_properties())} proprietà"
+        )
 
     # Inizializza embedding service
     ontology_config = _config.get_ontology_config()
-    provider = ontology_config.get('embedding_provider', 'cohere')
+    st.write("DEBUG ontology_config:", ontology_config)
+    provider = ontology_config.get('embedding_provider', 'minilm')
+
+    # NEW: default ora è 'minilm', non più 'cohere'
+    provider = ontology_config.get('embedding_provider', 'minilm')
     cache_dir = ontology_config.get('cache_dir', 'data/ontology/cache')
+
+    # DEBUG da togliere
+    st.write(f"DEBUG embedding provider from config: {provider!r}")
+    print("DEBUG embedding provider from config:", provider)
 
     api_key = None
     if provider == 'cohere':
@@ -80,10 +91,12 @@ def init_ontology_services(_config):
     elif provider == 'mistral':
         api_key = _config.get_env('MISTRAL_API_KEY')
 
-    if not api_key and provider in ['cohere', 'mistral']:
+    # Solo i provider remoti richiedono API key
+    if provider in ['cohere', 'mistral'] and not api_key:
         st.error(f"❌ {provider.upper()}_API_KEY non trovata nel file .env")
         return None, None
 
+    # Per provider locali (minilm, gemma, qwen) api_key viene ignorata
     embeddings = EmbeddingService(
         provider=provider,
         api_key=api_key,
