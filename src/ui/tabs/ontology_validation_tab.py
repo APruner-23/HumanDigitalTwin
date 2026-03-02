@@ -218,7 +218,7 @@ def render_ontology_validation_tab(config) -> None:
         st.success(f"✅ Validazione completata per {len(validated_results)} triplette!")
         st.rerun()
 
-    # Display validation results
+        # Display validation results
     validation_results = AppState.get_validation_results()
     if validation_results:
         st.markdown("---")
@@ -226,33 +226,10 @@ def render_ontology_validation_tab(config) -> None:
 
         threshold = AppState.get_validation_threshold()
 
-        # Display metrics
+        # Display metrics (usano tutte le triplette)
         display_validation_metrics(validation_results, threshold)
 
-        # Filter by threshold
-        valid_results = [r for r in validation_results if r.get('mu', 0.0) >= threshold]
-        low_conf_results = [r for r in validation_results if r.get('mu', 0.0) < threshold]
-
-        # Tabs for valid and low-confidence results
-        result_tab1, result_tab2 = st.tabs(["✅ Validated Triplets", "⚠️ Low Confidence Triplets"])
-
-        with result_tab1:
-            if valid_results:
-                for idx, result in enumerate(valid_results, 1):
-                    display_validation_result(result, idx, show_branches=True)
-            else:
-                st.info("Nessuna tripletta sopra la soglia")
-
-        with result_tab2:
-            if low_conf_results:
-                st.warning(f"⚠️ {len(low_conf_results)} triplette sotto la soglia {threshold}")
-
-                for idx, result in enumerate(low_conf_results, 1):
-                    display_validation_result(result, idx, show_branches=True)
-            else:
-                st.success("✅ Tutte le triplette sopra la soglia!")
-
-        # Download button
+        # --- Download JSON (deve stare prima del loop altrimenti potrebbe non essere renderizzato) ---
         json_output = json.dumps(validation_results, indent=2, ensure_ascii=False)
         st.download_button(
             label="⬇️ Download Risultati Validazione (JSON)",
@@ -260,3 +237,42 @@ def render_ontology_validation_tab(config) -> None:
             file_name="validation_results.json",
             mime="application/json"
         )
+
+        # Filter by threshold
+        valid_results = [r for r in validation_results if r.get('mu', 0.0) >= threshold]
+        low_conf_results = [r for r in validation_results if r.get('mu', 0.0) < threshold]
+
+        # Limite massimo di triplette da visualizzare per tab
+        max_display = 200
+
+        st.caption(
+            f"Mostro al massimo {max_display} triplette per tab per non appesantire l'interfaccia. "
+            f"Il download JSON contiene comunque tutte le {len(validation_results)} triplette validate."
+        )
+
+        # Tabs for valid and low-confidence results
+        result_tab1, result_tab2 = st.tabs(["✅ Validated Triplets", "⚠️ Low Confidence Triplets"])
+
+        with result_tab1:
+            if valid_results:
+                subset = valid_results[:max_display]
+                st.write(f"Mostro {len(subset)} / {len(valid_results)} triplette sopra soglia {threshold}.")
+                for idx, result in enumerate(subset, 1):
+                    display_validation_result(result, idx, show_branches=True)
+
+                if len(valid_results) > max_display:
+                    st.info(f"...e altre {len(valid_results) - max_display} non mostrate qui ma presenti nel JSON.")
+            else:
+                st.info("Nessuna tripletta sopra la soglia")
+
+        with result_tab2:
+            if low_conf_results:
+                subset = low_conf_results[:max_display]
+                st.warning(f"⚠️ Mostro {len(subset)} / {len(low_conf_results)} triplette sotto la soglia {threshold}.")
+                for idx, result in enumerate(subset, 1):
+                    display_validation_result(result, idx, show_branches=True)
+
+                if len(low_conf_results) > max_display:
+                    st.info(f"...e altre {len(low_conf_results) - max_display} non mostrate qui ma presenti nel JSON.")
+            else:
+                st.success("✅ Tutte le triplette sopra la soglia!")

@@ -112,7 +112,8 @@ class TripleMatcher:
         branches = []
 
         # Get top N predicate candidates (usando il TIPO del predicate, non il valore)
-        predicate_text = predicate_type if predicate_type else predicate
+        #predicate_text = predicate_type if predicate_type else predicate
+        predicate_text = predicate  # Per matching semantico, usiamo il testo del predicato (non il tipo LLM)
         predicate_candidates = self._match_to_property(predicate_text)[:top_n]  # No context!
 
         for pred_name, pred_score in predicate_candidates:
@@ -190,7 +191,8 @@ class TripleMatcher:
                 continue
 
             # Match predicate against these properties (usando il TIPO, non il valore)
-            predicate_text = predicate_type if predicate_type else predicate
+            #predicate_text = predicate_type if predicate_type else predicate
+            predicate_text = predicate  # Per matching semantico, usiamo il testo del predicato (non il tipo LLM)
             predicate_filtered = self._match_to_property_filtered(predicate_text, properties_for_subject)
 
             if not predicate_filtered:
@@ -261,7 +263,8 @@ class TripleMatcher:
                 continue
 
             # Match predicate against these properties (usando il TIPO, non il valore)
-            predicate_text = predicate_type if predicate_type else predicate
+            #predicate_text = predicate_type if predicate_type else predicate
+            predicate_text = predicate  # Per matching semantico, usiamo il testo del predicato (non il tipo LLM)
             predicate_filtered = self._match_to_property_filtered(predicate_text, properties_for_object)
 
             if not predicate_filtered:

@@ -1481,7 +1481,7 @@ class KnowledgeGraphBuilder:
             # Esegui il grafo
             logger.info(f"Starting KG build for {len(triplets)} triplets")
 
-            final_state = self.graph.invoke(initial_state,{"recursion_limit": 100})
+            final_state = self.graph.invoke(initial_state,{"recursion_limit": 2000})
 
             # Risultati
             result = {

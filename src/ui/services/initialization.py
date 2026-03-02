@@ -47,7 +47,8 @@ def init_triplet_graph(_config, _llm, _graph_version="v5_cascade_text_iot_aug"):
         llm_api_key=api_key,
         llm_model=_llm.model,
         mcp_base_url=mcp_url,
-        enable_logging=True
+        enable_logging=True,
+        delta_mode=0
     )
 
 

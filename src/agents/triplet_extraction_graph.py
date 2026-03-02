@@ -8,20 +8,29 @@ from langchain_groq import ChatGroq
 from langchain_core.messages import SystemMessage, HumanMessage
 from pydantic import BaseModel, Field
 import operator
+import os, json
+from datetime import datetime
+from pathlib import Path
 
 
 # Pydantic models per structured output
+from typing import Optional
+
 class TripletEntity(BaseModel):
     """Entità con valore e tipo."""
-    value: str = Field(description="Valore dell'entità (es. 'Marco')")
-    type: str = Field(description="Tipo/classe dell'entità (es. 'Person', 'Location', 'Integer')")
+    value: Optional[Any] = Field(default=None, description="Valore dell'entità (es. 'Marco')")
+    type: Optional[str] = Field(default=None, description="Tipo/classe dell'entità (es. 'Person', 'Location', 'Integer')")
 
 
 class Triplet(BaseModel):
     """Singola tripletta RDF con tipizzazione (matrice 2x3: instance + type)."""
-    subject: TripletEntity = Field(description="Soggetto della tripletta con tipo")
-    predicate: TripletEntity = Field(description="Predicato/relazione della tripletta con tipo")
-    object: TripletEntity = Field(description="Oggetto della tripletta con tipo")
+    subject: Optional[TripletEntity] = Field(default=None, description="Soggetto della tripletta con tipo")
+    predicate: Optional[TripletEntity] = Field(default=None, description="Predicato/relazione della tripletta con tipo")
+    object: Optional[TripletEntity] = Field(default=None, description="Oggetto della tripletta con tipo")
+
+    model_config = {
+        "extra": "ignore"  # se l'LLM mette chiavi in più, le ignoriamo
+    }
 
 
 class TripletList(BaseModel):
@@ -30,10 +39,20 @@ class TripletList(BaseModel):
 
     def filter_valid(self) -> List[Triplet]:
         """Filtra solo le triplette valide (con subject, predicate e object non vuoti)."""
-        return [
-            t for t in self.triplets
-            if t.subject.value and t.predicate.value and t.object.value
-        ]
+
+        def _has_text(entity: Optional[TripletEntity]) -> bool:
+            if entity is None:
+                return False
+            if entity.value is None:
+                return False
+            # Converti a stringa e controlla che non sia vuota
+            return str(entity.value).strip() != ""
+
+        valid = []
+        for t in self.triplets:
+            if _has_text(t.subject) and _has_text(t.predicate) and _has_text(t.object):
+                valid.append(t)
+        return valid
 
 
 class GraphState(TypedDict):
@@ -63,6 +82,7 @@ class GraphState(TypedDict):
     chunks: List[str]
     current_chunk_index: int
     previous_summary: Optional[str]
+    summary_history: List[str]  # Storia delle summary generate
     triplets: Annotated[List[Dict[str, str]], operator.add]
     augmented_triplets: Annotated[List[Dict[str, str]], operator.add]
     final_triplets: List[Dict[str, str]]
@@ -102,8 +122,11 @@ class TripletExtractionGraph:
         llm_model: str = "meta-llama/llama-4-scout-17b-16e-instruct",
         mcp_base_url: str = "http://localhost:8000",
         temperature: float = 0.3,
-        enable_logging: bool = False,
-        extraction_only: bool = False
+        enable_logging: bool = True,
+        extraction_only: bool = False,
+        # 0 no context mode, 1 simple context (summary precedente), 2 summary ultime 2 iterazioni
+        delta_mode: int = 1,
+        metrics_dir: str = "token_metrics" 
     ):
         """
         Inizializza il grafo di estrazione triplette.
@@ -124,6 +147,10 @@ class TripletExtractionGraph:
         self.mcp_base_url = mcp_base_url
         self.enable_logging = enable_logging
         self.extraction_only = extraction_only
+        self.delta_mode = delta_mode
+        self.metrics_dir = Path(metrics_dir)
+        self.metrics_dir.mkdir(parents=True, exist_ok=True)
+        self._current_run_metrics = None
 
         # Logger
         if self.enable_logging:
@@ -145,6 +172,122 @@ class TripletExtractionGraph:
 
         # Salva il diagramma Mermaid del grafo
         self._save_graph_diagram()
+
+    def _init_token_metrics(self):
+        """Inizializza la struttura di logging per una singola run della pipeline."""
+        self._current_run_metrics = {
+            "timestamp": datetime.now().isoformat(timespec="seconds"),
+            "delta_mode": self.delta_mode,
+            "stages": {
+                "triple_extraction": {
+                    "input_tokens": 0,
+                    "output_tokens": 0,
+                    "total_tokens": 0,
+                    "calls": []  # lista di chiamate per nodo
+                },
+                "context_generation": {
+                    "input_tokens": 0,
+                    "output_tokens": 0,
+                    "total_tokens": 0,
+                    "calls": []
+                },
+                "triple_refinement": {
+                    "input_tokens": 0,
+                    "output_tokens": 0,
+                    "total_tokens": 0,
+                    "calls": []
+                },
+            }
+        }
+    
+    def _log_token_usage(self, stage: str, node: str, usage_metadata: dict):
+        """
+        Registra i token per una singola chiamata LLM.
+
+        stage: 'triple_extraction' | 'context_generation' | 'triple_refinement'
+        node: nome logico del nodo (es. 'extract_triples')
+        usage_metadata: di solito usage_metadata={'input_tokens':..., 'output_tokens':..., 'total_tokens':...}
+        """
+        if not self.enable_logging:
+            return
+        if self._current_run_metrics is None:
+            # Non inizializzato (safety)
+            self._init_token_metrics()
+
+        stage_bucket = self._current_run_metrics["stages"].get(stage)
+        if not stage_bucket:
+            return
+
+        inp = usage_metadata.get("input_tokens", 0)
+        out = usage_metadata.get("output_tokens", 0)
+        tot = usage_metadata.get("total_tokens", 0)
+
+        stage_bucket["input_tokens"] += inp
+        stage_bucket["output_tokens"] += out
+        stage_bucket["total_tokens"] += tot
+
+        stage_bucket["calls"].append({
+            "node": node,
+            "input_tokens": inp,
+            "output_tokens": out,
+            "total_tokens": tot,
+        })
+
+    def _save_token_metrics(self, label: str = "run"):
+        """Salva i token della run corrente in un file JSON in token_metrics/."""
+        if not self.enable_logging or self._current_run_metrics is None:
+            return
+
+        ts = self._current_run_metrics.get("timestamp", datetime.now().isoformat(timespec="seconds"))
+        safe_ts = ts.replace(":", "-")
+        filename = f"{label}_{safe_ts}.json"
+        path = self.metrics_dir / filename
+
+        try:
+            with open(path, "w", encoding="utf-8") as f:
+                json.dump(self._current_run_metrics, f, indent=2, ensure_ascii=False)
+        except Exception as e:
+            # In caso di problemi con IO non blocchiamo la pipeline
+            print(f"[TOKEN METRICS] Errore salvataggio {path}: {e}")
+
+    
+    def _extract_usage_metadata(self, response: Any) -> Optional[dict]:
+        """
+        Prova a estrarre i token da un oggetto response di LangChain/Groq.
+        Ritorna un dict con chiavi input_tokens, output_tokens, total_tokens
+        oppure None se non trova nulla.
+        """
+        # Caso 1: response.usage_metadata (pattern standard LangChain)
+        usage = getattr(response, "usage_metadata", None)
+        if isinstance(usage, dict):
+            # Ci aspettiamo già queste chiavi, ma normalizziamo
+            inp = usage.get("input_tokens") or usage.get("input") or 0
+            out = usage.get("output_tokens") or usage.get("output") or 0
+            tot = usage.get("total_tokens") or usage.get("total") or (inp + out)
+            return {
+                "input_tokens": inp,
+                "output_tokens": out,
+                "total_tokens": tot,
+            }
+
+        # Caso 2: response.response_metadata["token_usage"] / "usage"
+        resp_meta = getattr(response, "response_metadata", None)
+        if isinstance(resp_meta, dict):
+            tu = resp_meta.get("token_usage") or resp_meta.get("usage") or {}
+            if isinstance(tu, dict):
+                inp = tu.get("input_tokens") or tu.get("prompt_tokens") or 0
+                out = tu.get("output_tokens") or tu.get("completion_tokens") or 0
+                tot = tu.get("total_tokens") or tu.get("total") or (inp + out)
+                return {
+                    "input_tokens": inp,
+                    "output_tokens": out,
+                    "total_tokens": tot,
+                }
+
+        # Nessuna info trovata
+        return None
+
+        
 
     def _build_graph(self) -> StateGraph:
         """Costruisce il grafo LangGraph con ReAct loop per IoT augmentation."""
@@ -316,6 +459,7 @@ class TripletExtractionGraph:
             "chunks": chunks,
             "current_chunk_index": 0,
             "previous_summary": None,
+            "summary_history": [],
             "triplets": []
         }
 
@@ -333,7 +477,7 @@ class TripletExtractionGraph:
         """
         chunks = state["chunks"]
         current_index = state["current_chunk_index"]
-        previous_summary = state.get("previous_summary")
+        summary_history = state.get("summary_history", [])
 
         if current_index >= len(chunks):
             return {}
@@ -342,14 +486,28 @@ class TripletExtractionGraph:
 
         # Log inizio nodo
         if self.logger:
-            self.logger.console.print(f"\n[bold cyan]═══ Triplet Extraction Node - Chunk {current_index + 1}/{len(chunks)} ═══[/bold cyan]")
+            self.logger.console.print(
+                f"\n[bold cyan]═══ Triplet Extraction Node - Chunk {current_index + 1}/{len(chunks)} ═══[/bold cyan]"
+            )
 
-        # Costruisci il prompt usando PromptManager
+        # 🔹 Costruisci il contesto in base a delta_mode
         context_text = ""
-        if previous_summary:
-            context_text = f"Context from previous chunk:\n{previous_summary}\n"
-            if self.logger:
-                self.logger.console.print(f"[dim]Using context from previous chunk[/dim]")
+        if self.delta_mode == 0:
+            # Nessun contesto
+            context_text = ""
+        elif self.delta_mode == 1:
+            # Usa solo l'ultima summary, se esiste
+            if summary_history:
+                last = summary_history[-1]
+                context_text = f"Context from previous chunk:\n{last}\n"
+        else:
+            # Usa le ultime N summary (N = delta_mode), o quante ce ne sono
+            if summary_history:
+                last_n = summary_history[-self.delta_mode:]
+                joined = "\n\n".join(last_n)
+                context_text = (
+                    f"Context from last {len(last_n)} chunks:\n{joined}\n"
+                )
 
         messages = self.prompt_manager.build_messages(
             'triplet_extraction_chunk',
@@ -377,16 +535,38 @@ class TripletExtractionGraph:
             llm_with_structure = self.llm.with_structured_output(TripletList, method="json_mode")
             response = llm_with_structure.invoke(lc_messages)
 
+            # 🔹 Logging token per Triple Extraction / extract_triplets
+            usage = self._extract_usage_metadata(response)
+            if usage:
+                self._log_token_usage(
+                    stage="triple_extraction",
+                    node="extract_triplets",
+                    usage_metadata=usage,
+                )
+
             # Filtra solo triplette valide e converti da Pydantic a dict (matrice 2x3)
             valid_triplets = response.filter_valid()
-            new_triplets = [
-                {
-                    "subject": {"value": t.subject.value, "type": t.subject.type},
-                    "predicate": {"value": t.predicate.value, "type": t.predicate.type},
-                    "object": {"value": t.object.value, "type": t.object.type}
-                }
-                for t in valid_triplets
-            ]
+            new_triplets = []
+            for t in valid_triplets:
+                # safety: se per qualche motivo è None, skippa
+                if t.subject is None or t.predicate is None or t.object is None:
+                    continue
+
+                subj_val = str(t.subject.value).strip() if t.subject.value is not None else ""
+                pred_val = str(t.predicate.value).strip() if t.predicate.value is not None else ""
+                obj_val  = str(t.object.value).strip() if t.object.value is not None else ""
+
+                # se qualcosa è vuoto dopo il cast → scarta la tripletta
+                if not subj_val or not pred_val or not obj_val:
+                    continue
+
+                new_triplets.append(
+                    {
+                        "subject": {"value": subj_val, "type": t.subject.type},
+                        "predicate": {"value": pred_val, "type": t.predicate.type},
+                        "object": {"value": obj_val, "type": t.object.type},
+                    }
+                )
 
             # Log risposta
             if self.logger:
@@ -432,7 +612,10 @@ class TripletExtractionGraph:
         previous_chunk_index = current_index - 1
 
         if previous_chunk_index < 0 or previous_chunk_index >= len(chunks):
-            return {"previous_summary": None}
+            return {
+                "previous_summary": None,
+                "summary_history": state.get("summary_history", [])
+            }
 
         previous_chunk = chunks[previous_chunk_index]
 
@@ -462,13 +645,30 @@ class TripletExtractionGraph:
 
         try:
             response = self.llm.invoke(lc_messages)
+
+            # 🔹 Logging token per Triple Extraction / summarize_chunk
+            usage = self._extract_usage_metadata(response)
+            if usage:
+                self._log_token_usage(
+                    stage="triple_extraction",
+                    node="summarize_chunk",
+                    usage_metadata=usage,
+                )
+
             summary = response.content.strip()
 
             # Log risposta
             if self.logger:
                 self.logger.log_agent_response(f"Summary:\n{summary}")
 
-            return {"previous_summary": summary}
+            # 🔹 aggiorna la history delle summary
+            history = state.get("summary_history", [])
+            history = history + [summary]   # nuovo array per evitare di mutare in-place
+
+            return {
+                "previous_summary": summary,
+                "summary_history": history
+            }
 
         except Exception as e:
             error_msg = f"Errore summarization: {str(e)}"
@@ -586,16 +786,38 @@ class TripletExtractionGraph:
             llm_with_structure = self.llm.with_structured_output(TripletList, method="json_mode")
             response = llm_with_structure.invoke(lc_messages)
 
+            # 🔹 Logging token per Context Generation / text_augmentation
+            usage = self._extract_usage_metadata(response)
+            if usage:
+                self._log_token_usage(
+                    stage="context_generation",
+                    node="text_augmentation",
+                    usage_metadata=usage,
+                )
+
             # Filtra solo triplette valide e converti da Pydantic a dict (matrice 2x3)
             valid_triplets = response.filter_valid()
-            augmented = [
-                {
-                    "subject": {"value": t.subject.value, "type": t.subject.type},
-                    "predicate": {"value": t.predicate.value, "type": t.predicate.type},
-                    "object": {"value": t.object.value, "type": t.object.type}
-                }
-                for t in valid_triplets
-            ]
+            augmented = []
+            for t in valid_triplets:
+                # safety: se per qualche motivo è None, skippa
+                if t.subject is None or t.predicate is None or t.object is None:
+                    continue
+
+                subj_val = str(t.subject.value).strip() if t.subject.value is not None else ""
+                pred_val = str(t.predicate.value).strip() if t.predicate.value is not None else ""
+                obj_val  = str(t.object.value).strip() if t.object.value is not None else ""
+
+                # se qualcosa è vuoto dopo il cast → scarta la tripletta
+                if not subj_val or not pred_val or not obj_val:
+                    continue
+
+                augmented.append(
+                    {
+                        "subject": {"value": subj_val, "type": t.subject.type},
+                        "predicate": {"value": pred_val, "type": t.predicate.type},
+                        "object": {"value": obj_val, "type": t.object.type},
+                    }
+                )
 
             # Log risposta
             if self.logger:
@@ -675,6 +897,16 @@ class TripletExtractionGraph:
         try:
             # Chiedi all'LLM se vale la pena esplorare IoT
             response = self.llm.invoke(lc_messages)
+
+            # 🔹 Logging token per Context Generation / iot_decide
+            usage = self._extract_usage_metadata(response)
+            if usage:
+                self._log_token_usage(
+                    stage="context_generation",
+                    node="iot_decide",
+                    usage_metadata=usage,
+                )
+
             decision_text = response.content.strip().upper()
 
             # Parsing semplice: cerca YES/SI o NO
@@ -785,6 +1017,15 @@ class TripletExtractionGraph:
             # Chiama LLM con i tools disponibili
             llm_with_tools = self.llm.bind_tools(self.mcp_tools)
             response = llm_with_tools.invoke(conversation)
+
+            # 🔹 Logging token per Context Generation / iot_react
+            usage = self._extract_usage_metadata(response)
+            if usage:
+                self._log_token_usage(
+                    stage="context_generation",
+                    node="iot_react",
+                    usage_metadata=usage,
+                )
 
             # 🤔 THINK: Log reasoning dell'agent
             reasoning = ""
@@ -979,16 +1220,38 @@ class TripletExtractionGraph:
             llm_with_structure = self.llm.with_structured_output(TripletList, method="json_mode")
             response = llm_with_structure.invoke(conversation)
 
+            # 🔹 Logging token per Context Generation / iot_generate
+            usage = self._extract_usage_metadata(response)
+            if usage:
+                self._log_token_usage(
+                    stage="context_generation",
+                    node="iot_generate",
+                    usage_metadata=usage,
+                )
+
             # Filtra e converti (matrice 2x3)
             valid_triplets = response.filter_valid()
-            iot_triplets = [
-                {
-                    "subject": {"value": t.subject.value, "type": t.subject.type},
-                    "predicate": {"value": t.predicate.value, "type": t.predicate.type},
-                    "object": {"value": t.object.value, "type": t.object.type}
-                }
-                for t in valid_triplets
-            ]
+            iot_triplets = []
+            for t in valid_triplets:
+                # safety: se per qualche motivo è None, skippa
+                if t.subject is None or t.predicate is None or t.object is None:
+                    continue
+
+                subj_val = str(t.subject.value).strip() if t.subject.value is not None else ""
+                pred_val = str(t.predicate.value).strip() if t.predicate.value is not None else ""
+                obj_val  = str(t.object.value).strip() if t.object.value is not None else ""
+
+                # se qualcosa è vuoto dopo il cast → scarta la tripletta
+                if not subj_val or not pred_val or not obj_val:
+                    continue
+
+                iot_triplets.append(
+                    {
+                        "subject": {"value": subj_val, "type": t.subject.type},
+                        "predicate": {"value": pred_val, "type": t.predicate.type},
+                        "object": {"value": obj_val, "type": t.object.type},
+                    }
+                )
 
             # Log risultato
             if self.logger:
@@ -1082,6 +1345,14 @@ class TripletExtractionGraph:
 
         try:
             response = self.llm.invoke(lc_messages)
+            # 🔹 Logging token per Triple Refinement / validation_decide
+            usage = self._extract_usage_metadata(response)
+            if usage:
+                self._log_token_usage(
+                    stage="triple_refinement",
+                    node="validation_decide",
+                    usage_metadata=usage,
+                )
             decision = response.content.strip().upper()
             should_validate = any(kw in decision for kw in ["YES", "SI", "VALIDATE", "NEEDED", "INCONSISTEN"])
 
@@ -1167,16 +1438,38 @@ class TripletExtractionGraph:
             llm_with_structure = self.llm.with_structured_output(TripletList, method="json_mode")
             response = llm_with_structure.invoke(lc_messages)
 
+            # 🔹 Logging token per Triple Refinement / validation_iterate
+            usage = self._extract_usage_metadata(response)
+            if usage:
+                self._log_token_usage(
+                    stage="triple_refinement",
+                    node="validation_iterate",
+                    usage_metadata=usage,
+                )
+
             # Filtra triplette valide (matrice 2x3)
             valid = response.filter_valid()
-            validated = [
-                {
-                    "subject": {"value": t.subject.value, "type": t.subject.type},
-                    "predicate": {"value": t.predicate.value, "type": t.predicate.type},
-                    "object": {"value": t.object.value, "type": t.object.type}
-                }
-                for t in valid
-            ]
+            validated = []
+            for t in valid:
+                # safety: se per qualche motivo è None, skippa
+                if t.subject is None or t.predicate is None or t.object is None:
+                    continue
+
+                subj_val = str(t.subject.value).strip() if t.subject.value is not None else ""
+                pred_val = str(t.predicate.value).strip() if t.predicate.value is not None else ""
+                obj_val  = str(t.object.value).strip() if t.object.value is not None else ""
+
+                # se qualcosa è vuoto dopo il cast → scarta la tripletta
+                if not subj_val or not pred_val or not obj_val:
+                    continue
+
+                validated.append(
+                    {
+                        "subject": {"value": subj_val, "type": t.subject.type},
+                        "predicate": {"value": pred_val, "type": t.predicate.type},
+                        "object": {"value": obj_val, "type": t.object.type},
+                    }
+                )
 
             # Identifica rimosse
             removed_count = len(current_triplets) - len(validated)
@@ -1382,6 +1675,10 @@ class TripletExtractionGraph:
         Returns:
             Risultato finale con tutte le triplette estratte e augmented
         """
+
+        if self.enable_logging:
+            self._init_token_metrics()
+
         # Inizializza lo stato
         initial_state = {
             # Text processing
@@ -1390,6 +1687,7 @@ class TripletExtractionGraph:
             "chunks": [],
             "current_chunk_index": 0,
             "previous_summary": None,
+            "summary_history": [],
 
             # Triplets
             "triplets": [],
@@ -1416,6 +1714,9 @@ class TripletExtractionGraph:
 
         # Esegui il grafo
         # Esegui il grafo con recursion limit aumentato per gestire molti chunk
-        result = self.graph.invoke(initial_state, {"recursion_limit": 100})
+        result = self.graph.invoke(initial_state, {"recursion_limit": 300})
+
+        if self.enable_logging:
+            self._save_token_metrics(label="triple_pipeline")
 
         return result
