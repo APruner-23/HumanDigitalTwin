@@ -706,18 +706,18 @@ class MCPServer:
                 "relationships": relationships
             }
 
-    def _search_neo4j(self, query: str, limit: int) -> Dict[str, Any]:
+    def _search_neo4j(self, search_query: str, limit: int) -> Dict[str, Any]:
         """Ricerca full-text in Neo4j."""
         with self.kg_storage.driver.session(database=self.kg_storage.database) as session:
             result = session.run("""
                 MATCH (person:Person {id: $person_id})-[:KNOWS]->(subj)-[r]->(obj)
                 WHERE r.person_id = $person_id
-                  AND (
-                    subj.name CONTAINS $query
-                    OR obj.name CONTAINS $query
-                    OR r.broader_topic CONTAINS $query
-                    OR r.narrower_topic CONTAINS $query
-                  )
+                AND (
+                    coalesce(subj.name, "") CONTAINS $search_query
+                    OR coalesce(obj.name, "") CONTAINS $search_query
+                    OR coalesce(r.broader_topic, "") CONTAINS $search_query
+                    OR coalesce(r.narrower_topic, "") CONTAINS $search_query
+                )
                 RETURN
                     labels(subj)[0] AS subject_type,
                     subj.name AS subject,
@@ -728,12 +728,12 @@ class MCPServer:
                     r.narrower_topic AS narrower_topic,
                     r.reasoning AS reasoning
                 LIMIT $limit
-            """, person_id=self.kg_storage.person_id, query=query, limit=limit)
+            """, person_id=self.kg_storage.person_id, search_query=search_query, limit=int(limit))
 
             relationships = [dict(record) for record in result]
 
             return {
-                "query": query,
+                "query": search_query,
                 "count": len(relationships),
                 "relationships": relationships
             }

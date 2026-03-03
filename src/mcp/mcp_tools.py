@@ -5,7 +5,7 @@ These tools allow the LLM to autonomously call the MCP.
 
 from typing import Optional
 from langchain_core.tools import tool
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 import requests
 import json
 
@@ -261,6 +261,15 @@ class SearchKGInput(BaseModel):
     """Schema per search_kg."""
     query: str = Field(description="Testo da cercare nel Knowledge Graph")
     limit: int = Field(default=10, description="Numero massimo di risultati")
+
+    @field_validator("limit", mode="before")
+    @classmethod
+    def coerce_limit(cls, v):
+        if isinstance(v, str):
+            v = v.strip()
+            if v.isdigit():
+                return int(v)
+        return v
 
 
 @tool(args_schema=SearchKGInput)

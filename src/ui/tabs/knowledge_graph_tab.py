@@ -336,8 +336,7 @@ def render_knowledge_graph_tab(config: Any) -> None:
                                 # Reasoning
                                 reasoning = triplet.get("classification_reasoning", "")
                                 if reasoning:
-                                    with st.expander("💡 Reasoning"):
-                                        st.markdown(reasoning)
+                                    st.text_area("💡 Reasoning", value=reasoning, height=120, disabled=True)
 
                         if len(processed) > 10:
                             st.info(f"Mostrate prime 10 triplette. Totale: {len(processed)}")
@@ -380,16 +379,16 @@ def render_knowledge_graph_tab(config: Any) -> None:
             if hasattr(storage, 'get_all_broader_topics'):
                 st.markdown("### 🌐 Tutti i Broad Topics")
                 all_broader = storage.get_all_broader_topics()
-                for topic in all_broader:
-                    with st.expander(f"📁 {topic['name']}"):
-                        st.markdown(f"**ID:** `{topic['id']}`")
+                for broader in all_broader:
+                    with st.expander(f"📁 {broader}"):
+                        narrow_topics = storage.get_narrower_topics_for_broader(broader)
 
-                        # Mostra narrow topics collegati
-                        narrow_topics = storage.get_narrower_topics_for_broader(topic['id'])
                         if narrow_topics:
                             st.markdown(f"**Narrow Topics ({len(narrow_topics)}):**")
                             for nt in narrow_topics:
-                                st.markdown(f"- {nt['name']}")
+                                st.markdown(f"- {nt}")
+                        else:
+                            st.info("Nessun narrow topic trovato per questo broader.")
 
         except Exception as e:
             st.error(f"❌ Errore recupero statistiche: {str(e)}")

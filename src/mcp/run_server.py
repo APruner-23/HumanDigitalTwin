@@ -10,6 +10,7 @@ sys.path.insert(0, str(project_root))
 from src.config import ConfigManager
 from src.mcp import MCPServer
 
+from src.agents.knowledge_graph_builder import Neo4jKnowledgeGraph
 
 def main():
     """Avvia il server MCP."""
@@ -22,8 +23,31 @@ def main():
 
     print(f"Starting MCP Server on {host}:{port}...")
 
+    # Configurazione di Neo4J per tool MCP
+    neo4j_cfg = config.get_neo4j_config() 
+
+    uri = neo4j_cfg["uri"]  # Es. "bolt://localhost:7687"
+    database = neo4j_cfg["database"]
+    username = neo4j_cfg["username"]
+    password = neo4j_cfg["password"]
+
+    if not username or not password:
+        raise ValueError("Password o Username mancante per Neo4j. Controlla la configurazione.")
+    
+    person_id = "main_person"
+    person_name = "User"
+
+    kg_storage = Neo4jKnowledgeGraph(
+        uri=uri,
+        username=username,
+        password=password,
+        database=database,
+        person_id=person_id,
+        person_name=person_name
+    )
+
     # Crea e avvia il server
-    server = MCPServer(host=host, port=port)
+    server = MCPServer(host=host, port=port, kg_storage=kg_storage)
     server.run(debug=True)
 
 
