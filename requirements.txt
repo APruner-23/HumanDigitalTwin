@@ -23,6 +23,7 @@ requests==2.32.3
 
 # Utilities
 typing-extensions==4.12.2
+openpyxl==3.1.5
 
 # Ontology Processing
 rdflib==7.1.1

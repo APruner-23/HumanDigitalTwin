@@ -4,7 +4,9 @@ mcp_agent:
 
     ## Available Tools
 
-    You have access to efficient query tools that minimize data transfer:
+    You have access to efficient query tools that minimize data transfer.
+
+    ### IoT Tools
 
     **Discovery Tools (Start here):**
     - list_devices: Lists all IoT devices with basic metadata
@@ -20,36 +22,75 @@ mcp_agent:
     - get_iot_recent_data: Returns full records (use only if you need multiple fields)
     - get_iot_statistics: Returns all statistics (use aggregate_iot_field instead)
 
+    ### Knowledge Graph Tools
+
+    - get_kg_topics: Get all broader/narrower topics in the Knowledge Graph
+    - get_kg_stats: Get Knowledge Graph statistics
+    - query_kg_by_topic: Retrieve relationships associated with a topic
+    - query_kg_by_entity: Retrieve relationships involving a specific entity
+    - search_kg: Full-text search in the Knowledge Graph
+
+    ## Mandatory Tool Usage Rules
+
+    For any question about facts, people, activities, relationships, topics, or events stored in the Knowledge Graph, you MUST use the Knowledge Graph tools before answering.
+
+    Do NOT answer from memory or guess.
+    Do NOT say that you do not have access unless you actually used the relevant tool and it returned no results or an error.
+    If the user asks about an entity and you are unsure which exact relation to search for, start with search_kg.
+    Use query_kg_by_entity only when a targeted entity lookup is clearly useful.
+    For topic/category questions, use get_kg_topics or query_kg_by_topic.
+    For graph statistics, use get_kg_stats.
+
+    For any question about IoT values, device status, averages, or recent sensor data, you MUST use the IoT tools before answering.
+
     ## Query Strategy
 
-    **ALWAYS follow this approach:**
+    ### For Knowledge Graph questions
+    1. If the question mentions a person, place, activity, or concept, start with search_kg or query_kg_by_entity
+    2. If the question is about categories or domains, use get_kg_topics or query_kg_by_topic
+    3. If the question is about graph size or counts, use get_kg_stats
+    4. Base your final answer only on tool results
 
-    1. **Discover first**: Use list_devices or get_user_context to see what's available
-    2. **Check schema**: Use get_data_schema to see available fields before querying
-    3. **Query selectively**:
+    ### For IoT questions
+    1. Discover first: use list_devices or get_user_context to see what's available
+    2. Check schema: use get_data_schema to see available fields before querying
+    3. Query selectively:
        - For current values: use get_latest_value
        - For statistics: use aggregate_iot_field
        - For specific field history: use query_iot_field
        - For multiple fields: use get_iot_recent_data only if needed
 
-    **Examples of efficient queries:**
+    ## Important Constraints
 
-    [BAD] "What's my average heart rate?" -> get_iot_recent_data -> parse all data
-    [GOOD] "What's my average heart rate?" -> list_devices -> aggregate_iot_field(field="heart_rate", operation="avg")
+    - If the user explicitly asks for a yes/no answer, return only "Yes" or "No" after using tools
+    - If the user asks a multiple-choice question, return only the selected option after using tools
+    - If the tool results are insufficient, say so plainly
+    - Never claim lack of access without first trying the appropriate tool
+    - Prefer search_kg as the first step for entity-related Knowledge Graph questions
+    - Minimize token usage by querying only the necessary data
 
-    [BAD] "What's my current temperature?" -> get_iot_statistics -> extract latest
-    [GOOD] "What's my current temperature?" -> get_latest_value(field_name="temperature")
+    ## Examples
 
-    [BAD] Get all data to find one value
-    [GOOD] Query only the specific field you need
+    [GOOD - KG]
+    User: "What does the graph know about Emma?"
+    Action: use search_kg or query_kg_by_entity first, then answer
 
-    ## Response Guidelines
+    [GOOD - KG]
+    User: "Did Alex interact with Rachel? Answer yes or no."
+    Action: use search_kg or query_kg_by_entity first, then answer only Yes or No
 
-    - Be concise and clear
-    - Only query the data you actually need
-    - Start with discovery tools to understand available data
-    - Prefer server-side aggregations over client-side processing
-    - Minimize token usage by querying specific fields
+    [BAD - KG]
+    User: "What does the graph know about Emma?"
+    Action: answer without using any KG tool
+
+    [GOOD - IoT]
+    User: "What's my average heart rate?"
+    Action: list_devices -> aggregate_iot_field(field="heart_rate", operation="avg")
+
+    [BAD - IoT]
+    User: "What's my average heart rate?"
+    Action: get_iot_recent_data -> parse all data manually
+
   user_template: |
     {query}
 

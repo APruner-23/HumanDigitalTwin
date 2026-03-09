@@ -4,7 +4,7 @@ from typing import Dict, Any, Optional, List
 from datetime import datetime, timedelta
 import uvicorn
 from collections import defaultdict
-
+import re
 
 class MCPServer:
     """Server MCP per esporre API che iniettano informazioni al modello."""
@@ -574,6 +574,27 @@ class MCPServer:
             except Exception as e:
                 raise HTTPException(500, f"Error searching KG: {str(e)}")
 
+    def _sanitize_rel_type(self, rel_type: str) -> str:
+        """
+        Neo4j relationship types must match: [A-Za-z_][A-Za-z0-9_]*
+        We'll convert spaces/dashes to underscores and drop invalid chars.
+        """
+        if not rel_type:
+            return ""
+
+        # Trim + replace spaces/dashes with underscore
+        cleaned = rel_type.strip()
+        cleaned = re.sub(r"[\s\-]+", "_", cleaned)
+
+        # Remove any remaining invalid chars
+        cleaned = re.sub(r"[^A-Za-z0-9_]", "", cleaned)
+
+        # Relationship type cannot start with a digit
+        if cleaned and cleaned[0].isdigit():
+            cleaned = "_" + cleaned
+
+        return cleaned
+
     def _query_neo4j_by_topic(self, broader_topic: Optional[str], narrower_topic: Optional[str]) -> Dict[str, Any]:
         """Query Neo4j per topic."""
         with self.kg_storage.driver.session(database=self.kg_storage.database) as session:
@@ -663,34 +684,52 @@ class MCPServer:
         """Query Neo4j per entità."""
         with self.kg_storage.driver.session(database=self.kg_storage.database) as session:
             if relationship_type:
-                # Con tipo di relazione
+                safe_rel = self._sanitize_rel_type(relationship_type)
+
+                # Se dopo la sanitizzazione è vuoto, ignora il filtro (fallback)
+                if not safe_rel:
+                    relationship_type = None
+                else:
+                    relationship_type = safe_rel
+
+                
+            if relationship_type:
                 query = f"""
                     MATCH (person:Person {{id: $person_id}})-[:KNOWS]->(subj)-[r:{relationship_type}]->(obj)
                     WHERE r.person_id = $person_id
-                      AND (subj.name CONTAINS $entity OR obj.name CONTAINS $entity)
+                    AND (
+                        (subj.name IS NOT NULL AND toLower(subj.name) CONTAINS toLower($entity))
+                        OR (subj.id IS NOT NULL AND toLower(subj.id) CONTAINS toLower($entity))
+                        OR (obj.name IS NOT NULL AND toLower(obj.name) CONTAINS toLower($entity))
+                        OR (obj.id IS NOT NULL AND toLower(obj.id) CONTAINS toLower($entity))
+                    )
                     RETURN
                         labels(subj)[0] AS subject_type,
-                        subj.name AS subject,
+                        coalesce(subj.name, subj.id) AS subject,
                         type(r) AS predicate,
                         labels(obj)[0] AS object_type,
-                        obj.name AS object,
+                        coalesce(obj.name, obj.id) AS object,
                         r.broader_topic AS broader_topic,
                         r.narrower_topic AS narrower_topic,
                         r.reasoning AS reasoning
                     LIMIT 20
                 """
             else:
-                # Tutte le relazioni
                 query = """
                     MATCH (person:Person {id: $person_id})-[:KNOWS]->(subj)-[r]->(obj)
                     WHERE r.person_id = $person_id
-                      AND (subj.name CONTAINS $entity OR obj.name CONTAINS $entity)
+                    AND (
+                        (subj.name IS NOT NULL AND toLower(subj.name) CONTAINS toLower($entity))
+                        OR (subj.id IS NOT NULL AND toLower(subj.id) CONTAINS toLower($entity))
+                        OR (obj.name IS NOT NULL AND toLower(obj.name) CONTAINS toLower($entity))
+                        OR (obj.id IS NOT NULL AND toLower(obj.id) CONTAINS toLower($entity))
+                    )
                     RETURN
                         labels(subj)[0] AS subject_type,
-                        subj.name AS subject,
+                        coalesce(subj.name, subj.id) AS subject,
                         type(r) AS predicate,
                         labels(obj)[0] AS object_type,
-                        obj.name AS object,
+                        coalesce(obj.name, obj.id) AS object,
                         r.broader_topic AS broader_topic,
                         r.narrower_topic AS narrower_topic,
                         r.reasoning AS reasoning

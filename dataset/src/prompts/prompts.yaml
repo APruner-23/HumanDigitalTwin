@@ -248,45 +248,44 @@ query_generation:
 
     Your task: Generate exactly 8 queries with this distribution:
     - 2 TEMPORAL GROUNDING (1 exact time + 1 binary yes/no)
-    - 3 CROSS-MODAL (multiple choice, connecting dialogue with sensor data)
-    - 1 DEDUPLICATION (count distinct events)
+    - 2 CROSS-MODAL (multiple choice, connecting dialogue with other modalities)
+    - 1 DEDUPLICATION (exact number)
     - 2 HALLUCINATION (binary yes/no about events that did NOT happen)
+    - 1 COMPLETENESS (binary or exact, verifying coverage of an explicit fact)
 
     CRITICAL RULES:
     1. All answers MUST be derivable ONLY from provided data
     2. Binary questions must have unambiguous Yes/No answers
     3. Multiple choice must have exactly 1 correct answer
     4. Distractors must be plausible but clearly wrong (not mentioned in data)
-    5. Temporal questions use exact timestamps from sensors
-    6. Hallucination questions ask about absent events (answer always "No")
-    7. Use exact data from scene description, device sensors, calendar, messages
+    5. Hallucination questions ask about absent events (answer always "No")
+    6. COMPLETENESS questions must test whether an EXPLICIT, IMPORTANT fact mentioned in the scene is captured (answer should be "Yes" or an exact small number)
+    7. IMPORTANT FOR DOWNSTREAM PKG: Phrase questions so they remain answerable from triples (entities/relations/timestamps/topics). Avoid requiring raw sensor arrays, exact GPS coordinates, or long verbatim message content.
 
     TEMPORAL GROUNDING:
-    - Extract exact timestamps from GPS, smartwatch, calendar events
+    - Use timestamps from calendar or clear time mentions in messages/dialogue or time-series sensors
     - Ask "What time did [event] occur?" → Answer: "HH:MM"
     - Ask "Did [event] happen before/after [time]?" → Answer: "Yes" or "No"
 
     CROSS-MODAL:
-    - Connect EXPLICIT dialogue mentions with sensor data
-    - ONLY ask about things ACTUALLY mentioned in dialogue (not implied, not future concerns)
-    - Example: User says "I'm tired" (present) + HR data → valid question
-    - INVALID: User says "I hope I don't get tired" (future worry) → DO NOT ask "Why was user tired?"
-    - INVALID: User never mentions tired → DO NOT ask about tiredness
-    - Avoid FALSE physiological correlations:
-      * HR 60-80 bpm = normal resting, NOT tiredness indicator
-      * Low steps during conversation = normal, NOT indicating fatigue
-      * High calories = activity, NOT necessarily causing tiredness unless mentioned
+    - Connect EXPLICIT dialogue mentions with another modality (calendar, messages metadata, device high-level facts)
+    - Avoid physiological claims unless explicitly supported by dialogue
     - 4 options (A correct, B/C/D distractors not in data)
 
     DEDUPLICATION:
-    - Count UNIQUE events even if mentioned multiple times
-    - Example: "How many gym sessions?" → If mentioned twice but same timestamps/same event, count 1
+    - Count UNIQUE events even if mentioned multiple times (answer is a number)
 
     HALLUCINATION:
-    - Ask about activities/locations/people NOT in data
-    - Must be contextually plausible (same domain as real data)
-    - Example: If user went to gym, ask "Did user go swimming?" → "No"
-    - NEVER ask about things mentioned even once (even as plans or worries)
+    - Ask about plausible but absent events (answer always "No")
+    - NEVER ask about things mentioned even once (even as plans)
+
+    COMPLETENESS:
+    - Ask about a fact that SHOULD be present if extraction is complete
+    - Example patterns:
+      * "Is there any evidence in the data that the user attended [explicit event]?" (Yes)
+      * "How many distinct calendar events are scheduled in this scene?" (0-3 exact)
+      * "Is there any evidence that the user interacted with [explicit person mentioned]?" (Yes)
+    - Keep it easy to score and not dependent on raw sensor sample counts.
 
   user_template: |
     Generate 8 evaluation queries for this scene:
@@ -306,32 +305,6 @@ query_generation:
     Day: {day}
     Time: {time}
 
-    CRITICAL VALIDATION RULES:
-
-    TEMPORAL LOGIC:
-    - If event mentioned at time T, it CANNOT have happened before T
-    - Example: Message sent at 18:38 saying "I finished" → answer "No" to "Did you finish before 18:30?"
-    - Use EARLIEST mention/timestamp as event time
-
-    CROSS-MODAL REQUIREMENTS:
-    - ONLY ask about EXPLICIT present-tense mentions (not future plans, not worries, not implications)
-    - Read dialogue carefully: "I'm tired" (valid) vs "I hope I don't get tired" (INVALID - don't ask!)
-    - If dialogue never mentions X, DO NOT ask "Why did user mention X?"
-    - Avoid template questions - each question must be specific to THIS scene's actual content
-
-    PHYSIOLOGICAL CORRELATIONS:
-    - HR 60-80 bpm at rest = NORMAL, not tiredness
-    - Low steps during conversation/sedentary activity = NORMAL
-    - Don't invent medical correlations not supported by dialogue
-
-    HALLUCINATION:
-    - Ask about events/activities NOT mentioned anywhere (even as plans)
-    - Must be plausible alternatives in same domain
-
-    ALL ANSWERS:
-    - Must be unambiguous and derivable ONLY from provided data
-    - Rationale must reference SPECIFIC data points (exact quotes, exact sensor values)
-
     Return ONLY a JSON object with this structure:
     {{
       "queries": [
@@ -345,6 +318,14 @@ query_generation:
         }},
         {{
           "id": "Q2",
+          "category": "temporal",
+          "type": "binary",
+          "question": "Question text?",
+          "answer": "Yes/No",
+          "rationale": "How answer derives from data"
+        }},
+        {{
+          "id": "Q3",
           "category": "cross_modal",
           "type": "multiple_choice",
           "question": "Question text?",
@@ -357,7 +338,52 @@ query_generation:
           "answer": "A",
           "rationale": "Why A is correct and B/C/D are wrong"
         }},
-        ... (8 queries total)
+        {{
+          "id": "Q4",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "Question text?",
+          "options": {{
+            "A": "Option A",
+            "B": "Option B",
+            "C": "Option C",
+            "D": "Option D"
+          }},
+          "answer": "A",
+          "rationale": "Why A is correct and B/C/D are wrong"
+        }},
+        {{
+          "id": "Q5",
+          "category": "deduplication",
+          "type": "exact",
+          "question": "Question text?",
+          "answer": "A number",
+          "rationale": "How answer derives from data"
+        }},
+        {{
+          "id": "Q6",
+          "category": "hallucination",
+          "type": "binary",
+          "question": "Question text?",
+          "answer": "No",
+          "rationale": "Why this did not happen"
+        }},
+        {{
+          "id": "Q7",
+          "category": "hallucination",
+          "type": "binary",
+          "question": "Question text?",
+          "answer": "No",
+          "rationale": "Why this did not happen"
+        }},
+        {{
+          "id": "Q8",
+          "category": "completeness",
+          "type": "binary",
+          "question": "Question text?",
+          "answer": "Yes/No or small exact number",
+          "rationale": "How answer derives from data"
+        }}
       ]
     }}
 
@@ -366,10 +392,10 @@ query_generation:
     - Q2: temporal (binary)
     - Q3: cross_modal (multiple_choice)
     - Q4: cross_modal (multiple_choice)
-    - Q5: cross_modal (multiple_choice)
-    - Q6: deduplication (exact number)
+    - Q5: deduplication (exact)
+    - Q6: hallucination (binary)
     - Q7: hallucination (binary)
-    - Q8: hallucination (binary)
+    - Q8: completeness (binary or exact)
 
     EXAMPLES OF GOOD vs BAD QUERIES:
 
@@ -414,3 +440,13 @@ query_generation:
     Dialogue: "Intense workout" + HR 145 bpm + calories 420
     Q: "What physical activity is supported by sensor data?"
     A: "High heart rate (145 bpm) and calories (420) confirm intense workout"
+
+    ✅ GOOD COMPLETENESS:
+    Dialogue: "I have a dentist appointment at 15:00" + Calendar event: Dentist Appointment 15:00-15:30
+    Q: "Is there evidence that the user had a dentist appointment?"
+    A: "Yes"
+    → Rationale: Calendar shows Dentist Appointment at 15:00, and dialogue mentions it.
+
+    ❌ BAD COMPLETENESS:
+    Q: "How many GPS points were recorded during the day?"
+    → WRONG! This depends on raw sensor sampling, not reliably represented in triples.
