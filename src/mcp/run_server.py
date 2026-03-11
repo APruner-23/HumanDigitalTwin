@@ -34,20 +34,14 @@ def main():
     if not username or not password:
         raise ValueError("Password o Username mancante per Neo4j. Controlla la configurazione.")
     
-    person_id = "main_person"
-    person_name = "User"
+    kg_storage = None
 
-    kg_storage = Neo4jKnowledgeGraph(
-        uri=uri,
-        username=username,
-        password=password,
-        database=database,
-        person_id=person_id,
-        person_name=person_name
+    server = MCPServer(
+        host=host,
+        port=port,
+        kg_storage=kg_storage,
+        neo4j_config=neo4j_cfg
     )
-
-    # Crea e avvia il server
-    server = MCPServer(host=host, port=port, kg_storage=kg_storage)
     server.run(debug=True)
 
 

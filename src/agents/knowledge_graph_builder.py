@@ -303,6 +303,9 @@ class Neo4jKnowledgeGraph:
         predicate_type = get_type("predicate")  # Non usato per ora, ma disponibile
         object_type = get_type("object")
 
+        is_subject_root = subject_value.strip().lower() == self.person_name.strip().lower()
+        is_object_root = object_value.strip().lower() == self.person_name.strip().lower()
+
         # Normalizza il predicate per usarlo come nome relazione (CamelCase, no spazi)
         import re
         predicate_rel_type = re.sub(r'[^a-zA-Z0-9_]', '_', predicate_value)
@@ -314,34 +317,92 @@ class Neo4jKnowledgeGraph:
         with self.driver.session(database=self.database) as session:
             # Query Cypher dinamica (il tipo di relazione non può essere parametrizzato)
             # NOTA: Uso 'obj' invece di 'object' perché è una keyword riservata in Neo4j
-            query = f"""
-                // Match o crea il nodo Subject
-                MERGE (subj:{subject_type} {{name: $subject_value, person_id: $person_id}})
-                ON CREATE SET subj.created_at = datetime()
+            if is_subject_root and is_object_root:
+                query = f"""
+                    MATCH (subj:Person {{id: $person_id}})
+                    MATCH (obj:Person {{id: $person_id}})
 
-                // Match o crea il nodo Object
-                MERGE (obj:{object_type} {{name: $object_value, person_id: $person_id}})
-                ON CREATE SET obj.created_at = datetime()
+                    MERGE (subj)-[r:{predicate_rel_type}]->(obj)
+                    ON CREATE SET
+                        r.broader_topic = $broader_topic,
+                        r.narrower_topic = $narrower_topic,
+                        r.reasoning = $reasoning,
+                        r.predicate_original = $predicate_original,
+                        r.created_at = datetime(),
+                        r.person_id = $person_id
+                    ON MATCH SET
+                        r.last_used = datetime()
 
-                // Crea la relazione con i topic come proprietà
-                MERGE (subj)-[r:{predicate_rel_type}]->(obj)
-                ON CREATE SET
-                    r.broader_topic = $broader_topic,
-                    r.narrower_topic = $narrower_topic,
-                    r.reasoning = $reasoning,
-                    r.predicate_original = $predicate_original,
-                    r.created_at = datetime(),
-                    r.person_id = $person_id
-                ON MATCH SET
-                    r.last_used = datetime()
+                    RETURN subj, obj, r
+                """
+            elif is_subject_root:
+                query = f"""
+                    MATCH (subj:Person {{id: $person_id}})
 
-                // Link subject alla Person se non esiste già
-                WITH subj, obj, r
-                MATCH (person:Person {{id: $person_id}})
-                MERGE (person)-[:KNOWS]->(subj)
+                    MERGE (obj:{object_type} {{name: $object_value, person_id: $person_id}})
+                    ON CREATE SET obj.created_at = datetime()
 
-                RETURN subj, obj, r
-            """
+                    MERGE (subj)-[r:{predicate_rel_type}]->(obj)
+                    ON CREATE SET
+                        r.broader_topic = $broader_topic,
+                        r.narrower_topic = $narrower_topic,
+                        r.reasoning = $reasoning,
+                        r.predicate_original = $predicate_original,
+                        r.created_at = datetime(),
+                        r.person_id = $person_id
+                    ON MATCH SET
+                        r.last_used = datetime()
+
+                    RETURN subj, obj, r
+                """
+            elif is_object_root:
+                query = f"""
+                    MERGE (subj:{subject_type} {{name: $subject_value, person_id: $person_id}})
+                    ON CREATE SET subj.created_at = datetime()
+
+                    MATCH (obj:Person {{id: $person_id}})
+
+                    MERGE (subj)-[r:{predicate_rel_type}]->(obj)
+                    ON CREATE SET
+                        r.broader_topic = $broader_topic,
+                        r.narrower_topic = $narrower_topic,
+                        r.reasoning = $reasoning,
+                        r.predicate_original = $predicate_original,
+                        r.created_at = datetime(),
+                        r.person_id = $person_id
+                    ON MATCH SET
+                        r.last_used = datetime()
+
+                    MATCH (person:Person {{id: $person_id}})
+                    MERGE (person)-[:KNOWS]->(subj)
+
+                    RETURN subj, obj, r
+                """
+            else:
+                query = f"""
+                    MERGE (subj:{subject_type} {{name: $subject_value, person_id: $person_id}})
+                    ON CREATE SET subj.created_at = datetime()
+
+                    MERGE (obj:{object_type} {{name: $object_value, person_id: $person_id}})
+                    ON CREATE SET obj.created_at = datetime()
+
+                    MERGE (subj)-[r:{predicate_rel_type}]->(obj)
+                    ON CREATE SET
+                        r.broader_topic = $broader_topic,
+                        r.narrower_topic = $narrower_topic,
+                        r.reasoning = $reasoning,
+                        r.predicate_original = $predicate_original,
+                        r.created_at = datetime(),
+                        r.person_id = $person_id
+                    ON MATCH SET
+                        r.last_used = datetime()
+
+                    WITH subj, obj, r
+                    MATCH (person:Person {{id: $person_id}})
+                    MERGE (person)-[:KNOWS]->(subj)
+
+                    RETURN subj, obj, r
+                """
 
             session.run(query,
                 person_id=self.person_id,

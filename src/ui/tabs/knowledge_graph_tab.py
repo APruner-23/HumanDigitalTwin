@@ -5,6 +5,9 @@ Knowledge Graph Builder Tab
 import streamlit as st
 import json
 from typing import Dict, Any
+import requests
+from src.agents import Neo4jKnowledgeGraph
+from neo4j import GraphDatabase
 
 
 def render_knowledge_graph_tab(config: Any) -> None:
@@ -17,11 +20,27 @@ def render_knowledge_graph_tab(config: Any) -> None:
     st.header("🕸️ Knowledge Graph Builder")
     st.write("Costruisci il Knowledge Graph classificando le triplette in broad/narrow topics")
 
+    def switch_mcp_profile(_config, person_id: str, person_name: str):
+        """Allinea il server MCP al profilo Neo4j selezionato nella UI."""
+        mcp_config = _config.get_mcp_config()
+        mcp_url = f"http://{mcp_config.get('host')}:{mcp_config.get('port')}"
+
+        response = requests.post(
+            f"{mcp_url}/api/kg/switch_profile",
+            json={
+                "person_id": person_id,
+                "person_name": person_name
+            },
+            timeout=10
+        )
+        response.raise_for_status()
+        return response.json()
+
     # Inizializza il KG builder (cached)
     @st.cache_resource
-    def init_kg_builder(_config):
+    def init_kg_builder(_config,  person_id: str, person_name: str):
         """Inizializza il Knowledge Graph Builder."""
-        from src.agents import KnowledgeGraphBuilder, InMemoryKnowledgeGraph, Neo4jKnowledgeGraph
+        from src.agents import KnowledgeGraphBuilder, InMemoryKnowledgeGraph
         from src.prompts import PromptManager
         from src.llm import LLMFactory
 
@@ -43,19 +62,12 @@ def render_knowledge_graph_tab(config: Any) -> None:
             neo4j_username = _config.get_env('NEO4J_USERNAME', 'neo4j')
             neo4j_password = _config.get_env('NEO4J_PASSWORD')
             neo4j_database = _config.get_env('NEO4J_DATABASE', neo4j_config.get('database', 'neo4j'))
-
-            # Recupera person_id e person_name da session_state se disponibili
-            person_id = st.session_state.get('selected_person_id')
-            person_name = st.session_state.get('selected_person_name')
-
-            # Fallback a default se non specificati
-            if not person_id:
-                person_id = 'main_person'
-            if not person_name:
-                person_name = 'User'
-
+            
             if not neo4j_password:
                 st.warning("⚠️ NEO4J_PASSWORD non trovata in .env. Uso storage in-memory come fallback.")
+                storage = InMemoryKnowledgeGraph()
+            elif not person_id or not person_name:
+                st.info("ℹ️ Nessun profilo attivo selezionato. Crea o seleziona un profilo per usare Neo4j.")
                 storage = InMemoryKnowledgeGraph()
             else:
                 try:
@@ -85,7 +97,9 @@ def render_knowledge_graph_tab(config: Any) -> None:
         )
 
     try:
-        kg_builder = init_kg_builder(config)
+        selected_person_id = st.session_state.get('selected_person_id', None)
+        selected_person_name = st.session_state.get('selected_person_name', None)
+        kg_builder = init_kg_builder(config, selected_person_id, selected_person_name)
     except Exception as e:
         st.error(f"❌ Errore inizializzazione Knowledge Graph Builder: {str(e)}")
         return
@@ -95,14 +109,33 @@ def render_knowledge_graph_tab(config: Any) -> None:
     kg_config = config.get('knowledge_graph', {})
     storage_type = kg_config.get('storage_type', 'in_memory')
 
-    if storage_type == 'neo4j' and hasattr(storage, 'get_all_persons'):
+    if storage_type == 'neo4j':
         st.subheader("👤 Gestione Profili Person")
 
-        # Recupera tutti i profili esistenti
-        all_persons = storage.get_all_persons()
+        neo4j_config = kg_config.get('neo4j', {})
+        neo4j_uri = config.get_env('NEO4J_URI', neo4j_config.get('uri', 'bolt://localhost:7687'))
+        neo4j_username = config.get_env('NEO4J_USERNAME', 'neo4j')
+        neo4j_password = config.get_env('NEO4J_PASSWORD')
+        neo4j_database = config.get_env('NEO4J_DATABASE', neo4j_config.get('database', 'neo4j'))
+
+        if not neo4j_password:
+            st.warning("⚠️ NEO4J_PASSWORD non trovata in .env. Gestione profili non disponibile.")
+            return
+
+        driver = GraphDatabase.driver(neo4j_uri, auth=(neo4j_username, neo4j_password))
+
+        with driver.session(database=neo4j_database) as session:
+            result = session.run("""
+                MATCH (p:Person)
+                RETURN p.id AS id, p.name AS name, p.created_at AS created_at, p.last_accessed AS last_accessed
+                ORDER BY p.created_at DESC
+            """)
+            all_persons = [dict(record) for record in result]
+
+        driver.close()
 
         # Mostra profilo corrente
-        current_person_info = f"**Profilo corrente:** {storage.person_name} (ID: `{storage.person_id}`)"
+        current_person_info = f"**Profilo corrente:** {selected_person_name or 'Nessuno'} (ID: `{selected_person_id or 'None'}`)"
         st.info(current_person_info)
 
         # Expander per gestire profili
@@ -130,7 +163,6 @@ def render_knowledge_graph_tab(config: Any) -> None:
 
                         try:
                             # Crea nuovo storage con il nuovo person_id
-                            from src.agents import Neo4jKnowledgeGraph
 
                             neo4j_config = kg_config.get('neo4j', {})
                             neo4j_uri = config.get_env('NEO4J_URI', neo4j_config.get('uri', 'bolt://localhost:7687'))
@@ -148,8 +180,16 @@ def render_knowledge_graph_tab(config: Any) -> None:
                                 person_name=new_person_name
                             )
 
-                            st.success(f"✅ Profilo '{new_person_name}' creato con successo!")
-                            st.info(f"💡 Per usare questo profilo, riavvia l'app o cambia profilo dalla lista")
+                            st.session_state['selected_person_id'] = new_person_id
+                            st.session_state['selected_person_name'] = new_person_name
+
+                            try:
+                                switch_mcp_profile(config, new_person_id, new_person_name)
+                            except Exception as e:
+                                st.warning(f"⚠️ Profilo creato, ma MCP non allineato: {str(e)}")
+
+                            st.success(f"✅ Profilo '{new_person_name}' creato e attivato con successo!")
+                            st.rerun()
 
                         except Exception as e:
                             st.error(f"❌ Errore creazione profilo: {str(e)}")
@@ -168,11 +208,18 @@ def render_knowledge_graph_tab(config: Any) -> None:
                     )
 
                     if st.button("🗑️ Elimina Profilo", type="secondary", key="delete_profile_btn"):
-                        if profile_to_delete == storage.person_id:
+                        if profile_to_delete == selected_person_id:
                             st.error("❌ Non puoi eliminare il profilo correntemente in uso!")
                         else:
                             try:
-                                storage.delete_person(profile_to_delete)
+                                driver = GraphDatabase.driver(neo4j_uri, auth=(neo4j_username, neo4j_password))
+                                with driver.session(database=neo4j_database) as session:
+                                    session.run("""
+                                        MATCH (p:Person {id: $person_id})
+                                        OPTIONAL MATCH (p)-[:KNOWS]->(n)
+                                        DETACH DELETE p
+                                    """, person_id=profile_to_delete)
+                                driver.close()
                                 st.success(f"✅ Profilo '{profile_to_delete}' eliminato")
                             except Exception as e:
                                 st.error(f"❌ Errore eliminazione profilo: {str(e)}")
@@ -182,19 +229,35 @@ def render_knowledge_graph_tab(config: Any) -> None:
         # Selettore profilo
         if all_persons and len(all_persons) > 1:
             st.markdown("---")
+            current_profile_id = (
+                selected_person_id
+                if selected_person_id in [p['id'] for p in all_persons]
+                else all_persons[0]['id']
+            )
+
             selected_person_id = st.selectbox(
                 "🔄 Cambia Profilo:",
                 options=[p['id'] for p in all_persons],
-                index=[p['id'] for p in all_persons].index(storage.person_id) if storage.person_id in [p['id'] for p in all_persons] else 0,
+                index=[p['id'] for p in all_persons].index(current_profile_id),
                 format_func=lambda x: next((f"{p['name']} ({p['id']})" for p in all_persons if p['id'] == x), x),
                 key="selected_person_selector"
             )
 
             if selected_person_id != storage.person_id:
+                selected_person_name = next(
+                    (p['name'] for p in all_persons if p['id'] == selected_person_id),
+                    selected_person_id
+                )
+
                 st.session_state['selected_person_id'] = selected_person_id
-                st.session_state['selected_person_name'] = next((p['name'] for p in all_persons if p['id'] == selected_person_id), selected_person_id)
-                st.info("💡 Ricarica la pagina per applicare il cambio profilo")
-                st.button("🔄 Ricarica App", on_click=lambda: st.rerun())
+                st.session_state['selected_person_name'] = selected_person_name
+
+                try:
+                    switch_mcp_profile(config, selected_person_id, selected_person_name)
+                except Exception as e:
+                    st.warning(f"⚠️ Cambio profilo applicato alla UI, ma MCP non allineato: {str(e)}")
+
+                st.rerun()
 
     # Sezione caricamento triplette
     st.markdown("---")
@@ -295,6 +358,14 @@ def render_knowledge_graph_tab(config: Any) -> None:
 
                     if result["success"]:
                         st.success("✅ Knowledge Graph costruito con successo!")
+
+                        try:
+                            active_person_id = st.session_state.get('selected_person_id', storage.person_id)
+                            active_person_name = st.session_state.get('selected_person_name', storage.person_name)
+                            switch_mcp_profile(config, active_person_id, active_person_name)
+                            st.info(f"🔄 MCP allineato al profilo: {active_person_name}")
+                        except Exception as e:
+                            st.warning(f"⚠️ KG costruito, ma MCP non riallineato: {str(e)}")
 
                         # Mostra statistiche aggiornate
                         updated_stats = result["kg_stats"]

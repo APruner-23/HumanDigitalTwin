@@ -9,7 +9,7 @@ import re
 class MCPServer:
     """Server MCP per esporre API che iniettano informazioni al modello."""
 
-    def __init__(self, host: str = "localhost", port: int = 8000, kg_storage=None):
+    def __init__(self, host: str = "localhost", port: int = 8000, kg_storage=None, neo4j_config: Optional[Dict[str, Any]] = None):
         """
         Inizializza il server MCP.
 
@@ -21,6 +21,7 @@ class MCPServer:
         self.host = host
         self.port = port
         self.kg_storage = kg_storage
+        self.neo4j_config = neo4j_config or {}
         self.app = FastAPI(
             title="MCP Server - Human Digital Twin",
             description="API per l'interazione autonoma con il modello LLM",
@@ -437,7 +438,12 @@ class MCPServer:
                 Info sul profilo corrente
             """
             if not self.kg_storage:
-                raise HTTPException(503, "Knowledge Graph storage not configured")
+                return {
+                    "person_id": None,
+                    "person_name": None,
+                    "storage_type": "Neo4j",
+                    "status": "no_active_profile"
+                }
 
             if hasattr(self.kg_storage, 'person_id'):
                 return {
@@ -451,6 +457,22 @@ class MCPServer:
                     "person_name": None,
                     "storage_type": "InMemory"
                 }
+            
+        @self.app.post("/api/kg/switch_profile")
+        async def switch_kg_profile_endpoint(data: SwitchProfileModel):
+            """
+            Cambia il profilo KG attivo usato dal server MCP.
+            """
+            if not self.neo4j_config:
+                raise HTTPException(500, "Neo4j config not available in MCP server")
+
+            try:
+                return self.switch_kg_profile(
+                    person_id=data.person_id,
+                    person_name=data.person_name
+                )
+            except Exception as e:
+                raise HTTPException(500, f"Error switching profile: {str(e)}")
 
         @self.app.get("/api/kg/topics")
         async def get_kg_topics():
@@ -594,6 +616,39 @@ class MCPServer:
             cleaned = "_" + cleaned
 
         return cleaned
+    
+    def switch_kg_profile(self, person_id: str, person_name: Optional[str] = None) -> Dict[str, Any]:
+        """
+        Cambia il profilo Neo4j attivo usato dal server MCP.
+        """
+        if not self.neo4j_config:
+            raise ValueError("Neo4j config not available in MCP server")
+
+        from src.agents.knowledge_graph_builder import Neo4jKnowledgeGraph
+
+        new_storage = Neo4jKnowledgeGraph(
+            uri=self.neo4j_config["uri"],
+            username=self.neo4j_config["username"],
+            password=self.neo4j_config["password"],
+            database=self.neo4j_config["database"],
+            person_id=person_id,
+            person_name=person_name or person_id
+        )
+
+        try:
+            if self.kg_storage and hasattr(self.kg_storage, "close"):
+                self.kg_storage.close()
+        except Exception:
+            pass
+
+        self.kg_storage = new_storage
+
+        return {
+            "status": "ok",
+            "person_id": self.kg_storage.person_id,
+            "person_name": self.kg_storage.person_name,
+            "storage_type": "Neo4j" if hasattr(self.kg_storage, "driver") else "InMemory"
+        }
 
     def _query_neo4j_by_topic(self, broader_topic: Optional[str], narrower_topic: Optional[str]) -> Dict[str, Any]:
         """Query Neo4j per topic."""
@@ -749,13 +804,36 @@ class MCPServer:
         """Ricerca full-text in Neo4j."""
         with self.kg_storage.driver.session(database=self.kg_storage.database) as session:
             result = session.run("""
+                // Caso 1: il profilo Person stesso è il subject della relazione
+                MATCH (person:Person {id: $person_id})-[r]->(obj)
+                WHERE r.person_id = $person_id
+                AND type(r) <> 'KNOWS'
+                AND (
+                    toLower(coalesce(person.name, "")) CONTAINS toLower($search_query)
+                    OR toLower(coalesce(obj.name, "")) CONTAINS toLower($search_query)
+                    OR toLower(coalesce(r.broader_topic, "")) CONTAINS toLower($search_query)
+                    OR toLower(coalesce(r.narrower_topic, "")) CONTAINS toLower($search_query)
+                )
+                RETURN
+                    'Person' AS subject_type,
+                    person.name AS subject,
+                    type(r) AS predicate,
+                    labels(obj)[0] AS object_type,
+                    obj.name AS object,
+                    r.broader_topic AS broader_topic,
+                    r.narrower_topic AS narrower_topic,
+                    r.reasoning AS reasoning
+
+                UNION
+
+                // Caso 2: un nodo conosciuto è il subject
                 MATCH (person:Person {id: $person_id})-[:KNOWS]->(subj)-[r]->(obj)
                 WHERE r.person_id = $person_id
                 AND (
-                    coalesce(subj.name, "") CONTAINS $search_query
-                    OR coalesce(obj.name, "") CONTAINS $search_query
-                    OR coalesce(r.broader_topic, "") CONTAINS $search_query
-                    OR coalesce(r.narrower_topic, "") CONTAINS $search_query
+                    toLower(coalesce(subj.name, "")) CONTAINS toLower($search_query)
+                    OR toLower(coalesce(obj.name, "")) CONTAINS toLower($search_query)
+                    OR toLower(coalesce(r.broader_topic, "")) CONTAINS toLower($search_query)
+                    OR toLower(coalesce(r.narrower_topic, "")) CONTAINS toLower($search_query)
                 )
                 RETURN
                     labels(subj)[0] AS subject_type,
@@ -766,6 +844,7 @@ class MCPServer:
                     r.broader_topic AS broader_topic,
                     r.narrower_topic AS narrower_topic,
                     r.reasoning AS reasoning
+
                 LIMIT $limit
             """, person_id=self.kg_storage.person_id, search_query=search_query, limit=int(limit))
 
@@ -819,3 +898,8 @@ class ExternalDataModel(BaseModel):
     timestamp: str
     content: Dict[str, Any]
     metadata: Optional[Dict[str, Any]] = None
+
+
+class SwitchProfileModel(BaseModel):
+    person_id: str
+    person_name: Optional[str] = None
