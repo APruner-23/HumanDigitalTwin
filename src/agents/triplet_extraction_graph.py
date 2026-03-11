@@ -2,11 +2,11 @@
 LangGraph pipeline per estrazione multi-stage di triplette da testo con augmentation IoT.
 """
 
-from typing import TypedDict, List, Dict, Any, Optional, Annotated
+from typing import TypedDict, List, Dict, Optional, Any, Annotated
 from langgraph.graph import StateGraph, END
 from langchain_groq import ChatGroq
 from langchain_core.messages import SystemMessage, HumanMessage
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator, model_validator
 import operator
 import os, json
 from datetime import datetime
@@ -14,45 +14,86 @@ from pathlib import Path
 
 
 # Pydantic models per structured output
-from typing import Optional
-
 class TripletEntity(BaseModel):
     """Entità con valore e tipo."""
-    value: Optional[Any] = Field(default=None, description="Valore dell'entità (es. 'Marco')")
-    type: Optional[str] = Field(default=None, description="Tipo/classe dell'entità (es. 'Person', 'Location', 'Integer')")
+    value: str = Field(description="Valore dell'entità (es. 'Marco')")
+    type: str = Field(description="Tipo/classe dell'entità (es. 'Person', 'Location', 'Integer')")
+
+    @field_validator("value", "type", mode="before")
+    @classmethod
+    def coerce_to_string(cls, v):
+        if v is None:
+            return ""
+        if isinstance(v, str):
+            return v
+        if isinstance(v, (int, float, bool)):
+            return str(v)
+        try:
+            return json.dumps(v, ensure_ascii=False)
+        except Exception:
+            return str(v)
 
 
 class Triplet(BaseModel):
-    """Singola tripletta RDF con tipizzazione (matrice 2x3: instance + type)."""
-    subject: Optional[TripletEntity] = Field(default=None, description="Soggetto della tripletta con tipo")
-    predicate: Optional[TripletEntity] = Field(default=None, description="Predicato/relazione della tripletta con tipo")
-    object: Optional[TripletEntity] = Field(default=None, description="Oggetto della tripletta con tipo")
-
-    model_config = {
-        "extra": "ignore"  # se l'LLM mette chiavi in più, le ignoriamo
-    }
+    """Singola tripletta RDF con tipizzazione."""
+    subject: TripletEntity = Field(description="Soggetto della tripletta con tipo")
+    predicate: TripletEntity = Field(description="Predicato/relazione della tripletta con tipo")
+    object: TripletEntity = Field(description="Oggetto della tripletta con tipo")
 
 
 class TripletList(BaseModel):
     """Lista di triplette."""
     triplets: List[Triplet] = Field(description="Lista di triplette RDF estratte")
 
+    @model_validator(mode="before")
+    @classmethod
+    def sanitize_triplets(cls, data):
+        if not isinstance(data, dict):
+            return data
+
+        raw_triplets = data.get("triplets", [])
+        if not isinstance(raw_triplets, list):
+            data["triplets"] = []
+            return data
+
+        cleaned_triplets = []
+
+        for t in raw_triplets:
+            if not isinstance(t, dict):
+                continue
+
+            subj = t.get("subject")
+            pred = t.get("predicate")
+            obj = t.get("object")
+
+            # Scarta triplette incomplete prima che Pydantic esploda
+            if not isinstance(subj, dict) or not isinstance(pred, dict) or not isinstance(obj, dict):
+                continue
+
+            if "value" not in subj or "value" not in pred or "value" not in obj:
+                continue
+
+            # Se manca il type, usa fallback minimale
+            subj.setdefault("type", "Unknown")
+            pred.setdefault("type", "Unknown")
+            obj.setdefault("type", "Unknown")
+
+            cleaned_triplets.append(
+                {
+                    "subject": subj,
+                    "predicate": pred,
+                    "object": obj,
+                }
+            )
+
+        data["triplets"] = cleaned_triplets
+        return data
+
     def filter_valid(self) -> List[Triplet]:
-        """Filtra solo le triplette valide (con subject, predicate e object non vuoti)."""
-
-        def _has_text(entity: Optional[TripletEntity]) -> bool:
-            if entity is None:
-                return False
-            if entity.value is None:
-                return False
-            # Converti a stringa e controlla che non sia vuota
-            return str(entity.value).strip() != ""
-
-        valid = []
-        for t in self.triplets:
-            if _has_text(t.subject) and _has_text(t.predicate) and _has_text(t.object):
-                valid.append(t)
-        return valid
+        return [
+            t for t in self.triplets
+            if t.subject.value and t.predicate.value and t.object.value
+        ]
 
 
 class GraphState(TypedDict):
@@ -546,27 +587,14 @@ class TripletExtractionGraph:
 
             # Filtra solo triplette valide e converti da Pydantic a dict (matrice 2x3)
             valid_triplets = response.filter_valid()
-            new_triplets = []
-            for t in valid_triplets:
-                # safety: se per qualche motivo è None, skippa
-                if t.subject is None or t.predicate is None or t.object is None:
-                    continue
-
-                subj_val = str(t.subject.value).strip() if t.subject.value is not None else ""
-                pred_val = str(t.predicate.value).strip() if t.predicate.value is not None else ""
-                obj_val  = str(t.object.value).strip() if t.object.value is not None else ""
-
-                # se qualcosa è vuoto dopo il cast → scarta la tripletta
-                if not subj_val or not pred_val or not obj_val:
-                    continue
-
-                new_triplets.append(
-                    {
-                        "subject": {"value": subj_val, "type": t.subject.type},
-                        "predicate": {"value": pred_val, "type": t.predicate.type},
-                        "object": {"value": obj_val, "type": t.object.type},
-                    }
-                )
+            new_triplets = [
+                {
+                    "subject": {"value": t.subject.value, "type": t.subject.type},
+                    "predicate": {"value": t.predicate.value, "type": t.predicate.type},
+                    "object": {"value": t.object.value, "type": t.object.type}
+                }
+                for t in valid_triplets
+            ]
 
             # Log risposta
             if self.logger:
@@ -797,27 +825,14 @@ class TripletExtractionGraph:
 
             # Filtra solo triplette valide e converti da Pydantic a dict (matrice 2x3)
             valid_triplets = response.filter_valid()
-            augmented = []
-            for t in valid_triplets:
-                # safety: se per qualche motivo è None, skippa
-                if t.subject is None or t.predicate is None or t.object is None:
-                    continue
-
-                subj_val = str(t.subject.value).strip() if t.subject.value is not None else ""
-                pred_val = str(t.predicate.value).strip() if t.predicate.value is not None else ""
-                obj_val  = str(t.object.value).strip() if t.object.value is not None else ""
-
-                # se qualcosa è vuoto dopo il cast → scarta la tripletta
-                if not subj_val or not pred_val or not obj_val:
-                    continue
-
-                augmented.append(
-                    {
-                        "subject": {"value": subj_val, "type": t.subject.type},
-                        "predicate": {"value": pred_val, "type": t.predicate.type},
-                        "object": {"value": obj_val, "type": t.object.type},
-                    }
-                )
+            augmented = [
+                {
+                    "subject": {"value": t.subject.value, "type": t.subject.type},
+                    "predicate": {"value": t.predicate.value, "type": t.predicate.type},
+                    "object": {"value": t.object.value, "type": t.object.type}
+                }
+                for t in valid_triplets
+            ]
 
             # Log risposta
             if self.logger:
@@ -1231,27 +1246,14 @@ class TripletExtractionGraph:
 
             # Filtra e converti (matrice 2x3)
             valid_triplets = response.filter_valid()
-            iot_triplets = []
-            for t in valid_triplets:
-                # safety: se per qualche motivo è None, skippa
-                if t.subject is None or t.predicate is None or t.object is None:
-                    continue
-
-                subj_val = str(t.subject.value).strip() if t.subject.value is not None else ""
-                pred_val = str(t.predicate.value).strip() if t.predicate.value is not None else ""
-                obj_val  = str(t.object.value).strip() if t.object.value is not None else ""
-
-                # se qualcosa è vuoto dopo il cast → scarta la tripletta
-                if not subj_val or not pred_val or not obj_val:
-                    continue
-
-                iot_triplets.append(
-                    {
-                        "subject": {"value": subj_val, "type": t.subject.type},
-                        "predicate": {"value": pred_val, "type": t.predicate.type},
-                        "object": {"value": obj_val, "type": t.object.type},
-                    }
-                )
+            iot_triplets = [
+                {
+                    "subject": {"value": t.subject.value, "type": t.subject.type},
+                    "predicate": {"value": t.predicate.value, "type": t.predicate.type},
+                    "object": {"value": t.object.value, "type": t.object.type}
+                }
+                for t in valid_triplets
+            ]
 
             # Log risultato
             if self.logger:
@@ -1449,27 +1451,14 @@ class TripletExtractionGraph:
 
             # Filtra triplette valide (matrice 2x3)
             valid = response.filter_valid()
-            validated = []
-            for t in valid:
-                # safety: se per qualche motivo è None, skippa
-                if t.subject is None or t.predicate is None or t.object is None:
-                    continue
-
-                subj_val = str(t.subject.value).strip() if t.subject.value is not None else ""
-                pred_val = str(t.predicate.value).strip() if t.predicate.value is not None else ""
-                obj_val  = str(t.object.value).strip() if t.object.value is not None else ""
-
-                # se qualcosa è vuoto dopo il cast → scarta la tripletta
-                if not subj_val or not pred_val or not obj_val:
-                    continue
-
-                validated.append(
-                    {
-                        "subject": {"value": subj_val, "type": t.subject.type},
-                        "predicate": {"value": pred_val, "type": t.predicate.type},
-                        "object": {"value": obj_val, "type": t.object.type},
-                    }
-                )
+            validated = [
+                {
+                    "subject": {"value": t.subject.value, "type": t.subject.type},
+                    "predicate": {"value": t.predicate.value, "type": t.predicate.type},
+                    "object": {"value": t.object.value, "type": t.object.type}
+                }
+                for t in valid
+            ]
 
             # Identifica rimosse
             removed_count = len(current_triplets) - len(validated)
