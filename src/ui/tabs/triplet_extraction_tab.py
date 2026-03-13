@@ -63,9 +63,11 @@ def render_triplet_extraction_tab(config, triplet_graph) -> None:
             with st.spinner("Estrazione multi-stage in corso..."):
                 try:
                     # Run the graph
+                    canonical_subject_name = st.session_state.get("selected_person_name")
                     result = triplet_graph.run(
                         input_text=text_input,
-                        chunk_size=chunk_size
+                        chunk_size=chunk_size,
+                        canonical_subject_name=canonical_subject_name
                     )
 
                     # Display results

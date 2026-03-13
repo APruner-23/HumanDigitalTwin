@@ -4,10 +4,11 @@ LangGraph pipeline per estrazione multi-stage di triplette da testo con augmenta
 
 from typing import TypedDict, List, Dict, Optional, Any, Annotated
 from langgraph.graph import StateGraph, END
-from langchain_groq import ChatGroq
+from src.llm.groq_failover import GroqFailover
 from langchain_core.messages import SystemMessage, HumanMessage
 from pydantic import BaseModel, Field, field_validator, model_validator
 import operator
+from copy import deepcopy
 import os, json
 from datetime import datetime
 from pathlib import Path
@@ -180,8 +181,7 @@ class TripletExtractionGraph:
             enable_logging: Abilita logging dettagliato
             extraction_only: Se True, salta augmentation/IoT/validation (solo extraction)
         """
-        self.llm = ChatGroq(
-            groq_api_key=llm_api_key,
+        self.llm = GroqFailover(
             model_name=llm_model,
             temperature=temperature
         )
@@ -192,6 +192,15 @@ class TripletExtractionGraph:
         self.metrics_dir = Path(metrics_dir)
         self.metrics_dir.mkdir(parents=True, exist_ok=True)
         self._current_run_metrics = None
+
+        # Directory per debug della fase del nodo di validazione
+        self.validation_debug_dir = self.metrics_dir / "validation_debug"
+        self.validation_debug_dir.mkdir(parents=True, exist_ok=True)
+
+        self.subject_repair_dir = self.metrics_dir / "subject_repairs"
+        self.subject_repair_dir.mkdir(parents=True, exist_ok=True)
+
+        self._current_run_id = None
 
         # Logger
         if self.enable_logging:
@@ -216,8 +225,11 @@ class TripletExtractionGraph:
 
     def _init_token_metrics(self):
         """Inizializza la struttura di logging per una singola run della pipeline."""
+        timestamp = datetime.now().isoformat(timespec="seconds")
+        self._current_run_id = timestamp.replace(":", "-")
+
         self._current_run_metrics = {
-            "timestamp": datetime.now().isoformat(timespec="seconds"),
+            "timestamp": timestamp,
             "delta_mode": self.delta_mode,
             "stages": {
                 "triple_extraction": {
@@ -290,6 +302,138 @@ class TripletExtractionGraph:
         except Exception as e:
             # In caso di problemi con IO non blocchiamo la pipeline
             print(f"[TOKEN METRICS] Errore salvataggio {path}: {e}")
+
+    def _triplet_key(self, triplet: Dict[str, Any]) -> tuple:
+        """Crea una chiave hashable per confrontare triplette."""
+        subj = triplet.get("subject", {}) or {}
+        pred = triplet.get("predicate", {}) or {}
+        obj = triplet.get("object", {}) or {}
+
+        return (
+            str(subj.get("value", "")),
+            str(subj.get("type", "")),
+            str(pred.get("value", "")),
+            str(pred.get("type", "")),
+            str(obj.get("value", "")),
+            str(obj.get("type", "")),
+        )
+    
+    def _save_validation_snapshot(
+        self,
+        iteration: int,
+        input_triplets: List[Dict[str, Any]],
+        output_triplets: List[Dict[str, Any]]
+    ) -> None:
+        """Salva input/output/removed della validation in JSON."""
+        if not self.enable_logging:
+            return
+
+        run_id = self._current_run_id or datetime.now().isoformat(timespec="seconds").replace(":", "-")
+        run_dir = self.validation_debug_dir / run_id
+        run_dir.mkdir(parents=True, exist_ok=True)
+
+        input_keys = {self._triplet_key(t): t for t in input_triplets}
+        output_keys = {self._triplet_key(t): t for t in output_triplets}
+
+        removed_keys = [k for k in input_keys.keys() if k not in output_keys]
+        removed_triplets = [input_keys[k] for k in removed_keys]
+
+        files = {
+            f"validation_iter_{iteration}_input.json": input_triplets,
+            f"validation_iter_{iteration}_output.json": output_triplets,
+            f"validation_iter_{iteration}_removed.json": removed_triplets,
+        }
+
+        for filename, payload in files.items():
+            path = run_dir / filename
+            try:
+                with open(path, "w", encoding="utf-8") as f:
+                    json.dump(payload, f, indent=2, ensure_ascii=False)
+            except Exception as e:
+                print(f"[VALIDATION DEBUG] Errore salvataggio {path}: {e}")
+
+    
+    def _is_user_placeholder(self, value: Any) -> bool:
+        """Riconosce placeholder generici del soggetto principale."""
+        if value is None:
+            return False
+
+        normalized = str(value).strip().lower()
+        return normalized in {
+            "user",
+            "the user",
+            "main user",
+            "current user",
+            "me",
+        }
+
+
+    def _repair_subject_placeholders(
+        self,
+        triplets: List[Dict[str, Any]],
+        canonical_subject_name: str
+    ) -> tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
+        """
+        Sostituisce subject.value = user/User/... con il nome corretto del soggetto principale.
+        Ritorna:
+        - lista di triplette riparate
+        - log delle riparazioni effettuate
+        """
+        if not canonical_subject_name or not triplets:
+            return triplets, []
+
+        repaired_triplets = []
+        repairs_log = []
+
+        for idx, triplet in enumerate(triplets):
+            repaired_triplet = deepcopy(triplet)
+
+            subject = repaired_triplet.get("subject", {})
+            old_value = subject.get("value")
+
+            if self._is_user_placeholder(old_value):
+                subject["value"] = canonical_subject_name
+                repaired_triplet["subject"] = subject
+
+                repairs_log.append({
+                    "index": idx,
+                    "old_subject_value": old_value,
+                    "new_subject_value": canonical_subject_name,
+                    "triplet_before": triplet,
+                    "triplet_after": repaired_triplet,
+                })
+
+            repaired_triplets.append(repaired_triplet)
+
+        return repaired_triplets, repairs_log
+
+
+    def _save_subject_repairs(
+        self,
+        canonical_subject_name: str,
+        repairs: List[Dict[str, Any]]
+    ) -> None:
+        """Salva su file JSON il log delle triple riparate."""
+        if not repairs:
+            return
+
+        run_id = self._current_run_id or datetime.now().isoformat(timespec="seconds").replace(":", "-")
+        run_dir = self.subject_repair_dir / run_id
+        run_dir.mkdir(parents=True, exist_ok=True)
+
+        payload = {
+            "canonical_subject_name": canonical_subject_name,
+            "repairs_count": len(repairs),
+            "repairs": repairs
+        }
+
+        path = run_dir / "subject_repairs.json"
+
+        try:
+            with open(path, "w", encoding="utf-8") as f:
+                json.dump(payload, f, indent=2, ensure_ascii=False)
+        except Exception as e:
+            print(f"[SUBJECT REPAIR] Errore salvataggio {path}: {e}")
 
     
     def _extract_usage_metadata(self, response: Any) -> Optional[dict]:
@@ -1363,7 +1507,8 @@ class TripletExtractionGraph:
                 self.logger.log_agent_response(f"{emoji} Decision: {'RUN validation' if should_validate else 'SKIP validation'}\n\n{response.content}")
 
             return {
-                "validation_should_run": should_validate,
+                #"validation_should_run": should_validate,
+                "validation_should_run": False,
                 "validation_iteration": 0,
                 "validated_triplets": all_triplets if not should_validate else [],
                 "validation_reasoning": [f"Decision: {'Validate' if should_validate else 'Skip'}"]
@@ -1460,11 +1605,20 @@ class TripletExtractionGraph:
                 for t in valid
             ]
 
+            self._save_validation_snapshot(
+                iteration=iteration + 1,
+                input_triplets=current_triplets,
+                output_triplets=validated
+            )
+
             # Identifica rimosse
             removed_count = len(current_triplets) - len(validated)
 
             # Reasoning: decide se continuare
-            should_continue = removed_count > 0 and iteration < 2  # Max 3 iterazioni
+            #should_continue = removed_count > 0 and iteration < 2  # Max 3 iterazioni
+
+            # Solo per debug: Una sola iterazione
+            should_continue = False
 
             # Log
             if self.logger:
@@ -1477,8 +1631,14 @@ class TripletExtractionGraph:
                 decision = "CONTINUE validation" if should_continue else "FINISH validation"
                 self.logger.log_agent_response(f"Iteration {iteration + 1}: Validated {len(validated)}/{len(current_triplets)} triplets\n\nDecision: {decision}")
 
+            removed_triplets = [
+                t for t in current_triplets
+                if self._triplet_key(t) not in {self._triplet_key(v) for v in validated}
+            ]
+
             return {
                 "validated_triplets": validated,
+                "removed_triplets": removed_triplets,
                 "validation_iteration": iteration + 1,
                 "validation_reasoning": [f"Iteration {iteration + 1}: {removed_count} removed"],
                 "validation_should_run": should_continue
@@ -1652,7 +1812,8 @@ class TripletExtractionGraph:
     def run(
         self,
         input_text: str,
-        chunk_size: int = 1000
+        chunk_size: int = 1000,
+        canonical_subject_name: Optional[str] = None
     ) -> Dict[str, Any]:
         """
         Esegue il grafo di estrazione triplette.
@@ -1660,6 +1821,9 @@ class TripletExtractionGraph:
         Args:
             input_text: Testo da cui estrarre triplette
             chunk_size: Dimensione dei chunk in caratteri
+            canonical_subject_name: Nome canonico del soggetto principale del dataset/profilo.
+                Se valorizzato, sostituisce placeholder come "user" o "User" nel subject.value
+                delle triplette estratte.
 
         Returns:
             Risultato finale con tutte le triplette estratte e augmented
@@ -1704,6 +1868,40 @@ class TripletExtractionGraph:
         # Esegui il grafo
         # Esegui il grafo con recursion limit aumentato per gestire molti chunk
         result = self.graph.invoke(initial_state, {"recursion_limit": 300})
+
+        all_repairs = []
+
+        if canonical_subject_name:
+            buckets_to_repair = [
+                "triplets",
+                "augmented_triplets",
+                "validated_triplets",
+                "final_triplets"
+            ]
+
+            for bucket in buckets_to_repair:
+                triplet_list = result.get(bucket, [])
+
+                if isinstance(triplet_list, list) and triplet_list:
+                    repaired_triplets, repairs = self._repair_subject_placeholders(
+                        triplet_list,
+                        canonical_subject_name
+                    )
+
+                    result[bucket] = repaired_triplets
+
+                    for repair in repairs:
+                        all_repairs.append({
+                            "bucket": bucket,
+                            **repair
+                        })
+
+            self._save_subject_repairs(canonical_subject_name, all_repairs)
+
+            if self.logger and all_repairs:
+                self.logger.console.print(
+                    f"[yellow]Repaired {len(all_repairs)} triplets with subject placeholder -> {canonical_subject_name}[/yellow]"
+                )
 
         if self.enable_logging:
             self._save_token_metrics(label="triple_pipeline")

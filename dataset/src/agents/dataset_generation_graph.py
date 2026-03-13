@@ -5,7 +5,7 @@ Generates realistic life scenes with device data, calendar events, messages, and
 
 from typing import TypedDict, List, Dict, Any, Annotated
 from langgraph.graph import StateGraph, END
-from langchain_groq import ChatGroq
+from src.llm.groq_failover import GroqFailover
 from langchain_core.messages import SystemMessage, HumanMessage
 from pydantic import BaseModel, Field
 import operator
@@ -157,8 +157,7 @@ class DatasetGenerationGraph:
             temperature: Temperature for LLM
             enable_logging: Enable detailed logging
         """
-        self.llm = ChatGroq(
-            groq_api_key=llm_api_key,
+        self.llm = GroqFailover(
             model_name=llm_model,
             temperature=temperature
         )

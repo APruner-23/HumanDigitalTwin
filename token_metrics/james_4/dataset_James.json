@@ -1,0 +1,1460 @@
+{
+  "profile": "James is a 45-year-old warehouse supervisor working the evening shift (2 PM - 10 PM) at a distribution center. He's been in this role for 15 years and is on his feet most of the day, walking between storage areas and loading docks. James wakes up around 10 AM, has a late breakfast, and goes to the gym for 30 minutes before work. He's trying to lose weight and monitors his activity with a fitness tracker. After work, he unwinds by watching TV or playing video games until 1-2 AM, which disrupts his sleep schedule. James has limited social interaction during the week due to his shift, but bowls in a league on Sunday mornings and has dinner with his brother's family once a week. He struggles with maintaining a healthy diet, often eating fast food during his work break.",
+  "num_scenes": 5,
+  "scenes": [
+    {
+      "scene_id": 1,
+      "day": "Sunday",
+      "time": "morning",
+      "description": "Alright it's 9 AM I should get going to bowling.\n\nI'm meeting the guys at 10 AM.\n\nHopefully I don't sleep in.\n\nOkay I'm out the door now.\n\nHey Mike! How's it going?\n\nNot bad James you?\n\nI'm good just trying to get some breakfast before we bowl.\n\nYou know I'm gonna crush you guys today.\n\nOh yeah? I'm looking forward to it then.\n\nSee you at the lanes!",
+      "device_data": {
+        "scene_id": 1,
+        "smartwatch": [
+          {
+            "timestamp": "09:00:00",
+            "heart_rate": 65,
+            "steps": 0,
+            "active_minutes": 0
+          },
+          {
+            "timestamp": "09:15:00",
+            "heart_rate": 70,
+            "steps": 200,
+            "active_minutes": 5
+          },
+          {
+            "timestamp": "09:30:00",
+            "heart_rate": 80,
+            "steps": 800,
+            "active_minutes": 20
+          }
+        ],
+        "gps": [
+          {
+            "timestamp": "09:00:00",
+            "latitude": 37.7749,
+            "longitude": -122.4194,
+            "speed": 0.0,
+            "accuracy": 10
+          },
+          {
+            "timestamp": "09:15:00",
+            "latitude": 37.7752,
+            "longitude": -122.4197,
+            "speed": 4.0,
+            "accuracy": 15
+          },
+          {
+            "timestamp": "09:30:00",
+            "latitude": 37.7765,
+            "longitude": -122.4205,
+            "speed": 6.0,
+            "accuracy": 12
+          }
+        ],
+        "smartphone": {
+          "screen_time_minutes": 30,
+          "notifications_count": 5,
+          "battery_level": 80,
+          "app_usage": {
+            "communication": 10,
+            "entertainment": 10
+          }
+        },
+        "smartring": [
+          {
+            "timestamp": "09:00:00",
+            "body_temperature": 36.7,
+            "hrv": 75,
+            "skin_temperature": 32.2
+          },
+          {
+            "timestamp": "09:15:00",
+            "body_temperature": 36.8,
+            "hrv": 80,
+            "skin_temperature": 32.5
+          },
+          {
+            "timestamp": "09:30:00",
+            "body_temperature": 36.9,
+            "hrv": 85,
+            "skin_temperature": 32.8
+          }
+        ],
+        "smart_home": {
+          "doors_status": {
+            "front_door": "open",
+            "back_door": "closed",
+            "garage": "closed"
+          },
+          "windows_status": {
+            "living_room": "closed",
+            "bedroom": "closed"
+          },
+          "indoor_temperature": 22.0,
+          "indoor_humidity": 50,
+          "light_status": {
+            "living_room": "on",
+            "kitchen": "on"
+          },
+          "motion_detected": {
+            "living_room": true,
+            "kitchen": true
+          },
+          "alarm_status": "disarmed"
+        }
+      },
+      "calendar_events": [
+        {
+          "title": "Bowling with the Guys",
+          "start_time": "10:00",
+          "end_time": "12:00",
+          "location": "Bowling Alley",
+          "description": ""
+        }
+      ],
+      "messages": [
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Mike",
+          "timestamp": "09:05",
+          "content": "Hey Mike! How's it going?"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "received",
+          "contact": "Mike",
+          "timestamp": "09:07",
+          "content": "Not bad James you?"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Mike",
+          "timestamp": "09:08",
+          "content": "I'm good just trying to get some breakfast before we bowl."
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "received",
+          "contact": "Mike",
+          "timestamp": "09:10",
+          "content": "You know I'm gonna crush you guys today."
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Mike",
+          "timestamp": "09:11",
+          "content": "Oh yeah? I'm looking forward to it then."
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Mike",
+          "timestamp": "09:20",
+          "content": "See you at the lanes!"
+        }
+      ],
+      "deficiencies": {
+        "scene_id": 1,
+        "physical_activity": {
+          "status": "INSUFFICIENT",
+          "reason": "Low step count (800) and active minutes (20) for the morning"
+        },
+        "sleep": {
+          "status": "OK",
+          "reason": "No sleep data available for this scene, but assuming adequate sleep based on user's mention of not sleeping in"
+        },
+        "stress": {
+          "status": "OK",
+          "reason": "Heart rate (80 bpm) and HRV (85 ms) are within normal ranges"
+        },
+        "workload": {
+          "status": "UNKNOWN",
+          "reason": "No workload data available"
+        },
+        "social_interaction": {
+          "status": "OK",
+          "reason": "Multiple social interactions via WhatsApp with Mike"
+        },
+        "environment": {
+          "status": "OK",
+          "reason": "Temperature (22°C), humidity (50%), and lighting conditions appear comfortable"
+        },
+        "emotional_tone": {
+          "status": "POSITIVE",
+          "reason": "Conversations with Mike have a positive and enthusiastic tone"
+        },
+        "digital_behavior": {
+          "status": "BALANCED",
+          "reason": "Screen time (30 minutes) and app usage appear balanced for morning"
+        }
+      },
+      "queries": [
+        {
+          "id": "Q1",
+          "category": "temporal",
+          "type": "exact",
+          "question": "What time did James send the message 'See you at the lanes!'?",
+          "options": {},
+          "answer": "09:20",
+          "rationale": "The message 'See you at the lanes!' was sent at 09:20 according to the WhatsApp messages."
+        },
+        {
+          "id": "Q2",
+          "category": "temporal",
+          "type": "binary",
+          "question": "Did James leave the house before 09:15?",
+          "options": {},
+          "answer": "No",
+          "rationale": "James sent a message at 09:05 and 09:08, and his smartwatch data starts at 09:00, indicating he was at home at 09:00. The smartwatch data at 09:15 shows he was active and had taken steps, indicating he had left the house after 09:00 but the exact time of leaving is not before 09:15."
+        },
+        {
+          "id": "Q3",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "What was James trying to do before meeting the guys according to his dialogue?",
+          "options": {
+            "A": "Get some breakfast",
+            "B": "Watch TV",
+            "C": "Play video games",
+            "D": "Read a book"
+          },
+          "answer": "A",
+          "rationale": "James mentioned in his dialogue 'I'm good just trying to get some breakfast before we bowl.' This directly supports option A."
+        },
+        {
+          "id": "Q4",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "How did James feel about the competition according to his dialogue?",
+          "options": {
+            "A": "He was worried",
+            "B": "He was looking forward to it",
+            "C": "He was indifferent",
+            "D": "He was angry"
+          },
+          "answer": "B",
+          "rationale": "James said 'Oh yeah? I'm looking forward to it then.' This shows he was looking forward to the competition."
+        },
+        {
+          "id": "Q5",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "What activity did James and his friends plan to do at 10 AM according to the calendar and dialogue?",
+          "options": {
+            "A": "Go to the gym",
+            "B": "Go bowling",
+            "C": "Have breakfast",
+            "D": "Watch a movie"
+          },
+          "answer": "B",
+          "rationale": "The calendar event is titled 'Bowling with the Guys' starting at 10:00, and the dialogue mentions 'before we bowl.' This supports option B."
+        },
+        {
+          "id": "Q6",
+          "category": "deduplication",
+          "type": "exact",
+          "question": "How many unique messages did James send to Mike?",
+          "options": {},
+          "answer": "4",
+          "rationale": "James sent the following messages to Mike: 'Hey Mike! How's it going?', 'I'm good just trying to get some breakfast before we bowl.', 'Oh yeah? I'm looking forward to it then.', and 'See you at the lanes!'. There are 4 unique messages."
+        },
+        {
+          "id": "Q7",
+          "category": "hallucination",
+          "type": "binary",
+          "question": "Did James go to the cinema on Sunday morning?",
+          "options": {},
+          "answer": "No",
+          "rationale": "There is no mention of James going to the cinema in the provided data. All activities mentioned involve bowling or morning interactions with Mike."
+        },
+        {
+          "id": "Q8",
+          "category": "hallucination",
+          "type": "binary",
+          "question": "Did James have a meeting at the office on Sunday?",
+          "options": {},
+          "answer": "No",
+          "rationale": "The provided data does not mention James having a meeting at the office. The activities mentioned are bowling with friends and morning interactions."
+        }
+      ]
+    },
+    {
+      "scene_id": 2,
+      "day": "Wednesday",
+      "time": "evening",
+      "description": "I'm clocking in for my shift.\nJust got my uniform on.\nHey Joe what's the plan for tonight?\nWe're short-staffed so I'm not sure yet.\nAlright well let me know when you find out.\nI'm gonna go grab a snack before we get started.\nWhere's the break room?\nThird door on your left.\nThanks man.\nUgh I could really use a salad or something healthy but I think I'm gonna grab a burger from the food truck instead.\nYeah I know I know it's not the best choice but it's easy.\nMaybe I'll try to sneak in a walk during my break to make up for it.",
+      "device_data": {
+        "scene_id": 2,
+        "smartwatch": [
+          {
+            "timestamp": "14:00:00",
+            "heart_rate": 80,
+            "steps": 100,
+            "active_minutes": 0
+          },
+          {
+            "timestamp": "14:10:00",
+            "heart_rate": 85,
+            "steps": 400,
+            "active_minutes": 10
+          },
+          {
+            "timestamp": "14:20:00",
+            "heart_rate": 90,
+            "steps": 800,
+            "active_minutes": 20
+          }
+        ],
+        "gps": [
+          {
+            "timestamp": "14:00:00",
+            "latitude": 37.7749,
+            "longitude": -122.4194,
+            "speed": 0.0,
+            "accuracy": 10
+          },
+          {
+            "timestamp": "14:05:00",
+            "latitude": 37.7752,
+            "longitude": -122.4197,
+            "speed": 1.5,
+            "accuracy": 10
+          },
+          {
+            "timestamp": "14:15:00",
+            "latitude": 37.7761,
+            "longitude": -122.4203,
+            "speed": 4.2,
+            "accuracy": 10
+          },
+          {
+            "timestamp": "14:20:00",
+            "latitude": 37.7763,
+            "longitude": -122.4205,
+            "speed": 3.5,
+            "accuracy": 10
+          }
+        ],
+        "smartphone": {
+          "screen_time_minutes": 30,
+          "notifications_count": 5,
+          "battery_level": 80,
+          "app_usage": {
+            "social": 5,
+            "productivity": 10,
+            "entertainment": 5,
+            "health": 0,
+            "communication": 10
+          }
+        },
+        "smartring": [
+          {
+            "timestamp": "14:00:00",
+            "body_temperature": 36.7,
+            "hrv": 75,
+            "skin_temperature": 32.3
+          },
+          {
+            "timestamp": "14:10:00",
+            "body_temperature": 36.8,
+            "hrv": 70,
+            "skin_temperature": 32.5
+          },
+          {
+            "timestamp": "14:20:00",
+            "body_temperature": 36.9,
+            "hrv": 65,
+            "skin_temperature": 32.7
+          }
+        ],
+        "smart_home": {
+          "doors_status": {
+            "front_door": "closed",
+            "back_door": "closed",
+            "garage": "closed"
+          },
+          "windows_status": {
+            "living_room": "closed",
+            "bedroom": "closed",
+            "kitchen": "closed"
+          },
+          "indoor_temperature": 22.5,
+          "indoor_humidity": 50,
+          "light_status": {
+            "living_room": "off",
+            "bedroom": "off",
+            "kitchen": "off"
+          },
+          "motion_detected": {
+            "living_room": false,
+            "bedroom": false,
+            "kitchen": false
+          },
+          "alarm_status": "disarmed"
+        }
+      },
+      "calendar_events": [],
+      "messages": [
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Joe",
+          "timestamp": "14:05",
+          "content": "Hey Joe what's the plan for tonight?"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "received",
+          "contact": "Joe",
+          "timestamp": "14:07",
+          "content": "We're short-staffed so I'm not sure yet"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Joe",
+          "timestamp": "14:08",
+          "content": "Alright well let me know when you find out. I'm gonna go grab a snack before we get started."
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "received",
+          "contact": "Joe",
+          "timestamp": "14:09",
+          "content": "Third door on your left"
+        },
+        {
+          "platform": "SMS",
+          "direction": "sent",
+          "contact": "Unknown number (likely coworker)",
+          "timestamp": "14:15",
+          "content": "Where's break room?"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Self (internal monologue)",
+          "timestamp": "14:20",
+          "content": "Ugh I could really use a salad or something healthy but I think I'm gonna grab a burger from the food truck instead"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Self (internal monologue)",
+          "timestamp": "14:21",
+          "content": "Yeah I know I know it's not the best choice but it's easy. Maybe I'll try to sneak in a walk during my break to make up for it."
+        }
+      ],
+      "deficiencies": {
+        "scene_id": 2,
+        "physical_activity": {
+          "status": "INSUFFICIENT",
+          "reason": "Low step count (1000) and insufficient active minutes (30 minutes)"
+        },
+        "sleep": {
+          "status": "UNKNOWN",
+          "reason": "No sleep data available"
+        },
+        "stress": {
+          "status": "WARNING",
+          "reason": "Elevated heart rate (85 bpm) and some HRV (70 ms) variability"
+        },
+        "workload": {
+          "status": "UNKNOWN",
+          "reason": "No workload data available"
+        },
+        "social_interaction": {
+          "status": "OK",
+          "reason": "Normal social messaging activity"
+        },
+        "environment": {
+          "status": "OK",
+          "reason": "Comfortable indoor temperature (22.5°C) and humidity (50%)"
+        },
+        "emotional_tone": {
+          "status": "NEUTRAL",
+          "reason": "Mixed tone in messages, some frustration but also neutral planning"
+        },
+        "digital_behavior": {
+          "status": "BALANCED",
+          "reason": "Moderate screen time (30 minutes) and app usage"
+        }
+      },
+      "queries": [
+        {
+          "id": "Q1",
+          "category": "temporal",
+          "type": "exact",
+          "question": "What time did the user clock in for their shift?",
+          "options": {},
+          "answer": "Not explicitly mentioned",
+          "rationale": "The scene description mentions 'I'm clocking in for my shift.' but does not provide a specific time. The earliest timestamp provided is 14:00:00 from sensor data."
+        },
+        {
+          "id": "Q2",
+          "category": "temporal",
+          "type": "binary",
+          "question": "Did the user grab a snack before 14:10:00?",
+          "options": {},
+          "answer": "Yes",
+          "rationale": "The user mentions 'I'm gonna go grab a snack before we get started' in a message sent at 14:08, and the smartwatch data shows an entry at 14:10:00, indicating the snack was grabbed before this time."
+        },
+        {
+          "id": "Q3",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "What did the user plan to do during their break according to the dialogue?",
+          "options": {
+            "A": "Sneak in a walk",
+            "B": "Check notifications on their smartphone",
+            "C": "Use a productivity app",
+            "D": "Read a book"
+          },
+          "answer": "A",
+          "rationale": "The user mentions 'Maybe I'll try to sneak in a walk during my break to make up for it.' This directly supports option A."
+        },
+        {
+          "id": "Q4",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "What type of food did the user consider eating according to the dialogue?",
+          "options": {
+            "A": "A salad",
+            "B": "A burger from the food truck",
+            "C": "A sandwich from the cafeteria",
+            "D": "Fries from a restaurant"
+          },
+          "answer": "A",
+          "rationale": "The user mentions 'Ugh I could really use a salad or something healthy but I think I'm gonna grab a burger from the food truck instead.' This directly supports option A as a considered food type."
+        },
+        {
+          "id": "Q5",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "Where is the break room located according to the dialogue?",
+          "options": {
+            "A": "Second door on the right",
+            "B": "Third door on the left",
+            "C": "First door on the right",
+            "D": "At the end of the hall"
+          },
+          "answer": "B",
+          "rationale": "The dialogue mentions 'Third door on your left' as the location of the break room, directly supporting option B."
+        },
+        {
+          "id": "Q6",
+          "category": "deduplication",
+          "type": "exact",
+          "question": "How many unique mentions of going to the food truck are there?",
+          "options": {},
+          "answer": "1",
+          "rationale": "The dialogue only mentions going to the food truck once: 'Ugh I could really use a salad or something healthy but I think I'm gonna grab a burger from the food truck instead.'"
+        },
+        {
+          "id": "Q7",
+          "category": "hallucination",
+          "type": "binary",
+          "question": "Did the user attend a meeting?",
+          "options": {},
+          "answer": "No",
+          "rationale": "There is no mention of attending a meeting in the provided dialogue or data."
+        },
+        {
+          "id": "Q8",
+          "category": "hallucination",
+          "type": "binary",
+          "question": "Did the user go skydiving?",
+          "options": {},
+          "answer": "No",
+          "rationale": "There is no mention of skydiving in the provided dialogue or data."
+        }
+      ]
+    },
+    {
+      "scene_id": 3,
+      "day": "Friday",
+      "time": "evening",
+      "description": "I'm heading home from work now.\n\n                  Traffic is pretty bad.\n\n                  I'm gonna grab some dinner on the way.\n\n                  Probably just get a burger or something.\n\n                  Hey Samantha how was your day?\n\n                  It was good just got a lot of work done.\n\n                  That's great I'm glad to hear it.\n\n                  We're watching a game tonight you wanna come over?\n\n                  Yeah sure that sounds like fun.\n\n                  What time were you thinking?\n\n                  How about 9 o'clock?\n\n                  Sounds perfect I'll see you then.",
+      "device_data": {
+        "scene_id": 3,
+        "smartwatch": [
+          {
+            "timestamp": "17:00:00",
+            "heart_rate": 80,
+            "steps": 200,
+            "active_minutes": 10
+          },
+          {
+            "timestamp": "17:20:00",
+            "heart_rate": 85,
+            "steps": 800,
+            "active_minutes": 30
+          },
+          {
+            "timestamp": "17:40:00",
+            "heart_rate": 90,
+            "steps": 1200,
+            "active_minutes": 45
+          }
+        ],
+        "gps": [
+          {
+            "timestamp": "17:00:00",
+            "latitude": 37.7859,
+            "longitude": -122.4364,
+            "speed": 10.0,
+            "accuracy": 15
+          },
+          {
+            "timestamp": "17:15:00",
+            "latitude": 37.7912,
+            "longitude": -122.4298,
+            "speed": 5.0,
+            "accuracy": 12
+          },
+          {
+            "timestamp": "17:30:00",
+            "latitude": 37.7955,
+            "longitude": -122.4239,
+            "speed": 8.0,
+            "accuracy": 10
+          },
+          {
+            "timestamp": "17:45:00",
+            "latitude": 37.8023,
+            "longitude": -122.4156,
+            "speed": 0.0,
+            "accuracy": 8
+          }
+        ],
+        "smartphone": {
+          "screen_time_minutes": 30,
+          "notifications_count": 5,
+          "battery_level": 60,
+          "app_usage": {
+            "social": 5,
+            "productivity": 2,
+            "entertainment": 10,
+            "health": 2,
+            "communication": 10
+          }
+        },
+        "smartring": [
+          {
+            "timestamp": "17:00:00",
+            "body_temperature": 36.9,
+            "hrv": 65,
+            "skin_temperature": 32.8
+          },
+          {
+            "timestamp": "17:20:00",
+            "body_temperature": 37.0,
+            "hrv": 60,
+            "skin_temperature": 33.0
+          },
+          {
+            "timestamp": "17:40:00",
+            "body_temperature": 37.1,
+            "hrv": 55,
+            "skin_temperature": 33.2
+          }
+        ],
+        "smart_home": {
+          "doors_status": {
+            "front_door": "locked",
+            "back_door": "locked",
+            "garage": "locked"
+          },
+          "windows_status": {
+            "living_room": "closed",
+            "bedroom": "closed",
+            "kitchen": "closed"
+          },
+          "indoor_temperature": 22.0,
+          "indoor_humidity": 50,
+          "light_status": {
+            "living_room": "off",
+            "bedroom": "off",
+            "kitchen": "off"
+          },
+          "motion_detected": false,
+          "alarm_status": "armed"
+        }
+      },
+      "calendar_events": [
+        {
+          "title": "Game Night with Samantha",
+          "start_time": "09:00",
+          "end_time": "",
+          "location": "My Place",
+          "description": ""
+        }
+      ],
+      "messages": [
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Samantha",
+          "timestamp": "17:05",
+          "content": "Hey Samantha how was your day?"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "received",
+          "contact": "Samantha",
+          "timestamp": "17:08",
+          "content": "It was good just got a lot of work done"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Samantha",
+          "timestamp": "17:10",
+          "content": "That's great I'm glad to hear it. We're watching a game tonight you wanna come over?"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "received",
+          "contact": "Samantha",
+          "timestamp": "17:12",
+          "content": "Yeah sure that sounds like fun"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Samantha",
+          "timestamp": "17:14",
+          "content": "What time were you thinking?"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Samantha",
+          "timestamp": "17:15",
+          "content": "How about 9 o'clock?"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "received",
+          "contact": "Samantha",
+          "timestamp": "17:17",
+          "content": "Sounds perfect I'll see you then"
+        },
+        {
+          "platform": "SMS",
+          "direction": "sent",
+          "contact": "Brother",
+          "timestamp": "17:20",
+          "content": "Hey bro, just got out of work. Traffic is a nightmare. Think I'll grab a burger on the way home"
+        }
+      ],
+      "deficiencies": {
+        "scene_id": 3,
+        "physical_activity": {
+          "status": "INSUFFICIENT",
+          "reason": "Low step count (1200) and moderate active minutes (45)"
+        },
+        "sleep": {
+          "status": "UNKNOWN",
+          "reason": "Insufficient data"
+        },
+        "stress": {
+          "status": "WARNING",
+          "reason": "Elevated heart rate (90 bpm) and reduced HRV (55 ms)"
+        },
+        "workload": {
+          "status": "UNKNOWN",
+          "reason": "Insufficient data"
+        },
+        "social_interaction": {
+          "status": "OK",
+          "reason": "Healthy social messaging activity"
+        },
+        "environment": {
+          "status": "OK",
+          "reason": "Comfortable indoor temperature (22.0°C)"
+        },
+        "emotional_tone": {
+          "status": "POSITIVE",
+          "reason": "Positive conversation tone"
+        },
+        "digital_behavior": {
+          "status": "BALANCED",
+          "reason": "Moderate screen time (30 minutes) and app usage"
+        }
+      },
+      "queries": [
+        {
+          "id": "Q1",
+          "category": "temporal",
+          "type": "exact",
+          "question": "What time did the user send the message 'I'm heading home from work now.'?",
+          "options": {},
+          "answer": "17:00",
+          "rationale": "The user's message 'I'm heading home from work now.' is not directly provided with a timestamp, but based on the provided messages and their timestamps, the earliest message sent is at 17:05. However, the scene description and messages indicate the user was heading home from work around this time. The smartwatch and GPS data start at 17:00:00, suggesting this is the time frame in question."
+        },
+        {
+          "id": "Q2",
+          "category": "temporal",
+          "type": "binary",
+          "question": "Did the user mention grabbing dinner before 17:30?",
+          "options": {},
+          "answer": "Yes",
+          "rationale": "The user mentioned 'I'm gonna grab some dinner on the way.' in the dialogue. The messages and smartwatch/GPS data indicate this conversation and activities happened around and after 17:00, with a message sent at 17:20 discussing grabbing a burger."
+        },
+        {
+          "id": "Q3",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "What was the user's heart rate when they mentioned having a conversation with Samantha?",
+          "options": {
+            "A": "80 bpm",
+            "B": "85 bpm",
+            "C": "90 bpm",
+            "D": "95 bpm"
+          },
+          "answer": "B",
+          "rationale": "The user had a conversation with Samantha around 17:10 according to the messages. At 17:20:00, the user's heart rate was 85 bpm according to the smartwatch data, which is the closest timestamp to when the conversation occurred."
+        },
+        {
+          "id": "Q4",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "What did the user plan to do regarding dinner based on the dialogue?",
+          "options": {
+            "A": "Cook at home",
+            "B": "Order takeout",
+            "C": "Get a burger",
+            "D": "Skip dinner"
+          },
+          "answer": "C",
+          "rationale": "The user explicitly mentioned 'Probably just get a burger or something.' in the dialogue, indicating they planned to get a burger for dinner."
+        },
+        {
+          "id": "Q5",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "At what time did the user plan to watch a game with Samantha?",
+          "options": {
+            "A": "8:00 PM",
+            "B": "9:00 PM",
+            "C": "10:00 PM",
+            "D": "11:00 PM"
+          },
+          "answer": "B",
+          "rationale": "The user and Samantha discussed and agreed on 9:00 PM to watch a game. The user asked, 'What time were you thinking?' and Samantha replied, 'How about 9 o'clock?' The user then said, 'Sounds perfect I'll see you then.'"
+        },
+        {
+          "id": "Q6",
+          "category": "deduplication",
+          "type": "exact",
+          "question": "How many unique gym sessions were mentioned?",
+          "options": {},
+          "answer": "0",
+          "rationale": "There were no gym sessions mentioned in the provided dialogue or data. The user discussed heading home from work, grabbing dinner, and watching a game with Samantha, but did not mention going to the gym."
+        },
+        {
+          "id": "Q7",
+          "category": "hallucination",
+          "type": "binary",
+          "question": "Did the user go to the movies?",
+          "options": {},
+          "answer": "No",
+          "rationale": "There is no mention of going to the movies in the provided dialogue, messages, or sensor data. The activities mentioned include heading home from work, grabbing dinner, and watching a game with Samantha at home."
+        },
+        {
+          "id": "Q8",
+          "category": "hallucination",
+          "type": "binary",
+          "question": "Did the user attend a meeting at the office?",
+          "options": {},
+          "answer": "No",
+          "rationale": "There is no mention of attending a meeting at the office in the provided dialogue, messages, or sensor data. The user discussed heading home from work and other activities but did not mention an office meeting."
+        }
+      ]
+    },
+    {
+      "scene_id": 4,
+      "day": "Tuesday",
+      "time": "evening",
+      "description": "I'm heading to my brother's place for dinner.\nShould be around 6:30 PM.\nHis kid's been wanting to play with Legos.\nHopefully dinner's not too late.\nI'm starving after that shift today.\nHey bro what's up?\nNot much just getting the kids ready.\nAlright I'm almost there.\nCan I bring something?\nNo just bring yourself.\nSounds good to me.\nSee you soon.",
+      "device_data": {
+        "scene_id": 4,
+        "smartwatch": [
+          {
+            "timestamp": "18:20:00",
+            "heart_rate": 80,
+            "steps": 200,
+            "active_minutes": 10
+          },
+          {
+            "timestamp": "18:30:00",
+            "heart_rate": 85,
+            "steps": 500,
+            "active_minutes": 20
+          },
+          {
+            "timestamp": "18:40:00",
+            "heart_rate": 90,
+            "steps": 800,
+            "active_minutes": 30
+          }
+        ],
+        "gps": [
+          {
+            "timestamp": "18:20:00",
+            "latitude": 37.7859,
+            "longitude": -122.4364,
+            "speed": 0.0,
+            "accuracy": 10
+          },
+          {
+            "timestamp": "18:25:00",
+            "latitude": 37.7862,
+            "longitude": -122.4367,
+            "speed": 1.5,
+            "accuracy": 10
+          },
+          {
+            "timestamp": "18:35:00",
+            "latitude": 37.7871,
+            "longitude": -122.4373,
+            "speed": 4.2,
+            "accuracy": 10
+          },
+          {
+            "timestamp": "18:40:00",
+            "latitude": 37.7875,
+            "longitude": -122.4375,
+            "speed": 0.5,
+            "accuracy": 10
+          }
+        ],
+        "smartphone": {
+          "screen_time_minutes": 30,
+          "notifications_count": 5,
+          "battery_level": 70
+        },
+        "smartring": [
+          {
+            "timestamp": "18:20:00",
+            "body_temperature": 36.9,
+            "hrv": 75,
+            "skin_temperature": 32.8
+          },
+          {
+            "timestamp": "18:30:00",
+            "body_temperature": 37.0,
+            "hrv": 80,
+            "skin_temperature": 33.0
+          },
+          {
+            "timestamp": "18:40:00",
+            "body_temperature": 37.1,
+            "hrv": 85,
+            "skin_temperature": 33.2
+          }
+        ],
+        "smart_home": {
+          "doors_status": {
+            "front_door": "closed",
+            "back_door": "closed",
+            "garage": "closed"
+          },
+          "windows_status": {
+            "living_room": "closed",
+            "bedroom": "closed",
+            "kitchen": "closed"
+          },
+          "indoor_temperature": 22.0,
+          "indoor_humidity": 50,
+          "light_status": {
+            "living_room": "on",
+            "kitchen": "on"
+          },
+          "alarm_status": "disarmed"
+        }
+      },
+      "calendar_events": [
+        {
+          "title": "Dinner at Brother's",
+          "start_time": "18:30",
+          "end_time": "20:00",
+          "location": "Brother's place",
+          "description": "Family dinner"
+        }
+      ],
+      "messages": [
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Brother",
+          "timestamp": "18:20",
+          "content": "Hey bro what's up?"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "received",
+          "contact": "Brother",
+          "timestamp": "18:22",
+          "content": "Not much just getting the kids ready."
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Brother",
+          "timestamp": "18:25",
+          "content": "Alright I'm almost there."
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "received",
+          "contact": "Brother",
+          "timestamp": "18:27",
+          "content": "Can I bring something?"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Brother",
+          "timestamp": "18:28",
+          "content": "No just bring yourself."
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "received",
+          "contact": "Brother",
+          "timestamp": "18:30",
+          "content": "Sounds good to me. See you soon."
+        }
+      ],
+      "deficiencies": {
+        "scene_id": 4,
+        "physical_activity": {
+          "status": "INSUFFICIENT",
+          "reason": "Low step count (800 steps)"
+        },
+        "sleep": {
+          "status": "UNKNOWN",
+          "reason": "No sleep data available"
+        },
+        "stress": {
+          "status": "OK",
+          "reason": "Normal heart rate and HRV"
+        },
+        "workload": {
+          "status": "UNKNOWN",
+          "reason": "No workload data available"
+        },
+        "social_interaction": {
+          "status": "OK",
+          "reason": "Healthy social interaction via messages"
+        },
+        "environment": {
+          "status": "OK",
+          "reason": "Comfortable indoor temperature (22.0°C)"
+        },
+        "emotional_tone": {
+          "status": "POSITIVE",
+          "reason": "Positive tone in messages"
+        },
+        "digital_behavior": {
+          "status": "BALANCED",
+          "reason": "Normal screen time (30 minutes)"
+        }
+      },
+      "queries": [
+        {
+          "id": "Q1",
+          "category": "temporal",
+          "type": "exact",
+          "question": "What time did the user arrive at their brother's place?",
+          "options": {},
+          "answer": "18:40:00",
+          "rationale": "According to the GPS data, at 18:40:00, the user's latitude and longitude were 37.7875 and -122.4375 respectively, indicating they were at their brother's place."
+        },
+        {
+          "id": "Q2",
+          "category": "temporal",
+          "type": "binary",
+          "question": "Did the user send a message to their brother before 18:25:00?",
+          "options": {},
+          "answer": "Yes",
+          "rationale": "The user sent a message to their brother at 18:20:00, which is before 18:25:00."
+        },
+        {
+          "id": "Q3",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "Why did the user mention being starving?",
+          "options": {
+            "A": "They had a long day at work",
+            "B": "They had a gym session",
+            "C": "They skipped breakfast",
+            "D": "They walked a lot"
+          },
+          "answer": "A",
+          "rationale": "The user mentioned 'I'm starving after that shift today', indicating that their hunger is related to their work shift."
+        },
+        {
+          "id": "Q4",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "What was the user's brother preparing for dinner?",
+          "options": {
+            "A": "Getting the kids ready",
+            "B": "Cooking a meal",
+            "C": "Setting the table",
+            "D": "Ordering takeout"
+          },
+          "answer": "A",
+          "rationale": "The brother mentioned 'just getting the kids ready' in response to the user's question about what was up."
+        },
+        {
+          "id": "Q5",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "What activity did the user's brother's kid want to do?",
+          "options": {
+            "A": "Play with Legos",
+            "B": "Watch a movie",
+            "C": "Play a game",
+            "D": "Go for a walk"
+          },
+          "answer": "A",
+          "rationale": "The user mentioned 'His kid's been wanting to play with Legos'."
+        },
+        {
+          "id": "Q6",
+          "category": "deduplication",
+          "type": "exact",
+          "question": "How many unique events of sending messages to the brother did the user do?",
+          "options": {},
+          "answer": "5",
+          "rationale": "The user sent 5 messages to their brother at different timestamps: 18:20, 18:25, 18:27, 18:28, 18:30."
+        },
+        {
+          "id": "Q7",
+          "category": "hallucination",
+          "type": "binary",
+          "question": "Did the user go to the movies?",
+          "options": {},
+          "answer": "No",
+          "rationale": "There is no mention of the user going to the movies in the provided data."
+        },
+        {
+          "id": "Q8",
+          "category": "hallucination",
+          "type": "binary",
+          "question": "Did the user attend a concert?",
+          "options": {},
+          "answer": "No",
+          "rationale": "There is no mention of the user attending a concert in the provided data."
+        }
+      ]
+    },
+    {
+      "scene_id": 5,
+      "day": "Saturday",
+      "time": "morning",
+      "description": "I'm up early 8 AM.\n\nI'm gonna make some pancakes.\n\nHey Samantha good morning!\n\nMorning James.\n\nYou sleeping in today?\n\nNo just got up early.\n\nI'm thinking of going for a bike ride later.\n\nThat sounds like fun.\n\nYou should take me with you.\n\nI'll think about it.\n\nHow's your day planned?\n\nJust grocery shopping and stuff.\n\nOkay sounds good.\n\nI'll help with the dishes.\n\nThanks!",
+      "device_data": {
+        "scene_id": 5,
+        "smartwatch": [
+          {
+            "timestamp": "08:00:00",
+            "heart_rate": 65,
+            "steps": 0,
+            "active_minutes": 0
+          },
+          {
+            "timestamp": "08:15:00",
+            "heart_rate": 70,
+            "steps": 100,
+            "active_minutes": 2
+          },
+          {
+            "timestamp": "08:30:00",
+            "heart_rate": 75,
+            "steps": 250,
+            "active_minutes": 5
+          }
+        ],
+        "gps": [
+          {
+            "timestamp": "08:00:00",
+            "latitude": 37.7749,
+            "longitude": -122.4194,
+            "speed": 0.0,
+            "accuracy": 10
+          },
+          {
+            "timestamp": "08:10:00",
+            "latitude": 37.7749,
+            "longitude": -122.4194,
+            "speed": 0.0,
+            "accuracy": 10
+          },
+          {
+            "timestamp": "08:20:00",
+            "latitude": 37.7749,
+            "longitude": -122.4194,
+            "speed": 0.0,
+            "accuracy": 10
+          }
+        ],
+        "smartphone": {
+          "screen_time_minutes": 15,
+          "notifications_count": 2,
+          "battery_level": 90,
+          "app_usage": {
+            "social": 0,
+            "productivity": 0,
+            "entertainment": 0,
+            "health": 0,
+            "communication": 2
+          }
+        },
+        "smartring": [
+          {
+            "timestamp": "08:00:00",
+            "body_temperature": 36.7,
+            "hrv": 80,
+            "skin_temperature": 32.2
+          },
+          {
+            "timestamp": "08:15:00",
+            "body_temperature": 36.8,
+            "hrv": 75,
+            "skin_temperature": 32.3
+          },
+          {
+            "timestamp": "08:30:00",
+            "body_temperature": 36.9,
+            "hrv": 70,
+            "skin_temperature": 32.4
+          }
+        ],
+        "smart_home": {
+          "doors_status": {
+            "front_door": "closed",
+            "back_door": "closed",
+            "garage": "closed"
+          },
+          "windows_status": {
+            "living_room": "closed",
+            "bedroom": "closed",
+            "kitchen": "closed"
+          },
+          "indoor_temperature": 22.0,
+          "indoor_humidity": 50,
+          "light_status": {
+            "living_room": "on",
+            "kitchen": "on"
+          },
+          "motion_detected": {
+            "living_room": true,
+            "kitchen": true
+          },
+          "thermostat_setting": 22.0,
+          "alarm_status": "disarmed"
+        }
+      },
+      "calendar_events": [
+        {
+          "title": "Grocery Shopping",
+          "start_time": "10:00",
+          "end_time": "12:00",
+          "location": "Local Market",
+          "description": ""
+        }
+      ],
+      "messages": [
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Samantha",
+          "timestamp": "08:00",
+          "content": "Hey Samantha good morning!"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "received",
+          "contact": "Samantha",
+          "timestamp": "08:01",
+          "content": "Morning James."
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Samantha",
+          "timestamp": "08:02",
+          "content": "You sleeping in today?"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "received",
+          "contact": "Samantha",
+          "timestamp": "08:03",
+          "content": "No just got up early."
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Samantha",
+          "timestamp": "08:04",
+          "content": "I'm thinking of going for a bike ride later."
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "received",
+          "contact": "Samantha",
+          "timestamp": "08:05",
+          "content": "That sounds like fun."
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Samantha",
+          "timestamp": "08:06",
+          "content": "You should take me with you."
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "received",
+          "contact": "Samantha",
+          "timestamp": "08:07",
+          "content": "I'll think about it."
+        }
+      ],
+      "deficiencies": {
+        "scene_id": 5,
+        "physical_activity": {
+          "status": "INSUFFICIENT",
+          "reason": "Low steps and active minutes"
+        },
+        "sleep": {
+          "status": "UNKNOWN",
+          "reason": "No sleep data available"
+        },
+        "stress": {
+          "status": "OK",
+          "reason": "Normal heart rate and HRV"
+        },
+        "workload": {
+          "status": "UNKNOWN",
+          "reason": "No workload data available"
+        },
+        "social_interaction": {
+          "status": "OK",
+          "reason": "Healthy social messaging activity"
+        },
+        "environment": {
+          "status": "OK",
+          "reason": "Comfortable indoor temperature and humidity"
+        },
+        "emotional_tone": {
+          "status": "POSITIVE",
+          "reason": "Positive conversation tone"
+        },
+        "digital_behavior": {
+          "status": "BALANCED",
+          "reason": "Normal screen time and app usage"
+        }
+      },
+      "queries": [
+        {
+          "id": "Q1",
+          "category": "temporal",
+          "type": "exact",
+          "question": "What time did James get up?",
+          "options": {},
+          "answer": "08:00:00",
+          "rationale": "James mentioned getting up early at 8 AM, and the smartwatch data shows the first entry at 08:00:00."
+        },
+        {
+          "id": "Q2",
+          "category": "temporal",
+          "type": "binary",
+          "question": "Did James go for a bike ride before 08:15:00?",
+          "options": {},
+          "answer": "No",
+          "rationale": "James mentioned thinking of going for a bike ride later, but the exact time is not specified. The earliest mention is at 08:04, which is after 08:00:00, and there's no indication it happened before 08:15:00."
+        },
+        {
+          "id": "Q3",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "What was James doing at 08:00:00 according to dialogue and smartwatch data?",
+          "options": {
+            "A": "Making pancakes",
+            "B": "Going for a bike ride",
+            "C": "Sleeping",
+            "D": "Watching TV"
+          },
+          "answer": "A",
+          "rationale": "James mentioned making pancakes in the dialogue, and the smartwatch data shows he was active at 08:00:00 with 0 steps, indicating he was likely indoors preparing something."
+        },
+        {
+          "id": "Q4",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "How was James feeling at 08:00:00 according to his heart rate?",
+          "options": {
+            "A": "Tired",
+            "B": "Normal",
+            "C": "Stressed",
+            "D": "Excited"
+          },
+          "answer": "B",
+          "rationale": "James' heart rate at 08:00:00 was 65 bpm, which is within the normal resting heart rate range (60-80 bpm), indicating he was likely feeling normal."
+        },
+        {
+          "id": "Q5",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "What activity did Samantha suggest James should do with her?",
+          "options": {
+            "A": "Go for a bike ride",
+            "B": "Make pancakes",
+            "C": "Do grocery shopping",
+            "D": "Watch a movie"
+          },
+          "answer": "A",
+          "rationale": "Samantha suggested that James should take her with him on a bike ride, as mentioned in the WhatsApp conversation."
+        },
+        {
+          "id": "Q6",
+          "category": "deduplication",
+          "type": "exact",
+          "question": "How many unique events of going to the market are mentioned?",
+          "options": {},
+          "answer": "1",
+          "rationale": "The calendar event mentions grocery shopping at the Local Market, and there's no other mention of going to the market, so the count is 1."
+        },
+        {
+          "id": "Q7",
+          "category": "hallucination",
+          "type": "binary",
+          "question": "Did James go to the beach?",
+          "options": {},
+          "answer": "No",
+          "rationale": "There is no mention of James going to the beach in the provided data."
+        },
+        {
+          "id": "Q8",
+          "category": "hallucination",
+          "type": "binary",
+          "question": "Did James attend a concert?",
+          "options": {},
+          "answer": "No",
+          "rationale": "There is no mention of James attending a concert in the provided data."
+        }
+      ]
+    }
+  ]
+}

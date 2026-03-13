@@ -1,0 +1,4086 @@
+{
+  "canonical_subject_name": "Linda",
+  "repairs_count": 120,
+  "repairs": [
+    {
+      "bucket": "triplets",
+      "index": 11,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_body_temperature",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "36.9",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_body_temperature",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "36.9",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 12,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_hrv",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "70",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_hrv",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "70",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 13,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_skin_temperature",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "32.7",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_skin_temperature",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "32.7",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 14,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "participates_in",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Library Volunteer Shift",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "participates_in",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Library Volunteer Shift",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 15,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "participates_in",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Book Club Meeting",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "participates_in",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Book Club Meeting",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 30,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_heart_rate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "78 bpm",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_heart_rate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "78 bpm",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 31,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "arrived_at",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "library",
+          "type": "Place"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "arrived_at",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "library",
+          "type": "Place"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 32,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "participated_in",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "library volunteer shift",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "participated_in",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "library volunteer shift",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 33,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sent_message_at",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "13:57",
+          "type": "DateTime"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sent_message_at",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "13:57",
+          "type": "DateTime"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 34,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "had_steps",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "250",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "had_steps",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "250",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 35,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_heart_rate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "90",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_heart_rate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "90",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 36,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "performed_activity",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "library volunteer shift",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "performed_activity",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "library volunteer shift",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 37,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "took_steps",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "250",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "took_steps",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "250",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 38,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_activity_level",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Moderately active",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_activity_level",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Moderately active",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 39,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "attended",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "yoga class",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "attended",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "yoga class",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 40,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "goesForWalk",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "block",
+          "type": "Place"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "goesForWalk",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "block",
+          "type": "Place"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 41,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "checksGarden",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "garden",
+          "type": "Place"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "checksGarden",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "garden",
+          "type": "Place"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 42,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasBreakfast",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "oatmeal with fruit",
+          "type": "Thing"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasBreakfast",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "oatmeal with fruit",
+          "type": "Thing"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 43,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "attendsBookClub",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "book club",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "attendsBookClub",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "book club",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 44,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "readsBook",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "new novel",
+          "type": "Thing"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "readsBook",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "new novel",
+          "type": "Thing"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 45,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasHeartRate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "75",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasHeartRate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "75",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 46,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "takesSteps",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "200",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "takesSteps",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "200",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 47,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "isLocatedAt",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "37.7749, -122.4194",
+          "type": "Place"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "isLocatedAt",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "37.7749, -122.4194",
+          "type": "Place"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 48,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "usesSmartphone",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "30",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "usesSmartphone",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "30",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 49,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasBodyTemperature",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "36.8",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasBodyTemperature",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "36.8",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 50,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasEvent",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Book Club",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasEvent",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Book Club",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 51,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Emily",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Emily",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 52,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "receivesMessageFrom",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sarah",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "receivesMessageFrom",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sarah",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 54,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "participatesIn",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Book Club",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "participatesIn",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Book Club",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 60,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "startsWalk",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "08:00:00",
+          "type": "DateTime"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "startsWalk",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "08:00:00",
+          "type": "DateTime"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 61,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "John",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "John",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 62,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasDigitalBehavior",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "BALANCED",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasDigitalBehavior",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "BALANCED",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 63,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasEmotionalTone",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "POSITIVE",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasEmotionalTone",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "POSITIVE",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 64,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "interactsWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "library volunteer group",
+          "type": "Place"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "interactsWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "library volunteer group",
+          "type": "Place"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 65,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "startsWalk",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "08:00:00",
+          "type": "DateTime"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "startsWalk",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "08:00:00",
+          "type": "DateTime"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 66,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "mentionsNeedingFreshAir",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "beginning of dialogue",
+          "type": "DateTime"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "mentionsNeedingFreshAir",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "beginning of dialogue",
+          "type": "DateTime"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 67,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasHeartRate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "65 bpm",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasHeartRate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "65 bpm",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 68,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "eatsOatmealWithFruit",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "oatmeal with fruit",
+          "type": "Thing"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "eatsOatmealWithFruit",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "oatmeal with fruit",
+          "type": "Thing"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 69,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "John",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "John",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 70,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hadActivity",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Walking",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hadActivity",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Walking",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 71,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hadHeartRate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "80 bpm",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hadHeartRate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "80 bpm",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 72,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "consumed",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "oatmeal",
+          "type": "Thing"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "consumed",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "oatmeal",
+          "type": "Thing"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 73,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sentMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Emily",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sentMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Emily",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 74,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sentMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "John",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sentMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "John",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 75,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sentMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Library Volunteer Group",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sentMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Library Volunteer Group",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 81,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_friend",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Susan",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_friend",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Susan",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 82,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_acquaintance",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Linda",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_acquaintance",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Linda",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 83,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "attends_meeting",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "book club meeting",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "attends_meeting",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "book club meeting",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 85,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "socializes_with",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Susan",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "socializes_with",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Susan",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 86,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_body_temperature",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "37.1",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_body_temperature",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "37.1",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 87,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_hrv",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "85",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_hrv",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "85",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 88,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_skin_temperature",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "33.2",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_skin_temperature",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "33.2",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 91,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "attends",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Book Club Meeting",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "attends",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Book Club Meeting",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 92,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "meets_at",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Linda's place",
+          "type": "Place"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "meets_at",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Linda's place",
+          "type": "Place"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 93,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sends_message_to",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Susan",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sends_message_to",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Susan",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 126,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasConversationWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Susan",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasConversationWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Susan",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 127,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plansEventWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Susan",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plansEventWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Susan",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 128,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Book Club Group",
+          "type": "Group"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Book Club Group",
+          "type": "Group"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 129,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasUpcomingEvent",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Book club meeting",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasUpcomingEvent",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Book club meeting",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 130,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "volunteersAt",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Library",
+          "type": "Place"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "volunteersAt",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Library",
+          "type": "Place"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 11,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_body_temperature",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "36.9",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_body_temperature",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "36.9",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 12,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_hrv",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "70",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_hrv",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "70",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 13,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_skin_temperature",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "32.7",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_skin_temperature",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "32.7",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 14,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "participates_in",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Library Volunteer Shift",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "participates_in",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Library Volunteer Shift",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 15,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "participates_in",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Book Club Meeting",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "participates_in",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Book Club Meeting",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 30,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_heart_rate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "78 bpm",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_heart_rate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "78 bpm",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 31,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "arrived_at",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "library",
+          "type": "Place"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "arrived_at",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "library",
+          "type": "Place"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 32,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "participated_in",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "library volunteer shift",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "participated_in",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "library volunteer shift",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 33,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sent_message_at",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "13:57",
+          "type": "DateTime"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sent_message_at",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "13:57",
+          "type": "DateTime"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 34,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "had_steps",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "250",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "had_steps",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "250",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 35,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_heart_rate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "90",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_heart_rate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "90",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 36,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "performed_activity",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "library volunteer shift",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "performed_activity",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "library volunteer shift",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 37,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "took_steps",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "250",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "took_steps",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "250",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 38,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_activity_level",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Moderately active",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_activity_level",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Moderately active",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 39,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "attended",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "yoga class",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "attended",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "yoga class",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 40,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "goesForWalk",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "block",
+          "type": "Place"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "goesForWalk",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "block",
+          "type": "Place"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 41,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "checksGarden",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "garden",
+          "type": "Place"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "checksGarden",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "garden",
+          "type": "Place"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 42,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasBreakfast",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "oatmeal with fruit",
+          "type": "Thing"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasBreakfast",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "oatmeal with fruit",
+          "type": "Thing"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 43,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "attendsBookClub",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "book club",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "attendsBookClub",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "book club",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 44,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "readsBook",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "new novel",
+          "type": "Thing"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "readsBook",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "new novel",
+          "type": "Thing"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 45,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasHeartRate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "75",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasHeartRate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "75",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 46,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "takesSteps",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "200",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "takesSteps",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "200",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 47,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "isLocatedAt",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "37.7749, -122.4194",
+          "type": "Place"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "isLocatedAt",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "37.7749, -122.4194",
+          "type": "Place"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 48,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "usesSmartphone",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "30",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "usesSmartphone",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "30",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 49,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasBodyTemperature",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "36.8",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasBodyTemperature",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "36.8",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 50,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasEvent",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Book Club",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasEvent",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Book Club",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 51,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Emily",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Emily",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 52,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "receivesMessageFrom",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sarah",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "receivesMessageFrom",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sarah",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 54,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "participatesIn",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Book Club",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "participatesIn",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Book Club",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 60,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "startsWalk",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "08:00:00",
+          "type": "DateTime"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "startsWalk",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "08:00:00",
+          "type": "DateTime"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 61,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "John",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "John",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 62,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasDigitalBehavior",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "BALANCED",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasDigitalBehavior",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "BALANCED",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 63,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasEmotionalTone",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "POSITIVE",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasEmotionalTone",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "POSITIVE",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 64,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "interactsWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "library volunteer group",
+          "type": "Place"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "interactsWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "library volunteer group",
+          "type": "Place"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 65,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "startsWalk",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "08:00:00",
+          "type": "DateTime"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "startsWalk",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "08:00:00",
+          "type": "DateTime"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 66,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "mentionsNeedingFreshAir",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "beginning of dialogue",
+          "type": "DateTime"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "mentionsNeedingFreshAir",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "beginning of dialogue",
+          "type": "DateTime"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 67,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasHeartRate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "65 bpm",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasHeartRate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "65 bpm",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 68,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "eatsOatmealWithFruit",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "oatmeal with fruit",
+          "type": "Thing"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "eatsOatmealWithFruit",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "oatmeal with fruit",
+          "type": "Thing"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 69,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "John",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "John",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 70,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hadActivity",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Walking",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hadActivity",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Walking",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 71,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hadHeartRate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "80 bpm",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hadHeartRate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "80 bpm",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 72,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "consumed",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "oatmeal",
+          "type": "Thing"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "consumed",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "oatmeal",
+          "type": "Thing"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 73,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sentMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Emily",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sentMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Emily",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 74,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sentMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "John",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sentMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "John",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 75,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sentMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Library Volunteer Group",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sentMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Library Volunteer Group",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 81,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_friend",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Susan",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_friend",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Susan",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 82,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_acquaintance",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Linda",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_acquaintance",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Linda",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 83,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "attends_meeting",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "book club meeting",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "attends_meeting",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "book club meeting",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 85,
+      "old_subject_value": "user",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "socializes_with",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Susan",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "socializes_with",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Susan",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 86,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_body_temperature",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "37.1",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_body_temperature",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "37.1",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 87,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_hrv",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "85",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_hrv",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "85",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 88,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_skin_temperature",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "33.2",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_skin_temperature",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "33.2",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 91,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "attends",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Book Club Meeting",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "attends",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Book Club Meeting",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 92,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "meets_at",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Linda's place",
+          "type": "Place"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "meets_at",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Linda's place",
+          "type": "Place"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 93,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sends_message_to",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Susan",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sends_message_to",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Susan",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 126,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasConversationWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Susan",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasConversationWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Susan",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 127,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plansEventWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Susan",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plansEventWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Susan",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 128,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Book Club Group",
+          "type": "Group"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Book Club Group",
+          "type": "Group"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 129,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasUpcomingEvent",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Book club meeting",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasUpcomingEvent",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Book club meeting",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 130,
+      "old_subject_value": "User",
+      "new_subject_value": "Linda",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "volunteersAt",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Library",
+          "type": "Place"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Linda",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "volunteersAt",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Library",
+          "type": "Place"
+        }
+      }
+    }
+  ]
+}

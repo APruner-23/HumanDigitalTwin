@@ -10,7 +10,7 @@ Workflow:
 
 from typing import TypedDict, List, Dict, Any, Optional
 from langgraph.graph import StateGraph, END
-from langchain_groq import ChatGroq
+from src.llm.groq_failover import GroqFailover
 from langchain_core.messages import SystemMessage, HumanMessage
 from pydantic import BaseModel, Field, field_validator
 import logging
@@ -360,6 +360,7 @@ class Neo4jKnowledgeGraph:
                     MERGE (subj:{subject_type} {{name: $subject_value, person_id: $person_id}})
                     ON CREATE SET subj.created_at = datetime()
 
+                    WITH subj
                     MATCH (obj:Person {{id: $person_id}})
 
                     MERGE (subj)-[r:{predicate_rel_type}]->(obj)
@@ -373,6 +374,7 @@ class Neo4jKnowledgeGraph:
                     ON MATCH SET
                         r.last_used = datetime()
 
+                    WITH subj, obj, r
                     MATCH (person:Person {{id: $person_id}})
                     MERGE (person)-[:KNOWS]->(subj)
 
@@ -1035,9 +1037,7 @@ class KnowledgeGraphBuilder:
             storage: Storage per il KG (default: InMemoryKnowledgeGraph)
             enable_logging: Abilita logging Rich con AgentLogger
         """
-        # LLM
-        self.llm = ChatGroq(
-            groq_api_key=llm_api_key,
+        self.llm = GroqFailover(
             model_name=llm_model,
             temperature=0.3,
             max_tokens=2000

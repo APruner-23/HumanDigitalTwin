@@ -1,0 +1,3544 @@
+[
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "isVolunteerAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "local library",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "participatesIn",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "book club",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasLunchWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "friends",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "uses",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "smartwatch",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "reads",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "novel",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wears",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "smartwatch",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wears",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "smartring",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "smartwatch",
+      "type": "Thing"
+    },
+    "predicate": {
+      "value": "records",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "heart_rate",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "smartwatch",
+      "type": "Thing"
+    },
+    "predicate": {
+      "value": "records",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "steps",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "gps",
+      "type": "Thing"
+    },
+    "predicate": {
+      "value": "tracks",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "location",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "uses",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "smartphone",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "smartphone",
+      "type": "Thing"
+    },
+    "predicate": {
+      "value": "measures",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "screen_time_minutes",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "smartring",
+      "type": "Thing"
+    },
+    "predicate": {
+      "value": "monitors",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "body_temperature",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_body_temperature",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "36.9",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_hrv",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "70",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Smart Home",
+      "type": "Place"
+    },
+    "predicate": {
+      "value": "has_indoor_temperature",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "22.0",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_calendar_event",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Library Volunteer Shift",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Library Volunteer Shift",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "occurs_at",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Library",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sends_message_to",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Rachel",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Rachel",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "participatesIn",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "book club meeting",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Rachel",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "reads",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "novel by local author",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Rachel",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "communicatesWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Linda",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "communicatesWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Rachel",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Library volunteer meeting",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "occursAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "15:00 today",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Library volunteer meeting",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "hasLocation",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Library",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_active_minutes",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "10",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_active_minutes",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "25",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_heart_rate",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "78",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_hrv",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "75",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_body_temperature",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "36.7",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_sleep_duration",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "480",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "arrivesAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "library",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasHeartRate",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "78 bpm",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sendsMessage",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "I'm doing great",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "takesStep",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "250",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "headsTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "library",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wentTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "library",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hadHeartRate",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "90 bpm",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wasActivityLevel",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Moderately active",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "attended",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "volunteer shift",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hadSmartwatchData",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "250 steps",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "goesFor",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "walk",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "checksOn",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "garden",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasActivity",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "book club",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "reads",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "novel",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "roses",
+      "type": "Thing"
+    },
+    "predicate": {
+      "value": "areBlooming",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "true",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_heart_rate",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "75",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "takes_steps",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "200",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "spends_screen_time",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "30",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_body_temperature",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "36.8",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "is_at_location",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "{\"latitude\": 37.7749, \"longitude\": -122.4194}",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasEvent",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Book Club",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Book Club",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "takesPlaceAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Local Library or Member's Home",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "communicatesWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Emily (book club friend)",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "communicatesWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Sarah (family)",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "participatesIn",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Book Club",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Book Club Organizer",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "organizes",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Book Club Meeting",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "John (husband)",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_partner",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Person",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Library Volunteer Group",
+      "type": "Organization"
+    },
+    "predicate": {
+      "value": "meets_at",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "library",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Person",
+      "type": "Concept"
+    },
+    "predicate": {
+      "value": "has_social_interaction",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Multiple social interactions",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "startsWalkAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "08:00:00",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sendsMessageTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "John",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sendsMessageAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "08:45:00",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "environment",
+      "type": "Concept"
+    },
+    "predicate": {
+      "value": "hasStatus",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "OK",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "emotional_tone",
+      "type": "Concept"
+    },
+    "predicate": {
+      "value": "hasStatus",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "POSITIVE",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "digital_behavior",
+      "type": "Concept"
+    },
+    "predicate": {
+      "value": "hasStatus",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "BALANCED",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "startedWalking",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "08:00:00",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "mentionedNeedingFreshAir",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "beginning of dialogue",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hadOatmealWithFruit",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "oatmeal with fruit",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hadHeartRate",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "65 bpm",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wasDoing",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Walking",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sentMessageTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Emily",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sentMessageTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "John",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sentMessageTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Library Volunteer Group",
+      "type": "Group"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hadHeartRate",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "80 bpm",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "ate",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "oatmeal",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_friend",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Susan",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "attends",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "book club meeting",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Susan",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "picks_up",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Linda",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "does_gardening",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "roses",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wears",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "smartwatch",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wears",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "smartring",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "smartwatch",
+      "type": "Thing"
+    },
+    "predicate": {
+      "value": "records",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "heart_rate",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "smartwatch",
+      "type": "Thing"
+    },
+    "predicate": {
+      "value": "records",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "steps",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "smartring",
+      "type": "Thing"
+    },
+    "predicate": {
+      "value": "measures",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "body_temperature",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "smartring",
+      "type": "Thing"
+    },
+    "predicate": {
+      "value": "measures",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "hrv",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "smartphone",
+      "type": "Thing"
+    },
+    "predicate": {
+      "value": "tracks",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "screen_time_minutes",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "smartphone",
+      "type": "Thing"
+    },
+    "predicate": {
+      "value": "tracks",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "notifications_count",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Book Club Meeting",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "startsAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "19:00",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Book Club Meeting",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "endsAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "21:00",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Dinner at Linda's",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "takesPlaceAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Linda's place",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Dinner at Linda's",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "startsAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "18:00",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Dinner at Linda's",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "endsAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "20:00",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "front_door",
+      "type": "Thing"
+    },
+    "predicate": {
+      "value": "hasStatus",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "open",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "indoor_temperature",
+      "type": "Thing"
+    },
+    "predicate": {
+      "value": "hasValue",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "22.0",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "contacts",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Susan",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Susan",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "talksAbout",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "gardening",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Susan",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasInterest",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "roses",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plansTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "dinner with Susan",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Susan",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "picksUp",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Linda",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sendsMessage",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Hi Susan! Sorry I'm not ready yet",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "finishesMakingTea",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "18:20",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Susan",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "arrivesAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "18:50",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "makes",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "tea",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "checks",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "notes",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "reads",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "book",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Susan",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_day",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "gardening",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "was_busy_with",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "gardening",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "had_heart_rate",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "80 bpm",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "was_getting_ready_for",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "book club meeting",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Susan",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "mentioned_event",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "gardening",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Susan",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasGrandkids",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "grandkids",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "meets",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Susan",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plansToGoTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "new restaurant downtown",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "talksAbout",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Susan's travels",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasLunchDateWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Susan",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_heart_rate",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "70",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_steps",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "100",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_active_minutes",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "0",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_screen_time_minutes",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "30",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_notifications_count",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "5",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_body_temperature",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "36.7",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_hrv",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "65",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_skin_temperature",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "32.3",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "tracks_location_at",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "{\"latitude\": \"37.7749\", \"longitude\": \"-122.4194\"}",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasEvent",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Lunch with Susan",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "receivesMessageFrom",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Susan",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sendsMessageTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Susan",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Lunch with Susan",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "takesPlaceAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "The Bistro",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "communicatesVia",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "WhatsApp",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Susan",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "suggestsGoing",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "new restaurant downtown",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Book Club Group",
+      "type": "Group"
+    },
+    "predicate": {
+      "value": "organizes",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "book club meeting",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Librarian",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "manages",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "volunteer schedule",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Person",
+      "type": "Concept"
+    },
+    "predicate": {
+      "value": "receives",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "payment confirmation",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Susan",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plansToGo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "new restaurant downtown",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sentMessageTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Susan",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sentMessage",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Not much, just getting ready for the weekend. How about you?",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sentMessageAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "18:07",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_lunch_date_with",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Susan",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "loves_hearing_about",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Susan's travels",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "scheduled_event",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Lunch with Susan",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "getting_ready_for",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "lunch date",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "considersDoing",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "pruning roses",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sendsMessageTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Susan",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "talksAbout",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "her travels",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "is_in",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "garden",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "talks_to",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "John",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "John",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "visits",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Linda",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "participates_in",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "gardening competition",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "cooperates_with",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "John",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_heart_rate",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "80",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_steps",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "650",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_active_minutes",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "30",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_screen_time_minutes",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "30",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_body_temperature",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "36.8",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_location",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "37.7751, -122.4196",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasConversationWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "John",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "receivesMessageFrom",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "John",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sendsMessageTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "John",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasEvent",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Gardening Competition Advice with John",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Gardening Competition Advice with John",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "takesPlaceAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "My Garden",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "John",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "helps",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "gardening competition",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "John",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "discusses",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "judging criteria",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Person",
+      "type": "Concept"
+    },
+    "predicate": {
+      "value": "participatesIn",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "local gardening competition",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "John",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "collaboratesWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "another person",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "discusses",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "gardening competition",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "interacts_with",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "John",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "starts_discussion_at",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "13:05",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_emotional_tone",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "POSITIVE",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "was_talking_to",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "John",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "was_pruning",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "roses",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "had_heart_rate",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "80 bpm",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "had_conversation_at",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "14:10",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "participated_in",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "gardening competition",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_conversation_with",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "John",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "located_in",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "her garden",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "participates_in",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "gardening competition",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Davide",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "mentioned_in_data",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "no",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "mentioned_in_data",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "no",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Davide",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "goes_to_gym",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "false",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "goes_to_gym",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "false",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "isVolunteerAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "local library",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "participatesIn",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "book club",
+      "type": "Group"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasLunchWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "friends",
+      "type": "Group"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "uses",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "smartwatch",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "reads",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "novel",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wears",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "smartwatch",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wears",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "smartring",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "smartwatch",
+      "type": "Thing"
+    },
+    "predicate": {
+      "value": "records",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "heart_rate",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "smartwatch",
+      "type": "Thing"
+    },
+    "predicate": {
+      "value": "records",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "steps",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "gps",
+      "type": "Thing"
+    },
+    "predicate": {
+      "value": "tracks",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "location",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "uses",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "smartphone",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "smartphone",
+      "type": "Thing"
+    },
+    "predicate": {
+      "value": "measures",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "screen_time_minutes",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "smartring",
+      "type": "Thing"
+    },
+    "predicate": {
+      "value": "monitors",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "body_temperature",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "body_temperature",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "hrv",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Smart Home",
+      "type": "Place"
+    },
+    "predicate": {
+      "value": "has",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "indoor_temperature",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_calendar_event",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Library Volunteer Shift",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Library Volunteer Shift",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "occurs_at",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Library",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sends_message_to",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Rachel",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Rachel",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "participatesIn",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "book club meeting",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Rachel",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "reads",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "novel by local author",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Rachel",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "communicatesWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Linda",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "communicatesWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Rachel",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Library volunteer meeting",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "occursAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "15:00 today",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Library volunteer meeting",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "hasLocation",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Library",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_friend",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Susan",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "attends",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "book club meeting",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Susan",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "picks_up",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Linda",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "does_gardening",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "roses",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Book Club Meeting",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "startsAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "19:00",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Book Club Meeting",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "endsAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "21:00",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Dinner at Linda's",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "takesPlaceAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Linda's place",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Dinner at Linda's",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "startsAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "18:00",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Dinner at Linda's",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "endsAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "20:00",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "contacts",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Susan",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Susan",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "talksAbout",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "gardening",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "isVolunteerAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "local library",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "participatesIn",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "book club",
+      "type": "Group"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasLunchWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "friends",
+      "type": "Group"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "uses",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "smartwatch",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "reads",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "novel",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wears",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "smartwatch",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wears",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "smartring",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "smartwatch",
+      "type": "Thing"
+    },
+    "predicate": {
+      "value": "records",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "heart_rate",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "smartwatch",
+      "type": "Thing"
+    },
+    "predicate": {
+      "value": "records",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "steps",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "gps",
+      "type": "Thing"
+    },
+    "predicate": {
+      "value": "tracks",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "location",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "uses",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "smartphone",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "smartphone",
+      "type": "Thing"
+    },
+    "predicate": {
+      "value": "measures",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "screen_time_minutes",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "smartring",
+      "type": "Thing"
+    },
+    "predicate": {
+      "value": "monitors",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "body_temperature",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "body_temperature",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "hrv",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Smart Home",
+      "type": "Place"
+    },
+    "predicate": {
+      "value": "has",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "indoor_temperature",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_calendar_event",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Library Volunteer Shift",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Library Volunteer Shift",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "occurs_at",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Library",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sends_message_to",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Rachel",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Rachel",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "participatesIn",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "book club meeting",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Rachel",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "reads",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "novel by local author",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Rachel",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "communicatesWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Linda",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "communicatesWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Rachel",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Library volunteer meeting",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "occursAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "15:00 today",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Library volunteer meeting",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "hasLocation",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Library",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_friend",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Susan",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "attends",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "book club meeting",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Susan",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "picks_up",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Linda",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "does_gardening",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "roses",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Book Club Meeting",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "startsAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "19:00",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Book Club Meeting",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "endsAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "21:00",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Dinner at Linda's",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "takesPlaceAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Linda's place",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Dinner at Linda's",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "startsAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "18:00",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Dinner at Linda's",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "endsAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "20:00",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Linda",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "contacts",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Susan",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Susan",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "talksAbout",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "gardening",
+      "type": "Concept"
+    }
+  }
+]

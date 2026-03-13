@@ -260,7 +260,7 @@ def query_kg_by_entity(entity_name: str, relationship_type: Optional[str] = None
 class SearchKGInput(BaseModel):
     """Schema per search_kg."""
     query: str = Field(description="Testo da cercare nel Knowledge Graph")
-    limit: int = Field(default=10, description="Numero massimo di risultati")
+    limit: int = Field(default=150, description="Numero massimo di risultati")
 
     @field_validator("limit", mode="before")
     @classmethod
@@ -273,7 +273,7 @@ class SearchKGInput(BaseModel):
 
 
 @tool(args_schema=SearchKGInput)
-def search_kg(query: str, limit: int = 10) -> str:
+def search_kg(query: str, limit: int = 150) -> str:
     """
     Ricerca full-text nel Knowledge Graph.
     Cerca il testo in tutte le entità, relazioni e topic del grafo.

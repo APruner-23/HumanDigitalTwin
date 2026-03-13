@@ -572,7 +572,7 @@ class MCPServer:
         @self.app.get("/api/kg/search")
         async def search_kg(
             query: str = Query(..., description="Testo libero da cercare nel KG"),
-            limit: int = Query(10, description="Numero massimo di risultati")
+            limit: int = Query(150, description="Numero massimo di risultati")
         ):
             """
             Ricerca full-text nel Knowledge Graph.

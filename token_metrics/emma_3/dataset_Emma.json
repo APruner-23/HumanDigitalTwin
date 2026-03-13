@@ -1,0 +1,1505 @@
+{
+  "profile": "Emma is a 35-year-old freelance graphic designer and single mother of a 7-year-old daughter. She works from home, juggling client projects with school runs and childcare. Her schedule is irregular - sometimes working late into the night to meet deadlines, other times taking afternoon breaks to pick up her daughter. Emma tries to maintain a yoga routine three times per week but often skips it when busy. She has a supportive network of other parents she connects with at school and occasional video calls with her sister abroad. Sleep is inconsistent, averaging 6 hours per night, and she relies on coffee throughout the day. Emma uses a smartwatch mainly to track steps and set reminders for picking up her daughter.",
+  "num_scenes": 5,
+  "scenes": [
+    {
+      "scene_id": 1,
+      "day": "Wednesday",
+      "time": "evening",
+      "description": "I'm wrapping up work for the day.\nJust finished that logo design for Smith & Co.\nNow I need to make dinner for Sophie.\nShe's been asking for pasta all week.\nI'll check if Sarah is free to pick her up from school tomorrow.\nHey, I'm making pasta for dinner, want to join us?\nNo, I'm good thanks, I'm on a video call with Rachel in a bit.\nOkay, talk to you later then.\nLove you, bye.\nSophie, how was your day?\nIt was good, we did a science project.\nThat sounds fun, I'm proud of you.\nCan I watch TV now?\nYes, but just for an hour, it's getting late.",
+      "device_data": {
+        "scene_id": 1,
+        "smartwatch": [
+          {
+            "timestamp": "17:00:00",
+            "heart_rate": 80,
+            "steps": 200,
+            "active_minutes": 10
+          },
+          {
+            "timestamp": "17:20:00",
+            "heart_rate": 85,
+            "steps": 500,
+            "active_minutes": 20
+          },
+          {
+            "timestamp": "17:40:00",
+            "heart_rate": 70,
+            "steps": 600,
+            "active_minutes": 30
+          }
+        ],
+        "gps": [
+          {
+            "timestamp": "17:00:00",
+            "latitude": 37.7749,
+            "longitude": -122.4194,
+            "speed": 0.0,
+            "accuracy": 10
+          },
+          {
+            "timestamp": "17:10:00",
+            "latitude": 37.7749,
+            "longitude": -122.4194,
+            "speed": 0.0,
+            "accuracy": 10
+          },
+          {
+            "timestamp": "17:20:00",
+            "latitude": 37.7751,
+            "longitude": -122.4196,
+            "speed": 2.0,
+            "accuracy": 10
+          }
+        ],
+        "smartphone": {
+          "screen_time_minutes": 30,
+          "notifications_count": 5,
+          "battery_level": 80,
+          "app_usage": {
+            "social": 5,
+            "productivity": 10,
+            "entertainment": 5,
+            "health": 0,
+            "communication": 10
+          }
+        },
+        "smartring": [
+          {
+            "timestamp": "17:00:00",
+            "body_temperature": 36.9,
+            "hrv": 75,
+            "skin_temperature": 32.6
+          },
+          {
+            "timestamp": "17:20:00",
+            "body_temperature": 37.0,
+            "hrv": 80,
+            "skin_temperature": 32.7
+          },
+          {
+            "timestamp": "17:40:00",
+            "body_temperature": 36.8,
+            "hrv": 70,
+            "skin_temperature": 32.5
+          }
+        ],
+        "smart_home": {
+          "doors_status": {
+            "front_door": "closed",
+            "back_door": "closed",
+            "garage": "closed"
+          },
+          "windows_status": {
+            "living_room": "closed",
+            "bedroom": "closed",
+            "kitchen": "closed"
+          },
+          "indoor_temperature": 22.0,
+          "indoor_humidity": 50,
+          "light_status": {
+            "living_room": "on",
+            "kitchen": "on"
+          },
+          "motion_detected": {
+            "living_room": true,
+            "kitchen": true
+          },
+          "thermostat_setting": 22.0,
+          "alarm_status": "disarmed"
+        }
+      },
+      "calendar_events": [
+        {
+          "title": "Video call with Rachel",
+          "start_time": "20:00",
+          "end_time": "21:00",
+          "location": "Online",
+          "description": ""
+        }
+      ],
+      "messages": [
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Sophie",
+          "timestamp": "17:30",
+          "content": "Hey sweetie, how was your day?"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "received",
+          "contact": "Sophie",
+          "timestamp": "17:32",
+          "content": "It was good, we did a science project"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Sophie",
+          "timestamp": "17:33",
+          "content": "That sounds fun, I'm proud of you. Can I watch TV now?"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Sophie",
+          "timestamp": "17:35",
+          "content": "Yes, but just for an hour, it's getting late"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Sarah",
+          "timestamp": "17:40",
+          "content": "Hey, are you free to pick up Sophie from school tomorrow?"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "received",
+          "contact": "Sarah",
+          "timestamp": "17:42",
+          "content": "Yeah, I'm free. What's the plan?"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Friend",
+          "timestamp": "17:45",
+          "content": "Hey, I'm making pasta for dinner, want to join us?"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "received",
+          "contact": "Friend",
+          "timestamp": "17:47",
+          "content": "No, I'm good thanks, I'm on a video call with Rachel in a bit"
+        }
+      ],
+      "deficiencies": {
+        "scene_id": 1,
+        "physical_activity": {
+          "status": "WARNING",
+          "reason": "Active for 30 minutes, which is above the minimum threshold but below the recommended 60 minutes."
+        },
+        "sleep": {
+          "status": "UNKNOWN",
+          "reason": "No sleep data available"
+        },
+        "stress": {
+          "status": "OK",
+          "reason": "No elevated stress signs detected"
+        },
+        "workload": {
+          "status": "OK",
+          "reason": "No excessive workload or continuous activity detected"
+        },
+        "social_interaction": {
+          "status": "OK",
+          "reason": "Healthy social activity observed"
+        },
+        "environment": {
+          "status": "OK",
+          "reason": "Comfortable environment conditions"
+        },
+        "emotional_tone": {
+          "status": "POSITIVE",
+          "reason": "Positive and enthusiastic tone detected"
+        },
+        "digital_behavior": {
+          "status": "BALANCED",
+          "reason": "Normal digital behavior observed"
+        }
+      },
+      "queries": [
+        {
+          "id": "Q1",
+          "category": "temporal",
+          "type": "exact",
+          "question": "What time did the user finish the logo design for Smith & Co.?",
+          "options": {},
+          "answer": "17:00:00",
+          "rationale": "The user mentioned finishing the logo design at the start of the scene, and the smartwatch data starts at 17:00:00."
+        },
+        {
+          "id": "Q2",
+          "category": "temporal",
+          "type": "binary",
+          "question": "Did the user send a message to Sarah before 17:45?",
+          "options": {},
+          "answer": "Yes",
+          "rationale": "The user sent a message to Sarah at 17:40, which is before 17:45."
+        },
+        {
+          "id": "Q3",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "What was the user doing when they mentioned being busy with dinner?",
+          "options": {
+            "A": "Making pasta",
+            "B": "On a video call with Rachel",
+            "C": "Picking up Sophie from school",
+            "D": "Working on a logo design"
+          },
+          "answer": "A",
+          "rationale": "The user explicitly mentioned 'Now I need to make dinner for Sophie. She's been asking for pasta all week.'"
+        },
+        {
+          "id": "Q4",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "What activity did Sophie do at school according to the user's conversation?",
+          "options": {
+            "A": "A science project",
+            "B": "A sports game",
+            "C": "A music class",
+            "D": "A art class"
+          },
+          "answer": "A",
+          "rationale": "The user asked Sophie about her day and Sophie replied, 'It was good, we did a science project.'"
+        },
+        {
+          "id": "Q5",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "What was the user's heart rate when they were actively engaging with Sophie?",
+          "options": {
+            "A": "80 bpm",
+            "B": "85 bpm",
+            "C": "70 bpm",
+            "D": "60 bpm"
+          },
+          "answer": "A",
+          "rationale": "The user's heart rate was 80 bpm at 17:00:00 when they started engaging with Sophie."
+        },
+        {
+          "id": "Q6",
+          "category": "deduplication",
+          "type": "exact",
+          "question": "How many unique messages did the user send to Sophie?",
+          "options": {},
+          "answer": "3",
+          "rationale": "The user sent three unique messages to Sophie: 'Hey sweetie, how was your day?', 'That sounds fun, I'm proud of you. Can I watch TV now?', and 'Yes, but just for an hour, it's getting late'."
+        },
+        {
+          "id": "Q7",
+          "category": "hallucination",
+          "type": "binary",
+          "question": "Did the user go to the movies yesterday?",
+          "options": {},
+          "answer": "No",
+          "rationale": "There is no mention of the user going to the movies in the provided data."
+        },
+        {
+          "id": "Q8",
+          "category": "hallucination",
+          "type": "binary",
+          "question": "Did Sophie play basketball today?",
+          "options": {},
+          "answer": "No",
+          "rationale": "There is no mention of Sophie playing basketball in the provided data."
+        }
+      ]
+    },
+    {
+      "scene_id": 2,
+      "day": "Friday",
+      "time": "morning",
+      "description": "Okay it's 8 AM I should get Sophie up and ready for school.\n\n  Sophie wake up sweetie it's time to get dressed.\n\n  I'm coming mom.\n\n  Don't forget we have a parent-teacher meeting today at 3 PM.\n\n  I won't forget mom.\n\n  Can you grab your backpack while I make some breakfast?\n\n  I'm almost ready.\n\n  Alright let's have some toast and then we'll head out.\n\n  Can I have a banana too?\n\n  Of course honey here you go.\n\n  I need to check my schedule for the day.\n\n  Okay so I have a deadline for that Johnson project on Monday.\n\n  I'll make sure to work on it this weekend if needed.",
+      "device_data": {
+        "scene_id": 2,
+        "smartwatch": [
+          {
+            "timestamp": "08:00:00",
+            "heart_rate": 80,
+            "steps": 0,
+            "active_minutes": 0
+          },
+          {
+            "timestamp": "08:10:00",
+            "heart_rate": 85,
+            "steps": 100,
+            "active_minutes": 5
+          },
+          {
+            "timestamp": "08:20:00",
+            "heart_rate": 90,
+            "steps": 250,
+            "active_minutes": 10
+          }
+        ],
+        "gps": [
+          {
+            "timestamp": "08:00:00",
+            "latitude": 37.7749,
+            "longitude": -122.4194,
+            "speed": 0.0,
+            "accuracy": 10
+          },
+          {
+            "timestamp": "08:10:00",
+            "latitude": 37.7751,
+            "longitude": -122.4195,
+            "speed": 1.5,
+            "accuracy": 10
+          },
+          {
+            "timestamp": "08:20:00",
+            "latitude": 37.7753,
+            "longitude": -122.4196,
+            "speed": 2.0,
+            "accuracy": 10
+          }
+        ],
+        "smartphone": {
+          "screen_time_minutes": 15,
+          "notifications_count": 2,
+          "battery_level": 90,
+          "app_usage": {
+            "social": 0,
+            "productivity": 0,
+            "entertainment": 0,
+            "health": 0,
+            "communication": 2
+          }
+        },
+        "smartring": [
+          {
+            "timestamp": "08:00:00",
+            "body_temperature": 36.7,
+            "hrv": 65,
+            "skin_temperature": 32.2
+          },
+          {
+            "timestamp": "08:10:00",
+            "body_temperature": 36.8,
+            "hrv": 70,
+            "skin_temperature": 32.5
+          },
+          {
+            "timestamp": "08:20:00",
+            "body_temperature": 36.9,
+            "hrv": 75,
+            "skin_temperature": 32.8
+          }
+        ],
+        "smart_home": {
+          "doors_status": {
+            "front_door": "open",
+            "back_door": "closed",
+            "garage": "closed"
+          },
+          "windows_status": {
+            "living_room": "closed",
+            "bedroom": "closed",
+            "kitchen": "closed"
+          },
+          "indoor_temperature": 22.0,
+          "indoor_humidity": 50,
+          "light_status": {
+            "living_room": "on",
+            "bedroom": "off",
+            "kitchen": "on"
+          },
+          "motion_detected": {
+            "living_room": true,
+            "bedroom": false,
+            "kitchen": true
+          },
+          "thermostat_setting": 22.0,
+          "alarm_status": "disarmed"
+        }
+      },
+      "calendar_events": [
+        {
+          "title": "Parent-Teacher Meeting",
+          "start_time": "15:00",
+          "end_time": "16:00",
+          "location": "School",
+          "description": ""
+        }
+      ],
+      "messages": [
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Sophie",
+          "timestamp": "08:00",
+          "content": "Wake up sweetie it's time to get dressed"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "received",
+          "contact": "Sophie",
+          "timestamp": "08:02",
+          "content": "I'm coming mom"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Sophie",
+          "timestamp": "08:04",
+          "content": "Don't forget we have a parent-teacher meeting today at 3 PM"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "received",
+          "contact": "Sophie",
+          "timestamp": "08:06",
+          "content": "I won't forget mom"
+        },
+        {
+          "platform": "SMS",
+          "direction": "sent",
+          "contact": "Sarah (school mom)",
+          "timestamp": "08:10",
+          "content": "Hey just a heads up we have a PTA meeting today at 3 PM. See you then?"
+        },
+        {
+          "platform": "Slack",
+          "direction": "received",
+          "contact": "Johnson Project Team",
+          "timestamp": "08:15",
+          "content": "Reminder: Project deadline is Monday. Let us know if you have any concerns"
+        },
+        {
+          "platform": "Email",
+          "direction": "received",
+          "contact": "Client Support",
+          "timestamp": "08:20",
+          "content": "Your recent project files have been reviewed. No issues found."
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Sister (overseas)",
+          "timestamp": "08:30",
+          "content": "Morning! Just getting Sophie ready for school. Busy day ahead"
+        }
+      ],
+      "deficiencies": {
+        "scene_id": 2,
+        "physical_activity": {
+          "status": "INSUFFICIENT",
+          "reason": "Low step count (250) and active minutes (10) indicating sedentary behavior"
+        },
+        "sleep": {
+          "status": "OK",
+          "reason": "No sleep data available for evaluation, but assumed optimal based on context"
+        },
+        "stress": {
+          "status": "WARNING",
+          "reason": "Elevated heart rate (90 bpm) and moderate HRV (75 ms) suggest some stress"
+        },
+        "workload": {
+          "status": "OK",
+          "reason": "No clear indicators of excessive workload or continuous activity"
+        },
+        "social_interaction": {
+          "status": "OK",
+          "reason": "Multiple social interactions via messages and calls"
+        },
+        "environment": {
+          "status": "OK",
+          "reason": "Comfortable indoor temperature (22°C) and humidity (50%)"
+        },
+        "emotional_tone": {
+          "status": "POSITIVE",
+          "reason": "Positive and caring tone in interactions with Sophie"
+        },
+        "digital_behavior": {
+          "status": "BALANCED",
+          "reason": "Moderate screen time (15 minutes) and limited app usage"
+        }
+      },
+      "queries": [
+        {
+          "id": "Q1",
+          "category": "temporal",
+          "type": "exact",
+          "question": "What time did Sophie wake up?",
+          "options": {},
+          "answer": "08:00:00",
+          "rationale": "The message 'Wake up sweetie it's time to get dressed' was sent at 08:00, and the response 'I'm coming mom' was received at 08:02, indicating Sophie woke up around 08:00:00."
+        },
+        {
+          "id": "Q2",
+          "category": "temporal",
+          "type": "binary",
+          "question": "Did the parent-teacher meeting happen before 15:00?",
+          "options": {},
+          "answer": "No",
+          "rationale": "The calendar event for the parent-teacher meeting is scheduled from 15:00 to 16:00, so it did not happen before 15:00."
+        },
+        {
+          "id": "Q3",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "What activity was Sophie doing while her heart rate was increasing?",
+          "options": {
+            "A": "Eating breakfast",
+            "B": "Getting dressed",
+            "C": "Walking to school",
+            "D": "Playing outside"
+          },
+          "answer": "B",
+          "rationale": "The dialogue mentions 'Can you grab your backpack while I make some breakfast?' and 'I'm almost ready.' The smartwatch data shows an increasing heart rate from 80 to 90 bpm between 08:00 and 08:20, which is likely due to getting dressed and preparing for school."
+        },
+        {
+          "id": "Q4",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "What was the user doing when they received a notification about the Johnson project deadline?",
+          "options": {
+            "A": "Making breakfast",
+            "B": "Getting Sophie ready for school",
+            "C": "Checking their schedule",
+            "D": "Working on the project"
+          },
+          "answer": "C",
+          "rationale": "The dialogue mentions 'I need to check my schedule for the day' and the Slack message about the Johnson project deadline was received at 08:15, indicating the user was checking their schedule when they received the notification."
+        },
+        {
+          "id": "Q5",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "What was the user's mode of transportation to school?",
+          "options": {
+            "A": "Driving",
+            "B": "Walking",
+            "C": "Taking public transportation",
+            "D": "Not mentioned"
+          },
+          "answer": "D",
+          "rationale": "The dialogue and sensor data do not explicitly mention the user's mode of transportation to school."
+        },
+        {
+          "id": "Q6",
+          "category": "deduplication",
+          "type": "exact",
+          "question": "How many unique messages were sent to Sophie?",
+          "options": {},
+          "answer": "2",
+          "rationale": "The messages sent to Sophie are 'Wake up sweetie it's time to get dressed' and 'Don't forget we have a parent-teacher meeting today at 3 PM', which are two unique messages."
+        },
+        {
+          "id": "Q7",
+          "category": "hallucination",
+          "type": "binary",
+          "question": "Did Sophie go to the park?",
+          "options": {},
+          "answer": "No",
+          "rationale": "There is no mention of Sophie going to the park in the dialogue, calendar events, or sensor data."
+        },
+        {
+          "id": "Q8",
+          "category": "hallucination",
+          "type": "binary",
+          "question": "Did the user have a meeting with a client?",
+          "options": {},
+          "answer": "No",
+          "rationale": "There is no mention of a client meeting in the dialogue, calendar events, or sensor data."
+        }
+      ]
+    },
+    {
+      "scene_id": 3,
+      "day": "Tuesday",
+      "time": "afternoon",
+      "description": "I'm taking a short break from work.\nI'll do some yoga to clear my head.\nOkay let's see if I can get into downward-facing dog.\nHmm my back is a bit tight today.\nI'll just stretch for a bit then.\nMaybe I'll call Rachel later and catch up.\nWe haven't talked in ages.\nShould I make a cup of tea or coffee?\nDecaf probably a better idea this late.\nOkay tea it is then.",
+      "device_data": {
+        "scene_id": 3,
+        "smartwatch": [
+          {
+            "timestamp": "14:00:00",
+            "heart_rate": 75,
+            "steps": 120,
+            "active_minutes": 5
+          },
+          {
+            "timestamp": "14:10:00",
+            "heart_rate": 80,
+            "steps": 300,
+            "active_minutes": 10
+          },
+          {
+            "timestamp": "14:20:00",
+            "heart_rate": 90,
+            "steps": 600,
+            "active_minutes": 20
+          }
+        ],
+        "gps": [
+          {
+            "timestamp": "14:00:00",
+            "latitude": 37.7749,
+            "longitude": -122.4194,
+            "speed": 0.0,
+            "accuracy": 10
+          },
+          {
+            "timestamp": "14:05:00",
+            "latitude": 37.7751,
+            "longitude": -122.4193,
+            "speed": 1.0,
+            "accuracy": 10
+          },
+          {
+            "timestamp": "14:20:00",
+            "latitude": 37.7755,
+            "longitude": -122.42,
+            "speed": 0.0,
+            "accuracy": 10
+          }
+        ],
+        "smartphone": {
+          "screen_time_minutes": 30,
+          "notifications_count": 5,
+          "battery_level": 80,
+          "app_usage": {
+            "social": 5,
+            "productivity": 10,
+            "entertainment": 5,
+            "health": 5,
+            "communication": 5
+          }
+        },
+        "smartring": [
+          {
+            "timestamp": "14:00:00",
+            "body_temperature": 36.8,
+            "hrv": 70,
+            "skin_temperature": 32.5
+          },
+          {
+            "timestamp": "14:10:00",
+            "body_temperature": 36.9,
+            "hrv": 65,
+            "skin_temperature": 32.6
+          },
+          {
+            "timestamp": "14:20:00",
+            "body_temperature": 37.0,
+            "hrv": 60,
+            "skin_temperature": 32.7
+          }
+        ],
+        "smart_home": {
+          "doors_status": {
+            "front_door": "locked",
+            "back_door": "locked",
+            "garage": "locked"
+          },
+          "windows_status": {
+            "living_room": "closed",
+            "bedroom": "closed",
+            "kitchen": "closed"
+          },
+          "indoor_temperature": 22.0,
+          "indoor_humidity": 50,
+          "light_status": {
+            "living_room": "off",
+            "bedroom": "off",
+            "kitchen": "off"
+          },
+          "motion_detected": {
+            "living_room": true,
+            "bedroom": false,
+            "kitchen": false
+          },
+          "thermostat_setting": 22.0,
+          "alarm_status": "disarmed"
+        }
+      },
+      "calendar_events": [
+        {
+          "title": "Call Rachel",
+          "start_time": "14:30",
+          "end_time": "15:00",
+          "location": "Online",
+          "description": ""
+        }
+      ],
+      "messages": [
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Rachel",
+          "timestamp": "14:05",
+          "content": "Hey Rach, just taking a break from work. Should catch up soon?"
+        },
+        {
+          "platform": "SMS",
+          "direction": "received",
+          "contact": "Samantha (school friend)",
+          "timestamp": "14:10",
+          "content": "Hey Em, how's it going? Just got out of a meeting. Want to grab coffee this week?"
+        },
+        {
+          "platform": "Slack",
+          "direction": "received",
+          "contact": "Client Support",
+          "timestamp": "14:12",
+          "content": "Hi Emma, just a quick update on the Smith project. We need the final design by Friday."
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Mia (daughter's school)",
+          "timestamp": "14:15",
+          "content": "Hi Mia, just a heads up I'll be a bit late picking up Sophie today. Traffic is bad."
+        },
+        {
+          "platform": "Email",
+          "direction": "received",
+          "contact": "Sister Olivia",
+          "timestamp": "14:20",
+          "content": "Subject: Miss you! When can we schedule a call?"
+        }
+      ],
+      "deficiencies": {
+        "scene_id": 3,
+        "physical_activity": {
+          "status": "INSUFFICIENT",
+          "reason": "Low active minutes and steps"
+        },
+        "sleep": {
+          "status": "OK",
+          "reason": "No sleep data provided, assuming sufficient"
+        },
+        "stress": {
+          "status": "WARNING",
+          "reason": "Some elevated heart rate and HRV values"
+        },
+        "workload": {
+          "status": "OK",
+          "reason": "No workload data provided"
+        },
+        "social_interaction": {
+          "status": "OK",
+          "reason": "Multiple social interactions observed"
+        },
+        "environment": {
+          "status": "OK",
+          "reason": "Comfortable temperature and humidity"
+        },
+        "emotional_tone": {
+          "status": "POSITIVE",
+          "reason": "Positive language and tone"
+        },
+        "digital_behavior": {
+          "status": "BALANCED",
+          "reason": "Normal screen time and app usage"
+        }
+      },
+      "queries": [
+        {
+          "id": "Q1",
+          "category": "temporal",
+          "type": "exact",
+          "question": "What time did the user start their yoga?",
+          "options": {},
+          "answer": "14:00:00",
+          "rationale": "The user's smartwatch data shows a heart rate of 75 and 120 steps at 14:00:00, which is the earliest timestamp and likely when the user started their break and yoga."
+        },
+        {
+          "id": "Q2",
+          "category": "temporal",
+          "type": "binary",
+          "question": "Did the user send a message to Rachel before 14:05:00?",
+          "options": {},
+          "answer": "Yes",
+          "rationale": "The user sent a WhatsApp message to Rachel at 14:05:00, which is exactly at the specified time, so it can be inferred that the user sent the message before 14:05:00."
+        },
+        {
+          "id": "Q3",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "What activity did the user do while mentioning their back being tight?",
+          "options": {
+            "A": "Yoga",
+            "B": "Walking",
+            "C": "Lifting weights",
+            "D": "Running"
+          },
+          "answer": "A",
+          "rationale": "The user mentioned 'Hmm my back is a bit tight today. I'll just stretch for a bit then.' while likely doing yoga as previously mentioned."
+        },
+        {
+          "id": "Q4",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "What did the user consider making before deciding on tea?",
+          "options": {
+            "A": "Coffee",
+            "B": "Juice",
+            "C": "Water",
+            "D": "Soda"
+          },
+          "answer": "A",
+          "rationale": "The user explicitly mentioned 'Should I make a cup of tea or coffee?' before deciding on tea."
+        },
+        {
+          "id": "Q5",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "Who did the user plan to call later according to their dialogue and calendar?",
+          "options": {
+            "A": "Rachel",
+            "B": "Samantha",
+            "C": "Mia",
+            "D": "Olivia"
+          },
+          "answer": "A",
+          "rationale": "The user mentioned 'Maybe I'll call Rachel later and catch up.' and the calendar event 'Call Rachel' is scheduled for 14:30."
+        },
+        {
+          "id": "Q6",
+          "category": "deduplication",
+          "type": "exact",
+          "question": "How many unique messages did the user send?",
+          "options": {},
+          "answer": "3",
+          "rationale": "The user sent messages to Rachel, Samantha (reply not shown but sent), and Mia, which are 3 unique messages."
+        },
+        {
+          "id": "Q7",
+          "category": "hallucination",
+          "type": "binary",
+          "question": "Did the user go to the swimming pool?",
+          "options": {},
+          "answer": "No",
+          "rationale": "There is no mention or data indicating the user went to the swimming pool."
+        },
+        {
+          "id": "Q8",
+          "category": "hallucination",
+          "type": "binary",
+          "question": "Did the user attend a meeting at the office?",
+          "options": {},
+          "answer": "No",
+          "rationale": "There is no mention or data indicating the user attended a meeting at the office."
+        }
+      ]
+    },
+    {
+      "scene_id": 4,
+      "day": "Thursday",
+      "time": "evening",
+      "description": "I'm on a video call with my sister now.\nHey sis how's it going?\nGood good just got back from a walk.\nI'm so jealous I need to get out more.\nYeah I know what you mean.\nHow's the weather there?\nIt's freezing.\nBrrr I'm glad I'm here then.\nSo what's new with you?\nNot much same old work.\nYou know how it is.\nI'm trying to meet this deadline.\nI'm sure you'll get it done.\nYou're always so busy with Sophie and work.\nI try to balance it.\nDo you have any fun plans for the weekend?\nI was thinking of taking Sophie to the park.\nThat sounds like fun.\nYou should send me some pics.\nWill do.\nI should probably get going.\nSophie will be back soon from her friend's house.\nAlright talk to you soon.",
+      "device_data": {
+        "scene_id": 4,
+        "smartwatch": [
+          {
+            "timestamp": "14:00:00",
+            "heart_rate": 75,
+            "steps": 120,
+            "active_minutes": 5
+          },
+          {
+            "timestamp": "14:15:00",
+            "heart_rate": 82,
+            "steps": 450,
+            "active_minutes": 15
+          },
+          {
+            "timestamp": "14:30:00",
+            "heart_rate": 80,
+            "steps": 800,
+            "active_minutes": 30
+          }
+        ],
+        "gps": [
+          {
+            "timestamp": "14:00:00",
+            "latitude": 37.7749,
+            "longitude": -122.4194,
+            "speed": 0.0,
+            "accuracy": 10
+          },
+          {
+            "timestamp": "14:10:00",
+            "latitude": 37.7755,
+            "longitude": -122.42,
+            "speed": 4.5,
+            "accuracy": 10
+          },
+          {
+            "timestamp": "14:20:00",
+            "latitude": 37.7762,
+            "longitude": -122.4205,
+            "speed": 5.0,
+            "accuracy": 10
+          }
+        ],
+        "smartphone": {
+          "screen_time_minutes": 30,
+          "notifications_count": 5,
+          "battery_level": 80,
+          "app_usage": {
+            "communication": 15,
+            "video_call": 15
+          }
+        },
+        "smartring": [
+          {
+            "timestamp": "14:00:00",
+            "body_temperature": 36.8,
+            "hrv": 70,
+            "skin_temperature": 32.5
+          },
+          {
+            "timestamp": "14:15:00",
+            "body_temperature": 36.9,
+            "hrv": 75,
+            "skin_temperature": 32.6
+          },
+          {
+            "timestamp": "14:30:00",
+            "body_temperature": 37.0,
+            "hrv": 80,
+            "skin_temperature": 32.7
+          }
+        ],
+        "smart_home": {
+          "doors_status": {
+            "front_door": "closed",
+            "back_door": "closed",
+            "garage": "closed"
+          },
+          "windows_status": {
+            "living_room": "closed",
+            "bedroom": "closed",
+            "kitchen": "closed"
+          },
+          "indoor_temperature": 22.0,
+          "indoor_humidity": 50,
+          "light_status": {
+            "living_room": "on",
+            "kitchen": "off"
+          },
+          "motion_detected": {
+            "living_room": true,
+            "kitchen": false
+          },
+          "alarm_status": "disarmed"
+        }
+      },
+      "calendar_events": [
+        {
+          "title": "Video Call with Sister",
+          "start_time": "18:00",
+          "end_time": "19:00",
+          "location": "Online",
+          "description": ""
+        },
+        {
+          "title": "Sophie Pickup from Friend's House",
+          "start_time": "19:00",
+          "end_time": "19:30",
+          "location": "Friend's House",
+          "description": ""
+        },
+        {
+          "title": "Sophie to the Park",
+          "start_time": "10:00",
+          "end_time": "12:00",
+          "location": "Local Park",
+          "description": "Saturday outing"
+        }
+      ],
+      "messages": [
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Sister",
+          "timestamp": "18:05",
+          "content": "Hey sis how's it going?"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "received",
+          "contact": "Sister",
+          "timestamp": "18:07",
+          "content": "Good good just got back from a walk."
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Sister",
+          "timestamp": "18:09",
+          "content": "I'm so jealous I need to get out more."
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "received",
+          "contact": "Sister",
+          "timestamp": "18:11",
+          "content": "Yeah I know what you mean."
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Sister",
+          "timestamp": "18:13",
+          "content": "How's the weather there?"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "received",
+          "contact": "Sister",
+          "timestamp": "18:15",
+          "content": "It's freezing."
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Sister",
+          "timestamp": "18:17",
+          "content": "Brrr I'm glad I'm here then."
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "received",
+          "contact": "Sister",
+          "timestamp": "18:19",
+          "content": "So what's new with you?"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Sister",
+          "timestamp": "18:21",
+          "content": "Not much same old work. I'm trying to meet this deadline."
+        }
+      ],
+      "deficiencies": {
+        "scene_id": 4,
+        "physical_activity": {
+          "status": "INSUFFICIENT",
+          "reason": "Low step count (800) and insufficient active minutes (30 minutes)"
+        },
+        "sleep": {
+          "status": "OK",
+          "reason": "No sleep data available for this scene"
+        },
+        "stress": {
+          "status": "WARNING",
+          "reason": "Elevated heart rate (80 bpm) and moderate HRV (80 ms)"
+        },
+        "workload": {
+          "status": "WARNING",
+          "reason": "Long work hours and high meeting density"
+        },
+        "social_interaction": {
+          "status": "OK",
+          "reason": "Healthy social interaction through video call and messaging"
+        },
+        "environment": {
+          "status": "OK",
+          "reason": "Comfortable indoor temperature (22°C) and humidity (50%)"
+        },
+        "emotional_tone": {
+          "status": "NEUTRAL",
+          "reason": "Neutral tone during conversation"
+        },
+        "digital_behavior": {
+          "status": "BALANCED",
+          "reason": "Moderate screen time (30 minutes) and app usage"
+        }
+      },
+      "queries": [
+        {
+          "id": "Q1",
+          "category": "temporal",
+          "type": "exact",
+          "question": "What time did the user get back from their walk according to their sister?",
+          "options": {},
+          "answer": "18:07",
+          "rationale": "The user's sister mentioned 'Good good just got back from a walk.' at timestamp 18:07."
+        },
+        {
+          "id": "Q2",
+          "category": "temporal",
+          "type": "binary",
+          "question": "Did the user have a video call with their sister before 14:00?",
+          "options": {},
+          "answer": "No",
+          "rationale": "The video call app usage on the smartphone was 15 minutes, starting at an unspecified time, but the earliest smartwatch data is at 14:00:00."
+        },
+        {
+          "id": "Q3",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "What was the user's activity when they mentioned being jealous to their sister?",
+          "options": {
+            "A": "Walking",
+            "B": "On a video call",
+            "C": "Working",
+            "D": "Driving"
+          },
+          "answer": "B",
+          "rationale": "The user mentioned 'I'm so jealous I need to get out more.' during a video call with their sister."
+        },
+        {
+          "id": "Q4",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "How did the user's sister feel about the weather where she was?",
+          "options": {
+            "A": "It was warm",
+            "B": "It was freezing",
+            "C": "It was rainy",
+            "D": "It was sunny"
+          },
+          "answer": "B",
+          "rationale": "The user's sister mentioned 'It's freezing.'"
+        },
+        {
+          "id": "Q5",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "What was the user's plan for Sophie on the weekend?",
+          "options": {
+            "A": "Take Sophie to the gym",
+            "B": "Take Sophie to the park",
+            "C": "Take Sophie to the mall",
+            "D": "Take Sophie to the beach"
+          },
+          "answer": "B",
+          "rationale": "The user mentioned 'I was thinking of taking Sophie to the park.'"
+        },
+        {
+          "id": "Q6",
+          "category": "deduplication",
+          "type": "exact",
+          "question": "How many unique events of going for a walk is mentioned?",
+          "options": {},
+          "answer": "1",
+          "rationale": "The user's sister mentioned going for a walk only once."
+        },
+        {
+          "id": "Q7",
+          "category": "hallucination",
+          "type": "binary",
+          "question": "Did the user go to the beach on Thursday?",
+          "options": {},
+          "answer": "No",
+          "rationale": "There is no mention of the user going to the beach in the provided data."
+        },
+        {
+          "id": "Q8",
+          "category": "hallucination",
+          "type": "binary",
+          "question": "Did the user have a meeting at the office on Thursday?",
+          "options": {},
+          "answer": "No",
+          "rationale": "There is no mention of the user having a meeting at the office in the provided data."
+        }
+      ]
+    },
+    {
+      "scene_id": 5,
+      "day": "Sunday",
+      "time": "morning",
+      "description": "I'm making breakfast for Sophie and me.\n\nPancakes or scrambled eggs what do you want sweetie?\n\nCan I have pancakes mom?\n\nOkay but just one or two we're having a light breakfast.\n\nI'm on a call with Rachel from the PTA now.\n\nHey Rachel what's up?\n\nJust organizing the bake sale for next week.\n\nI'm in can I help with anything?\n\nActually yeah we could use someone to make cupcakes.\n\nI'd love to do that when is it?\n\nThis Saturday morning.\n\nPerfect Sophie and I can come by after breakfast.\n\nSounds great thanks Emma!",
+      "device_data": {
+        "scene_id": 5,
+        "smartwatch": [
+          {
+            "timestamp": "08:00:00",
+            "heart_rate": 70,
+            "steps": 0,
+            "active_minutes": 0
+          },
+          {
+            "timestamp": "08:15:00",
+            "heart_rate": 72,
+            "steps": 100,
+            "active_minutes": 2
+          },
+          {
+            "timestamp": "08:30:00",
+            "heart_rate": 75,
+            "steps": 200,
+            "active_minutes": 5
+          }
+        ],
+        "gps": [
+          {
+            "timestamp": "08:00:00",
+            "latitude": 37.7749,
+            "longitude": -122.4194,
+            "speed": 0.0,
+            "accuracy": 10
+          }
+        ],
+        "smartphone": {
+          "screen_time_minutes": 10,
+          "notifications_count": 2,
+          "battery_level": 90,
+          "app_usage": {
+            "communication": 5,
+            "productivity": 2
+          }
+        },
+        "smartring": [
+          {
+            "timestamp": "08:00:00",
+            "body_temperature": 36.7,
+            "hrv": 65,
+            "skin_temperature": 32.2
+          },
+          {
+            "timestamp": "08:15:00",
+            "body_temperature": 36.8,
+            "hrv": 70,
+            "skin_temperature": 32.5
+          },
+          {
+            "timestamp": "08:30:00",
+            "body_temperature": 36.9,
+            "hrv": 75,
+            "skin_temperature": 32.8
+          }
+        ],
+        "smart_home": {
+          "doors_status": {
+            "front_door": "closed",
+            "back_door": "closed",
+            "garage": "closed"
+          },
+          "windows_status": {
+            "living_room": "closed",
+            "bedroom": "closed",
+            "kitchen": "closed"
+          },
+          "indoor_temperature": 22.0,
+          "indoor_humidity": 50,
+          "light_status": {
+            "kitchen": "on",
+            "living_room": "off"
+          },
+          "motion_detected": {
+            "kitchen": true,
+            "living_room": false
+          },
+          "thermostat_setting": 22.0,
+          "alarm_status": "disarmed"
+        }
+      },
+      "calendar_events": [
+        {
+          "title": "PTA Bake Sale - Cupcake Making",
+          "start_time": "08:00",
+          "end_time": "10:00",
+          "location": "School",
+          "description": ""
+        }
+      ],
+      "messages": [
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Sophie",
+          "timestamp": "08:05",
+          "content": "Pancakes or scrambled eggs what do you want sweetie?"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "received",
+          "contact": "Sophie",
+          "timestamp": "08:07",
+          "content": "Can I have pancakes mom?"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Sophie",
+          "timestamp": "08:09",
+          "content": "Okay but just one or two we're having a light breakfast."
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Rachel",
+          "timestamp": "08:11",
+          "content": "Hey Rachel what's up?"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "received",
+          "contact": "Rachel",
+          "timestamp": "08:13",
+          "content": "Just organizing the bake sale for next week."
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Rachel",
+          "timestamp": "08:15",
+          "content": "I'm in can I help with anything?"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "received",
+          "contact": "Rachel",
+          "timestamp": "08:17",
+          "content": "Actually yeah we could use someone to make cupcakes."
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Rachel",
+          "timestamp": "08:19",
+          "content": "I'd love to do that when is it?"
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "received",
+          "contact": "Rachel",
+          "timestamp": "08:21",
+          "content": "This Saturday morning."
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "sent",
+          "contact": "Rachel",
+          "timestamp": "08:23",
+          "content": "Perfect Sophie and I can come by after breakfast."
+        },
+        {
+          "platform": "WhatsApp",
+          "direction": "received",
+          "contact": "Rachel",
+          "timestamp": "08:25",
+          "content": "Sounds great thanks Emma!"
+        }
+      ],
+      "deficiencies": {
+        "scene_id": 5,
+        "physical_activity": {
+          "status": "INSUFFICIENT",
+          "reason": "Low step count (200) and active minutes (5) indicating sedentary behavior"
+        },
+        "sleep": {
+          "status": "OK",
+          "reason": "Assuming 7 hours of sleep, which meets the recommended duration"
+        },
+        "stress": {
+          "status": "OK",
+          "reason": "Heart rate (75 bpm) and HRV (75 ms) within normal ranges"
+        },
+        "workload": {
+          "status": "OK",
+          "reason": "No indicators of excessive workload or continuous activity"
+        },
+        "social_interaction": {
+          "status": "OK",
+          "reason": "Multiple social interactions via WhatsApp and a PTA call"
+        },
+        "environment": {
+          "status": "OK",
+          "reason": "Temperature (22°C), humidity (50%), and light status indicate a comfortable environment"
+        },
+        "emotional_tone": {
+          "status": "POSITIVE",
+          "reason": "Conversations with Sophie and Rachel indicate a positive and engaged tone"
+        },
+        "digital_behavior": {
+          "status": "BALANCED",
+          "reason": "Screen time (10 minutes) and app usage indicate balanced digital behavior"
+        }
+      },
+      "queries": [
+        {
+          "id": "Q1",
+          "category": "temporal",
+          "type": "exact",
+          "question": "What time did the user start making breakfast?",
+          "options": {},
+          "answer": "08:00:00",
+          "rationale": "The user's smartwatch data starts at 08:00:00, and the dialogue mentions making breakfast around this time."
+        },
+        {
+          "id": "Q2",
+          "category": "temporal",
+          "type": "binary",
+          "question": "Did the user have a conversation with Rachel before 08:15:00?",
+          "options": {},
+          "answer": "Yes",
+          "rationale": "The user sent a message to Rachel at 08:11, which is before 08:15:00."
+        },
+        {
+          "id": "Q3",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "What was the user doing while having a conversation with Rachel?",
+          "options": {
+            "A": "Making breakfast",
+            "B": "Watching TV",
+            "C": "Working out",
+            "D": "Reading a book"
+          },
+          "answer": "A",
+          "rationale": "The dialogue mentions the user making breakfast while on a call with Rachel."
+        },
+        {
+          "id": "Q4",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "What was the user's heart rate during the conversation with Rachel?",
+          "options": {
+            "A": "70 bpm",
+            "B": "80 bpm",
+            "C": "90 bpm",
+            "D": "100 bpm"
+          },
+          "answer": "A",
+          "rationale": "The user's smartwatch data shows a heart rate of 70 bpm at 08:00:00, which is around the time of the conversation with Rachel."
+        },
+        {
+          "id": "Q5",
+          "category": "cross_modal",
+          "type": "multiple_choice",
+          "question": "What was the user planning to do after making breakfast?",
+          "options": {
+            "A": "Go to the PTA bake sale",
+            "B": "Watch a movie",
+            "C": "Play sports",
+            "D": "Take a nap"
+          },
+          "answer": "A",
+          "rationale": "The dialogue mentions the user planning to go to the PTA bake sale after breakfast."
+        },
+        {
+          "id": "Q6",
+          "category": "deduplication",
+          "type": "exact",
+          "question": "How many unique events of making breakfast are mentioned?",
+          "options": {},
+          "answer": "1",
+          "rationale": "The dialogue only mentions making breakfast once."
+        },
+        {
+          "id": "Q7",
+          "category": "hallucination",
+          "type": "binary",
+          "question": "Did the user go to the movies on Saturday?",
+          "options": {},
+          "answer": "No",
+          "rationale": "There is no mention of the user going to the movies on Saturday in the provided data."
+        },
+        {
+          "id": "Q8",
+          "category": "hallucination",
+          "type": "binary",
+          "question": "Did the user attend a concert on Sunday?",
+          "options": {},
+          "answer": "No",
+          "rationale": "There is no mention of the user attending a concert on Sunday in the provided data."
+        }
+      ]
+    }
+  ]
+}

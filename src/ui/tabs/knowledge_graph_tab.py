@@ -38,7 +38,8 @@ def render_knowledge_graph_tab(config: Any) -> None:
 
     # Inizializza il KG builder (cached)
     @st.cache_resource
-    def init_kg_builder(_config,  person_id: str, person_name: str):
+    
+    def init_kg_builder(_config, person_id: str, person_name: str):
         """Inizializza il Knowledge Graph Builder."""
         from src.agents import KnowledgeGraphBuilder, InMemoryKnowledgeGraph
         from src.prompts import PromptManager
@@ -55,20 +56,30 @@ def render_knowledge_graph_tab(config: Any) -> None:
         kg_config = _config.get('knowledge_graph', {})
         storage_type = kg_config.get('storage_type', 'in_memory')
 
+        init_status = {
+            "level": None,
+            "message": None
+        }
+
         if storage_type == 'neo4j':
-            # Usa Neo4j
             neo4j_config = kg_config.get('neo4j', {})
             neo4j_uri = _config.get_env('NEO4J_URI', neo4j_config.get('uri', 'bolt://localhost:7687'))
             neo4j_username = _config.get_env('NEO4J_USERNAME', 'neo4j')
             neo4j_password = _config.get_env('NEO4J_PASSWORD')
             neo4j_database = _config.get_env('NEO4J_DATABASE', neo4j_config.get('database', 'neo4j'))
-            
+
             if not neo4j_password:
-                st.warning("⚠️ NEO4J_PASSWORD non trovata in .env. Uso storage in-memory come fallback.")
                 storage = InMemoryKnowledgeGraph()
+                init_status = {
+                    "level": "warning",
+                    "message": "⚠️ NEO4J_PASSWORD non trovata in .env. Uso storage in-memory come fallback."
+                }
             elif not person_id or not person_name:
-                st.info("ℹ️ Nessun profilo attivo selezionato. Crea o seleziona un profilo per usare Neo4j.")
                 storage = InMemoryKnowledgeGraph()
+                init_status = {
+                    "level": "info",
+                    "message": "ℹ️ Nessun profilo attivo selezionato. Crea o seleziona un profilo per usare Neo4j."
+                }
             else:
                 try:
                     storage = Neo4jKnowledgeGraph(
@@ -79,16 +90,24 @@ def render_knowledge_graph_tab(config: Any) -> None:
                         person_id=person_id,
                         person_name=person_name
                     )
-                    st.success(f"✅ Connesso a Neo4j: {neo4j_uri} (database: {neo4j_database}, profilo: {person_name})")
+                    init_status = {
+                        "level": "success",
+                        "message": f"✅ Connesso a Neo4j: {neo4j_uri} (database: {neo4j_database}, profilo: {person_name})"
+                    }
                 except Exception as e:
-                    st.error(f"❌ Errore connessione Neo4j: {str(e)}. Uso storage in-memory come fallback.")
                     storage = InMemoryKnowledgeGraph()
+                    init_status = {
+                        "level": "error",
+                        "message": f"❌ Errore connessione Neo4j: {str(e)}. Uso storage in-memory come fallback."
+                    }
         else:
-            # Usa in-memory storage
             storage = InMemoryKnowledgeGraph()
-            st.info("💾 Uso storage in-memory (temporaneo)")
+            init_status = {
+                "level": "info",
+                "message": "💾 Uso storage in-memory (temporaneo)"
+            }
 
-        return KnowledgeGraphBuilder(
+        builder = KnowledgeGraphBuilder(
             llm_api_key=api_key,
             llm_model=llm.model,
             prompt_manager=prompt_mgr,
@@ -96,10 +115,22 @@ def render_knowledge_graph_tab(config: Any) -> None:
             enable_logging=True
         )
 
+        return builder, init_status
+
     try:
         selected_person_id = st.session_state.get('selected_person_id', None)
         selected_person_name = st.session_state.get('selected_person_name', None)
-        kg_builder = init_kg_builder(config, selected_person_id, selected_person_name)
+        kg_builder, kg_init_status = init_kg_builder(config, selected_person_id, selected_person_name)
+
+        if kg_init_status["level"] == "success":
+            st.success(kg_init_status["message"])
+        elif kg_init_status["level"] == "warning":
+            st.warning(kg_init_status["message"])
+        elif kg_init_status["level"] == "info":
+            st.info(kg_init_status["message"])
+        elif kg_init_status["level"] == "error":
+            st.error(kg_init_status["message"])
+
     except Exception as e:
         st.error(f"❌ Errore inizializzazione Knowledge Graph Builder: {str(e)}")
         return
