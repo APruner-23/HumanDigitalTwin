@@ -33,15 +33,16 @@ def init_llm(_config):
 
     return LLMFactory.create(provider, llm_config, api_key)
 
-
 @st.cache_resource
-def init_triplet_graph(_config, _llm, _delta_mode: int = 1, _graph_version="v5_cascade_text_iot_aug"):
+def init_triplet_graph(_config, _llm, _delta_mode: int = 1, _graph_version="v6_delta_mode_hardcoded"):
     """Initialize LangGraph for triplet extraction."""
     from src.agents.triplet_extraction_graph import TripletExtractionGraph
 
     api_key = _config.get_env('GROQ_API_KEY')
     mcp_config = _config.get_mcp_config()
     mcp_url = f"http://{mcp_config.get('host')}:{mcp_config.get('port')}"
+
+    print("DEBUG init_triplet_graph _delta_mode =", _delta_mode)
 
     return TripletExtractionGraph(
         llm_api_key=api_key,

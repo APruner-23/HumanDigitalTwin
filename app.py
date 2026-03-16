@@ -43,22 +43,7 @@ def main():
 
     st.title(streamlit_config.get('title', 'Human Digital Twin'))
 
-    with st.sidebar:
-        st.markdown("---")
-        st.markdown("### ⚙️ Triplet Extraction Config")
-
-        delta_mode = st.selectbox(
-            "Delta mode",
-            options=[0, 1, 2, 3],
-            index=1,
-            help=(
-                "0 = no context\n"
-                "1 = previous chunk summary\n"
-                "2 = last 2 chunk summaries\n"
-                "3 = last 3 chunk summaries"
-            ),
-            key="delta_mode_selector"
-        )
+    delta_mode = 1
 
     # Initialize components
     try:

@@ -181,6 +181,8 @@ class TripletExtractionGraph:
             enable_logging: Abilita logging dettagliato
             extraction_only: Se True, salta augmentation/IoT/validation (solo extraction)
         """
+
+        print("DEBUG TripletExtractionGraph __init__ delta_mode =", delta_mode)
         self.llm = GroqFailover(
             model_name=llm_model,
             temperature=temperature
@@ -779,6 +781,12 @@ class TripletExtractionGraph:
         """
         chunks = state["chunks"]
         current_index = state["current_chunk_index"]
+
+        if self.delta_mode == 0:
+            return {
+                "previous_summary": None,
+                "summary_history": state.get("summary_history", [])
+            }
 
         # Il chunk precedente è quello appena processato
         previous_chunk_index = current_index - 1

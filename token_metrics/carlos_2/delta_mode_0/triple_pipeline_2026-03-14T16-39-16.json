@@ -1,0 +1,50 @@
+{
+  "timestamp": "2026-03-14T16:39:16",
+  "delta_mode": 0,
+  "stages": {
+    "triple_extraction": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "total_tokens": 0,
+      "calls": []
+    },
+    "context_generation": {
+      "input_tokens": 5821,
+      "output_tokens": 341,
+      "total_tokens": 6162,
+      "calls": [
+        {
+          "node": "iot_decide",
+          "input_tokens": 553,
+          "output_tokens": 129,
+          "total_tokens": 682
+        },
+        {
+          "node": "iot_react",
+          "input_tokens": 2607,
+          "output_tokens": 118,
+          "total_tokens": 2725
+        },
+        {
+          "node": "iot_react",
+          "input_tokens": 2661,
+          "output_tokens": 94,
+          "total_tokens": 2755
+        }
+      ]
+    },
+    "triple_refinement": {
+      "input_tokens": 2501,
+      "output_tokens": 43,
+      "total_tokens": 2544,
+      "calls": [
+        {
+          "node": "validation_decide",
+          "input_tokens": 2501,
+          "output_tokens": 43,
+          "total_tokens": 2544
+        }
+      ]
+    }
+  }
+}
