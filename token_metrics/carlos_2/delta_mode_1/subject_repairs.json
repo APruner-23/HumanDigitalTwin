@@ -1,0 +1,7010 @@
+{
+  "canonical_subject_name": "Carlos",
+  "repairs_count": 206,
+  "repairs": [
+    {
+      "bucket": "triplets",
+      "index": 22,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasConversationWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasConversationWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 23,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plansActivity",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Walk in the Park",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plansActivity",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Walk in the Park",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 25,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "respondsTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "respondsTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 32,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "wokeUpAt",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "11:00:00",
+          "type": "DateTime"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "wokeUpAt",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "11:00:00",
+          "type": "DateTime"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 33,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "startedMakingLunchAt",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "11:06:00",
+          "type": "DateTime"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "startedMakingLunchAt",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "11:06:00",
+          "type": "DateTime"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 34,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hadLunchWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hadLunchWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 35,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "wasFeeling",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Tired",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "wasFeeling",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Tired",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 36,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plansToMake",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Pasta",
+          "type": "Thing"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plansToMake",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Pasta",
+          "type": "Thing"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 37,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasEvent",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Lunch with Wife",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasEvent",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Lunch with Wife",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 38,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plansToGo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "park",
+          "type": "Place"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plansToGo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "park",
+          "type": "Place"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 39,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "feels",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "tired",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "feels",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "tired",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 50,
+      "old_object_value": "user",
+      "new_object_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "Marco",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "receivesMessageFrom",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "user",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Marco",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "receivesMessageFrom",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Carlos",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 51,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 52,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasEvent",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "1:1 with Marco",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasEvent",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "1:1 with Marco",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 54,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasCalendarEvent",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Service Preparation",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasCalendarEvent",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Service Preparation",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 55,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "communicatesWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "communicatesWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 56,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 58,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "coordinatesWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Kitchen Team",
+          "type": "Group"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "coordinatesWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Kitchen Team",
+          "type": "Group"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 59,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "reminds",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Kitchen Team",
+          "type": "Group"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "reminds",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Kitchen Team",
+          "type": "Group"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 70,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "delegatedTaskTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "delegatedTaskTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 71,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "managedWorkloadBy",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Delegating tasks to Marco and checking on orders",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "managedWorkloadBy",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Delegating tasks to Marco and checking on orders",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 73,
+      "old_object_value": "user",
+      "new_object_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "Marco",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "worksWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "user",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Marco",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "worksWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Carlos",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 74,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "manages",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "manages",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 76,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "checksOn",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "orders",
+          "type": "Thing"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "checksOn",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "orders",
+          "type": "Thing"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 87,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "communicatesWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Ana",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "communicatesWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Ana",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 88,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessage",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "WhatsApp message",
+          "type": "Thing"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessage",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "WhatsApp message",
+          "type": "Thing"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 90,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasSpouse",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Ana",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasSpouse",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Ana",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 91,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "exchangesMessagesOn",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "WhatsApp",
+          "type": "Thing"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "exchangesMessagesOn",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "WhatsApp",
+          "type": "Thing"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 92,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "experiences",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "exhaustion",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "experiences",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "exhaustion",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 93,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "elevated heart rate",
+          "type": "Thing"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "elevated heart rate",
+          "type": "Thing"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 94,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "interactsWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Ana",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "interactsWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Ana",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 95,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasStatus",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "OVERLOADED",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasStatus",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "OVERLOADED",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 96,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "expresses",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "frustration",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "expresses",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "frustration",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 97,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_physical_state",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "exhaustion",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_physical_state",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "exhaustion",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 98,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "experiences_emotion",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "frustration",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "experiences_emotion",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "frustration",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 99,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_workload",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "excessive",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_workload",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "excessive",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 100,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "finishes_closing_up_shop_at",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "11:00 PM",
+          "type": "DateTime"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "finishes_closing_up_shop_at",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "11:00 PM",
+          "type": "DateTime"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 101,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_heart_rate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "85 bpm",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_heart_rate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "85 bpm",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 102,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "wasDoing",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Closing up shop",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "wasDoing",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Closing up shop",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 103,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasHeartRate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "85 bpm",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasHeartRate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "85 bpm",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 105,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "respondedTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "take it easy",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "respondedTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "take it easy",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 106,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "said",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Yeah right like that's gonna happen",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "said",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Yeah right like that's gonna happen",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 114,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "buysFrom",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sal",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "buysFrom",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sal",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 115,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "purchases",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "tomatoes",
+          "type": "Thing"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "purchases",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "tomatoes",
+          "type": "Thing"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 116,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "purchases",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "basil",
+          "type": "Thing"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "purchases",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "basil",
+          "type": "Thing"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 117,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "goesTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "wholesale market",
+          "type": "Place"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "goesTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "wholesale market",
+          "type": "Place"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 132,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "headedTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "wholesale market",
+          "type": "Place"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "headedTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "wholesale market",
+          "type": "Place"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 133,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sentMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sal",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sentMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sal",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 134,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "interactedWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "kitchen staff",
+          "type": "Group"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "interactedWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "kitchen staff",
+          "type": "Group"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 136,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "experiencedEmotionalTone",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "POSITIVE",
+          "type": "Emotion"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "experiencedEmotionalTone",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "POSITIVE",
+          "type": "Emotion"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 137,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "looksFor",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Good tomatoes and basil",
+          "type": "Thing"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "looksFor",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Good tomatoes and basil",
+          "type": "Thing"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 139,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "interactsWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sal",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "interactsWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sal",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 141,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "wentTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "wholesale market",
+          "type": "Place"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "wentTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "wholesale market",
+          "type": "Place"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 142,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "lookedFor",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "tomatoes and basil",
+          "type": "Thing"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "lookedFor",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "tomatoes and basil",
+          "type": "Thing"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 143,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hadHeartRate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "80 bpm",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hadHeartRate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "80 bpm",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 145,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sentMessages",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "3",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sentMessages",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "3",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 146,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_heart_rate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "75",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_heart_rate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "75",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 147,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_heart_rate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "78",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_heart_rate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "78",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 148,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "interacts_with",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "wife",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "interacts_with",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "wife",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 149,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "discusses_with",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "daughter",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "discusses_with",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "daughter",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 151,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plans_menu_with",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "daughter",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plans_menu_with",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "daughter",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 152,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_heart_rate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "80",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_heart_rate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "80",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 153,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "takes_break_in",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "back office",
+          "type": "Place"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "takes_break_in",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "back office",
+          "type": "Place"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 154,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "discusses_plans_with",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "wife",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "discusses_plans_with",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "wife",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 155,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plans_birthday_dinner_for",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sophia",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plans_birthday_dinner_for",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sophia",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 158,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "discussesMenuWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sophia",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "discussesMenuWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sophia",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 159,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "receivesMessageFrom",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Maria (wife)",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "receivesMessageFrom",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Maria (wife)",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 160,
+      "old_object_value": "User",
+      "new_object_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "Maria (wife)",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "User",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Maria (wife)",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Carlos",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 161,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasCalendarEvent",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sophia's Birthday Dinner",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasCalendarEvent",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sophia's Birthday Dinner",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 162,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sent_message_to",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Maria",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sent_message_to",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Maria",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 163,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "received_message_from",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Maria",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "received_message_from",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Maria",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 164,
+      "old_object_value": "User",
+      "new_object_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "Maria",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "is_wife_of",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "User",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Maria",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "is_wife_of",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Carlos",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 165,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "discussed_plans_with",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Maria",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "discussed_plans_with",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Maria",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 166,
+      "old_object_value": "User",
+      "new_object_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "Sophia",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_birthday_dinner_plans_with",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "User",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Sophia",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_birthday_dinner_plans_with",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Carlos",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 167,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "discussesDinnerPlansWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "discussesDinnerPlansWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 170,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "receivesMessageFrom",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "receivesMessageFrom",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 171,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasConversationTone",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Positive",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasConversationTone",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Positive",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 172,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "thinkingAbout",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "dinner",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "thinkingAbout",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "dinner",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 173,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "engagedInActivity",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "lowIntensityActivity",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "engagedInActivity",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "lowIntensityActivity",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 174,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasHeartRate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "75",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasHeartRate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "75",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 176,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "suggestsMaking",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Lasagna",
+          "type": "Thing"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "suggestsMaking",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Lasagna",
+          "type": "Thing"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 177,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "thinksAbout",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "dinner",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "thinksAbout",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "dinner",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 178,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasHeartRate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "75",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasHeartRate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "75",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 179,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "suggestsDinner",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Lasagna and her favorite desserts",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "suggestsDinner",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Lasagna and her favorite desserts",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 180,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "locatedAt",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "home",
+          "type": "Place"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "locatedAt",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "home",
+          "type": "Place"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 183,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "did_not_attend",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "concert",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "did_not_attend",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "concert",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 184,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "did_not_attend",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "meeting at the gym",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "did_not_attend",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "meeting at the gym",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 185,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "received_message_about",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sophia's birthday dinner",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "received_message_about",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sophia's birthday dinner",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "triplets",
+      "index": 186,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "was_at",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "home",
+          "type": "Place"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "was_at",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "home",
+          "type": "Place"
+        }
+      }
+    },
+    {
+      "bucket": "augmented_triplets",
+      "index": 17,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasConversationWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasConversationWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "augmented_triplets",
+      "index": 18,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plansActivity",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Walk in the Park",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plansActivity",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Walk in the Park",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "augmented_triplets",
+      "index": 20,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "respondsTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "respondsTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "augmented_triplets",
+      "index": 30,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "coordinatesWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Kitchen Team",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "coordinatesWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Kitchen Team",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "augmented_triplets",
+      "index": 33,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "delegatedTaskTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "delegatedTaskTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "augmented_triplets",
+      "index": 35,
+      "old_object_value": "User",
+      "new_object_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "Marco",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "worksWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "User",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Marco",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "worksWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Carlos",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "augmented_triplets",
+      "index": 36,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "manages",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "manages",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "augmented_triplets",
+      "index": 58,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasConversationWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasConversationWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "augmented_triplets",
+      "index": 59,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plansActivity",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Walk in the Park",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plansActivity",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Walk in the Park",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "augmented_triplets",
+      "index": 61,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "respondsTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "respondsTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "augmented_triplets",
+      "index": 71,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "coordinatesWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Kitchen Team",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "coordinatesWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Kitchen Team",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "augmented_triplets",
+      "index": 74,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "delegatedTaskTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "delegatedTaskTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "augmented_triplets",
+      "index": 76,
+      "old_object_value": "User",
+      "new_object_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "Marco",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "worksWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "User",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Marco",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "worksWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Carlos",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "augmented_triplets",
+      "index": 77,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "manages",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "manages",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 22,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasConversationWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasConversationWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 23,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plansActivity",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Walk in the Park",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plansActivity",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Walk in the Park",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 25,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "respondsTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "respondsTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 32,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "wokeUpAt",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "11:00:00",
+          "type": "DateTime"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "wokeUpAt",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "11:00:00",
+          "type": "DateTime"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 33,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "startedMakingLunchAt",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "11:06:00",
+          "type": "DateTime"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "startedMakingLunchAt",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "11:06:00",
+          "type": "DateTime"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 34,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hadLunchWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hadLunchWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 35,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "wasFeeling",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Tired",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "wasFeeling",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Tired",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 36,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plansToMake",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Pasta",
+          "type": "Thing"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plansToMake",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Pasta",
+          "type": "Thing"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 37,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasEvent",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Lunch with Wife",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasEvent",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Lunch with Wife",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 38,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plansToGo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "park",
+          "type": "Place"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plansToGo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "park",
+          "type": "Place"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 39,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "feels",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "tired",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "feels",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "tired",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 50,
+      "old_object_value": "user",
+      "new_object_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "Marco",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "receivesMessageFrom",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "user",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Marco",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "receivesMessageFrom",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Carlos",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 51,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 52,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasEvent",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "1:1 with Marco",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasEvent",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "1:1 with Marco",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 54,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasCalendarEvent",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Service Preparation",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasCalendarEvent",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Service Preparation",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 55,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "communicatesWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "communicatesWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 56,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 58,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "coordinatesWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Kitchen Team",
+          "type": "Group"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "coordinatesWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Kitchen Team",
+          "type": "Group"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 59,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "reminds",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Kitchen Team",
+          "type": "Group"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "reminds",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Kitchen Team",
+          "type": "Group"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 70,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "delegatedTaskTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "delegatedTaskTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 71,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "managedWorkloadBy",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Delegating tasks to Marco and checking on orders",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "managedWorkloadBy",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Delegating tasks to Marco and checking on orders",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 73,
+      "old_object_value": "user",
+      "new_object_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "Marco",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "worksWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "user",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Marco",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "worksWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Carlos",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 74,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "manages",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "manages",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 76,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "checksOn",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "orders",
+          "type": "Thing"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "checksOn",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "orders",
+          "type": "Thing"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 87,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "communicatesWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Ana",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "communicatesWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Ana",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 88,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessage",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "WhatsApp message",
+          "type": "Thing"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessage",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "WhatsApp message",
+          "type": "Thing"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 90,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasSpouse",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Ana",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasSpouse",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Ana",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 91,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "exchangesMessagesOn",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "WhatsApp",
+          "type": "Thing"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "exchangesMessagesOn",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "WhatsApp",
+          "type": "Thing"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 92,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "experiences",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "exhaustion",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "experiences",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "exhaustion",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 93,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "elevated heart rate",
+          "type": "Thing"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "elevated heart rate",
+          "type": "Thing"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 94,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "interactsWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Ana",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "interactsWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Ana",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 95,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasStatus",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "OVERLOADED",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasStatus",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "OVERLOADED",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 96,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "expresses",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "frustration",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "expresses",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "frustration",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 97,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_physical_state",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "exhaustion",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_physical_state",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "exhaustion",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 98,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "experiences_emotion",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "frustration",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "experiences_emotion",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "frustration",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 99,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_workload",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "excessive",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_workload",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "excessive",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 100,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "finishes_closing_up_shop_at",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "11:00 PM",
+          "type": "DateTime"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "finishes_closing_up_shop_at",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "11:00 PM",
+          "type": "DateTime"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 101,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_heart_rate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "85 bpm",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_heart_rate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "85 bpm",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 102,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "wasDoing",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Closing up shop",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "wasDoing",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Closing up shop",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 103,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasHeartRate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "85 bpm",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasHeartRate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "85 bpm",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 105,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "respondedTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "take it easy",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "respondedTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "take it easy",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 106,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "said",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Yeah right like that's gonna happen",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "said",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Yeah right like that's gonna happen",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 114,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "buysFrom",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sal",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "buysFrom",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sal",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 115,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "purchases",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "tomatoes",
+          "type": "Thing"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "purchases",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "tomatoes",
+          "type": "Thing"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 116,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "purchases",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "basil",
+          "type": "Thing"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "purchases",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "basil",
+          "type": "Thing"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 117,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "goesTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "wholesale market",
+          "type": "Place"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "goesTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "wholesale market",
+          "type": "Place"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 132,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "headedTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "wholesale market",
+          "type": "Place"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "headedTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "wholesale market",
+          "type": "Place"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 133,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sentMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sal",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sentMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sal",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 134,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "interactedWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "kitchen staff",
+          "type": "Group"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "interactedWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "kitchen staff",
+          "type": "Group"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 136,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "experiencedEmotionalTone",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "POSITIVE",
+          "type": "Emotion"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "experiencedEmotionalTone",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "POSITIVE",
+          "type": "Emotion"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 137,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "looksFor",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Good tomatoes and basil",
+          "type": "Thing"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "looksFor",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Good tomatoes and basil",
+          "type": "Thing"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 139,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "interactsWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sal",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "interactsWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sal",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 141,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "wentTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "wholesale market",
+          "type": "Place"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "wentTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "wholesale market",
+          "type": "Place"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 142,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "lookedFor",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "tomatoes and basil",
+          "type": "Thing"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "lookedFor",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "tomatoes and basil",
+          "type": "Thing"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 143,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hadHeartRate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "80 bpm",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hadHeartRate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "80 bpm",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 145,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sentMessages",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "3",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sentMessages",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "3",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 146,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_heart_rate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "75",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_heart_rate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "75",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 147,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_heart_rate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "78",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_heart_rate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "78",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 148,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "interacts_with",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "wife",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "interacts_with",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "wife",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 149,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "discusses_with",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "daughter",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "discusses_with",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "daughter",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 151,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plans_menu_with",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "daughter",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plans_menu_with",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "daughter",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 152,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_heart_rate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "80",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_heart_rate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "80",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 153,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "takes_break_in",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "back office",
+          "type": "Place"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "takes_break_in",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "back office",
+          "type": "Place"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 154,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "discusses_plans_with",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "wife",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "discusses_plans_with",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "wife",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 155,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plans_birthday_dinner_for",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sophia",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plans_birthday_dinner_for",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sophia",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 158,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "discussesMenuWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sophia",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "discussesMenuWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sophia",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 159,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "receivesMessageFrom",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Maria (wife)",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "receivesMessageFrom",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Maria (wife)",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 160,
+      "old_object_value": "User",
+      "new_object_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "Maria (wife)",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "User",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Maria (wife)",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sendsMessageTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Carlos",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 161,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasCalendarEvent",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sophia's Birthday Dinner",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasCalendarEvent",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sophia's Birthday Dinner",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 162,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sent_message_to",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Maria",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "sent_message_to",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Maria",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 163,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "received_message_from",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Maria",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "received_message_from",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Maria",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 164,
+      "old_object_value": "User",
+      "new_object_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "Maria",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "is_wife_of",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "User",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Maria",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "is_wife_of",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Carlos",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 165,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "discussed_plans_with",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Maria",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "discussed_plans_with",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Maria",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 166,
+      "old_object_value": "User",
+      "new_object_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "Sophia",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_birthday_dinner_plans_with",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "User",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Sophia",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "has_birthday_dinner_plans_with",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Carlos",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 167,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "discussesDinnerPlansWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "discussesDinnerPlansWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 170,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "receivesMessageFrom",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "receivesMessageFrom",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 171,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasConversationTone",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Positive",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasConversationTone",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Positive",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 172,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "thinkingAbout",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "dinner",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "thinkingAbout",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "dinner",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 173,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "engagedInActivity",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "lowIntensityActivity",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "engagedInActivity",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "lowIntensityActivity",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 174,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasHeartRate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "75",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasHeartRate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "75",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 176,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "suggestsMaking",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Lasagna",
+          "type": "Thing"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "suggestsMaking",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Lasagna",
+          "type": "Thing"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 177,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "thinksAbout",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "dinner",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "thinksAbout",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "dinner",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 178,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasHeartRate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "75",
+          "type": "Number"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasHeartRate",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "75",
+          "type": "Number"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 179,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "suggestsDinner",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Lasagna and her favorite desserts",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "suggestsDinner",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Lasagna and her favorite desserts",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 180,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "locatedAt",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "home",
+          "type": "Place"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "locatedAt",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "home",
+          "type": "Place"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 183,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "did_not_attend",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "concert",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "did_not_attend",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "concert",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 184,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "did_not_attend",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "meeting at the gym",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "did_not_attend",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "meeting at the gym",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 185,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "received_message_about",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sophia's birthday dinner",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "received_message_about",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Sophia's birthday dinner",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 186,
+      "old_subject_value": "user",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "user",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "was_at",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "home",
+          "type": "Place"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "was_at",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "home",
+          "type": "Place"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 204,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasConversationWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasConversationWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 205,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plansActivity",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Walk in the Park",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plansActivity",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Walk in the Park",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 207,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "respondsTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "respondsTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 217,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "coordinatesWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Kitchen Team",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "coordinatesWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Kitchen Team",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 220,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "delegatedTaskTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "delegatedTaskTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 222,
+      "old_object_value": "User",
+      "new_object_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "Marco",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "worksWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "User",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Marco",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "worksWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Carlos",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 223,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "manages",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "manages",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 245,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasConversationWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "hasConversationWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 246,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plansActivity",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Walk in the Park",
+          "type": "Event"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "plansActivity",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Walk in the Park",
+          "type": "Event"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 248,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "respondsTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "respondsTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Wife",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 258,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "coordinatesWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Kitchen Team",
+          "type": "Concept"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "coordinatesWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Kitchen Team",
+          "type": "Concept"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 261,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "delegatedTaskTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "delegatedTaskTo",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 263,
+      "old_object_value": "User",
+      "new_object_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "Marco",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "worksWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "User",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Marco",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "worksWith",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Carlos",
+          "type": "Person"
+        }
+      }
+    },
+    {
+      "bucket": "final_triplets",
+      "index": 264,
+      "old_subject_value": "User",
+      "new_subject_value": "Carlos",
+      "triplet_before": {
+        "subject": {
+          "value": "User",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "manages",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      },
+      "triplet_after": {
+        "subject": {
+          "value": "Carlos",
+          "type": "Person"
+        },
+        "predicate": {
+          "value": "manages",
+          "type": "Relationship"
+        },
+        "object": {
+          "value": "Marco",
+          "type": "Person"
+        }
+      }
+    }
+  ]
+}

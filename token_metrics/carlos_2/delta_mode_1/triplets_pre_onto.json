@@ -1,0 +1,3768 @@
+[
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "owns",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Italian restaurant",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wakesUpAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "6 AM",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasPhysicalActivity",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "kitchen work",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "feels",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "tired",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasSocialConnection",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "regular customers",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos's wife",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "buys",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "smartwatch",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "eats",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "abundant meals",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_spouse",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "wife",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "feels",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "tiredness",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "eats",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "pasta",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "goes_to",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "park",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "wife",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "buys",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "smartwatch",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "narrator",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_lunch_with",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "wife",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "narrator",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "takes_walk_in",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "park",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "wife",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "makes_lunch",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "pasta",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "narrator",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "spends_time_at",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "home",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Person",
+      "type": "Concept"
+    },
+    "predicate": {
+      "value": "has_event",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Lunch with Wife",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Lunch with Wife",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "takes_place_at",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Home",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Person",
+      "type": "Concept"
+    },
+    "predicate": {
+      "value": "has_event",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Walk in the Park",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Walk in the Park",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "takes_place_at",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Local Park",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Person",
+      "type": "Concept"
+    },
+    "predicate": {
+      "value": "sends_message_to",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Wife",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Wife",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "receives_message_from",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Person",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasConversationWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Wife",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plansActivity",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Walk in the Park",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Wife",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "suggestsActivity",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Walk in the Park",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "respondsTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Wife",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Wife",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "proposesLunch",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Lunch",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Husband",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "discussedLunchWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Wife",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Husband",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plansActivityWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Wife",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Husband",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "goesTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "park",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Wife",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "suggestsLunch",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "pasta",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Conversation",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "occurredAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "11:03-11:07",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wokeUpAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "11:00:00",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "startedMakingLunchAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "11:06:00",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hadLunchWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Wife",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wasFeeling",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Tired",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plansToMake",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Pasta",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasEvent",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Lunch with Wife",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plansToGo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "park",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "feels",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "tired",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "isSousChefOf",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "boss",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "prepares",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "risottos",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "setsUp",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "pasta station",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "boss",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "checksOn",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "orders",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "chef",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "assesses_service",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "service tonight",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "chef",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "comments_on",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "rd",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "service tonight",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "has_status",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "looking good",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "chef",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "predicts_busyness",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "slammed",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "is_late",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "service tonight",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "service tonight",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "takes_place_on",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Wednesday evening",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "receivesMessageFrom",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Carlos",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sendsMessageTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Marco",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasEvent",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "1:1 with Marco",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "1:1 with Marco",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "takesPlaceAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Restaurant",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasCalendarEvent",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Service Preparation",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "communicatesWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Marco",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sendsMessageTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Wife",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "participatesIn",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Service",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "coordinatesWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Kitchen Team",
+      "type": "Group"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "reminds",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Kitchen Team",
+      "type": "Group"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "manages",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "kitchen team",
+      "type": "Group"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "preparesFor",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "service at 18:30",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "kitchen team",
+      "type": "Group"
+    },
+    "predicate": {
+      "value": "communicatesWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Marco",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "uses",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "WhatsApp",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "coordinatesTasks",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "colleagues",
+      "type": "Group"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "arrivedAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "18:00:00",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wasConcernedAbout",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "running late",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "respondedTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "messages",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wore",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "smartwatch",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "assignedTask",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Plate the risottos and set the pasta station",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "delegatedTaskTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Marco",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "managedWorkloadBy",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Delegating tasks to Marco and checking on orders",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "role",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Sous chef",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "worksWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Carlos",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "manages",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Marco",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plates",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "risottos",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "checksOn",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "orders",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "scene",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "takesPlaceIn",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "kitchen",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_wife",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "wife",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "receives_advice",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "smartwatch",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "reviews_menu",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "new menu ideas",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "wife",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "gives_menu_ideas",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Marco",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "writer",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasEvent",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Review New Menu Ideas with Wife",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "writer",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "interactsWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "smartwatch",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "writer",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "tracksActivityWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "smartphone",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "writer",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasWife",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Ana",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Review New Menu Ideas with Wife",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "takesPlaceAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Home",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "communicatesWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Ana",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sendsMessage",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "WhatsApp message",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Ana",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "receivesMessage",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "WhatsApp message",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasSpouse",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Ana",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "exchangesMessagesOn",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "WhatsApp",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "experiences",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "exhaustion",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "elevated heart rate",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "interactsWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Ana",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasStatus",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "OVERLOADED",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "expresses",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "frustration",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_physical_state",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "exhaustion",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "experiences_emotion",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "frustration",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_workload",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "excessive",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "finishes_closing_up_shop_at",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "11:00 PM",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_heart_rate",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "85 bpm",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wasDoing",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Closing up shop",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasHeartRate",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "85 bpm",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "wife",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sentMessage",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "new menu ideas",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "respondedTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "take it easy",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "said",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Yeah right like that's gonna happen",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlo",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "greets",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Sal",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlo",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "buysFrom",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "wholesale market",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlo",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "needs",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "fresh produce",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlo",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "looksFor",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "tomatoes",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlo",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "looksFor",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "basil",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Sal",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "provides",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "tomatoes",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Sal",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "provides",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "basil",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "buysFrom",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Sal",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "purchases",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "tomatoes",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "purchases",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "basil",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "goesTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "wholesale market",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Sal",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sellsProduct",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "tomatoes",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "customer",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "buysFrom",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Sal",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "customer",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "purchases",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "tomatoes",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlo",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sentMessageTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Sal",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Sal",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "receivedMessageFrom",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Carlo",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlo",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "purchasedFrom",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Sal",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlo",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "communicatedWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Wife",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Sal",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "providedProductTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Carlo",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlo",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "exchangedMessageOn",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "WhatsApp",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlo",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "buysFrom",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Sal",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlo",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "purchases",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "tomatoes",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlo",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "purchases",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "basil",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlo",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "communicatesWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Sal",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlo",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "receivesMessageFrom",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Carlo's wife",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "headedTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "wholesale market",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sentMessageTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Sal",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "interactedWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "kitchen staff",
+      "type": "Group"
+    }
+  },
+  {
+    "subject": {
+      "value": "environment",
+      "type": "Concept"
+    },
+    "predicate": {
+      "value": "hasStatus",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "OK",
+      "type": "Status"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "experiencedEmotionalTone",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "POSITIVE",
+      "type": "Emotion"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "looksFor",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Good tomatoes and basil",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Sal",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "describes",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Tomatoes from local farms",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "interactsWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Sal",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Sal",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "shows",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Tomatoes",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wentTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "wholesale market",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "lookedFor",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "tomatoes and basil",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hadHeartRate",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "80 bpm",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Sal",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "showed",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "tomatoes from local farms",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sentMessages",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "3",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_heart_rate",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "75",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_heart_rate",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "78",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "interacts_with",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "wife",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "discusses_with",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "daughter",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "daughter",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_birthday_dinner",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "next week",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plans_menu_with",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "daughter",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_heart_rate",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "80",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "takes_break_in",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "back office",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "discusses_plans_with",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "wife",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plans_birthday_dinner_for",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Sophia",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Sophia",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_favorite_desserts",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "lasagna",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Sophia",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasBirthdayDinner",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "next week",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "discussesMenuWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Sophia",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "receivesMessageFrom",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Maria (wife)",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Maria (wife)",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sendsMessageTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Carlos",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasCalendarEvent",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Sophia's Birthday Dinner",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sent_message_to",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Maria",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "received_message_from",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Maria",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Maria",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "is_wife_of",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Carlos",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "discussed_plans_with",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Maria",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Sophia",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_birthday_dinner_plans_with",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Carlos",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "discussesDinnerPlansWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Wife",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Wife",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plansDinnerFor",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Sophia",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Sophia",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasBirthday",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Dinner",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "receivesMessageFrom",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Wife",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasConversationTone",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Positive",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "thinkingAbout",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "dinner",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "engagedInActivity",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "lowIntensityActivity",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasHeartRate",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "75",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Sophia",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasBirthday",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "dinner",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "suggestsMaking",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Lasagna",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "thinksAbout",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "dinner",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasHeartRate",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "75",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "suggestsDinner",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Lasagna and her favorite desserts",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "locatedAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "home",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "home",
+      "type": "Place"
+    },
+    "predicate": {
+      "value": "hasCoordinates",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "latitude: 37.7749, longitude: -122.4194",
+      "type": "Location"
+    }
+  },
+  {
+    "subject": {
+      "value": "Sophia",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasBirthdayDinner",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Lasagna and her favorite desserts",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "did_not_attend",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "concert",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "did_not_attend",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "meeting at the gym",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "received_message_about",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Sophia's birthday dinner",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "was_at",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "home",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "owns",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Italian restaurant",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wakesUpAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "6 AM",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasPhysicalActivity",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "kitchen work",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "feels",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "tired",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasSocialConnection",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "regular customers",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos's wife",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "buys",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "smartwatch",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "eats",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "abundant meals",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasSpouse",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "wife",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "feels",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "tiredness",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "eats",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "pasta",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "goesTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "park",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "narrator",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasLunchWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "wife",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "narrator",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "takesWalkIn",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "park",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "wife",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "makesLunch",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "pasta",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "narrator",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "spendsTimeAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "home",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Lunch with Wife",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "takesPlaceAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Home",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Walk in the Park",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "takesPlaceAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Local Park",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasConversationWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Wife",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plansActivity",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Walk in the Park",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Wife",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "suggestsActivity",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Walk in the Park",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "respondsTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Wife",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Wife",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "proposesLunch",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Lunch",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Husband",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "discussedLunchWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Wife",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Husband",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plansActivityWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Wife",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "isSousChefOf",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "boss",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "prepares",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "risottos",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "setsUp",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "pasta station",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "service tonight",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "hasStatus",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "looking good",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "service tonight",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "takesPlaceOn",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Wednesday evening",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "participatesIn",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "service tonight",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "coordinatesWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Kitchen Team",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "manages",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "kitchen team",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "preparesFor",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "service at 18:30",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "delegatedTaskTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Marco",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "role",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Sous chef",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "worksWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Carlos",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "manages",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Marco",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlo",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "buysFrom",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "wholesale market",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlo",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "needs",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "fresh produce",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Sal",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "provides",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "tomatoes",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Sal",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "provides",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "basil",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "owns",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Italian restaurant",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wakesUpAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "6 AM",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasPhysicalActivity",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "kitchen work",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "feels",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "tired",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasSocialConnection",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "regular customers",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos's wife",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "buys",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "smartwatch",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "eats",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "abundant meals",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasSpouse",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "wife",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "feels",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "tiredness",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "eats",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "pasta",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "goesTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "park",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "narrator",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasLunchWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "wife",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "narrator",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "takesWalkIn",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "park",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "wife",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "makesLunch",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "pasta",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "narrator",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "spendsTimeAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "home",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Lunch with Wife",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "takesPlaceAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Home",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Walk in the Park",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "takesPlaceAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Local Park",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasConversationWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Wife",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plansActivity",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Walk in the Park",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Wife",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "suggestsActivity",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Walk in the Park",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "respondsTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Wife",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Wife",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "proposesLunch",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Lunch",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Husband",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "discussedLunchWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Wife",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Husband",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plansActivityWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Wife",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "isSousChefOf",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "boss",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "prepares",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "risottos",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "setsUp",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "pasta station",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "service tonight",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "hasStatus",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "looking good",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "service tonight",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "takesPlaceOn",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Wednesday evening",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "participatesIn",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "service tonight",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "coordinatesWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Kitchen Team",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "manages",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "kitchen team",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "preparesFor",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "service at 18:30",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "delegatedTaskTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Marco",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "role",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Sous chef",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Marco",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "worksWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Carlos",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlos",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "manages",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Marco",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlo",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "buysFrom",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "wholesale market",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Carlo",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "needs",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "fresh produce",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Sal",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "provides",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "tomatoes",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Sal",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "provides",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "basil",
+      "type": "Concept"
+    }
+  }
+]

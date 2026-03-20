@@ -405,6 +405,21 @@ class TripletExtractionGraph:
                     "triplet_after": repaired_triplet,
                 })
 
+            obj = repaired_triplet.get("object", {})
+            old_obj_value = obj.get("value")
+
+            if self._is_user_placeholder(old_obj_value):
+                obj["value"] = canonical_subject_name
+                repaired_triplet["object"] = obj
+
+                repairs_log.append({
+                    "index": idx,
+                    "old_object_value": old_obj_value,
+                    "new_object_value": canonical_subject_name,
+                    "triplet_before": triplet,
+                    "triplet_after": repaired_triplet,
+                })
+
             repaired_triplets.append(repaired_triplet)
 
         return repaired_triplets, repairs_log

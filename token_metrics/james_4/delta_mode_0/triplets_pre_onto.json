@@ -1,0 +1,3502 @@
+[
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "worksAs",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "warehouse supervisor",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "worksAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "distribution center",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasAge",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "45",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "worksShift",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "evening shift (2 PM - 10 PM)",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "participatesIn",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "bowling league",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasGoal",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "lose weight",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "uses",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "fitness tracker",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "meets",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Mike",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "goesTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "the lanes",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plays",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "bowling",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Mike",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "meets",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "James",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Mike",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "goesTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "the lanes",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_body_temperature",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "36.7",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_hrv",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "75",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sends_message_to",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Mike",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "participates_in",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Bowling with the Guys",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Bowling with the Guys",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "takes_place_at",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Bowling Alley",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Smart Home",
+      "type": "Place"
+    },
+    "predicate": {
+      "value": "has_indoor_temperature",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "22.0",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Mike",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "communicatesWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "James",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Mike",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plansTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "bowling",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Mike",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "meetsAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "the lanes",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "expectsTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "be crushed",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sendsMessageTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Mike",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasSocialInteraction",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "WhatsApp",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sendsMessage",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "See you at the lanes!",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "leavesHouseAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "09:15",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sent_message",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "message",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "was_at",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "home",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "tried_to_get",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "breakfast",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "was_meeting",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "guys",
+      "type": "Group"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plansActivity",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "bowling",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "meetsAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "the lanes",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sendsMessageTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Mike",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasFriend",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Mike",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "participatesIn",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "competition",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "went_bowling",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "friends",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "interacted_with",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Mike",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "worked_on",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Wednesday",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Joe",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "communicated_with",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "James",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Person",
+      "type": "Concept"
+    },
+    "predicate": {
+      "value": "prefers",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "salad",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Person",
+      "type": "Concept"
+    },
+    "predicate": {
+      "value": "chooses",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "burger",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Person",
+      "type": "Concept"
+    },
+    "predicate": {
+      "value": "plansTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "walk",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Person",
+      "type": "Concept"
+    },
+    "predicate": {
+      "value": "isAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "food truck",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_screen_time",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "30",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "received_notifications",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "5",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_battery_level",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "80",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sent_message_to",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Joe",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "smart_home",
+      "type": "Place"
+    },
+    "predicate": {
+      "value": "has_indoor_temperature",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "22.5",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "smart_home",
+      "type": "Place"
+    },
+    "predicate": {
+      "value": "has_indoor_humidity",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "50",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_body_temperature",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "36.7",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Joe",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "makesPlanWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "James",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "asksAboutPlan",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Joe",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "goesToGet",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "snack",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "locates",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "break room",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "desires",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "salad",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "chooses",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "burger",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_physical_activity_status",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "INSUFFICIENT",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_stress_status",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "WARNING",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "experiences_stress_due_to",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Elevated heart rate",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plans_to_perform",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "walk",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Environment",
+      "type": "Concept"
+    },
+    "predicate": {
+      "value": "has_temperature",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "22.5\u00b0C",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "clocksInFor",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "shift",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "grabs",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "snack",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sends",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "message",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "message",
+      "type": "Thing"
+    },
+    "predicate": {
+      "value": "sentAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "14:08",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plansTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "break",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "considersEating",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "salad",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "decidesToEat",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "burger",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "buysFrom",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "food truck",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plansToGoTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "break room",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "break room",
+      "type": "Place"
+    },
+    "predicate": {
+      "value": "isLocatedAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "third door on the left",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "goesTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "food truck",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "break room",
+      "type": "Place"
+    },
+    "predicate": {
+      "value": "locatedAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Third door on your left",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "mentions",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "option B",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "dialogue",
+      "type": "Concept"
+    },
+    "predicate": {
+      "value": "contains",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "mention of meeting",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "dialogue",
+      "type": "Concept"
+    },
+    "predicate": {
+      "value": "mentionsActivity",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "going to the food truck",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Speaker",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "goesHome",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "home",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Speaker",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "experiencesTraffic",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "bad traffic",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Speaker",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "grabsDinner",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "burger",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Speaker",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "talksTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Samantha",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Samantha",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasWorkDone",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "a lot of work",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Speaker",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "watchesGame",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "game",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Samantha",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "attendsGame",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "game",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Speaker",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "meetsAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "9 o'clock",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasSmartphoneScreenTime",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "30",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "receivesNotifications",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "5",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasBatteryLevel",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "60",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "tracksLocation",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "{\"latitude\": 37.7912, \"longitude\": -122.4298}",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "monitorsBodyTemperature",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "36.9",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "smart_home",
+      "type": "Thing"
+    },
+    "predicate": {
+      "value": "hasDoorStatus",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "locked",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasEvent",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Game Night with Samantha",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "invites",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Samantha",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Samantha",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "attends",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Game Night with Samantha",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Game Night with Samantha",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "takesPlaceAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "My Place",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Samantha",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "receivesMessageFrom",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "James",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sendsMessageTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Samantha",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "meetsAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "9 o'clock",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Brother",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "receivesMessageFrom",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "James",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sendsMessageTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Brother",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sendsMessage",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "I'm heading home from work now.",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasDigitalBehavior",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "BALANCED",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "environment",
+      "type": "Concept"
+    },
+    "predicate": {
+      "value": "hasStatus",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "OK",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "conversation",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "hasEmotionalTone",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "POSITIVE",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "isHeadingTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "home",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "message",
+      "type": "Thing"
+    },
+    "predicate": {
+      "value": "sentAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "17:00",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_conversation_with",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Samantha",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_heart_rate",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "85",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plans_to_have_dinner",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "burger",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "conversation_with_Samantha",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "occurred_at",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "17:10",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "heart_rate_measurement",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "occurred_at",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "17:20:00",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plansToEat",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "burger",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "watchesGameWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Samantha",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "meetsAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "9:00 PM",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_activity",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "dinner",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "watches",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "game",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "meets",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Samantha",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "goes_to",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "brother's place",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "has_dinner_at",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "6:30 PM",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Person",
+      "type": "Concept"
+    },
+    "predicate": {
+      "value": "playsWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Legos",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "Person",
+      "type": "Concept"
+    },
+    "predicate": {
+      "value": "hasDinner",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "late",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Person",
+      "type": "Concept"
+    },
+    "predicate": {
+      "value": "isHungryAfter",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "shift",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Person A",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "talksTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Person B",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Person B",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "getsKidsReady",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "kids",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Dinner at Brother's",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "takesPlaceAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Brother's place",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Dinner at Brother's",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "startsAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "18:30",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Dinner at Brother's",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "endsAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "20:00",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sendsMessageTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Brother",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasEvent",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Dinner at Brother's",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Person",
+      "type": "Concept"
+    },
+    "predicate": {
+      "value": "has_interaction_with",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Brother",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Person",
+      "type": "Concept"
+    },
+    "predicate": {
+      "value": "sends_message_to",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Brother",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Brother",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "receives_message_from",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Person",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "Person",
+      "type": "Concept"
+    },
+    "predicate": {
+      "value": "is_related_to",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Brother",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "arrivedAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "brother's place",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sentMessageTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "brother",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hadSocialInteraction",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "messages",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "experiencedEmotionalTone",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "positive tone",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hadDigitalBehavior",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "balanced screen time",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hadExperience",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "long day at work",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "felt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "starving",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "user's brother",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wasPreparing",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "dinner",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "user's brother's kid",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wantedTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "play",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wakesUpAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "8 AM",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "makes",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "pancakes",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "greets",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Samantha",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sendsMessageTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "brother",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "kid",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wantsToPlayWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Legos",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wakesUp",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "early",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plansToGo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "bike ride",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Person",
+      "type": "Concept"
+    },
+    "predicate": {
+      "value": "invites",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "James",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "agreesTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "help with dishes",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "does",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "grocery shopping",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasEvent",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Grocery Shopping",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Grocery Shopping",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "takesPlaceAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Local Market",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "Grocery Shopping",
+      "type": "Event"
+    },
+    "predicate": {
+      "value": "hasTime",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "10:00-12:00",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Smart Home",
+      "type": "Thing"
+    },
+    "predicate": {
+      "value": "hasIndoorTemperature",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "22.0",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Smart Home",
+      "type": "Thing"
+    },
+    "predicate": {
+      "value": "hasIndoorHumidity",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "50",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "contacts",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Samantha",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sendsMessage",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "08:00",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "Samantha",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "receivesMessage",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "08:01",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plansActivity",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "bike ride",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "Samantha",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "isInvited",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "James",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wakesUpAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "08:00:00",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasPhysicalActivityStatus",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "INSUFFICIENT",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasStressStatus",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "OK",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasSocialInteractionStatus",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "OK",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wasDoing",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Making pancakes",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wasFeeling",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Tired",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wentForBikeRide",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "false",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hadHeartRate",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Normal",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wasActiveAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "08:00:00",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasHeartRate",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "65 bpm",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "Samantha",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "suggestsActivity",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Go for a bike ride",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "goesForBikeRideWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Samantha",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "doesGroceryShopping",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Local Market",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "attendedConcert",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "No",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wentToBeach",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "No",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "worksAs",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "warehouse supervisor",
+      "type": "Occupation"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "worksAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "distribution center",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasAge",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "45",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "worksShift",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "evening shift (2 PM - 10 PM)",
+      "type": "Schedule"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "participatesIn",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "bowling league",
+      "type": "Activity"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasGoal",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "lose weight",
+      "type": "Goal"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "uses",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "fitness tracker",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "meets",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Mike",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "goesTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "the lanes",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plays",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "bowling",
+      "type": "Activity"
+    }
+  },
+  {
+    "subject": {
+      "value": "Mike",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "meets",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "James",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Mike",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "goesTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "the lanes",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "communicatesWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Mike",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sendsMessageTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Mike",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasSocialInteraction",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "WhatsApp",
+      "type": "Platform"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sendsMessage",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "See you at the lanes!",
+      "type": "Message"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "leavesHouseAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "09:15",
+      "type": "Time"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "was_at",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "home",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "tried_to_get",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "breakfast",
+      "type": "Food"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "was_meeting",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "guys",
+      "type": "Group"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plansActivity",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "bowling",
+      "type": "Activity"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "meetsAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "the lanes",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasFriend",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Mike",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "participatesIn",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "competition",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "went_bowling",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "friends",
+      "type": "Group"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "interacted_with",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Mike",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "worked_on",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Wednesday",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasPhysicalActivityStatus",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "INSUFFICIENT",
+      "type": "Status"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasStressStatus",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "OK",
+      "type": "Status"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wakesUpAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "08:00:00",
+      "type": "Time"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plansToGo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "bike ride",
+      "type": "Activity"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "contacts",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Samantha",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sendsMessage",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "08:00",
+      "type": "Time"
+    }
+  },
+  {
+    "subject": {
+      "value": "Samantha",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "receivesMessage",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "08:01",
+      "type": "Time"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "goesForBikeRideWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Samantha",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "doesGroceryShoppingAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Local Market",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasHeartRate",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "65 bpm",
+      "type": "Measurement"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "worksAs",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "warehouse supervisor",
+      "type": "Occupation"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "worksAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "distribution center",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasAge",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "45",
+      "type": "Number"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "worksShift",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "evening shift (2 PM - 10 PM)",
+      "type": "Schedule"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "participatesIn",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "bowling league",
+      "type": "Activity"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasGoal",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "lose weight",
+      "type": "Goal"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "uses",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "fitness tracker",
+      "type": "Thing"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "meets",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Mike",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "goesTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "the lanes",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plays",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "bowling",
+      "type": "Activity"
+    }
+  },
+  {
+    "subject": {
+      "value": "Mike",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "meets",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "James",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "Mike",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "goesTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "the lanes",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "communicatesWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Mike",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sendsMessageTo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Mike",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasSocialInteraction",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "WhatsApp",
+      "type": "Platform"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sendsMessage",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "See you at the lanes!",
+      "type": "Message"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "leavesHouseAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "09:15",
+      "type": "Time"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "was_at",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "home",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "tried_to_get",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "breakfast",
+      "type": "Food"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "was_meeting",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "guys",
+      "type": "Group"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plansActivity",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "bowling",
+      "type": "Activity"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "meetsAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "the lanes",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasFriend",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Mike",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "participatesIn",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "competition",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "went_bowling",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "friends",
+      "type": "Group"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "interacted_with",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Mike",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "worked_on",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Wednesday",
+      "type": "DateTime"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasPhysicalActivityStatus",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "INSUFFICIENT",
+      "type": "Status"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasStressStatus",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "OK",
+      "type": "Status"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "wakesUpAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "08:00:00",
+      "type": "Time"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "plansToGo",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "bike ride",
+      "type": "Activity"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "contacts",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Samantha",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "sendsMessage",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "08:00",
+      "type": "Time"
+    }
+  },
+  {
+    "subject": {
+      "value": "Samantha",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "receivesMessage",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "08:01",
+      "type": "Time"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "goesForBikeRideWith",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Samantha",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "doesGroceryShoppingAt",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "Local Market",
+      "type": "Place"
+    }
+  },
+  {
+    "subject": {
+      "value": "James",
+      "type": "Person"
+    },
+    "predicate": {
+      "value": "hasHeartRate",
+      "type": "Relationship"
+    },
+    "object": {
+      "value": "65 bpm",
+      "type": "Measurement"
+    }
+  }
+]

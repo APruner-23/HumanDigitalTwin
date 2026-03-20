@@ -1,0 +1,279 @@
+{
+  "timestamp": "2026-03-16T14:44:17",
+  "delta_mode": 1,
+  "stages": {
+    "triple_extraction": {
+      "input_tokens": 12750,
+      "output_tokens": 3709,
+      "total_tokens": 16459,
+      "calls": [
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 274,
+          "output_tokens": 102,
+          "total_tokens": 376
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 358,
+          "output_tokens": 75,
+          "total_tokens": 433
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 429,
+          "output_tokens": 93,
+          "total_tokens": 522
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 362,
+          "output_tokens": 94,
+          "total_tokens": 456
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 325,
+          "output_tokens": 98,
+          "total_tokens": 423
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 321,
+          "output_tokens": 117,
+          "total_tokens": 438
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 341,
+          "output_tokens": 124,
+          "total_tokens": 465
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 333,
+          "output_tokens": 107,
+          "total_tokens": 440
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 329,
+          "output_tokens": 125,
+          "total_tokens": 454
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 415,
+          "output_tokens": 103,
+          "total_tokens": 518
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 362,
+          "output_tokens": 116,
+          "total_tokens": 478
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 344,
+          "output_tokens": 104,
+          "total_tokens": 448
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 320,
+          "output_tokens": 99,
+          "total_tokens": 419
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 322,
+          "output_tokens": 104,
+          "total_tokens": 426
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 316,
+          "output_tokens": 80,
+          "total_tokens": 396
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 324,
+          "output_tokens": 91,
+          "total_tokens": 415
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 395,
+          "output_tokens": 85,
+          "total_tokens": 480
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 386,
+          "output_tokens": 88,
+          "total_tokens": 474
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 336,
+          "output_tokens": 101,
+          "total_tokens": 437
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 301,
+          "output_tokens": 97,
+          "total_tokens": 398
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 350,
+          "output_tokens": 105,
+          "total_tokens": 455
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 336,
+          "output_tokens": 96,
+          "total_tokens": 432
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 324,
+          "output_tokens": 103,
+          "total_tokens": 427
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 409,
+          "output_tokens": 85,
+          "total_tokens": 494
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 393,
+          "output_tokens": 110,
+          "total_tokens": 503
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 340,
+          "output_tokens": 97,
+          "total_tokens": 437
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 307,
+          "output_tokens": 93,
+          "total_tokens": 400
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 337,
+          "output_tokens": 116,
+          "total_tokens": 453
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 310,
+          "output_tokens": 98,
+          "total_tokens": 408
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 334,
+          "output_tokens": 117,
+          "total_tokens": 451
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 335,
+          "output_tokens": 81,
+          "total_tokens": 416
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 427,
+          "output_tokens": 119,
+          "total_tokens": 546
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 343,
+          "output_tokens": 78,
+          "total_tokens": 421
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 327,
+          "output_tokens": 117,
+          "total_tokens": 444
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 315,
+          "output_tokens": 106,
+          "total_tokens": 421
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 321,
+          "output_tokens": 114,
+          "total_tokens": 435
+        },
+        {
+          "node": "summarize_chunk",
+          "input_tokens": 349,
+          "output_tokens": 71,
+          "total_tokens": 420
+        }
+      ]
+    },
+    "context_generation": {
+      "input_tokens": 8506,
+      "output_tokens": 353,
+      "total_tokens": 8859,
+      "calls": [
+        {
+          "node": "iot_decide",
+          "input_tokens": 526,
+          "output_tokens": 109,
+          "total_tokens": 635
+        },
+        {
+          "node": "iot_react",
+          "input_tokens": 2580,
+          "output_tokens": 128,
+          "total_tokens": 2708
+        },
+        {
+          "node": "iot_react",
+          "input_tokens": 2634,
+          "output_tokens": 68,
+          "total_tokens": 2702
+        },
+        {
+          "node": "iot_react",
+          "input_tokens": 2766,
+          "output_tokens": 48,
+          "total_tokens": 2814
+        }
+      ]
+    },
+    "triple_refinement": {
+      "input_tokens": 2397,
+      "output_tokens": 39,
+      "total_tokens": 2436,
+      "calls": [
+        {
+          "node": "validation_decide",
+          "input_tokens": 2397,
+          "output_tokens": 39,
+          "total_tokens": 2436
+        }
+      ]
+    }
+  }
+}

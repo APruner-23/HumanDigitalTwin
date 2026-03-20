@@ -1,6 +1,6 @@
 {
   "timestamp": "2026-03-02T16:55:22",
-  "delta_mode": 0,
+  "delta_mode": 1,
   "stages": {
     "triple_extraction": {
       "input_tokens": 34650,
