@@ -1530,8 +1530,7 @@ class TripletExtractionGraph:
                 self.logger.log_agent_response(f"{emoji} Decision: {'RUN validation' if should_validate else 'SKIP validation'}\n\n{response.content}")
 
             return {
-                #"validation_should_run": should_validate,
-                "validation_should_run": False,
+                "validation_should_run": should_validate,
                 "validation_iteration": 0,
                 "validated_triplets": all_triplets if not should_validate else [],
                 "validation_reasoning": [f"Decision: {'Validate' if should_validate else 'Skip'}"]
@@ -1638,10 +1637,7 @@ class TripletExtractionGraph:
             removed_count = len(current_triplets) - len(validated)
 
             # Reasoning: decide se continuare
-            #should_continue = removed_count > 0 and iteration < 2  # Max 3 iterazioni
-
-            # Solo per debug: Una sola iterazione
-            should_continue = False
+            should_continue = removed_count > 0 and iteration < 2  # Max 3 iterazioni
 
             # Log
             if self.logger:
