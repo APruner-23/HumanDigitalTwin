@@ -211,7 +211,7 @@ class Neo4jKnowledgeGraph:
         """
         with self.driver.session(database=self.database) as session:
             result = session.run("""
-                MATCH (person:Person {id: $person_id})-[:KNOWS]->(n)-[r]->(m)
+                MATCH ()-[r]->() 
                 WHERE r.person_id = $person_id AND r.broader_topic IS NOT NULL
                 RETURN DISTINCT r.broader_topic AS name
                 ORDER BY name
@@ -231,7 +231,7 @@ class Neo4jKnowledgeGraph:
         """
         with self.driver.session(database=self.database) as session:
             result = session.run("""
-                MATCH (person:Person {id: $person_id})-[:KNOWS]->(n)-[r]->(m)
+                MATCH ()-[r]->()
                 WHERE r.person_id = $person_id
                   AND r.broader_topic = $broader
                   AND r.narrower_topic IS NOT NULL
@@ -256,14 +256,14 @@ class Neo4jKnowledgeGraph:
             if narrower_topic is None:
                 # Check solo broader
                 result = session.run("""
-                    MATCH (person:Person {id: $person_id})-[:KNOWS]->()-[r]->()
+                    MATCH ()-[r]->()
                     WHERE r.person_id = $person_id AND r.broader_topic = $broader
                     RETURN count(r) > 0 AS exists
                 """, person_id=self.person_id, broader=broader_topic)
             else:
                 # Check entrambi
                 result = session.run("""
-                    MATCH (person:Person {id: $person_id})-[:KNOWS]->()-[r]->()
+                    MATCH ()-[r]->()
                     WHERE r.person_id = $person_id
                       AND r.broader_topic = $broader
                       AND r.narrower_topic = $narrower
@@ -292,7 +292,7 @@ class Neo4jKnowledgeGraph:
         def get_type(field):
             val = triplet.get(field, {})
             if isinstance(val, dict):
-                return val.get("type", "Entity")  # Default type se non specificato
+                return val.get("original_type", "Entity")  # Default type se non specificato
             return "Entity"
 
         subject_value = get_value("subject")
@@ -428,7 +428,7 @@ class Neo4jKnowledgeGraph:
         """
         with self.driver.session(database=self.database) as session:
             result = session.run("""
-                MATCH (person:Person {id: $person_id})-[:KNOWS]->()-[r]->()
+                MATCH ()-[r]->()
                 WHERE r.person_id = $person_id
                   AND r.broader_topic IS NOT NULL
                   AND r.narrower_topic IS NOT NULL
@@ -455,7 +455,7 @@ class Neo4jKnowledgeGraph:
         """
         with self.driver.session(database=self.database) as session:
             result = session.run("""
-                MATCH (person:Person {id: $person_id})-[:KNOWS]->()-[r]->()
+                MATCH ()-[r]->()
                 WHERE r.person_id = $person_id
                 RETURN
                     count(DISTINCT r.broader_topic) AS num_broader,
@@ -490,6 +490,20 @@ class Neo4jKnowledgeGraph:
         # Recupera entità e relazioni da Neo4j per questa Person
         with self.driver.session(database=self.database) as session:
             result = session.run("""
+                MATCH (person:Person {id: $person_id})-[r]->(object)
+                WHERE r.person_id = $person_id
+                  AND type(r) <> 'KNOWS'
+                RETURN
+                    'Person' AS subject_type,
+                    person.name AS subject_name,
+                    type(r) AS rel_type,
+                    r.broader_topic AS broader_topic,
+                    r.narrower_topic AS narrower_topic,
+                    labels(object)[0] AS object_type,
+                    object.name AS object_name
+
+                UNION
+
                 MATCH (person:Person {id: $person_id})-[:KNOWS]->(subject)-[r]->(object)
                 WHERE r.person_id = $person_id
                 RETURN
@@ -1488,7 +1502,7 @@ class KnowledgeGraphBuilder:
         # Se la tripletta corrente è vuota (errore nel generate_topics)
         if not triplet or "broader_topic" not in triplet:
             # Questa tripletta ha avuto un errore, già gestito in generate_topics
-            # L'indice è già stato incrementato, quindi skipiamo al prossimo giro
+            # L'indice è già stato incrementato, quindi skippiamo al prossimo giro
             return "skip"
 
         # Tripletta valida, continua normalmente

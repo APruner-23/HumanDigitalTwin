@@ -67,7 +67,7 @@ class TripletList(BaseModel):
             pred = t.get("predicate")
             obj = t.get("object")
 
-            # Scarta triplette incomplete prima che Pydantic esploda
+            # Scarta triplette incomplete prima che Pydantic crashi
             if not isinstance(subj, dict) or not isinstance(pred, dict) or not isinstance(obj, dict):
                 continue
 

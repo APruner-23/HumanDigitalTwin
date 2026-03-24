@@ -656,6 +656,23 @@ class MCPServer:
             if broader_topic and narrower_topic:
                 # Filtra per entrambi
                 result = session.run("""
+                    MATCH (person:Person {id: $person_id})-[r]->(obj)
+                    WHERE r.person_id = $person_id
+                      AND type(r) <> 'KNOWS'
+                      AND r.broader_topic = $broader
+                      AND r.narrower_topic = $narrower
+                    RETURN
+                        'Person' AS subject_type,
+                        person.name AS subject,
+                        type(r) AS predicate,
+                        labels(obj)[0] AS object_type,
+                        obj.name AS object,
+                        r.broader_topic AS broader_topic,
+                        r.narrower_topic AS narrower_topic,
+                        r.reasoning AS reasoning
+
+                    UNION
+
                     MATCH (person:Person {id: $person_id})-[:KNOWS]->(subj)-[r]->(obj)
                     WHERE r.person_id = $person_id
                       AND r.broader_topic = $broader
@@ -674,6 +691,22 @@ class MCPServer:
             elif broader_topic:
                 # Solo broader
                 result = session.run("""
+                    MATCH (person:Person {id: $person_id})-[r]->(obj)
+                    WHERE r.person_id = $person_id
+                      AND type(r) <> 'KNOWS'
+                      AND r.broader_topic = $broader
+                    RETURN
+                        'Person' AS subject_type,
+                        person.name AS subject,
+                        type(r) AS predicate,
+                        labels(obj)[0] AS object_type,
+                        obj.name AS object,
+                        r.broader_topic AS broader_topic,
+                        r.narrower_topic AS narrower_topic,
+                        r.reasoning AS reasoning
+
+                    UNION
+
                     MATCH (person:Person {id: $person_id})-[:KNOWS]->(subj)-[r]->(obj)
                     WHERE r.person_id = $person_id AND r.broader_topic = $broader
                     RETURN
@@ -690,6 +723,21 @@ class MCPServer:
             else:
                 # Tutti i topic
                 result = session.run("""
+                    MATCH (person:Person {id: $person_id})-[r]->(obj)
+                    WHERE r.person_id = $person_id
+                      AND type(r) <> 'KNOWS'
+                    RETURN
+                        'Person' AS subject_type,
+                        person.name AS subject,
+                        type(r) AS predicate,
+                        labels(obj)[0] AS object_type,
+                        obj.name AS object,
+                        r.broader_topic AS broader_topic,
+                        r.narrower_topic AS narrower_topic,
+                        r.reasoning AS reasoning
+
+                    UNION
+
                     MATCH (person:Person {id: $person_id})-[:KNOWS]->(subj)-[r]->(obj)
                     WHERE r.person_id = $person_id
                     RETURN
@@ -750,6 +798,26 @@ class MCPServer:
                 
             if relationship_type:
                 query = f"""
+                    MATCH (person:Person {{id: $person_id}})-[r:{relationship_type}]->(obj)
+                    WHERE r.person_id = $person_id
+                    AND type(r) <> 'KNOWS'
+                    AND (
+                        (person.name IS NOT NULL AND toLower(person.name) CONTAINS toLower($entity))
+                        OR (obj.name IS NOT NULL AND toLower(obj.name) CONTAINS toLower($entity))
+                        OR (obj.id IS NOT NULL AND toLower(obj.id) CONTAINS toLower($entity))
+                    )
+                    RETURN
+                        'Person' AS subject_type,
+                        coalesce(person.name, person.id) AS subject,
+                        type(r) AS predicate,
+                        labels(obj)[0] AS object_type,
+                        coalesce(obj.name, obj.id) AS object,
+                        r.broader_topic AS broader_topic,
+                        r.narrower_topic AS narrower_topic,
+                        r.reasoning AS reasoning
+
+                    UNION
+
                     MATCH (person:Person {{id: $person_id}})-[:KNOWS]->(subj)-[r:{relationship_type}]->(obj)
                     WHERE r.person_id = $person_id
                     AND (
@@ -771,6 +839,26 @@ class MCPServer:
                 """
             else:
                 query = """
+                    MATCH (person:Person {id: $person_id})-[r]->(obj)
+                    WHERE r.person_id = $person_id
+                    AND type(r) <> 'KNOWS'
+                    AND (
+                        (person.name IS NOT NULL AND toLower(person.name) CONTAINS toLower($entity))
+                        OR (obj.name IS NOT NULL AND toLower(obj.name) CONTAINS toLower($entity))
+                        OR (obj.id IS NOT NULL AND toLower(obj.id) CONTAINS toLower($entity))
+                    )
+                    RETURN
+                        'Person' AS subject_type,
+                        coalesce(person.name, person.id) AS subject,
+                        type(r) AS predicate,
+                        labels(obj)[0] AS object_type,
+                        coalesce(obj.name, obj.id) AS object,
+                        r.broader_topic AS broader_topic,
+                        r.narrower_topic AS narrower_topic,
+                        r.reasoning AS reasoning
+
+                    UNION
+
                     MATCH (person:Person {id: $person_id})-[:KNOWS]->(subj)-[r]->(obj)
                     WHERE r.person_id = $person_id
                     AND (
